@@ -32,9 +32,10 @@
 
 .slides {
   border-bottom: #00808b 20px solid;
-  background-image: url(../../../../../logo.svg),  url(../../../../../footer.png);
-  /*background-size: 100%, 100%; */
-  background-position: 120% -230%, bottom;
+  background-image: url(logo.svg),  url(footer.png);
+  /* First portion control the logo placement,
+     second portion control the footer placement */
+  background-position: 100% 100%, bottom;
   background-repeat: no-repeat;
   background-size: contain;
 }
