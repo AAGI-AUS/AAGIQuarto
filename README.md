@@ -18,3 +18,4 @@ quarto use template coatless-quarto/AAGIRevealjs
 
 This will install the extension and create an example qmd file that
 you can use as a starting place for your presentation slides.
+

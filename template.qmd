@@ -26,6 +26,7 @@ When you click the **Render** button a presentation will be generated that inclu
 ```
 
 
+
 ## More Information
 
 You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
