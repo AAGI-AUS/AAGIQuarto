@@ -1,0 +1,41 @@
+.reveal,
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: "Proxima Nova", Arial;
+  color: "#414042"
+}
+
+.reveal h1 {
+  font-weight: lighter;
+  font-size: 44px;
+}
+
+.reveal h2 {
+  font-weight: lighter;
+  font-size: 40px;
+}
+
+.reveal p {
+  margin-top: 50px;
+  font-weight: lighter;
+  font-size: 28px;
+}
+
+
+.quarto-title-authors {
+  font-size: 28px;
+}
+
+.slides {
+  border-bottom: #00808b 20px solid;
+  background-image: url(logo.svg),  url(footer.png);
+  /* First portion control the logo placement,
+     second portion control the footer placement */
+  background-position: 100% 100%, bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
