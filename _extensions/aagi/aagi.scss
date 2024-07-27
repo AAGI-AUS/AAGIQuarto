@@ -1,0 +1,62 @@
+/*-- scss:defaults --*/
+
+// fonts
+
+// FiraCode is OpenSource and looks nice, so we'll use it here
+@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
+@import url(https://use.fontawesome.com/releases/v6.1.1/css/all.css);
+
+// define AAGI colours
+
+$aagi-black: #414042;
+$aagi-blue: #648fd2;
+$aagi-bright-green: #b6d438;
+$aagi-green: #54921e;
+$aagi-grey: #f2f2f2;
+$aagi-orange: #ec8525;
+$aagi-teal: #00808b;
+$aagi-yellow: #ffbc42;
+
+// colours
+
+$link-color: $aagi-teal !default;
+$body-color: $aagi-black !default;
+
+// fonts
+
+$font-family-sans-serif: "Proxima Nova", Arial;
+$font-family-monospace: "Fira Code";
+
+/*-- scss:rules --*/
+
+.reveal h1 {
+  font-weight: lighter;
+  font-size: 44px;
+}
+
+.reveal h2 {
+  font-weight: lighter;
+  font-size: 40px;
+}
+
+.reveal p {
+  margin-top: 50px;
+  font-weight: lighter;
+  font-size: 28px;
+}
+
+.quarto-title-authors {
+  font-size: 28px;
+}
+
+.reveal .slide-logo {
+  top: 0;
+  left: 12px
+}
+
+.mainlogo {
+    width: 100%;
+    height: 100%;
+    background-image: url(logo.svg);
+    background-position: 50% 50%;
+}
