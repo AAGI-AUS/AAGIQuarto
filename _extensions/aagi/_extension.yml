@@ -5,6 +5,10 @@ quarto-required: ">=1.4.0"
 contributes:
   formats:
     revealjs:
-      css: aagi.css  # consider using scss
-      logo: logo.svg
-
+      theme: [default, aagi.scss]
+      date-format: long
+      title-slide-attributes: 
+        data-background-image: title-slide-main.png
+        data-background-size: 1050px auto
+        data-background-position: 50% 45%
+        data-background-border-bottom: $aagi-teal 1em solid;
