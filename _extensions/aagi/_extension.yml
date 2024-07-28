@@ -6,9 +6,12 @@ contributes:
   formats:
     revealjs:
       theme: [default, aagi.scss]
+      background-image: logo.svg
+      background-size: contain
+      background-position: 85% 15%
       date-format: long
+      footer: " "
       title-slide-attributes: 
         data-background-image: title-slide-main.png
         data-background-size: 1050px auto
-        data-background-position: 50% 45%
-        data-background-border-bottom: $aagi-teal 1em solid;
+        data-background-position: 50% 85%
