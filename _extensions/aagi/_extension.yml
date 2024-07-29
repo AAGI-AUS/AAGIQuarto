@@ -10,7 +10,7 @@ contributes:
       footer: " "
       background-image: logo.svg
       background-repeat: no-repeat
-      background-position: top right
+      background-position: 85% 45%
       title-slide-attributes: 
         data-background-image: title-slide-main.png
         data-background-size: 1050px auto
