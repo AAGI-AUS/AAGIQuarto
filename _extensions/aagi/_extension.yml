@@ -8,9 +8,7 @@ contributes:
       theme: [default, aagi.scss]
       date-format: long
       footer: " "
-      background-image: logo.svg
-      background-repeat: no-repeat
-      background-position: 85% 45%
+      background-image: aagi-logo.svg
       title-slide-attributes: 
         data-background-image: title-slide-main.png
         data-background-size: 1050px auto
