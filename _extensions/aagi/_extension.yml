@@ -9,7 +9,6 @@ contributes:
       date-format: long
       footer: " "
       background-image: logo.svg
-      background-size: contain
       background-repeat: no-repeat
       background-position: top right
       title-slide-attributes: 
