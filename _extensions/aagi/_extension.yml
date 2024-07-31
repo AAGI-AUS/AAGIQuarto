@@ -9,7 +9,7 @@ contributes:
       date-format: long
       slide-number: true
       footer: " "
-      logo: ../assets/aagi-logo.svg
+      logo: aagi-logo.svg
       title-slide-attributes: 
         data-background-image: title-slide-main.png
         data-background-size: 1050px auto
