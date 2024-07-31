@@ -11,17 +11,13 @@ format:
 #| message: false
 
 if (!require("pak")) install.packages("pak")
-  
+
 if (!require("AAGIPalettes")) {
-  pak::pkg_install("AAGI-Org-AU-Public/AAGIPalettes",
-    build_vignettes = TRUE
-  )
+  pak::pkg_install("AAGI-Org-AU-Public/AAGIPalettes")
 }
 
 if (!require("AAGIThemes")) {
-  pak::pkg_install("AAGI-Org-AU-Public/AAGIThemes",
-    build_vignettes = TRUE
-  )
+  pak::pkg_install("AAGI-Org-AU-Public/AAGIThemes")
 }
 
 library(ggplot2)
