@@ -21,7 +21,7 @@ if (!require("AAGIThemes")) {
 }
 
 library(ggplot2)
-library(theme.aagi)
+library(AAGIThemes)
 library(flextable)
 
 # set ggplot2 theme
