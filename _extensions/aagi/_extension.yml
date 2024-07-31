@@ -7,9 +7,10 @@ contributes:
     revealjs:
       theme: [default, aagi.scss]
       date-format: long
+      slide-number: true
       footer: " "
-      background-image: aagi-logo.svg
+      logo: ../assets/aagi-logo.svg
       title-slide-attributes: 
-        data-background-image: title-slide-main.png
+        data-background-image: ../assets/title-slide-main.png
         data-background-size: 1050px auto
         data-background-position: 50% 85%
