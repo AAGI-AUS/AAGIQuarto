@@ -10,13 +10,16 @@ format:
 #| label: load
 #| message: false
 
-
-if (!require("remotes")) {
-  install.packages("remotes")
+if (!require("pak")) install.packages("pak")
+  
+if (!require("AAGIPalettes")) {
+  pak::pkg_install("AAGI-Org-AU-Public/AAGIPalettes",
+    build_vignettes = TRUE
+  )
 }
 
 if (!require("AAGIThemes")) {
-  remotes::install_git("https://github.com/AAGI-Org-AU-Public/AAGIThemes",
+  pak::pkg_install("AAGI-Org-AU-Public/AAGIThemes",
     build_vignettes = TRUE
   )
 }
