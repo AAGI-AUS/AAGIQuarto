@@ -1,6 +1,6 @@
 ---
 title: "AAGI"
-author: "AAGI.org"
+author: "Analytics for the Australian Grains Industry"
 date: last-modified
 format:
   aagi-revealjs: default
@@ -20,6 +20,10 @@ if (!require("AAGIThemes")) {
   pak::pkg_install("AAGI-Org-AU-Public/AAGIThemes")
 }
 
+if (!require("gapminder")) {
+  pak::pkg_install("gapminder")
+}
+
 library(ggplot2)
 library(AAGIThemes)
 library(flextable)
@@ -33,26 +37,71 @@ set_flextable_defaults(
 )
 ```
 
-## Quarto
+## An AAGI Reveal.js Theme for Quarto
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+This Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide.
 
-## Bullets
+## Tables
 
-When you click the **Render** button a document will be generated that includes:
-
--   Content authored with markdown
--   Output from executable code
-
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+When using this reveal.js theme, we suggest paring it with the R package {AAGIThemes} to provide AAGI themed tables, for example.
 
 ```{r}
-1 + 1
+#| label: AAGI table
+#| message: false
+
+library(dplyr)
+library(gt)
+library(AAGIThemes)
+
+gt <- gt(head(airquality) |>
+ mutate(`Month Name` = "May"))
+gt <- theme_gt_aagi(gt)
+gt
 ```
 
 
+## Figures
+
+{AAGIThemes} also provides support for theming graphic outputs in R, for example.
+
+```{r}
+#| label: figure
+#| message: false
+#Prepare data
+
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(AAGIThemes)
+
+facet <- gapminder |>
+  filter(continent != "Americas") |>
+  group_by(continent, year) |>
+  summarise(pop = sum(as.numeric(pop)))
+#> `summarise()` has grouped output by 'continent'. You can override using the
+#> `.groups` argument.
+
+col_values <- c(
+  AAGIPalettes::colour_as_hex("AAGI Teal"),
+  AAGIPalettes::colour_as_hex("AAGI Green"),
+  AAGIPalettes::colour_as_hex("AAGI Yellow"),
+  AAGIPalettes::colour_as_hex("AAGI Blue")
+)
+
+#Make plot
+ggplot() +
+  geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +
+  scale_fill_manual(values = col_values) +
+  facet_wrap(~ continent, ncol = 5) +
+  scale_y_continuous(breaks = c(0, 2000000000, 4000000000),
+                    labels = c(0, "2bn", "4bn")) +
+  theme_aagi() +
+  geom_hline(yintercept = 0,
+            linewidth = 1,
+            colour = "#474747") +
+  theme(legend.position = "none", axis.text.x = element_blank()) +
+  labs(title = "Asia's rapid growth", subtitle = "Population growth by continent, 1952-2007")
+```
 
 ## More Information
 
