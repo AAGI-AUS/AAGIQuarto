@@ -36,9 +36,27 @@ theme_set(theme_aagi())
 
 This Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide.
 
-## Tables
+## Basic Tables
 
-When using this reveal.js theme, we suggest paring it with the R package {AAGIThemes} to provide AAGI themed tables, for example.
+{AAGIQuarto} provides basic theming of HTML tables through CSS, for example, this is a markdown table.
+
+```
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+```
+
+That renders like this.
+
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+
+## Advanced Tables
+
+For more advanced tables, we suggest paring with the R package {AAGIThemes} to provide AAGI themed tables using `theme_gt_aagi()`, that offers more flexibility in formatting.
 
 ```{r}
 #| label: AAGI table

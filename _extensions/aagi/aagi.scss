@@ -61,3 +61,14 @@ $font-family-monospace: "Fira Code";
   bottom: 5% !important; // Makes footer div flush with bottom of slide
   z-index: -99 !important; // Sets the footer div further down the z-index
 }
+
+table, th, td {
+  border: 2px solid #ffffff;
+  background: $aagi-grey;
+  color: $aagi-black
+}
+
+th {
+  color: #ffffff;
+  background: $aagi-teal;
+}
