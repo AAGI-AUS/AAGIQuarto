@@ -14,3 +14,4 @@ contributes:
         data-background-image: title-slide-main.png
         data-background-size: 1050px auto
         data-background-position: 50% 85%
+      highlight-style: breeze

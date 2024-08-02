@@ -4,7 +4,6 @@ author: "Analytics for the Australian Grains Industry"
 date: last-modified
 format:
   aagi-revealjs: default
-highlight-style: breeze
 ---
 
 ```{r}
