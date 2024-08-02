@@ -73,12 +73,20 @@ gt
 ```
 
 
-## Figures
+## Basic Figures
 
-[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming graphic outputs in R, for example.
+[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming basic figures in R, for example.
 
 ```{r}
-#| label: figure
+library(AAGIThemes)
+plot_aagi(pressure)
+```
+## Figures with {ggplot2}
+
+[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming [{ggplot2}](https://ggplot2.tidyverse.org) outputs in R, for example.
+
+```{r}
+#| label: ggplot2-figure
 #| message: false
 #Prepare data
 
