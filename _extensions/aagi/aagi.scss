@@ -63,12 +63,12 @@ $font-family-monospace: "Fira Code";
 }
 
 table, th, td {
-  border: 2px solid #ffffff;
-  background: $aagi-grey;
-  color: $aagi-black
+  border: 2px solid #ffffff !important;
+  background: $aagi-grey !important;
+  color: $aagi-black !important;
 }
 
 th {
-  color: #ffffff;
-  background: $aagi-teal;
+  color: #ffffff !important;
+  background: $aagi-teal !important;
 }
