@@ -4,6 +4,7 @@ author: "Analytics for the Australian Grains Industry"
 date: last-modified
 format:
   aagi-revealjs: default
+highlight-style: breeze
 ---
 
 ```{r}
@@ -42,6 +43,7 @@ When using this reveal.js theme, we suggest paring it with the R package {AAGITh
 ```{r}
 #| label: AAGI table
 #| message: false
+#| echo: true
 
 library(dplyr)
 library(gt)
