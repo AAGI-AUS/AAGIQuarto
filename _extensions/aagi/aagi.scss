@@ -62,13 +62,13 @@ $font-family-monospace: "Fira Code";
   z-index: -99 !important; // Sets the footer div further down the z-index
 }
 
-table, th, td {
-  border: 2px solid #ffffff !important;
-  background: $aagi-grey !important;
-  color: $aagi-black !important;
+.reveal table, th, td {
+  border: 2px solid #ffffff;
+  background: $aagi-grey;
+  color: $aagi-black
 }
 
-th {
-  color: #ffffff !important;
-  background: $aagi-teal !important;
+.reveal table th {
+  color: #ffffff;
+  background: $aagi-teal;
 }
