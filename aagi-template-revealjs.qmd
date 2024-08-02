@@ -100,3 +100,9 @@ ggplot() +
 ## More Information
 
 You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+
+# Thank You{background-image="_extensions/aagi/title-slide-main.png" background-size="1050px auto" background-position="50% 85%"}
+
+<!-- Uncomment if you have a bibliography
+## References 
+-->
