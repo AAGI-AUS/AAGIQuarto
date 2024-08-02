@@ -26,15 +26,9 @@ if (!require("gapminder")) {
 
 library(ggplot2)
 library(AAGIThemes)
-library(flextable)
 
 # set ggplot2 theme
 theme_set(theme_aagi())
-
-# set flextable theme
-set_flextable_defaults(
-  theme_fun = theme_ft_aagi
-)
 ```
 
 ## An AAGI Reveal.js Theme for Quarto
