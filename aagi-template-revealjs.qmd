@@ -38,7 +38,7 @@ This Quarto extension allows you to create your slides using a theme that follow
 
 ## Basic Tables
 
-{AAGIQuarto} provides basic theming of HTML tables through CSS, for example, this is a markdown table.
+[AAGIQuarto](https://github.com/AAGI-AUS/AAGIQuarto) provides basic theming of HTML tables through CSS, for example, this is a markdown table.
 
 ```
 | Syntax      | Description |
@@ -56,7 +56,7 @@ That renders like this.
 
 ## Advanced Tables
 
-For more advanced tables, we suggest paring with the R package {AAGIThemes} to provide AAGI themed tables using `theme_gt_aagi()`, that offers more flexibility in formatting.
+For more advanced tables, we suggest paring with the R package [{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) to provide AAGI themed tables using `theme_gt_aagi()`, that offers more flexibility in formatting.
 
 ```{r}
 #| label: AAGI table
@@ -76,7 +76,7 @@ gt
 
 ## Figures
 
-{AAGIThemes} also provides support for theming graphic outputs in R, for example.
+[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming graphic outputs in R, for example.
 
 ```{r}
 #| label: figure
