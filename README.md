@@ -15,3 +15,7 @@ quarto use template AAGI-Org-AU-Public/AAGIQuarto
 This will install the extension and create an example qmd file that
 you can use as a starting place for your presentation slides.
 
+## Using
+
+For documentation on using Revealjs slides in Quarto, please see,
+<https://quarto.org/docs/presentations/revealjs/>.
