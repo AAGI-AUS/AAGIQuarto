@@ -9,26 +9,27 @@
 // define AAGI colours
 
 $colors: (
-    "aagi-black": #414042,
-    "aagi-blue": #648fd2,
-    "aagi-bright-green": #b6d438,
-    "aagi-green": #54921e,
-    "aagi-grey": #f2f2f2,
-    "aagi-orange": #ec8525,
-    "aagi-teal": #00808b,
-    "aagi-yellow": #ffbc42,
-  )
-  // functions
-  // From Emil Hvitfeldt, https://emilhvitfeldt.com/post/slidecraft-scss-uses/
-  @function theme-color($color) {
+  "aagi-black": #414042,
+  "aagi-blue": #648fd2,
+  "aagi-bright-green": #b6d438,
+  "aagi-green": #54921e,
+  "aagi-grey": #f2f2f2,
+  "aagi-orange": #ec8525,
+  "aagi-teal": #00808b,
+  "aagi-yellow": #ffbc42,
+);
+
+// functions
+// From Emil Hvitfeldt, <https://emilhvitfeldt.com/post/slidecraft-scss-uses/>
+
+@function theme-color($color) {
   @return map-get($colors, $color);
 }
-//
 
 // colours
 
-$link-color: $aagi-teal !default;
-$body-color: $aagi-black !default;
+$link-color: theme-color("aagi-teal") !default;
+$body-color: theme-color("aagi-black") !default;
 
 // fonts
 
@@ -59,7 +60,7 @@ $font-family-monospace: "Fira Code";
 
 .reveal .footer {
   color: #ffffff;
-  background-color: $aagi-teal;
+  background-color: theme-color("aagi-teal");
   text-align: right;
   display: block;
   position: fixed;
@@ -74,11 +75,11 @@ $font-family-monospace: "Fira Code";
 th,
 td {
   border: 2px solid #ffffff;
-  background: $aagi-grey;
-  color: $aagi-black;
+  background: theme_color("aagi-grey");
+  color: theme_color("aagi-black");
 }
 
 .reveal table th {
   color: #ffffff;
-  background: $aagi-teal;
+  background:theme-color("aagi-teal");
 }
