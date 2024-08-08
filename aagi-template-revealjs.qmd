@@ -128,6 +128,18 @@ ggplot() +
   labs(title = "Asia's rapid growth", subtitle = "Population growth by continent, 1952-2007")
 ```
 
+## Slides With Columns
+
+:::: {.columns}
+::: {.column width="50%"}
+This is a column on the left.
+:::
+
+::: {.column width="50%"}
+This is a column on the right.
+:::
+::::
+
 ## More Information
 
 You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
