@@ -46,7 +46,12 @@ $font-family-monospace: "Fira Code";
   font-size: 40px;
 }
 
-.reveal p {
+.reveal h3 {
+  font-size: 36px;
+  font-weight: lighter;
+}
+
+.reveal p li {
   margin-top: 50px;
   font-weight: lighter;
   font-size: 28px;
