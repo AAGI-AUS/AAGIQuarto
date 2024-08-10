@@ -28,33 +28,31 @@ $colors: (
 // colours
 
 $link-color: theme-color("aagi-teal") !default;
+$link-hover: theme-color("aagi-bright-green") !default;
 $body-color: theme-color("aagi-black") !default;
 
 // fonts
 
-$font-family-sans-serif: "Proxima Nova", "Arial";
-$font-family-monospace: "Fira Code";
+$headingFont: "Proxima Nova", Arial;
+$heading1Size: 44px;
+$heading2Size: 40px;
+$heading3Size: 38px;
+$mainFont: "Proxima Nova", Arial;
+$mainFontSize: 28px;
+$codeFont: "Fira Code";
 
 /*-- scss:rules --*/
 
 .reveal h1 {
   font-weight: lighter;
-  font-size: 44px;
-}
-
-.reveal h2 {
-  font-size: 40px;
 }
 
 .reveal h3 {
-  font-size: 36px;
   font-weight: lighter;
 }
 
 .reveal p li {
-  margin-top: 50px;
   font-weight: lighter;
-  font-size: 28px;
 }
 
 .quarto-title-authors {
