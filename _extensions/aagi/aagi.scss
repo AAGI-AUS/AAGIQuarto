@@ -60,16 +60,7 @@ $presentation-font-size-root: 2em;
 }
 
 .reveal .slides {
-  background-color: #ffffff;
-}
-
-.reveal .footer {
-  color: #ffffff !important;
-  background-color: theme-color("aagi-teal"); 
-  display: inline-block ;
-  height: 1em;
-  bottom: 50px !important; // Makes footer div flush with bottom of slide
-  z-index: -99 !important; // Sets the footer div further down the z-index
+  border-bottom: solid 0.25em theme_color("aagi-teal");
 }
 
 .reveal table,
