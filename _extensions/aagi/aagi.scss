@@ -59,16 +59,16 @@ $presentation-font-size-root: 2em;
   font-size: 28px;
 }
 
+.reveal .slides {
+  margin-bottom: 5%;
+}
+
 .reveal .footer {
-  color: #ffffff;
-  background-color: theme-color("aagi-teal");
-  text-align: right;
-  display: block;
-  position: fixed;
-  padding-bottom: 12px;
-  padding-top: 12px;
-  margin-bottom: 5px;
-  bottom: 5% !important; // Makes footer div flush with bottom of slide
+  color: #ffffff !important;
+  background-color: theme-color("aagi-teal"); 
+  display: inline-block ;
+  height: 1em;
+  bottom: 50px !important; // Makes footer div flush with bottom of slide
   z-index: -99 !important; // Sets the footer div further down the z-index
 }
 
