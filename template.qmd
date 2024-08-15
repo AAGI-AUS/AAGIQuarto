@@ -1,6 +1,6 @@
 ---
 format:
-  AAGI-docx: default
+  aagi-docx: default
 execute: 
   echo: false
 knitr:
