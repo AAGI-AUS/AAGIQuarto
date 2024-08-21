@@ -16,7 +16,7 @@ contributes:
         data-background-position: 50% 85%
       highlight-style: breeze
     pdf:
-      template: PDF/template.tex
+      template: PDF/AAGI_template.tex
       pdf-enginge: xelatex
       fig-width: 7
       fig-height: 7
@@ -28,4 +28,4 @@ contributes:
         - includefoot
       linkcolor: aagiblue
     docx:
-      reference-doc: Word/AAGI_Word_Styel_Template.docx
+      reference-doc: Word/AAGI_Word_Style_Template.docx
