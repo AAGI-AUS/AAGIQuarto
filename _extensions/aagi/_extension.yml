@@ -4,6 +4,19 @@ version: 1.0.0
 quarto-required: ">=1.5.0"
 contributes:
   formats:
+    pdf:
+      fig-width: 7
+      fig-height: 7
+      pdf-enginge: xelatex
+      template: AAGI_template.tex
+      mainfont: Proxima Nova
+      fontsize: 11pt
+      geometry:
+        - top=2.54cm
+        - bottom=3cm
+        - right=1.91cm
+        - includefoot
+      linkcolor: aagiblue
     docx:
       reference-doc: AAGI_Word_Style_Template.docx
       toc: true
