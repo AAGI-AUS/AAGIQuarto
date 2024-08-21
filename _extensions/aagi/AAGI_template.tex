@@ -83,8 +83,14 @@
 	\cfoot{\includegraphics[width=\linewidth]{assets/Partners.pdf}}
 }
 
+%Set the font
+\usepackage{fontspec}
+\setmainfont{Proxima Nova}
+
+
 %TOC entry formating
 \RedeclareSectionCommand[toclinefill=\TOCLineLeaderFill]{section}
+\setcounter{secnumdepth}{0}
 
 $pandoc.tex()$
 

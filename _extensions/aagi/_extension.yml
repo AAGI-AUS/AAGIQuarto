@@ -20,7 +20,6 @@ contributes:
       fig-height: 7
       pdf-enginge: xelatex
       template: AAGI_template.tex
-      mainfont: Proxima Nova
       fontsize: 11pt
       geometry:
         - top=2.54cm
@@ -28,7 +27,6 @@ contributes:
         - right=1.91cm
         - includefoot
       linkcolor: aagiblue
-      toc: true
     docx:
       reference-doc: AAGI_Word_Style_Template.docx
       toc: true
