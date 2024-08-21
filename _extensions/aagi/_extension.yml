@@ -28,6 +28,7 @@ contributes:
         - right=1.91cm
         - includefoot
       linkcolor: aagiblue
+      toc: true
     docx:
       reference-doc: AAGI_Word_Style_Template.docx
       toc: true
