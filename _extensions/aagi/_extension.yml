@@ -1,0 +1,31 @@
+title: AAGIQuarto
+author: Adam H. Sparks
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    revealjs:
+      theme: [default, Revealjs/aagi.scss]
+      date-format: long
+      slide-number: true
+      footer: " "
+      logo: Revealjs/aagi-logo.svg
+      title-slide-attributes: 
+        data-background-image: Revealjs/title-slide-main.png
+        data-background-size: 1050px auto
+        data-background-position: 50% 85%
+      highlight-style: breeze
+    pdf:
+      template: PDF/template.tex
+      pdf-enginge: xelatex
+      fig-width: 7
+      fig-height: 7
+      fontsize: 11pt
+      geometry:
+        - top=2.54cm
+        - bottom=3cm
+        - right=1.91cm
+        - includefoot
+      linkcolor: aagiblue
+    docx:
+      reference-doc: Word/AAGI_Word_Styel_Template.docx
