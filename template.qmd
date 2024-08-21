@@ -1,0 +1,156 @@
+---
+format:
+  aagi-docx: default
+execute: 
+  echo: false
+knitr:
+  opts_chunk:
+    fig.path: figures/
+params:
+  uni: CU
+  pri_bio: Your.Name
+  project_num: AAA--BBB
+bibliography: references.bib
+date: "`r Sys.Date()`"
+date-format: long
+---
+
+```{r}
+#| include: false
+if (params$uni == "CU") {
+  Project_Lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
+} else if (params$uni == "UA") {
+  Project_Lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
+} else {
+  Project_Lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
+}
+```
+
+```{r}
+#| include: false
+#| label: email for project lead
+
+if (params$uni == "CU") {
+  email = "cbada@curtin.edu.au"
+} else if (params$uni == "UA") {
+  email = paste(params$pri_bio, "@adelaide.edu.au", sep = "")
+} else {
+  email = paste(params$pri_bio, "@uq.edu.au")
+}
+```
+
+```{r}
+#| label: Project number
+#| include: false
+
+Pro_Num = params$project_num
+
+```
+
+```{r}
+#| label: title param
+#| include: false
+
+if (params$uni == "CU") {
+  university <- "Curtin University"
+} else if (params$uni == "UA") {
+  university <- "University of Adelaide"
+} else {
+  university <- "University of Queensland"
+}
+
+```
+
+---
+title: "Analytics for the Australian Grains Industry - `r university` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
+subtitle: "Descriptive title for report  \n Report for `r Pro_Num`"
+author:
+  - Adam Sparks
+  - "Email: `r email`"
+  - "Project Leads: `r Project_Lead`"
+---
+
+```{r}
+#| label: load
+#| message: false
+
+library(ggplot2)
+library(AAGIThemes)
+library(flextable)
+library(dplyr)
+
+# set ggplot2 theme
+theme_set(theme_aagi())
+
+# set flextable theme
+set_flextable_defaults(
+  theme_fun = theme_ft_aagi
+)
+```
+
+\newpage
+
+# Executive summary
+
+What was provided by AAGI and the main results?
+
+# Introduction
+
+-   Goals of the research project.
+
+-   Background, context and rationale behind the research.
+
+# Experimental/Trial Design
+
+-   Trial design type and layout.
+
+-   Treatments, number of replicates.
+
+-   Specific considerations for small plots, glasshouse, genetics, breeding trials, OFE projects, or bioinformatics.
+
+# Exploratory Data Analysis and Data Visualisation
+
+-   Interpretation of plots and data.
+
+-   Rationale behind specific methods used.
+
+# Methods
+
+-   Detailed description of the procedures and methodologies used.
+
+-   Include versions/commits on developed pipelines, scripts, and input/output details if applicable.
+
+# Analysis (if separate from Methods)
+
+Approach taken for data analysis.
+
+# Results and Discussion
+
+Findings and their implications.
+
+# Metadata and Datasets (Optional)
+
+-   md5sums for input data and outputs (if applicable).
+
+-   Git commit numbers and tags.
+
+-   Location of outputs (FAIR Data).
+
+-   DOI for AAGI outputs.
+
+# Map (Location, Optional)
+
+Include if relevant to the project.
+
+# References (Optional)
+
+Cited works and literature. @Box1976
+
+::: {#refs}
+:::
+
+# Appendix (Optional)
+
+Additional supporting information.
+
+
