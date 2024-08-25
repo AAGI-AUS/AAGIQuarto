@@ -9,6 +9,7 @@ See the included [template.qmd](template.qmd) file for an example of the theme a
 You can obtain a copy of the extension by using:
 
 ```bash
+cd your_quarto_project_folder
 quarto use template AAGI-AUS/AAGIQuarto
 ```
 
