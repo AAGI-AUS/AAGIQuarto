@@ -12,11 +12,14 @@
 % AAGI colours
 \usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
+\definecolor{aagibrightgreen}{HTML}{b6d438}
 \definecolor{aagiteal}{HTML}{00808b}
-\definecolor{aagigreen}{HTML}{b6d438}
+\definecolor{aagiblue}{HTML}{648fd2}
+\definecolor{aagigreen}{HTML}{54921e}
+\definecolor{aagiyellow}{HTML}{ffbc42}
+\definecolor{aagiorange}{HTML}{ec8525}
 \definecolor{aagiblack}{HTML}{414042}
-\definecolor{aagiblue}{HTML}{648FD2}
-\definecolor{pagenum}{HTML}{7F7F7F}
+\definecolor{aagigrey}{HTML}{f2f2f2}
 
 % Colour tables + long tables
 \usepackage{colortbl}
@@ -60,7 +63,7 @@
 \def\figureautorefname{Figure}
 \def\tableautorefname{Table}
 
-% Formating the headings
+% Formatting the headings
 \setkomafont{section}{\color{aagiteal}\huge\bfseries}
 \setkomafont{subsection}{\large\bfseries}
 \setkomafont{subsubsection}{\normalfont}
@@ -71,7 +74,7 @@
 % Header and footer
 \usepackage[automark]{scrlayer-scrpage}
 \clearpairofpagestyles
-\ohead{\includegraphics[width=1.8cm, height=0.94cm]{AAGI_logo.pdf}}
+\ohead{\includegraphics[width=1.8cm, height=0.94cm]{aagi_logo.pdf}}
 \cfoot{\includegraphics{Partners.pdf}\\
 	\begin{FlushRight}
 		\textbf{\pagemark} \textbf{|} \textcolor{pagenum}{Page}
@@ -80,7 +83,7 @@
 
 \newpairofpagestyles[scrheadings]{Title_page}{
 	\clearpairofpagestyles
-	\cfoot{\includegraphics[width=\linewidth]{Partners.pdf}}
+	\cfoot{\includegraphics[width=\linewidth]{partners.pdf}}
 }
 
 %Set the font
@@ -103,7 +106,7 @@ $pandoc.tex()$
 		\vspace*{-2cm}
 		
 		\begin{center}
-			\includegraphics[height=3cm]{AAGI_logo.pdf}
+			\includegraphics[height=3cm]{aagi_logo.pdf}
 		\end{center}
 		
 		\vfill
