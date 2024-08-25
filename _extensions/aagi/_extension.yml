@@ -10,13 +10,15 @@ contributes:
       slide-number: true
       footer: " "
       logo: Revealjs/aagi-logo.svg
-      title-slide-attributes: 
+      title-slide-attributes:
         data-background-image: Revealjs/title-slide-main.png
         data-background-size: 1050px auto
         data-background-position: 50% 85%
       highlight-style: breeze
     pdf:
-      template: PDF/AAGI_template.tex
+      template: pdf/AAGI_template.tex
+      format-resources:
+        - assets/AAGI-logo.pdf
       pdf-enginge: xelatex
       fig-width: 7
       fig-height: 7
