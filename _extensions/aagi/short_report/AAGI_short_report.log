@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.19)  25 AUG 2024 12:05
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.19)  25 AUG 2024 14:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -14,10 +14,10 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: cls)
 
 Enter file name: 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/short_report/AAGI_short_report.tex:12: Emergency stop.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/short_report/AAGI_short_report.tex:15: Emergency stop.
 <read *> 
          
-l.12 ^^M
+l.15 ^^M
         
 *** (cannot \read from terminal in nonstop modes)
 
@@ -29,5 +29,5 @@ Here is how much of TeX's memory you used:
  22677 multiletter control sequences out of 15000+600000
  558069 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 19i,0n,29p,163b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 19i,0n,29p,299b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
 No pages of output.
