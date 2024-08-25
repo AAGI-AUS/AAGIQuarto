@@ -1,0 +1,19 @@
+# Fdb version 4
+["xdvipdfmx"] 0 "AAGI_short_report.xdv" "AAGI_short_report.pdf" "AAGI_short_report" 0 -1
+  "AAGI_short_report.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "AAGI_short_report.pdf"
+  (rewritten before read)
+["xelatex"] 1724558759.17332 "/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/short_report/AAGI_short_report.tex" "AAGI_short_report.xdv" "AAGI_short_report" 1724558759.29339 2
+  "$documentclass$.cls" 0 -1 0 ""
+  "/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/short_report/AAGI_short_report.tex" 1724558758.57357 6338 bb8519c3bc28d919f5cf10298db3157d ""
+  "/Users/adamsparks/Library/TinyTeX/texmf-dist/web2c/texmf.cnf" 1719785820 42007 0b741a3c21a5ca32b40e3846e75b3548 ""
+  "/Users/adamsparks/Library/TinyTeX/texmf-var/web2c/xetex/xelatex.fmt" 1724063696 9079267 d39d4ad690928771a62e4edc97a01fae ""
+  "/Users/adamsparks/Library/TinyTeX/texmf.cnf" 1717814170.96398 727 4e0748b19b1bb5e7fd6801474dc57424 ""
+  "AAGI_short_report.aux" 0 -1 0 "xelatex"
+  "AAGI_short_report.tex" 1724558758.57357 6338 bb8519c3bc28d919f5cf10298db3157d ""
+  (generated)
+  "AAGI_short_report.aux"
+  "AAGI_short_report.log"
+  "AAGI_short_report.xdv"
+  (rewritten before read)

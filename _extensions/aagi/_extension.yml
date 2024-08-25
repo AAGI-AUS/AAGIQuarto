@@ -15,7 +15,7 @@ contributes:
         data-background-size: 1050px auto
         data-background-position: 50% 85%
       highlight-style: breeze
-    pdf:
+    aagi-pdf-report:
       template: pdf/AAGI_template.tex
       format-resources:
         - assets/AAGI_logo.pdf
@@ -30,5 +30,5 @@ contributes:
         - right=1.91cm
         - includefoot
       linkcolor: aagiblue
-    docx:
-      reference-doc: Word/AAGI_Word_Style_Template.docx
+    aagi-docx-report:
+      reference-doc: docx/AAGI_Word_Style_Template.docx
