@@ -19,6 +19,7 @@ contributes:
       template: pdf/AAGI_template.tex
       format-resources:
         - assets/AAGI_logo.pdf
+        - assets/Partners.pdf
       pdf-enginge: xelatex
       fig-width: 7
       fig-height: 7
