@@ -1,6 +1,0 @@
-PWD /Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/short_report
-INPUT /Users/adamsparks/Library/TinyTeX/texmf.cnf
-INPUT /Users/adamsparks/Library/TinyTeX/texmf-dist/web2c/texmf.cnf
-INPUT /Users/adamsparks/Library/TinyTeX/texmf-var/web2c/xetex/xelatex.fmt
-INPUT /Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/short_report/AAGI_short_report.tex
-OUTPUT AAGI_short_report.log
