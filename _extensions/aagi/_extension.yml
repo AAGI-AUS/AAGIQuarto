@@ -22,14 +22,14 @@ contributes:
       execute:
         echo: true
     aagi-pdf-report:
-      template: pdf/aagi_report.tex
+      template: pdf_report/aagi_pdf_report.tex
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
     aagi-pdf-short-report:
-      template: short_report/aagi_short_report.tex
+      template: short_pdf_report/aagi_short_pdf_report.tex
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/Partners.pdf
     aagi-docx-report:
-      reference-doc: docx/aagi_report_word.docx
+      reference-doc: docx_report/aagi_report_word.docx
