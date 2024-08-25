@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.19)  25 AUG 2024 12:02
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.19)  25 AUG 2024 14:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex
-(/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex
+**/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex
+(/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
 (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrartcl.cls
@@ -349,7 +349,7 @@ Package: longtable 2024-04-26 v4.20 Multi-page Table package (DPC)
 \c@LT@chunks=\count288
 \LT@p@ftn=\toks27
 )
-Class scrartcl Info: longtable captions redefined on input line 25.
+Class scrartcl Info: longtable captions redefined on input line 28.
  (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
  (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
@@ -748,85 +748,85 @@ Package fontspec Info:
 
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:95: LaTeX Error: Missing \begin{document}.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:98: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 $
+l.98 $
       pandoc.tex()$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 95.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 98.
 (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 95.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 98.
  (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 95.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 98.
  (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 95.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 98.
  (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 95.
+(Font)              <10.95> on input line 98.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 95.
+(Font)              <8> on input line 98.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 95.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
+(Font)              <6> on input line 98.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
  (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
  (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 No file AAGI_report.aux.
 \openout1 = `AAGI_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 97.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 100.
 (/Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-Package scrbase Info: activating english \abstractname on input line 97.
-Package scrbase Info: activating english \partname on input line 97.
-Package scrbase Info: activating english \figurename on input line 97.
-Package scrbase Info: activating english \tablename on input line 97.
-Package scrbase Info: activating english \contentsname on input line 97.
-Package scrbase Info: activating english \listfigurename on input line 97.
-Package scrbase Info: activating english \listtablename on input line 97.
-Package scrbase Info: activating english \refname on input line 97.
-Package scrbase Info: activating english \indexname on input line 97.
-LaTeX Info: Redefining \microtypecontext on input line 97.
-Package microtype Info: Applying patch `item' on input line 97.
-Package microtype Info: Applying patch `toc' on input line 97.
-Package microtype Info: Applying patch `eqnum' on input line 97.
-Package microtype Info: Applying patch `footnote' on input line 97.
-Package microtype Info: Applying patch `verbatim' on input line 97.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+Package scrbase Info: activating english \abstractname on input line 100.
+Package scrbase Info: activating english \partname on input line 100.
+Package scrbase Info: activating english \figurename on input line 100.
+Package scrbase Info: activating english \tablename on input line 100.
+Package scrbase Info: activating english \contentsname on input line 100.
+Package scrbase Info: activating english \listfigurename on input line 100.
+Package scrbase Info: activating english \listtablename on input line 100.
+Package scrbase Info: activating english \refname on input line 100.
+Package scrbase Info: activating english \indexname on input line 100.
+LaTeX Info: Redefining \microtypecontext on input line 100.
+Package microtype Info: Applying patch `item' on input line 100.
+Package microtype Info: Applying patch `toc' on input line 100.
+Package microtype Info: Applying patch `eqnum' on input line 100.
+Package microtype Info: Applying patch `footnote' on input line 100.
+Package microtype Info: Applying patch `verbatim' on input line 100.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -841,7 +841,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count344
 Package tocbasic Info: omitting babel extension for `lol'
-(tocbasic)             because of missing \bbl@set@language on input line 97.
+(tocbasic)             because of missing \bbl@set@language on input line 100.
 \scr@dte@lstlisting@maxnumwidth=\skip89
 
 
@@ -858,76 +858,88 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 
-LaTeX Warning: File `AAGI_logo.pdf' not found on input line 99.
+LaTeX Warning: File `AAGI_logo.pdf' not found on input line 102.
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:99: Unable to load picture or PDF file 'AAGI_logo.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:102: Unable to load picture or PDF file 'AAGI_logo.pdf'.
 <to be read again> 
                    }
-l.99 ^^I\begin{titlepage}
-                         
+l.102 ^^I\begin{titlepage}
+                          
 The requested image couldn't be read because
 it was not a recognized image format.
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:99: Package graphics Error: Division by 0.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:102: Package graphics Error: Division by 0.
 
 See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.99 ^^I\begin{titlepage}
-                         
+l.102 ^^I\begin{titlepage}
+                          
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:99: Package graphics Error: Division by 0.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:102: Package graphics Error: Division by 0.
 
 See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.99 ^^I\begin{titlepage}
-                         
+l.102 ^^I\begin{titlepage}
+                          
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 File: AAGI_logo.pdf Graphic file (type pdf)
 <use AAGI_logo.pdf>
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:99: Unable to load picture or PDF file 'AAGI_logo.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:102: Unable to load picture or PDF file 'AAGI_logo.pdf'.
 <to be read again> 
                    \GPT@clipend 
-l.99 ^^I\begin{titlepage}
-                         
+l.102 ^^I\begin{titlepage}
+                          
 The requested image couldn't be read because
 it was not a recognized image format.
 
 
-LaTeX Warning: File `Partners.pdf' not found on input line 99.
+LaTeX Warning: File `Partners.pdf' not found on input line 102.
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:99: Unable to load picture or PDF file 'Partners.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:102: Unable to load picture or PDF file 'Partners.pdf'.
 <to be read again> 
                    }
-l.99 ^^I\begin{titlepage}
-                         
+l.102 ^^I\begin{titlepage}
+                          
 The requested image couldn't be read because
 it was not a recognized image format.
 
 File: Partners.pdf Graphic file (type pdf)
 <use Partners.pdf>
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:99: Unable to load picture or PDF file 'Partners.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:102: Unable to load picture or PDF file 'Partners.pdf'.
 <to be read again> 
                    \GPT@clipend 
-l.99 ^^I\begin{titlepage}
-                         
+l.102 ^^I\begin{titlepage}
+                          
 The requested image couldn't be read because
 it was not a recognized image format.
 
 
 LaTeX Font Warning: Font shape `TU/ProximaNova(0)/b/n' undefined
-(Font)              using `TU/ProximaNova(0)/m/n' instead on input line 99.
+(Font)              using `TU/ProximaNova(0)/m/n' instead on input line 102.
+
+
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:102: Package xcolor Error: Undefined color `pagenum'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 ^^I\begin{titlepage}
+                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -942,22 +954,22 @@ Package scrlayer-scrpage Warning: \footheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `footheight=40.8pt'.
-(scrlayer-scrpage)                I'll also increase \footskip on input line 99.
+(scrlayer-scrpage)                I'll also increase \footskip on input line 102.
 
 [1
 
 ]
 
-LaTeX Warning: File `AAGI_logo.pdf' not found on input line 106.
+LaTeX Warning: File `AAGI_logo.pdf' not found on input line 109.
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:106: Package graphics Error: Division by 0.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:109: Package graphics Error: Division by 0.
 
 See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.106 ...ncludegraphics[height=3cm]{AAGI_logo.pdf}
+l.109 ...ncludegraphics[height=3cm]{AAGI_logo.pdf}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -965,58 +977,58 @@ or  <return>  to continue without it.
 
 File: AAGI_logo.pdf Graphic file (type pdf)
 <use AAGI_logo.pdf>
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:106: Unable to load picture or PDF file 'AAGI_logo.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:109: Unable to load picture or PDF file 'AAGI_logo.pdf'.
 <to be read again> 
                    \GPT@clipend 
-l.106 ...ncludegraphics[height=3cm]{AAGI_logo.pdf}
+l.109 ...ncludegraphics[height=3cm]{AAGI_logo.pdf}
                                                   
 The requested image couldn't be read because
 it was not a recognized image format.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 116.
+(Font)              <20.74> on input line 119.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 116.
+(Font)              <14.4> on input line 119.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 116.
+(Font)              <12> on input line 119.
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Underfull \hbox (badness 10000) in paragraph at lines 119--119
  [][]$\OML/lmm/m/it/20.74 title$[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--119
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
  $\OML/lmm/m/it/12 subtitle$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
  $\OML/lmm/m/it/10.95 for\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 author\OT1/lmr/m/n/10.95 )$ $\OML/lmm/m/it/10.95 author$ $sep$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
  $\OML/lmm/m/it/10.95 endfor$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
  \TU/ProximaNova(0)/b/n/10.95 August 25, 2024
  []
 
 
 
 
-LaTeX Warning: File `Partners.pdf' not found on input line 135.
+LaTeX Warning: File `Partners.pdf' not found on input line 138.
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:135: Package graphics Error: Division by 0.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:138: Package graphics Error: Division by 0.
 
 See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.135 ^^I\end{titlepage}
+l.138 ^^I\end{titlepage}
                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1024,10 +1036,10 @@ or  <return>  to continue without it.
 
 File: Partners.pdf Graphic file (type pdf)
 <use Partners.pdf>
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:135: Unable to load picture or PDF file 'Partners.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:138: Unable to load picture or PDF file 'Partners.pdf'.
 <to be read again> 
                    \GPT@clipend 
-l.135 ^^I\end{titlepage}
+l.138 ^^I\end{titlepage}
                         
 The requested image couldn't be read because
 it was not a recognized image format.
@@ -1037,7 +1049,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package tocbasic Info: character protrusion at toc deactivated on input line 139.
+Package tocbasic Info: character protrusion at toc deactivated on input line 142.
 
 No file AAGI_report.toc.
 \tf@toc=\write4
@@ -1046,29 +1058,29 @@ No file AAGI_report.toc.
 
 
 
-LaTeX Warning: File `AAGI_logo.pdf' not found on input line 141.
+LaTeX Warning: File `AAGI_logo.pdf' not found on input line 144.
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:141: Package graphics Error: Division by 0.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:144: Package graphics Error: Division by 0.
 
 See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.141 ^^I\newpage
+l.144 ^^I\newpage
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:141: Package graphics Error: Division by 0.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:144: Package graphics Error: Division by 0.
 
 See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.141 ^^I\newpage
+l.144 ^^I\newpage
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1076,26 +1088,38 @@ or  <return>  to continue without it.
 
 File: AAGI_logo.pdf Graphic file (type pdf)
 <use AAGI_logo.pdf>
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:141: Unable to load picture or PDF file 'AAGI_logo.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:144: Unable to load picture or PDF file 'AAGI_logo.pdf'.
 <to be read again> 
                    \GPT@clipend 
-l.141 ^^I\newpage
+l.144 ^^I\newpage
                  
 The requested image couldn't be read because
 it was not a recognized image format.
 
 
-LaTeX Warning: File `Partners.pdf' not found on input line 141.
+LaTeX Warning: File `Partners.pdf' not found on input line 144.
 
 File: Partners.pdf Graphic file (type pdf)
 <use Partners.pdf>
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:141: Unable to load picture or PDF file 'Partners.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:144: Unable to load picture or PDF file 'Partners.pdf'.
 <to be read again> 
                    \GPT@clipend 
-l.141 ^^I\newpage
+l.144 ^^I\newpage
                  
 The requested image couldn't be read because
 it was not a recognized image format.
+
+
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:144: Package xcolor Error: Undefined color `pagenum'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 ^^I\newpage
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1105,29 +1129,29 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [3]
 
 
-LaTeX Warning: File `AAGI_logo.pdf' not found on input line 145.
+LaTeX Warning: File `AAGI_logo.pdf' not found on input line 148.
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:145: Package graphics Error: Division by 0.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:148: Package graphics Error: Division by 0.
 
 See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.145 \end{document}
+l.148 \end{document}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:145: Package graphics Error: Division by 0.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:148: Package graphics Error: Division by 0.
 
 See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.145 \end{document}
+l.148 \end{document}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1135,26 +1159,38 @@ or  <return>  to continue without it.
 
 File: AAGI_logo.pdf Graphic file (type pdf)
 <use AAGI_logo.pdf>
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:145: Unable to load picture or PDF file 'AAGI_logo.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:148: Unable to load picture or PDF file 'AAGI_logo.pdf'.
 <to be read again> 
                    \GPT@clipend 
-l.145 \end{document}
+l.148 \end{document}
                     
 The requested image couldn't be read because
 it was not a recognized image format.
 
 
-LaTeX Warning: File `Partners.pdf' not found on input line 145.
+LaTeX Warning: File `Partners.pdf' not found on input line 148.
 
 File: Partners.pdf Graphic file (type pdf)
 <use Partners.pdf>
-/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex:145: Unable to load picture or PDF file 'Partners.pdf'.
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:148: Unable to load picture or PDF file 'Partners.pdf'.
 <to be read again> 
                    \GPT@clipend 
-l.145 \end{document}
+l.148 \end{document}
                     
 The requested image couldn't be read because
 it was not a recognized image format.
+
+
+/Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex:148: Package xcolor Error: Undefined color `pagenum'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.148 \end{document}
+                    
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1172,12 +1208,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 30971 strings out of 476234
- 747484 string characters out of 5785958
+ 30975 strings out of 476234
+ 747564 string characters out of 5785958
  1928609 words of memory out of 5000000
- 53069 multiletter control sequences out of 15000+600000
+ 53073 multiletter control sequences out of 15000+600000
  582479 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 108i,23n,107p,10992b,602s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,23n,107p,10995b,602s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on AAGI_report.xdv (4 pages, 15028 bytes).
+Output written on AAGI_report.xdv (4 pages, 14964 bytes).

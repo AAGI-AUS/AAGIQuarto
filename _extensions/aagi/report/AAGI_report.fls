@@ -1,8 +1,8 @@
-PWD /Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf
+PWD /Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report
 INPUT /Users/adamsparks/Library/TinyTeX/texmf.cnf
 INPUT /Users/adamsparks/Library/TinyTeX/texmf-dist/web2c/texmf.cnf
 INPUT /Users/adamsparks/Library/TinyTeX/texmf-var/web2c/xetex/xelatex.fmt
-INPUT /Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/pdf/AAGI_report.tex
+INPUT /Users/adamsparks/Developer/GitHub/AAGI-Org-AU-Public/AAGIQuarto/_extensions/aagi/report/AAGI_report.tex
 OUTPUT AAGI_report.log
 INPUT /Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrartcl.cls
 INPUT /Users/adamsparks/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrartcl.cls
