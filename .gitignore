@@ -2,6 +2,8 @@
 .DS_Store
 *.html
 /.quarto/
+aagi-template-revealjs_files/
+template_files/
 
 # R files
 
