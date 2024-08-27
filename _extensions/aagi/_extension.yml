@@ -9,9 +9,9 @@ contributes:
       date-format: long
       slide-number: true
       footer: " "
-      logo: aagi-logo.svg
+      logo: assets/aagi-logo.svg
       title-slide-attributes:
-        data-background-image: title-slide-main.png
+        data-background-image: assets/title-slide-main.png
         data-background-size: 1050px auto
         data-background-position: 50% 85%
       highlight-style: breeze
