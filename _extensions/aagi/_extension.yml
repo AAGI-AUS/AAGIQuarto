@@ -9,9 +9,9 @@ contributes:
       date-format: long
       slide-number: true
       footer: " "
-      logo: assets/aagi-logo.svg
+      logo: aagi-logo.svg
       title-slide-attributes:
-        data-background-image: assets/title-slide-main.png
+        data-background-image: title-slide-main.png
         data-background-size: 1050px auto
         data-background-position: 50% 85%
       highlight-style: breeze
@@ -22,14 +22,14 @@ contributes:
       execute:
         echo: true
     aagi-pdf-report:
-      template: pdf_report/aagi_pdf_report.tex
+      template: aagi-pdf-report/aagi-pdf-report.tex
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
     aagi-pdf-short-report:
-      template: short_pdf_report/aagi_short_pdf_report.tex
+      template: short-_pdf-report/aagi-short-pdf-report.tex
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/Partners.pdf
     aagi-docx-report:
-      reference-doc: docx_report/aagi_report_word.docx
+      reference-doc: docx-report/aagi-report-word.docx
