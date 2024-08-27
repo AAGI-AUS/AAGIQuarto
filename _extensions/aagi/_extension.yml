@@ -4,7 +4,7 @@ version: 1.0.0
 quarto-required: ">=1.4.0"
 contributes:
   formats:
-    aagi-revealjs:
+    revealjs:
       theme: [default, revealjs/aagi.scss]
       date-format: long
       slide-number: true
@@ -21,15 +21,15 @@ contributes:
       chalkboard: true
       execute:
         echo: true
-    aagi-pdf-report:
+    pdf-report:
       template: aagi-pdf-report/aagi-pdf-report.tex
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
-    aagi-pdf-short-report:
+    pdf-short-report:
       template: short-_pdf-report/aagi-short-pdf-report.tex
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/Partners.pdf
-    aagi-docx-report:
+    docx-report:
       reference-doc: docx-report/aagi-report-word.docx
