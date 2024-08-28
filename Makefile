@@ -5,7 +5,7 @@ asset-revealjs: ## Render reveal.js Slides
 	quarto render docs/demos/template-revealjs.qmd --output-dir assets
 
 asset-docx: ## Render docx report document
-	quarto render docs/demos/template-aagi-report-docx.qmd --output-dir assets
+	quarto render docs/demos/template-docx-report.qmd --output-dir assets
 
 asset-report: ## Render pdf report document
 	quarto render docs/demos/template-pdf-report.qmd --output-dir assets
