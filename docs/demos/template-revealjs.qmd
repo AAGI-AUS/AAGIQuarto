@@ -150,7 +150,7 @@ You can learn more about controlling the appearance of RevealJS output here: <ht
 <!-- This background won't show properly in the example rendered slide, but when used with `quarto use template AAGI-AUS/AAGIQuarto`
 you will have the closing slide display the same image as the title slide under "Thank You" (or the H1 text of your choosing)
 -->
-# Thank You{background-image="_extensions/AAGI-AUS/aagi/title-slide-main.png" background-size="1050px auto" background-position="50% 85%"}
+# Thank You{background-image="_extensions/AAGI-AUS/aagi/assets/title-slide-main.png" background-size="1050px auto" background-position="50% 85%"}
 
 <!-- Uncomment if you have a bibliography
 ## References 
