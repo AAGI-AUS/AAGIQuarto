@@ -23,7 +23,7 @@ For documentation on using reveal.js slides in Quarto, please see,
 
 ## Updating
 
-As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:.
+As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:
 
 ```bash
 cd your_quarto_project_folder
