@@ -22,12 +22,12 @@ contributes:
       execute:
         echo: true
     pdf+report:
-      template: aagi-pdf-report/aagi-pdf-report.tex
+      template: pdf-report/aagi-pdf-report-template.tex
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
     pdf+short+report:
-      template: short-_pdf-report/aagi-short-pdf-report.tex
+      template: short-pdf-report/aagi-short-pdf-report.tex
       fontsize: 12pt
       papersize: a4
       toc: false
@@ -53,4 +53,4 @@ contributes:
         - assets/AAGI_logo.pdf
         - assets/Partners.pdf
     docx+report:
-      reference-doc: docx-report/aagi-report-word.docx
+      reference-doc: docx-report/aagi-docx-report-template.docx
