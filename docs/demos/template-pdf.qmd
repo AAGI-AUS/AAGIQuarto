@@ -6,6 +6,7 @@ execute:
 knitr:
   opts_chunk:
     fig.path: figures/
+    fig.pos: H
 params:
   uni: CU
   pri_bio: Your.Name
