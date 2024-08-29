@@ -28,6 +28,27 @@ contributes:
         - assets/partners.pdf
     pdf-short-report:
       template: short-_pdf-report/aagi-short-pdf-report.tex
+      fontsize: 12pt
+      papersize: a4
+      toc: false
+      number-sections: false
+      pdf-engine: xelatex
+      mainfont: Proxima Nova
+      links-as-footnotes: false
+      bibliography: references.bib
+      csl: biometrics.csl
+      link-citations: true
+      knitr:
+        opts_chunk: 
+          fig.path: figure/
+          fig.align: center
+          fig.show: hold
+          fig.pos: H
+          comment: NA
+          background: white
+          highlight: false
+          size: small
+          prompt: true
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/Partners.pdf
