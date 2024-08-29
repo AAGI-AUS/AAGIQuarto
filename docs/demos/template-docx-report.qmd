@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-docx-report: default
+  aagi-docx+report: default
 execute: 
   echo: false
 knitr:
@@ -18,11 +18,11 @@ date-format: long
 ```{r}
 #| include: false
 if (params$uni == "CU") {
-  Project_Lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
+  project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
 } else if (params$uni == "UA") {
-  Project_Lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
+  project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
 } else {
-  Project_Lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
+  project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
 }
 ```
 
@@ -67,7 +67,7 @@ subtitle: "Descriptive title for report  \n Report for `r Pro_Num`"
 author:
   - Adam Sparks
   - "Email: `r email`"
-  - "Project Leads: `r Project_Lead`"
+  - "Project Leads: `r project_lead`"
 ---
 
 ```{r}

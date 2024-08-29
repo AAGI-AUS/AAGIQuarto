@@ -21,12 +21,12 @@ contributes:
       chalkboard: true
       execute:
         echo: true
-    pdf-report:
+    pdf+report:
       template: aagi-pdf-report/aagi-pdf-report.tex
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
-    pdf-short-report:
+    pdf+short+report:
       template: short-_pdf-report/aagi-short-pdf-report.tex
       fontsize: 12pt
       papersize: a4
@@ -52,5 +52,5 @@ contributes:
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/Partners.pdf
-    docx-report:
+    docx+report:
       reference-doc: docx-report/aagi-report-word.docx
