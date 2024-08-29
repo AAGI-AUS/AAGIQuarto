@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-pdf: default
+  aagi-pdf-report: default
 execute: 
   echo: false
 knitr:
