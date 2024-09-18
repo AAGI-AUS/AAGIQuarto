@@ -23,6 +23,7 @@ contributes:
         echo: true
     pdf+report:
       template: pdf-report/aagi-pdf-report-template.tex
+      csl: assets/biometrics.csl
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
@@ -36,6 +37,7 @@ contributes:
       mainfont: Proxima Nova
       links-as-footnotes: false
       bibliography: references.bib
+      csl: assets/biometrics.csl
       link-citations: true
       knitr:
         opts_chunk: 
