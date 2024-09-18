@@ -36,7 +36,6 @@ contributes:
       mainfont: Proxima Nova
       links-as-footnotes: false
       bibliography: references.bib
-      csl: biometrics.csl
       link-citations: true
       knitr:
         opts_chunk: 
