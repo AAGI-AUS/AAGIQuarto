@@ -21,15 +21,36 @@ contributes:
       chalkboard: true
       execute:
         echo: true
-    pdf-report:
-      template: aagi-pdf-report/aagi-pdf-report.tex
+    pdf+report:
+      template: pdf-report/aagi-pdf-report-template.tex
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
-    pdf-short-report:
-      template: short-_pdf-report/aagi-short-pdf-report.tex
+    pdf+short+report:
+      template: short-pdf-report/aagi-short-pdf-report.tex
+      fontsize: 12pt
+      papersize: a4
+      toc: false
+      number-sections: false
+      pdf-engine: xelatex
+      mainfont: Proxima Nova
+      links-as-footnotes: false
+      bibliography: references.bib
+      csl: biometrics.csl
+      link-citations: true
+      knitr:
+        opts_chunk: 
+          fig.path: figure/
+          fig.align: center
+          fig.show: hold
+          fig.pos: H
+          comment: NA
+          background: white
+          highlight: false
+          size: small
+          prompt: true
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/Partners.pdf
-    docx-report:
-      reference-doc: docx-report/aagi-report-word.docx
+    docx+report:
+      reference-doc: docx-report/aagi-docx-report-template.docx

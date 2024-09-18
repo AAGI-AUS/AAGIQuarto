@@ -15,6 +15,13 @@ $endfor$
 
 \usepackage[$if(papersize)$$papersize$paper,$endif$left=12mm,right=12mm,top=22mm,bottom=22mm]{geometry}
 
+% Force placement of table
+\usepackage{float}
+\floatplacement{table}{H}
+
+% Random texts
+\usepackage{lipsum}
+
 % Colours and graphics
 \usepackage[dvipsnames,svgnames,x11names,table]{xcolor}
 \usepackage{graphicx}
@@ -128,14 +135,14 @@ $endif$
   \fancyhf{}
   \fancyhead[R]{%
     \noindent\makebox[\textwidth][r]{%
-      \includegraphics[height=2.3cm]{aagi_logo.pdf}\hspace*{-0.5cm}}}
+      \includegraphics[height=2.3cm]{assets/aagi_logo.pdf}\hspace*{-0.5cm}}}
   \fancyfoot[C]{%
     \rule{\textwidth}{0.4pt}\\[-10pt]
     \noindent\makebox[\textwidth]{%
       %TODO: In here: want a YAML option for 'project-partner' or something,
       % in which case we swap out the footer graphic and overlay the partner
       % logo in the right place.
-      \includegraphics[width=\paperwidth]{partners.pdf}}}
+      \includegraphics[width=\paperwidth]{assets/partners.pdf}}}
   \renewcommand{\headrulewidth}{0pt}}
 \fancypagestyle{otherpages}{%
   \fancyhf{}
@@ -215,7 +222,7 @@ $endif$
 % Authors
 {\normalsize{%
 $if(author)$
-  $for(author)$$author$$sep$, $endfor$\\[-20pt]
+  $for(author)$$author$$sep$\\, $endfor$\\[-20pt]
 $endif$}}
 
 % Emails
