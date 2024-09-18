@@ -58,11 +58,17 @@
 	enhanced, breakable}
 
 % Hyperref for links/cross-referencing
+\usepackage{hyperref}
 \def\sectionautorefname{Section}
 \def\subsectionautorefname{Subsection}
 \def\appendixautorefname{Appendix}
 \def\figureautorefname{Figure}
 \def\tableautorefname{Table}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=aagiblue,
+	urlcolor=aagiteal,
+}
 
 % Formatting the headings
 \setkomafont{section}{\color{aagiteal}\huge\bfseries}
@@ -137,10 +143,6 @@ $pandoc.tex()$
   \vfill
 		
 	\end{titlepage}
-
-	\newpage
-	
-	\tableofcontents
 	
 	\newpage
 	
