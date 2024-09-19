@@ -50,5 +50,8 @@ contributes:
           highlight: false
           size: small
           prompt: true
+      format-resources:
+        - assets/aagi_logo.pdf
+        - assets/partners.pdf
     docx+report:
       reference-doc: docx-report/aagi-docx-report-template.docx
