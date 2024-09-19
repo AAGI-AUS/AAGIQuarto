@@ -23,34 +23,16 @@ contributes:
         echo: true
     pdf+report:
       template: pdf-report/aagi-pdf-report-template.tex
+      csl: assets/biometrics.csl
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
     pdf+short+report:
       template: short-pdf-report/aagi-short-pdf-report.tex
-      fontsize: 12pt
-      papersize: a4
-      toc: false
-      number-sections: false
-      pdf-engine: xelatex
-      mainfont: Proxima Nova
-      links-as-footnotes: false
-      bibliography: references.bib
-      csl: biometrics.csl
+      csl: assets/biometrics.csl
       link-citations: true
-      knitr:
-        opts_chunk: 
-          fig.path: figure/
-          fig.align: center
-          fig.show: hold
-          fig.pos: H
-          comment: NA
-          background: white
-          highlight: false
-          size: small
-          prompt: true
       format-resources:
-        - assets/AAGI_logo.pdf
-        - assets/Partners.pdf
+        - assets/aagi_logo.pdf
+        - assets/partners.pdf
     docx+report:
       reference-doc: docx-report/aagi-docx-report-template.docx

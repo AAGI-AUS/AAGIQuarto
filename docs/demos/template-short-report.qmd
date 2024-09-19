@@ -6,6 +6,7 @@ params:
   uni: CU
   pri_bio: Your.Name
   project-number: ABC1234-567XYZ
+bibliography: references.bib
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 version-number: 1.0.0
 format: 
