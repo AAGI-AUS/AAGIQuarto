@@ -11,7 +11,7 @@ asset-report: ## Render pdf report document
 	quarto render docs/demos/template-pdf-report.qmd --output-dir assets
 
 asset-short-report: ## Render short pdf document
-	quarto render docs/demos/template-pdf.qmd --output-dir assets
+	quarto render docs/demos/template-short-report.qmd --output-dir assets
 
 assets:	asset-pdf asset-docx asset-revealjs  ## Render all assets
 
