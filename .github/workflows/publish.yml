@@ -5,7 +5,12 @@ on:
         types: [published]
     workflow_dispatch: {}
       
-name: demo-website
+name: AAGI-Quarto-demo-website
+
+# you need these permissions to publish to GitHub pages
+permissions: 
+    contents: write
+    pages: write
 
 jobs:
     demo-page:
@@ -50,5 +55,6 @@ jobs:
         - name: Publish to GitHub Pages (and render)
           uses: quarto-dev/quarto-actions/publish@v2
           with:
-              target: gh-pages
-              path: ./docs
+            target: gh-pages
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
