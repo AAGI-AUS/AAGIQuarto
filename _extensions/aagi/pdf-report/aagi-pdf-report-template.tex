@@ -9,6 +9,12 @@
 \usepackage{amssymb}
 \usepackage{ragged2e}
 
+% Page layout
+\usepackage[$if(papersize)$$papersize$paper,$endif$
+left=12mm,
+right=12mm,top=22mm,
+includefoot]{geometry}
+
 % AAGI colours
 \usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
