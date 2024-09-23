@@ -67,7 +67,7 @@ if(params$uni == "CU"){
   project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
   email = paste(params$pri_bio, "adelaide.edu.au", sep = "")
 } else {
-  project_lead = "University of Queensland -- Prof Scott Chapman, Emertius Prof Kaye Basford"
+  project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
   email = paste(params$pri_bio, "@uq.edu.au", sep = "")
 }
 ```
