@@ -1,0 +1,31 @@
+---
+title: "AAGI Quarto Templates Extension"
+format: 
+  html:
+    toc: false
+---
+
+The `AAGIQuarto` Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents. 
+
+## Installing
+
+```bash
+quarto use template AAGI-AUS/AAGIQuarto
+```
+
+This will install the extension and create an example qmd file that you can use as a starting place for your article.
+
+## Example
+
+For each format, there is a template file available. See:
+
+- **RevealJS:** [RevealJS Slide Demo](demos/template-revealjs.qmd) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd))
+- **AAGI PDF Short Report:** [PDF Short Report Demo](demos/template-pdf-short-report) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
+- **AAGI PDF Report:** [AAGI PDF Report Demo](demos/template-pdf-report) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
+- **AAGI Word Document Report:** [AAGI Word Document Demo](demos/template-docx-report) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd))
+
+
+## Acknowledgments
+
+Thanks to [@coatless](https://github.com/coatless) for his assistance in setting up this Quarto extension.
+
