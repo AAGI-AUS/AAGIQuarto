@@ -40,7 +40,7 @@ jobs:
           uses: quarto-dev/quarto-actions/setup@v2
           with:
             version: "pre-release"
-            tinytex: true # required for beamer
+            tinytex: true # required for PDF reports
 
         - name: Add extension directly into demos
           working-directory: ./docs/demos
