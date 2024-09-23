@@ -37,17 +37,17 @@ if (require(formatR)) {
 }
 
 # Integrating with AAGIPalettes, AAGIThemes
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
 }
 if (!require(AAGIThemes)) {
-  remotes::install_github(
+  pak::pkg_install(
     "AAGI-AUS/AAGIThemes",
     dependencies = TRUE, upgrade = FALSE
   )
 }
 if (!require(AAGIPalettes)) {
-  remotes::install_github(
+  pak::pkg_install(
     "AAGI-AUS/AAGIPalettes",
     dependencies = TRUE, upgrade = FALSE
   )
