@@ -82,8 +82,7 @@ email: "`r email`"
 
 # Section 1
 
-Report text goes here. This template is designed for smaller ("one-page") AAGI
-reports.
+This template is designed for smaller ("one-page") AAGI reports.
 The AAGI logo and partners footer appear only on this first page.
 
 You can colour text/tables/etc using the various AAGI palette colours.
