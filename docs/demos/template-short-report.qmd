@@ -123,7 +123,7 @@ References appear at the end of the report by default, after the last heading `#
   that stand out on the page.
 \end{note}
 
-Example R code, using the [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/) package to produce Figure \@ref(fig:example1).
+Example R code, using the [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/) package to produce Figure @fig-example1.
 
 ```{r plot-eg}
 #| label: fig-example1
