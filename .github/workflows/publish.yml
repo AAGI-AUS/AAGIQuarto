@@ -45,7 +45,7 @@ jobs:
         - name: Add extension directly into demos
           working-directory: ./docs/demos
           run: |
-            quarto add --AAGI-AUS/AAGIQuarto
+            quarto add AAGI-AUS/AAGIQuarto
 
         - name: Publish to GitHub Pages (and render)
           uses: quarto-dev/quarto-actions/publish@v2
