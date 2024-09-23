@@ -1,1 +1,1 @@
-Sitemap: https://AAGI-Org-AU-Public.github.io/AAGIQuarto/sitemap.xml
+Sitemap: https://AAGI-AUS.github.io/AAGIQuarto/sitemap.xml
