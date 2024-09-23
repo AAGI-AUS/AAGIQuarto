@@ -1,0 +1,38 @@
+title: AAGIQuarto
+author: Adam H. Sparks, James J Balamuta, Russel Edson, Vinh Thiem Ma, Rose Megirian, Sam Rogers, Julian Taylor
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    revealjs:
+      theme: [default, revealjs/aagi.scss]
+      date-format: long
+      slide-number: true
+      footer: " "
+      logo: assets/aagi-logo.svg
+      title-slide-attributes:
+        data-background-image: assets/title-slide-main.png
+        data-background-size: 1050px auto
+        data-background-position: 50% 85%
+      highlight-style: breeze
+      overview: true
+      progress: true
+      touch: true
+      chalkboard: true
+      execute:
+        echo: true
+    pdf+report:
+      template: pdf-report/aagi-pdf-report-template.tex
+      csl: assets/biometrics.csl
+      format-resources:
+        - assets/aagi_logo.pdf
+        - assets/partners.pdf
+    pdf+short+report:
+      template: short-pdf-report/aagi-short-pdf-report.tex
+      csl: assets/biometrics.csl
+      link-citations: true
+      format-resources:
+        - assets/aagi_logo.pdf
+        - assets/partners.pdf
+    docx+report:
+      reference-doc: docx-report/aagi-docx-report-template.docx
