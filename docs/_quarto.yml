@@ -1,0 +1,26 @@
+project:
+  type: website
+  resources:
+   - assets/*
+
+website:
+  title: "AAGIQuarto"
+  reader-mode: true
+  repo-url: https://github.com/AAGI-AUS/AAGIQuarto
+  repo-actions: [edit, issue]
+  sidebar:
+    style: "floating"
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/AAGI-AUS/AAGIQuarto
+    contents: 
+      - text: "Home"
+        file: index.qmd
+      - section: "Extra"
+        contents:
+        - release-notes.qmd
+
+format: 
+  html:
+    toc: true
