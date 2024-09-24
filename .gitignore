@@ -1,4 +1,9 @@
 
+# Quarto
+/.quarto/
+/_site/
+
+
 .DS_Store
 *.html
 /.quarto/
