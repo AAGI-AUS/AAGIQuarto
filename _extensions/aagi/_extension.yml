@@ -28,7 +28,7 @@ contributes:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
     pdf+short+report:
-      template: short-pdf-report/aagi-short-pdf-report.tex
+      template: pdf-short-report/aagi-pdf-short-report.tex
       csl: assets/biometrics.csl
       link-citations: true
       format-resources:

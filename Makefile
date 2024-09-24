@@ -1,4 +1,4 @@
-.PHONY: asset-revealjs asset-docx asset-report asset-short-report assets help
+.PHONY: asset-revealjs asset-docx asset-report asset-pdf-short-report assets help
 .DEFAULT_GOAL := help
 
 asset-revealjs: ## Render reveal.js Slides
@@ -11,7 +11,7 @@ asset-report: ## Render pdf report document
 	quarto render docs/demos/template-pdf-report.qmd --output-dir assets
 
 asset-short-report: ## Render short pdf document
-	quarto render docs/demos/template-short-report.qmd --output-dir assets
+	quarto render docs/demos/template-pdf-short-report.qmd --output-dir assets
 
 assets:	asset-report asset-short-report asset-docx asset-revealjs  ## Render all assets
 
