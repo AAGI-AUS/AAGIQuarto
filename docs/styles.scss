@@ -1,0 +1,30 @@
+
+// define AAGI colours
+
+$colors: (
+  "aagi-black": #414042,
+  "aagi-blue": #648fd2,
+  "aagi-bright-green": #b6d438,
+  "aagi-green": #54921e,
+  "aagi-grey": #f2f2f2,
+  "aagi-orange": #ec8525,
+  "aagi-teal": #00808b,
+  "aagi-yellow": #ffbc42,
+);
+
+// functions
+// From Emil Hvitfeldt, <https://emilhvitfeldt.com/post/slidecraft-scss-uses/>
+
+@function theme-color($color) {
+  @return map-get($colors, $color);
+}
+
+// colours
+
+$link-color: theme-color("aagi-teal") !default;
+$body-color: theme-color("aagi-black") !default;
+
+// fonts
+
+$font-family-sans-serif: "Proxima Nova", Arial;
+$font-family-monospace: "Fira Code";
