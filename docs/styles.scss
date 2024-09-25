@@ -1,4 +1,4 @@
-
+/*-- scss:defaults --*/
 // define AAGI colours
 
 $colors: (
@@ -28,3 +28,19 @@ $body-color: theme-color("aagi-black") !default;
 
 $font-family-sans-serif: "Proxima Nova", Arial;
 $font-family-monospace: "Fira Code";
+
+
+
+/*-- scss:rules --*/
+
+.reveal h1 {
+  font-weight: lighter;
+}
+
+.reveal h3 {
+  font-weight: lighter;
+}
+
+.reveal p li {
+  font-weight: lighter;
+}
