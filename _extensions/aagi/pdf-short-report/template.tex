@@ -71,13 +71,13 @@ $else$
 $endif$
 
 %Set the font
+\usepackage{fontspec}
 % Check to see if this font is installed system-wide
-\IfFontExistsTF{Proxima Nova.otf}{%
-% One person has this installed system-wide
-  \setmainfont{Proxima Nova.otf}
+\IfFontExistsTF{Proxima Nova}{
+  \setmainfont{Proxima Nova}
 }{
-% If not, load it from the file
-  \setmainfont{Arial.ttf}
+% If not, use Arial
+  \setmainfont{Arial}
 }
 
 
