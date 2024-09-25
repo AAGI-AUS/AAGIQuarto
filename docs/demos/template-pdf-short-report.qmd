@@ -10,7 +10,8 @@ bibliography: references.bib
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 version-number: 1.0.0
 format: 
-  aagi-pdf+short+report: default
+  aagi-pdf+short+report:
+    mainfont: Arial
 ---
 
 ```{r setup}

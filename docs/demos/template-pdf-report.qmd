@@ -1,6 +1,7 @@
 ---
 format:
-  aagi-pdf+report: default
+  aagi-pdf+report:
+    mainfont: Arial
 execute: 
   echo: false
 knitr:
