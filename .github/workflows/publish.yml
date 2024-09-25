@@ -38,7 +38,10 @@ jobs:
       # install ms-corefonts for Arial font since Proxima Nova isn't available
         - name: "Install ms-corefonts"
           run: sudo apt-get install ttf-mscorefonts-installer -y
-               sudo fc-cache -f
+
+      # update font cache
+        - name: "Update font cache"
+          run: sudo fc-cache -fv
 
       # Back to our regularly scheduled Quarto output
         - name: "Set up Quarto"
