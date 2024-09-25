@@ -3,10 +3,10 @@
 A [quarto extension](https://quarto.org/docs/extensions/) currently featuring an AAGI theme LaTeX PDF documents and MS Word .docx files as well as a [reveal.js format](https://quarto.org/docs/presentations/revealjs/).
 
 See the included template and demo file for each format here:
-- **RevealJS:** [RevealJS Slide Demo](aagi-aus.github.io/AAGIQuarto/demos/template-revealjs.html) ([Source](docs/demos/template-revealjs.qmd))
-- **PDF:** [PDF Report Demo](aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report.pdf) ([Source](docs/demos/template-pdf-report.qmd))
-- **Short PDF:** [Short PDF Report Demo](aagi-aus.github.io/AAGIQuarto/demos/template-short-report.pdf) ([Source](docs/demos/template-short-report.qmd))
-- **MS Word .docx:** [MS Word Report Demo](aagi-aus.github.io/AAGIQuarto/demos/template-docx-report.docx) ([Source](docs/demos/tempate-docx-report.qmd))
+- **RevealJS:** [AAGI RevealJS Slide Demo](demos/template-revealjs.qmd) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd))
+- **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](demos/template-pdf-short-report+short+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
+- **AAGI PDF Report:** [AAGI PDF Report Demo](demos/template-pdf-report+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
+- **AAGI Word Document Report:** [AAGI Word Document Demo](demos/template-docx-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd))
 
 ## Installing
 
