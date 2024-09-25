@@ -8,6 +8,10 @@ website:
   reader-mode: true
   repo-url: https://github.com/AAGI-AUS/AAGIQuarto
   repo-actions: [edit, issue]
+  margin-header: |
+    ![](/aagi-logo.svg)
+  body-footer: |
+    ![](/Partners.svg)
   sidebar:
     style: "floating"
     search: true
@@ -24,3 +28,4 @@ website:
 format: 
   html:
     toc: true
+    theme: aagi.scss
