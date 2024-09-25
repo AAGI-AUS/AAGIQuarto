@@ -9,9 +9,9 @@ website:
   repo-url: https://github.com/AAGI-AUS/AAGIQuarto
   repo-actions: [edit, issue]
   margin-header: |
-    ![](/aagi-logo.svg)
+    ![](/demos/assets/aagi-logo.svg)
   body-footer: |
-    ![](/Partners.svg)
+    ![](/demos/assets/Partners.svg)
   sidebar:
     style: "floating"
     search: true
@@ -24,8 +24,9 @@ website:
       - section: "Extra"
         contents:
         - release-notes.qmd
-
 format: 
   html:
     toc: true
-    theme: aagi.scss
+    theme: 
+      - none
+      - _extensions/aagi/revealjs/aagi.scss
