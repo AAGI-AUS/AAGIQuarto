@@ -101,8 +101,14 @@ includefoot]{geometry}
 
 %Set the font
 \usepackage{fontspec}
-\setmainfont{Proxima Nova}
-
+% Check to see if this font is installed system-wide
+\IfFontExistsTF{Proxima Nova}{%
+% One person has this installed system-wide
+  \setmainfont{Proxima Nova}
+}{
+% If not, load it from the file
+  \setmainfont{Arial}
+}
 
 %TOC entry formating
 \RedeclareSectionCommand[toclinefill=\TOCLineLeaderFill]{section}

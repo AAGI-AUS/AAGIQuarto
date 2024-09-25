@@ -71,7 +71,14 @@ $else$
 $endif$
 
 %Set the font
-\setmainfont{Proxima Nova}
+% Check to see if this font is installed system-wide
+\IfFontExistsTF{Proxima Nova}{%
+% One person has this installed system-wide
+  \setmainfont{Proxima Nova}
+}{
+% If not, load it from the file
+  \setmainfont{Arial}
+}
 
 
 %TODO: more font stuff from template.latex?
