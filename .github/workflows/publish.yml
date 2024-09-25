@@ -34,6 +34,10 @@ jobs:
               any::downlit
               any::xml2
               any::ggplot2
+      
+      # install ms-corefonts for Arial font since Proxima Nova isn't available
+        - name: "Install ms-corefonts"
+          run: sudo apt-get install ttf-mscorefonts-installer -y
 
       # Back to our regularly scheduled Quarto output
         - name: "Set up Quarto"
