@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -174,7 +174,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<p><img src="./aagi-logo.svg" class="img-fluid"></p>
+</div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -213,6 +216,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>AAGI Word Document Report:</strong> <a href="demos/template-docx-report.docx">AAGI Word Document Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd">Source</a>)</li>
 </ul>
 </section>
+<section id="using" class="level2">
+<h2 class="anchored" data-anchor-id="using">Using</h2>
+<p>For documentation on using reveal.js slides in Quarto, please see, <a href="https://quarto.org/docs/presentations/revealjs/" class="uri">https://quarto.org/docs/presentations/revealjs/</a>.</p>
+<p>To use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use: - <strong>aggi-docx+report</strong> for MS Word output - <strong>aagi-revealjs</strong> for a revealjs presentation - <strong>aagi-pdf+report</strong> for a full length PDF report - <strong>aagi-pdf+short+report</strong> for a short PDF report</p>
+</section>
+<section id="updating" class="level2">
+<h2 class="anchored" data-anchor-id="updating">Updating</h2>
+<p>As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> update AAGI-AUS/AAGIQuarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="acknowledgments" class="level2">
 <h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
 <p>Thanks to <a href="https://github.com/coatless"><span class="citation" data-cites="coatless">@coatless</span></a> for his assistance in setting up this Quarto extension.</p>
@@ -220,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 
-</main> <!-- /main -->
+<p><img src="./Partners.svg" class="img-fluid"></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
