@@ -22,17 +22,17 @@ contributes:
       execute:
         echo: true
     pdf+report:
-      template: pdf-report/aagi-pdf-report-template.tex
+      template: pdf-report/template.tex
       csl: assets/biometrics.csl
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
     pdf+short+report:
-      template: pdf-short-report/aagi-pdf-short-report.tex
+      template: pdf-short-report/template.tex
       csl: assets/biometrics.csl
       link-citations: true
       format-resources:
         - assets/aagi_logo.pdf
         - assets/partners.pdf
     docx+report:
-      reference-doc: docx-report/aagi-docx-report-template.docx
+      reference-doc: docx-report/template.docx
