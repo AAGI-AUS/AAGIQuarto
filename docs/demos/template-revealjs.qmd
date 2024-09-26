@@ -55,7 +55,7 @@ That renders like this.
 
 ## Advanced Tables
 
-For more advanced tables, we suggest paring with the R package [{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) to provide AAGI themed tables using `theme_gt_aagi()`, that offers more flexibility in formatting.
+For more advanced tables, we suggest pairing with the R package [{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) to provide AAGI themed tables using `theme_gt_aagi()`, that offers more flexibility in formatting.
 
 ```{r}
 #| label: AAGI table
