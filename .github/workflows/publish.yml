@@ -55,10 +55,6 @@ jobs:
           run: |
             quarto add AAGI-AUS/AAGIQuarto --no-prompt
 
-      # run texhash
-        - name: "Run texhash"
-          run: sudo texhash
-
         - name: Publish to GitHub Pages (and render)
           uses: quarto-dev/quarto-actions/publish@v2
           with:
