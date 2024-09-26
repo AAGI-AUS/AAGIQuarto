@@ -1,4 +1,4 @@
-<img src="docs/demos/assets/aagi-logo.svg" style="margin:10px; float:right;" />
+<img src="docs/demos/assets/aagi-logo.svg" align="right" style="margin:10px" />
 
 # AAGI Extension For Quarto
 
