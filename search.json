@@ -1,52 +1,25 @@
 [
   {
-    "objectID": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
-    "href": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
-    "title": "AAGI",
-    "section": "An AAGI Reveal.js Theme for Quarto",
-    "text": "An AAGI Reveal.js Theme for Quarto\nThis Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide."
+    "objectID": "release-notes.html",
+    "href": "release-notes.html",
+    "title": "Release Notes",
+    "section": "",
+    "text": "The AAGIQuarto Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.\nThere has not yet been a stable release.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
   },
   {
-    "objectID": "demos/template-revealjs.html#basic-tables",
-    "href": "demos/template-revealjs.html#basic-tables",
-    "title": "AAGI",
-    "section": "Basic Tables",
-    "text": "Basic Tables\nAAGIQuarto provides basic theming of HTML tables through CSS, for example, this is a markdown table.\n| Syntax      | Description |\n| ----------- | ----------- |\n| Header      | Title       |\n| Paragraph   | Text        |\nThat renders like this.\n\n\n\nSyntax\nDescription\n\n\n\n\nHeader\nTitle\n\n\nParagraph\nText"
-  },
-  {
-    "objectID": "demos/template-revealjs.html#advanced-tables",
-    "href": "demos/template-revealjs.html#advanced-tables",
-    "title": "AAGI",
-    "section": "Advanced Tables",
-    "text": "Advanced Tables\nFor more advanced tables, we suggest paring with the R package {AAGIThemes} to provide AAGI themed tables using theme_gt_aagi(), that offers more flexibility in formatting.\n\nlibrary(dplyr)\nlibrary(gt)\nlibrary(AAGIThemes)\n\ngt &lt;- gt(head(airquality) |&gt;\n mutate(`Month Name` = \"May\"))\ngt &lt;- theme_gt_aagi(gt)\ngt\n\n\n\n\n\n\n\nOzone\nSolar.R\nWind\nTemp\nMonth\nDay\nMonth Name\n\n\n\n\n41\n190\n7.4\n67\n5\n1\nMay\n\n\n36\n118\n8.0\n72\n5\n2\nMay\n\n\n12\n149\n12.6\n74\n5\n3\nMay\n\n\n18\n313\n11.5\n62\n5\n4\nMay\n\n\nNA\nNA\n14.3\n56\n5\n5\nMay\n\n\n28\nNA\n14.9\n66\n5\n6\nMay"
-  },
-  {
-    "objectID": "demos/template-revealjs.html#basic-figures",
-    "href": "demos/template-revealjs.html#basic-figures",
-    "title": "AAGI",
-    "section": "Basic Figures",
-    "text": "Basic Figures\n{AAGIThemes} also provides support for theming basic figures in R, for example.\n\nlibrary(AAGIThemes)\nplot_aagi(pressure)\n\n\n\n\n\n\n\n\n\n\nThis is an aside."
-  },
-  {
-    "objectID": "demos/template-revealjs.html#figures-with-ggplot2",
-    "href": "demos/template-revealjs.html#figures-with-ggplot2",
-    "title": "AAGI",
-    "section": "Figures with {ggplot2}",
-    "text": "Figures with {ggplot2}\n{AAGIThemes} also provides support for theming {ggplot2} outputs in R, for example.\n\n#Prepare data\n\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(AAGIThemes)\n\nfacet &lt;- gapminder |&gt;\n  filter(continent != \"Americas\") |&gt;\n  group_by(continent, year) |&gt;\n  summarise(pop = sum(as.numeric(pop)))\n#&gt; `summarise()` has grouped output by 'continent'. You can override using the\n#&gt; `.groups` argument.\n\ncol_values &lt;- c(\n  AAGIPalettes::colour_as_hex(\"AAGI Teal\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Green\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Yellow\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Blue\")\n)\n\n#Make plot\nggplot() +\n  geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +\n  scale_fill_manual(values = col_values) +\n  facet_wrap(~ continent, ncol = 5) +\n  scale_y_continuous(breaks = c(0, 2000000000, 4000000000),\n                    labels = c(0, \"2bn\", \"4bn\")) +\n  theme_aagi() +\n  geom_hline(yintercept = 0,\n            linewidth = 1,\n            colour = \"#474747\") +\n  theme(legend.position = \"none\", axis.text.x = element_blank()) +\n  labs(title = \"Asia's rapid growth\", subtitle = \"Population growth by continent, 1952-2007\")"
-  },
-  {
-    "objectID": "demos/template-revealjs.html#slides-with-columns",
-    "href": "demos/template-revealjs.html#slides-with-columns",
-    "title": "AAGI",
-    "section": "Slides With Columns",
-    "text": "Slides With Columns\n\n\nThis is a column on the left.\n\nThis is a column on the right."
-  },
-  {
-    "objectID": "demos/template-revealjs.html#more-information",
-    "href": "demos/template-revealjs.html#more-information",
-    "title": "AAGI",
-    "section": "More Information",
-    "text": "More Information\nYou can learn more about controlling the appearance of RevealJS output here: https://quarto.org/docs/presentations/revealjs/"
+    "objectID": "release-notes.html#features",
+    "href": "release-notes.html#features",
+    "title": "Release Notes",
+    "section": "",
+    "text": "The AAGIQuarto Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.\nThere has not yet been a stable release.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
   },
   {
     "objectID": "index.html",
@@ -109,25 +82,52 @@
     ]
   },
   {
-    "objectID": "release-notes.html",
-    "href": "release-notes.html",
-    "title": "Release Notes",
-    "section": "",
-    "text": "The AAGIQuarto Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.\nThere has not yet been a stable release.",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
+    "objectID": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
+    "href": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
+    "title": "AAGI",
+    "section": "An AAGI Reveal.js Theme for Quarto",
+    "text": "An AAGI Reveal.js Theme for Quarto\nThis Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide."
   },
   {
-    "objectID": "release-notes.html#features",
-    "href": "release-notes.html#features",
-    "title": "Release Notes",
-    "section": "",
-    "text": "The AAGIQuarto Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.\nThere has not yet been a stable release.",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
+    "objectID": "demos/template-revealjs.html#basic-tables",
+    "href": "demos/template-revealjs.html#basic-tables",
+    "title": "AAGI",
+    "section": "Basic Tables",
+    "text": "Basic Tables\nAAGIQuarto provides basic theming of HTML tables through CSS, for example, this is a markdown table.\n| Syntax      | Description |\n| ----------- | ----------- |\n| Header      | Title       |\n| Paragraph   | Text        |\nThat renders like this.\n\n\n\nSyntax\nDescription\n\n\n\n\nHeader\nTitle\n\n\nParagraph\nText"
+  },
+  {
+    "objectID": "demos/template-revealjs.html#advanced-tables",
+    "href": "demos/template-revealjs.html#advanced-tables",
+    "title": "AAGI",
+    "section": "Advanced Tables",
+    "text": "Advanced Tables\nFor more advanced tables, we suggest pairing with the R package {AAGIThemes} to provide AAGI themed tables using theme_gt_aagi(), that offers more flexibility in formatting.\n\nlibrary(dplyr)\nlibrary(gt)\nlibrary(AAGIThemes)\n\ngt &lt;- gt(head(airquality) |&gt;\n mutate(`Month Name` = \"May\"))\ngt &lt;- theme_gt_aagi(gt)\ngt\n\n\n\n\n\n\n\nOzone\nSolar.R\nWind\nTemp\nMonth\nDay\nMonth Name\n\n\n\n\n41\n190\n7.4\n67\n5\n1\nMay\n\n\n36\n118\n8.0\n72\n5\n2\nMay\n\n\n12\n149\n12.6\n74\n5\n3\nMay\n\n\n18\n313\n11.5\n62\n5\n4\nMay\n\n\nNA\nNA\n14.3\n56\n5\n5\nMay\n\n\n28\nNA\n14.9\n66\n5\n6\nMay"
+  },
+  {
+    "objectID": "demos/template-revealjs.html#basic-figures",
+    "href": "demos/template-revealjs.html#basic-figures",
+    "title": "AAGI",
+    "section": "Basic Figures",
+    "text": "Basic Figures\n{AAGIThemes} also provides support for theming basic figures in R, for example.\n\nlibrary(AAGIThemes)\nplot_aagi(pressure)\n\n\n\n\n\n\n\n\n\n\nThis is an aside."
+  },
+  {
+    "objectID": "demos/template-revealjs.html#figures-with-ggplot2",
+    "href": "demos/template-revealjs.html#figures-with-ggplot2",
+    "title": "AAGI",
+    "section": "Figures with {ggplot2}",
+    "text": "Figures with {ggplot2}\n{AAGIThemes} also provides support for theming {ggplot2} outputs in R, for example.\n\n#Prepare data\n\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(AAGIThemes)\n\nfacet &lt;- gapminder |&gt;\n  filter(continent != \"Americas\") |&gt;\n  group_by(continent, year) |&gt;\n  summarise(pop = sum(as.numeric(pop)))\n#&gt; `summarise()` has grouped output by 'continent'. You can override using the\n#&gt; `.groups` argument.\n\ncol_values &lt;- c(\n  AAGIPalettes::colour_as_hex(\"AAGI Teal\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Green\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Yellow\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Blue\")\n)\n\n#Make plot\nggplot() +\n  geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +\n  scale_fill_manual(values = col_values) +\n  facet_wrap(~ continent, ncol = 5) +\n  scale_y_continuous(breaks = c(0, 2000000000, 4000000000),\n                    labels = c(0, \"2bn\", \"4bn\")) +\n  theme_aagi() +\n  geom_hline(yintercept = 0,\n            linewidth = 1,\n            colour = \"#474747\") +\n  theme(legend.position = \"none\", axis.text.x = element_blank()) +\n  labs(title = \"Asia's rapid growth\", subtitle = \"Population growth by continent, 1952-2007\")"
+  },
+  {
+    "objectID": "demos/template-revealjs.html#slides-with-columns",
+    "href": "demos/template-revealjs.html#slides-with-columns",
+    "title": "AAGI",
+    "section": "Slides With Columns",
+    "text": "Slides With Columns\n\n\nThis is a column on the left.\n\nThis is a column on the right."
+  },
+  {
+    "objectID": "demos/template-revealjs.html#more-information",
+    "href": "demos/template-revealjs.html#more-information",
+    "title": "AAGI",
+    "section": "More Information",
+    "text": "More Information\nYou can learn more about controlling the appearance of RevealJS output here: https://quarto.org/docs/presentations/revealjs/"
   }
 ]
