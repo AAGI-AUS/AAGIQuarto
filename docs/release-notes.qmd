@@ -7,10 +7,8 @@ format:
     toc: true
 ---
 
-# 0.0.0-dev.1: ??? (??-??-????)
+# 0.1.0 2024-09-26
 
-## Features
+## Major Changes
 
-The `AAGIQuarto` Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.
-
-There has not yet been a stable release.
+* This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX
