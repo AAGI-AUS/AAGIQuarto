@@ -37,7 +37,8 @@ jobs:
       
       # install ms-corefonts for Arial font since Proxima Nova isn't available
         - name: "Install ms-corefonts"
-          run: sudo apt-get install ttf-mscorefonts-installer -y
+          run: echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+               sudo apt-get install ttf-mscorefonts-installer
 
       # update font cache
         - name: "Update font cache"
