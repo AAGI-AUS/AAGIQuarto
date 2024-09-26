@@ -43,6 +43,10 @@ jobs:
         - name: "Update font cache"
           run: sudo fc-cache -fv
 
+      # run texhash
+        - name: "Run texhash"
+          run: sudo texhash
+
       # Back to our regularly scheduled Quarto output
         - name: "Set up Quarto"
           uses: quarto-dev/quarto-actions/setup@v2
