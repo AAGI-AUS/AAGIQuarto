@@ -1,17 +1,15 @@
 ---
 # Report details
 title: "`r paste('Progress report for project', params[['project-number']])`"
-subtitle: "Subtitle here"
+subtitle: "Subtitle Here"
 params:
   uni: CU
   pri_bio: Your.Name
   project-number: ABC1234-567XYZ
 bibliography: references.bib
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+date: last-modified
 version-number: 1.0.0
-format: 
-  aagi-pdf+short+report:
-    mainfont: Arial
+format: aagi-pdf+short+report
 ---
 
 ```{r setup}
