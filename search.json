@@ -113,18 +113,18 @@
     "href": "release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "The AAGIQuarto Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.\nThere has not yet been a stable release.",
+    "text": "This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX",
     "crumbs": [
       "Extra",
       "Release Notes"
     ]
   },
   {
-    "objectID": "release-notes.html#features",
-    "href": "release-notes.html#features",
+    "objectID": "release-notes.html#major-changes",
+    "href": "release-notes.html#major-changes",
     "title": "Release Notes",
     "section": "",
-    "text": "The AAGIQuarto Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.\nThere has not yet been a stable release.",
+    "text": "This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX",
     "crumbs": [
       "Extra",
       "Release Notes"
