@@ -43,10 +43,6 @@ jobs:
         - name: "Update font cache"
           run: sudo fc-cache -fv
 
-      # run texhash
-        - name: "Run texhash"
-          run: sudo texhash
-
       # Back to our regularly scheduled Quarto output
         - name: "Set up Quarto"
           uses: quarto-dev/quarto-actions/setup@v2
@@ -58,6 +54,10 @@ jobs:
           working-directory: ./docs/demos
           run: |
             quarto add AAGI-AUS/AAGIQuarto --no-prompt
+
+      # run texhash
+        - name: "Run texhash"
+          run: sudo texhash
 
         - name: Publish to GitHub Pages (and render)
           uses: quarto-dev/quarto-actions/publish@v2
