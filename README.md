@@ -29,7 +29,7 @@ For documentation on using reveal.js slides in Quarto, please see,
 <https://quarto.org/docs/presentations/revealjs/>.
 
 To use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:
-- `docx+report`, for MS Word output
+- `aagi-docx+report`, for MS Word output
 - `aagi-pptx`, for MS PPT output
 - `aagi-revealjs`, for a revealjs presentation
 - `aagi-pdf+report`, for a full length PDF report
