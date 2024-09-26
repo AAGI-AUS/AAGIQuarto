@@ -2,7 +2,7 @@
 
 # AAGI Extension For Quarto
 
-A [quarto extension](https://quarto.org/docs/extensions/) currently featuring an AAGI theme LaTeX PDF documents and MS Word .docx files as well as a [reveal.js format](https://quarto.org/docs/presentations/revealjs/).
+The `AAGIQuarto` Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.
 
 See the included template and demo file for each format here:
 - **RevealJS:** [AAGI RevealJS Slide Demo](demos/template-revealjs.qmd) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd))
