@@ -1,7 +1,5 @@
 
-<img src="docs/demos/assets/aagi-logo.svg" align="right" style="margin:10px;" />
-
-# AAGI Extension For Quarto
+# AAGI Extension For Quarto <img src="docs/demos/assets/aagi-logo.svg" align="right" style="margin:10px;" />
 
 A [quarto extension](https://quarto.org/docs/extensions/) currently featuring an AAGI theme LaTeX PDF documents and MS Word .docx files as well as a [reveal.js format](https://quarto.org/docs/presentations/revealjs/).
 
