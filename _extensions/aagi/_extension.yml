@@ -36,3 +36,8 @@ contributes:
         - assets/partners.pdf
     docx+report:
       reference-doc: docx-report/template.docx
+    pptx:
+      reference-doc: pptx/template.pptx
+      toc: true
+      number-sections: false
+      incremental: true
