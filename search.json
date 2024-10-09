@@ -1,5 +1,27 @@
 [
   {
+    "objectID": "release-notes.html",
+    "href": "release-notes.html",
+    "title": "Release Notes",
+    "section": "",
+    "text": "This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#major-changes",
+    "href": "release-notes.html#major-changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "AAGI Quarto Templates Extension",
@@ -57,28 +79,6 @@
     "text": "Acknowledgments\nThanks to @coatless for his assistance in setting up this Quarto extension.",
     "crumbs": [
       "Home"
-    ]
-  },
-  {
-    "objectID": "release-notes.html",
-    "href": "release-notes.html",
-    "title": "Release Notes",
-    "section": "",
-    "text": "This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "release-notes.html#major-changes",
-    "href": "release-notes.html#major-changes",
-    "title": "Release Notes",
-    "section": "",
-    "text": "This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
     ]
   },
   {
