@@ -128,6 +128,33 @@ Approach taken for data analysis.
 
 Findings and their implications.
 
+# Figure example
+
+```{r}
+#| label: fig-example
+#| fig-cap: "An example figure using {ggplot2}."
+
+ggplot(data = pressure, aes(x = temperature, 
+                            y = pressure)) + 
+  geom_point() +
+  theme_aagi()
+
+```
+
+# Table example
+
+```{r}
+#| label: tbl-example
+#| tbl-cap: "An example table using {flextable}."
+
+ft <- flextable(head(airquality)) |>
+  theme_ft_aagi() |>
+  autofit()
+
+ft
+
+```
+
 # Metadata and Datasets (Optional)
 
 -   md5sums for input data and outputs (if applicable).
@@ -152,4 +179,3 @@ Cited works and literature. @Box1976
 # Appendix (Optional)
 
 Additional supporting information.
-
