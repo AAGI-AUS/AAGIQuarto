@@ -11,6 +11,8 @@ params:
   uni: CU
   pri_bio: Your.Name
   project_num: AAA--BBB
+  partner: collab_partner
+  partner_email: collab_partner@email.com.au
 bibliography: references.bib
 editor: visual
 ---
@@ -65,10 +67,11 @@ Pro_Num = params$project_num
 ---
 title: "Analytics for the Australian Grains Industry - `r university` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
 subtitle: "Descriptive title for report  \n Report for `r Pro_Num`"
-author: 
-  - Adam Sparks
-  - "Email: `r email`"
-  - "Project Leads: `r project_lead`"
+author:
+  - "Prepared for: `r params$partner` (`r params$partner_email`)"
+  - "Prepared by: `r params$pri_bio`, Author 2"
+  - "Project Lead: `r project_lead`"
+email: "`r email`"
 ---
 
 ```{r}

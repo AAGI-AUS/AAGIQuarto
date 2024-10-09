@@ -10,6 +10,8 @@ params:
   uni: CU
   pri_bio: Your.Name
   project_num: AAA--BBB
+  partner: collab_partner
+  partner_email: collab_partner@email.com.au
 bibliography: references.bib
 date: "`r Sys.Date()`"
 date-format: long
@@ -65,9 +67,10 @@ if (params$uni == "CU") {
 title: "Analytics for the Australian Grains Industry - `r university` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
 subtitle: "Descriptive title for report  \n Report for `r Pro_Num`"
 author:
-  - Adam Sparks
-  - "Email: `r email`"
-  - "Project Leads: `r project_lead`"
+  - "Prepared for: `r params$partner` (`r params$partner_email`)"
+  - "Prepared by: `r params$pri_bio`"
+  - "Project Lead: `r project_lead`"
+  - "email: `r email`"
 ---
 
 ```{r}

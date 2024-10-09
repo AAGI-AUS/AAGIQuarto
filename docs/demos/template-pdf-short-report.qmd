@@ -6,6 +6,8 @@ params:
   uni: CU
   pri_bio: Your.Name
   project-number: ABC1234-567XYZ
+  partner: collab_partner
+  partner_email: colla_partner@email.com.au
 bibliography: references.bib
 date: last-modified
 version-number: 1.0.0
@@ -73,8 +75,8 @@ if(params$uni == "CU"){
 
 ---
 author:
-  - "`r params$pri_bio`"
-  - Author 2
+  - "Prepared for: `r params$partner` (`r params$partner_email`)"
+  - "Prepared by: `r params$pri_bio`, Author 2"
   - "Project Lead: `r project_lead`"
 email: "`r email`"
 ---
