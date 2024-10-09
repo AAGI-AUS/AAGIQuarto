@@ -24,6 +24,7 @@ For each format, there is a template file available. See:
 - **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](demos/template-pdf-short-report+short+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
 - **AAGI PDF Report:** [AAGI PDF Report Demo](demos/template-pdf-report+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
 - **AAGI Word Document Report:** [AAGI Word Document Demo](demos/template-docx-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd))
+- **AAGI Word Document Short Report:** [AAGI Word Document Short Demo](demos/template-docx-short-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-short-report.qmd))
 
 ### Presentation Formats
 
