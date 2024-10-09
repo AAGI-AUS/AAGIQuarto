@@ -1,65 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "",
-    "text": "The AAGIQuarto Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#installing",
-    "href": "index.html#installing",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "Installing",
-    "text": "Installing\nquarto use template AAGI-AUS/AAGIQuarto\nThis will install the extension and create an example qmd file that you can use as a starting place for your article.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#example",
-    "href": "index.html#example",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "Example",
-    "text": "Example\nFor each format, there is a template file available. See:\n\nReport Formats\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\n\n\n\nPresentation Formats\n\nAAGI RevealJS Presentation: AAGI RevealJS Slide Demo (Source)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#using",
-    "href": "index.html#using",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "Using",
-    "text": "Using\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for MS Word output\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#updating",
-    "href": "index.html#updating",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "Updating",
-    "text": "Updating\nAs we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:.\ncd your_quarto_project_folder\nquarto update AAGI-AUS/AAGIQuarto",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#acknowledgments",
-    "href": "index.html#acknowledgments",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nThanks to @coatless for his assistance in setting up this Quarto extension.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
     "objectID": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
     "href": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
     "title": "AAGI",
@@ -107,6 +47,66 @@
     "title": "AAGI",
     "section": "More Information",
     "text": "More Information\nYou can learn more about controlling the appearance of RevealJS output here: https://quarto.org/docs/presentations/revealjs/"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "The AAGIQuarto Quarto theme extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#installing",
+    "href": "index.html#installing",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "Installing",
+    "text": "Installing\nquarto use template AAGI-AUS/AAGIQuarto\nThis will install the extension and create an example qmd file that you can use as a starting place for your article.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#example",
+    "href": "index.html#example",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "Example",
+    "text": "Example\nFor each format, there is a template file available. See:\n\nReport Formats\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\n\n\n\nPresentation Formats\n\nAAGI RevealJS Presentation: AAGI RevealJS Slide Demo (Source)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#using",
+    "href": "index.html#using",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "Using",
+    "text": "Using\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for MS Word output\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#updating",
+    "href": "index.html#updating",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "Updating",
+    "text": "Updating\nAs we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:\ncd your_quarto_project_folder\nquarto update AAGI-AUS/AAGIQuarto",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nThanks to @coatless for his assistance in setting up this Quarto extension.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "release-notes.html",
