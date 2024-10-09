@@ -62,48 +62,6 @@ if (params$uni == "CU") {
 Pro_Num = params$project_num
 ```
 
-```{=latex}
-%\begin{titlepage}
-
-%\thispagestyle{Title_page}
-
-%\vspace*{-2cm}
-
-%  \begin{center}
-%    \includegraphics[height=3cm]{assets/AAGI_logo.pdf}    
-%  \end{center}
-
-%  \vfill
-  
-%  \rule{\textwidth}{0.5pt}
-
-%  \begin{FlushRight}
-
-%    \Huge
-%    \textcolor{aagiteal}{\textbf{Analytics for the Australian Grains Industry 
-%      -\\ `r university` (AAGI-`r params$uni`)\\
-%      Technical Report Series: 123}}\\[6mm]
-      
-%    \Large
-%    {\textbf{Informative title for report}}\\
-%    \vspace{2mm}{\textbf{Report for `r Pro_Num`}}\\[5mm]
-
-%    \normalsize
-%    \textbf{Your Name}\\
-%    \vspace*{0.4cm}
-%    \textbf{Email:}\; \texttt{%
-%      \href{mailto:`r email`}%
-%      {`r email`}}\\[8mm]
-%    \textbf{Project Leads: `r project_lead`}\\[8mm]
-      
-%    \today
-%  \end{FlushRight}
-%  \rule{\textwidth}{0.5pt}
-  
-%  \vfill
-  
-%\end{titlepage}
-```
 ---
 title: "Analytics for the Australian Grains Industry - `r university` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
 subtitle: "Descriptive title for report  \n Report for `r Pro_Num`"
@@ -124,6 +82,11 @@ library(dplyr)
 
 # set ggplot2 theme
 theme_set(theme_aagi())
+
+# set flextable theme
+set_flextable_defaults(
+  theme_fun = theme_ft_aagi
+)
 ```
 
 \newpage
@@ -173,6 +136,33 @@ Approach taken for data analysis.
 # Results and Discussion
 
 Findings and their implications.
+
+# Figure example
+
+```{r}
+#| label: fig-example
+#| fig-cap: "An example figure using {ggplot2}."
+
+ggplot(data = pressure, aes(x = temperature, 
+                            y = pressure)) + 
+  geom_point() +
+  theme_aagi()
+
+```
+
+# Table example
+
+```{r}
+#| label: tbl-example
+#| tbl-cap: "An example table using {flextable}."
+
+ft <- flextable(head(airquality)) |>
+  theme_ft_aagi() |>
+  autofit()
+
+ft
+
+```
 
 # Metadata and Datasets (Optional)
 
