@@ -40,6 +40,7 @@ To use the formatted output, save your qmd file into the extension folder that y
 Then, in the output format use:
 
 - `aagi-docx+report`, for MS Word output
+- `aagi-docx+short+report`, for a short MS Word output
 - `aagi-pptx`, for MS PPT output
 - `aagi-revealjs`, for a revealjs presentation
 - `aagi-pdf+report`, for a full length PDF report
