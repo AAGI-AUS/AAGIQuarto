@@ -12,7 +12,7 @@ date: last-modified
 version-number: 1.0.0
 format: 
   docx:
-    reference-doc: template.docx
+    reference-doc: docx-short-report\template.docx
 ---
 
 ```{r setup}
