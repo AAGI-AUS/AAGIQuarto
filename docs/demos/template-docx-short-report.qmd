@@ -79,8 +79,8 @@ if(params$uni == "CU"){
 
 ---
 author:
-  - "`r params$pri_bio`"
-  - Author 2
+  - "Prepared for: `r params$partner` (`r params$partner_email`)"
+  - "Prepared by: `r params$pri_bio`, Author 2"
   - "Project Lead: `r project_lead`"
   - "email: `r email`"
 subject: "`r email`"
