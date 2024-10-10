@@ -60,6 +60,55 @@ author:
 email: "`r email`"
 ---
 
+```{r}
+#| label: install-load-aagi-theme
+#| include: false
+
+# Install the {pak} package to install AAGI package
+if(!requireNamespace("pak", quietly = TRUE)){
+  install.packages("pak")
+}
+
+# {flextable} is only for word docx output
+if(!require(flextable)){
+  install.packages("flextable")
+}
+
+if(!require(AAGIThemes)){
+  pak::pkg_install(
+    "AAGI-AUS/AAGIThemes",
+    dependencies = TRUE, upgrade = FALSE
+  )
+}
+
+if(!require(AAGIPalettes)){
+  pak::pkg_install(
+    "AAGI-AUS/AAGIPalettes",
+    dependencies = TRUE, upgrade = FALSE
+  )
+}
+
+```
+
+```{r}
+#| label: set-the-default-layout
+#| include: false
+
+library(flextable)
+library(ggplot2)
+library(AAGIThemes)
+library(AAGIPalettes)
+
+# set ggplot2 theme
+theme_set(theme_aagi())
+
+# set flextable theme
+set_flextable_defaults(
+  theme_fun = theme_ft_aagi
+)
+
+```
+
 # To compile a presentation, please see:
 
 -   Revealjs: <https://quarto.org/docs/presentations/revealjs/>
