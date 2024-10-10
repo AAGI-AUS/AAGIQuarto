@@ -80,3 +80,9 @@ td {
   font-size: 0.25em;
   color: theme-color("aagi-grey")
 }
+
+.reveal .slide-logo {
+  width: 180px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
