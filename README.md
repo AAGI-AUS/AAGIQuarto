@@ -8,15 +8,15 @@ See the included template and demo file for each format here:
 
 ### Report Formats
 
-- **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](demos/template-pdf-short-report+short+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
-- **AAGI PDF Report:** [AAGI PDF Report Demo](demos/template-pdf-report+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
-- **AAGI Word Document Report:** [AAGI Word Document Demo](demos/template-docx-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd))
+- **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-short-report+short+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
+- **AAGI PDF Report:** [AAGI PDF Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
+- **AAGI Word Document Report:** [AAGI Word Document Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-docx-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd))
 - **AAGI Word Document Short Report:** [AAGI Word Document Short Demo](demos/template-docx-short-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-short-report.qmd))
 
 ### Presentation Formats
 
-- **AAGI RevealJS Presentation:** [AAGI RevealJS Slide Demo](demos/template-revealjs.qmd) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd))
-- **AAGI PowerPoint Presentation:** [AAGI PPT Slide Demo](demos/template-pptx.pptx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pptx.qmd))
+- **AAGI RevealJS Presentation:** [AAGI RevealJS Slide Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-revealjs.qmd) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd))
+- **AAGI PowerPoint Presentation:** [AAGI PPT Slide Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pptx.pptx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pptx.qmd))
 
 ## Installing
 
