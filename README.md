@@ -44,7 +44,7 @@ Then, in the output format use:
 - `aagi-revealjs`, for a revealjs presentation
 - `aagi-pdf+report`, for a full length PDF report
 - `aagi-pdf+short+report`, for a short PDF report
-- 
+
 ## Updating
 
 As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:
