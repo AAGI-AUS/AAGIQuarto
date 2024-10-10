@@ -69,7 +69,7 @@ if(!requireNamespace("pak", quietly = TRUE)){
   install.packages("pak")
 }
 
-# {flextable} is only for word docx output
+# {flextable} can be used for both word and pdf output
 if(!require(flextable)){
   install.packages("flextable")
 }
