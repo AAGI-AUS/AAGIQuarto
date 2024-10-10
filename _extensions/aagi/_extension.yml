@@ -36,6 +36,7 @@ contributes:
         - assets/partners.pdf
     docx+report:
       reference-doc: docx-report/template.docx
+      toc: true
     docx+short+report:
       reference-doc: docx-short-report/template.docx
     pptx:
