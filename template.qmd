@@ -8,7 +8,7 @@ format:
   aagi-pdf+report: default # full length pdf report
   aagi-pdf+short+report: default # short pdf report (typically one page)
   aagi-docx+report: default # full length word docx report
-  aagi-docx+short+report: default # short word docx report (typicall one page)
+  aagi-docx+short+report: default # short word docx report (typically one page)
 execute: 
   echo: false
 # Delete these if you're using the template for presentation
