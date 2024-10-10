@@ -77,14 +77,14 @@ if(!require(flextable)){
 if(!require(AAGIThemes)){
   pak::pkg_install(
     "AAGI-AUS/AAGIThemes",
-    dependencies = TRUE, upgrade = FALSE
+    dependencies = TRUE, upgrade = TRUE
   )
 }
 
 if(!require(AAGIPalettes)){
   pak::pkg_install(
     "AAGI-AUS/AAGIPalettes",
-    dependencies = TRUE, upgrade = FALSE
+    dependencies = TRUE, upgrade = TRUE 
   )
 }
 
