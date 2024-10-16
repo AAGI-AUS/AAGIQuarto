@@ -34,7 +34,7 @@
     "href": "index.html#using",
     "title": "AAGI Quarto Templates Extension",
     "section": "Using",
-    "text": "Using\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for a full length MS Word report\naagi-docx+short+report, for a short MS Word report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report",
+    "text": "Using\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for a full length MS Word report\naagi-docx+short+report, for a short MS Word report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report\n\n\nTemplate\nIf you use the bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.",
     "crumbs": [
       "Home"
     ]
