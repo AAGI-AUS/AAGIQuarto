@@ -46,6 +46,11 @@ Then, in the output format use:
 - `aagi-pdf+report`, for a full length PDF report
 - `aagi-pdf+short+report`, for a short PDF report
 
+### Template
+
+If you use the `bash` command above to install the extension and create a sub directory following the command prompt, there
+will be a .qmd file created using the name that you input for the sub directory.
+
 ## Updating
 
 As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:
