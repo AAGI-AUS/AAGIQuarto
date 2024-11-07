@@ -7,6 +7,14 @@ format:
     toc: true
 ---
 
+# 0.1.1 2024-10-28
+
+## Minor Changes
+
+- Add example outputs for reports using AAGI themes for graphs and tables
+- Add starter pack instructions for easily creating an AAGI file rather than setting up your own YAML
+- Fixed links in README
+
 # 0.1.0 2024-09-26
 
 ## Major Changes
