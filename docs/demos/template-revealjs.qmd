@@ -1,10 +1,28 @@
 ---
 title: "AAGI"
-author: "Analytics for the Australian Grains Industry"
+author:
+  - name: Adam Sparks
+    orcid: 0000-0002-0061-8359
+    email: adam.sparks@curtin.edu.au
+params:
+    affiliation: CU
 date: last-modified
 format:
   aagi-revealjs: default
 ---
+
+```{r}
+#| label: title affiliation
+#| include: false
+
+if (params$affiliat == "CU") {
+  university <- "Curtin University"
+} else if (params$affiliation == "UA") {
+  university <- "University of Adelaide"
+} else {
+  university <- "University of Queensland"
+}
+```
 
 ```{r}
 #| label: load
@@ -39,7 +57,7 @@ This Quarto extension allows you to create your slides using a theme that follow
 
 [AAGIQuarto](https://github.com/AAGI-AUS/AAGIQuarto) provides basic theming of HTML tables through CSS, for example, this is a markdown table.
 
-```
+```         
 | Syntax      | Description |
 | ----------- | ----------- |
 | Header      | Title       |
@@ -48,10 +66,10 @@ This Quarto extension allows you to create your slides using a theme that follow
 
 That renders like this.
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+| Syntax    | Description |
+|-----------|-------------|
+| Header    | Title       |
+| Paragraph | Text        |
 
 ## Advanced Tables
 
@@ -71,7 +89,6 @@ gt <- gt(head(airquality) |>
 gt <- theme_gt_aagi(gt)
 gt
 ```
-
 
 ## Basic Figures
 
@@ -133,7 +150,7 @@ ggplot() +
 
 ## Slides With Columns
 
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
 This is a column on the left.
 :::
@@ -141,17 +158,22 @@ This is a column on the left.
 ::: {.column width="50%"}
 This is a column on the right.
 :::
-::::
+:::::
 
 ## More Information
 
 You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
 
+```{=html}
 <!-- This background won't show properly in the example rendered slide, but when used with `quarto use template AAGI-AUS/AAGIQuarto`
 you will have the closing slide display the same image as the title slide under "Thank You" (or the H1 text of your choosing)
 -->
-# Thank You{background-image="_extensions/AAGI-AUS/aagi/assets/title-slide-main.png" background-size="1050px auto" background-position="50% 85%"}
+```
 
+# Thank You {background-image="_extensions/AAGI-AUS/aagi/assets/title-slide-main.png" background-size="1050px auto" background-position="50% 85%"}
+
+```{=html}
 <!-- Uncomment if you have a bibliography
 ## References 
 -->
+```
