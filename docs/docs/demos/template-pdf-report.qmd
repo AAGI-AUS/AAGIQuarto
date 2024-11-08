@@ -1,0 +1,193 @@
+---
+format:
+  aagi-pdf+report
+execute: 
+  echo: false
+knitr:
+  opts_chunk:
+    fig.path: figures/
+    fig.pos: H
+params:
+  uni: CU
+  pri_bio: Your.Name
+  project_num: AAA--BBB
+  partner: collab_partner
+  partner_email: collab_partner@email.com.au
+bibliography: references.bib
+editor: visual
+---
+
+```{r}
+#| include: false
+#| label: param_uni
+
+if (params$uni == "CU") {
+  project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
+} else if (params$uni == "UA") {
+  project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
+} else {
+  project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
+}
+```
+
+```{r}
+#| include: false
+#| label: email for project lead
+
+if (params$uni == "CU") {
+  email = "cbada@curtin.edu.au"
+} else if (params$uni == "UA") {
+  email = paste(params$pri_bio, "@adelaide.edu.au", sep = "")
+} else {
+  email = paste(params$pri_bio, "@uq.edu.au")
+}
+```
+
+```{r}
+#| label: title param
+#| include: false
+
+if (params$uni == "CU") {
+  university <- "Curtin University"
+} else if (params$uni == "UA") {
+  university <- "University of Adelaide"
+} else {
+  university <- "University of Queensland"
+}
+
+```
+
+```{r}
+#| label: Project number
+#| include: false
+
+Pro_Num = params$project_num
+```
+
+---
+title: "Analytics for the Australian Grains Industry - `r university` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
+subtitle: "Descriptive title for report  \n Report for `r Pro_Num`"
+author:
+  - "Prepared for: `r params$partner` (`r params$partner_email`)"
+  - "Prepared by: `r params$pri_bio`, Author 2"
+  - "Project Lead: `r project_lead`"
+email: "`r email`"
+---
+
+```{r}
+#| label: load
+#| message: false
+
+library(ggplot2)
+library(AAGIThemes)
+library(flextable)
+library(dplyr)
+
+# set ggplot2 theme
+theme_set(theme_aagi())
+
+# set flextable theme
+set_flextable_defaults(
+  theme_fun = theme_ft_aagi
+)
+```
+
+\newpage
+
+```{=latex}
+\clearpage
+\setcounter{page}{1}
+```
+\tableofcontents
+
+\newpage
+
+# Executive summary
+
+What was provided by AAGI and the main results?
+
+# Introduction
+
+-   Goals of the research project.
+
+-   Background, context and rationale behind the research.
+
+# Experimental/Trial Design
+
+-   Trial design type and layout.
+
+-   Treatments, number of replicates.
+
+-   Specific considerations for small plots, glasshouse, genetics, breeding trials, OFE projects, or bioinformatics.
+
+# Exploratory Data Analysis and Data Visualisation
+
+-   Interpretation of plots and data.
+
+-   Rationale behind specific methods used.
+
+# Methods
+
+-   Detailed description of the procedures and methodologies used.
+
+-   Include versions/commits on developed pipelines, scripts, and input/output details if applicable.
+
+# Analysis (if separate from Methods)
+
+Approach taken for data analysis.
+
+# Results and Discussion
+
+Findings and their implications.
+
+# Figure example
+
+```{r}
+#| label: fig-example
+#| fig-cap: "An example figure using {ggplot2}."
+
+ggplot(data = pressure, aes(x = temperature, 
+                            y = pressure)) + 
+  geom_point() +
+  theme_aagi()
+
+```
+
+# Table example
+
+```{r}
+#| label: tbl-example
+#| tbl-cap: "An example table using {flextable}."
+
+ft <- flextable(head(airquality)) |>
+  theme_ft_aagi() |>
+  autofit()
+
+ft
+
+```
+
+# Metadata and Datasets (Optional)
+
+-   md5sums for input data and outputs (if applicable).
+
+-   Git commit numbers and tags.
+
+-   Location of outputs (FAIR Data).
+
+-   DOI for AAGI outputs.
+
+# Map (Location, Optional)
+
+Include if relevant to the project.
+
+# References
+
+Cited works and literature. @Box1976
+
+::: {#refs}
+:::
+
+# Appendix (Optional)
+
+Additional supporting information.

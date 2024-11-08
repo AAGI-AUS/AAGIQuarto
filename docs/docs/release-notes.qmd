@@ -1,0 +1,22 @@
+---
+title: "Release Notes"
+date-modified: last-modified
+engine: markdown
+format: 
+  html:
+    toc: true
+---
+
+# 0.1.1 2024-10-28
+
+## Minor Changes
+
+- Add example outputs for reports using AAGI themes for graphs and tables
+- Add starter pack instructions for easily creating an AAGI file rather than setting up your own YAML
+- Fixed links in README
+
+# 0.1.0 2024-09-26
+
+## Major Changes
+
+* This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX

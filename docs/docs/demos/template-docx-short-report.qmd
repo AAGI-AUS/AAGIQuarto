@@ -1,0 +1,128 @@
+---
+# Report details
+title: "`r paste('Progress report for project', params[['project-number']])`"
+subtitle: "Subtitle here"
+category: "`r paste(params[['project-number']])`"
+params:
+  uni: CU
+  pri_bio: Your.Name
+  project-number: ABC1234-567XYZ
+  partner: collab_partner
+  partner_email: collab_partner@email.com.au
+bibliography: references.bib
+date: last-modified
+version-number: 1.0.0
+format: aagi-docx+short+report
+
+---
+
+```{r setup}
+#| include: false
+
+# library(rmarkdown)
+
+# This is probably necessary on Linux (with Proxima Nova and Cairo
+# installed). We may need something else on Mac.
+if (toupper(Sys.info()["sysname"]) == "LINUX" ||
+  toupper(Sys.info()["sysname"]) == "DARWIN") {
+  knitr::opts_chunk$set(dev = c("cairo_pdf"))
+}
+
+if (require(xtable)) {
+  options(xtable.comment = FALSE)
+}
+if (require(formatR)) {
+  options(formatR.arrow = FALSE)
+  knitr::opts_chunk$set(
+    tidy = TRUE,
+    tidy.opts = list(width.cutoff = 60)
+  )
+}
+
+# Integrating with AAGIPalettes, AAGIThemes
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
+}
+if (!require(AAGIThemes)) {
+  pak::pkg_install(
+    "AAGI-AUS/AAGIThemes",
+    dependencies = TRUE, upgrade = FALSE
+  )
+}
+if (!require(AAGIPalettes)) {
+  pak::pkg_install(
+    "AAGI-AUS/AAGIPalettes",
+    dependencies = TRUE, upgrade = FALSE
+  )
+}
+if (!require(flextable)) {
+  install.packages("flextable")
+}
+library(AAGIThemes)
+library(AAGIPalettes)
+library(flextable)
+```
+
+```{r sp}
+#| include: false
+#| label: config-for-title
+
+if(params$uni == "CU"){
+  project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
+  email = "cbada@curtin.edu.au"
+} else if(params$uni == "UA"){
+  project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
+  email = paste(params$pri_bio, "adelaide.edu.au", sep = "")
+} else {
+  project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
+  email = paste(params$pri_bio, "@uq.edu.au", sep = "")
+}
+```
+
+---
+author:
+  - "Prepared for: `r params$partner` (`r params$partner_email`)"
+  - "Prepared by: `r params$pri_bio`, Author 2"
+  - "Project Lead: `r project_lead`"
+  - "email: `r email`"
+subject: "`r email`"
+---
+
+# Section 1
+
+This template is designed for smaller ("one-page") AAGI reports. The AAGI logo and partners footer appear only on this first page.
+
+```{r}
+#| label: tbl-example
+#| tbl-cap: "Here is a table."
+
+ft <- flextable(head(airquality)) |>
+  theme_ft_aagi() |>
+  autofit()
+
+ft
+
+```
+
+## This is a subsection heading
+
+This is an example of a reference [@blah]. References appear at the end of the report by default, after the last heading `# References` on the last line of this .Rmd file (but feel free to change the title to whatever you like).
+
+Example R code, using the [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/) package to produce Figure @fig-example1.
+
+```{r plot-eg}
+#| label: fig-example1
+#| fig-cap: "Here is a plot."
+#| fig-height: 3
+plot_aagi(pressure)
+```
+
+### This is a subsubsection heading
+
+And so on.
+
+# Next Section
+
+Add as many sections as needed.
+
+# References

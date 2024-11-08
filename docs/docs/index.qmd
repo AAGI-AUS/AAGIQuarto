@@ -13,7 +13,7 @@ The `AAGIQuarto` Quarto theme extension provides official Analytics for the Aust
 quarto use template AAGI-AUS/AAGIQuarto
 ```
 
-This will install the extension and create an example .qmd file that you can use as a starting place for your article or presentation.
+This will install the extension and create an example qmd file that you can use as a starting place for your article.
 
 ## Example
 

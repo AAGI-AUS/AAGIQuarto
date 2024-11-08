@@ -1,0 +1,179 @@
+---
+title: "AAGI"
+author:
+  - name: Adam Sparks
+    orcid: 0000-0002-0061-8359
+    email: adam.sparks@curtin.edu.au
+params:
+    affiliation: CU
+date: last-modified
+format:
+  aagi-revealjs: default
+---
+
+```{r}
+#| label: title affiliation
+#| include: false
+
+if (params$affiliat == "CU") {
+  university <- "Curtin University"
+} else if (params$affiliation == "UA") {
+  university <- "University of Adelaide"
+} else {
+  university <- "University of Queensland"
+}
+```
+
+```{r}
+#| label: load
+#| message: false
+
+if (!require("pak")) install.packages("pak")
+
+if (!require("AAGIPalettes")) {
+  pak::pkg_install("AAGI-AUS/AAGIPalettes")
+}
+
+if (!require("AAGIThemes")) {
+  pak::pkg_install("AAGI-AUS/AAGIThemes")
+}
+
+if (!require("gapminder")) {
+  pak::pkg_install("gapminder")
+}
+
+library(ggplot2)
+library(AAGIThemes)
+
+# set ggplot2 theme
+theme_set(theme_aagi())
+```
+
+## An AAGI Reveal.js Theme for Quarto
+
+This Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide.
+
+## Basic Tables
+
+[AAGIQuarto](https://github.com/AAGI-AUS/AAGIQuarto) provides basic theming of HTML tables through CSS, for example, this is a markdown table.
+
+```         
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+```
+
+That renders like this.
+
+| Syntax    | Description |
+|-----------|-------------|
+| Header    | Title       |
+| Paragraph | Text        |
+
+## Advanced Tables
+
+For more advanced tables, we suggest pairing with the R package [{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) to provide AAGI themed tables using `theme_gt_aagi()`, that offers more flexibility in formatting.
+
+```{r}
+#| label: AAGI table
+#| message: false
+#| echo: true
+
+library(dplyr)
+library(gt)
+library(AAGIThemes)
+
+gt <- gt(head(airquality) |>
+ mutate(`Month Name` = "May"))
+gt <- theme_gt_aagi(gt)
+gt
+```
+
+## Basic Figures
+
+[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming basic figures in R, for example.
+
+```{r}
+#| label: graphics-figure
+#| message: false
+library(AAGIThemes)
+plot_aagi(pressure)
+```
+
+::: aside
+This is an aside.
+:::
+
+## Figures with {ggplot2}
+
+[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming [{ggplot2}](https://ggplot2.tidyverse.org) outputs in R, for example.
+
+```{r}
+#| label: ggplot2-figure
+#| message: false
+#Prepare data
+
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+library(AAGIThemes)
+
+facet <- gapminder |>
+  filter(continent != "Americas") |>
+  group_by(continent, year) |>
+  summarise(pop = sum(as.numeric(pop)))
+#> `summarise()` has grouped output by 'continent'. You can override using the
+#> `.groups` argument.
+
+col_values <- c(
+  AAGIPalettes::colour_as_hex("AAGI Teal"),
+  AAGIPalettes::colour_as_hex("AAGI Green"),
+  AAGIPalettes::colour_as_hex("AAGI Yellow"),
+  AAGIPalettes::colour_as_hex("AAGI Blue")
+)
+
+#Make plot
+ggplot() +
+  geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +
+  scale_fill_manual(values = col_values) +
+  facet_wrap(~ continent, ncol = 5) +
+  scale_y_continuous(breaks = c(0, 2000000000, 4000000000),
+                    labels = c(0, "2bn", "4bn")) +
+  theme_aagi() +
+  geom_hline(yintercept = 0,
+            linewidth = 1,
+            colour = "#474747") +
+  theme(legend.position = "none", axis.text.x = element_blank()) +
+  labs(title = "Asia's rapid growth", subtitle = "Population growth by continent, 1952-2007")
+```
+
+## Slides With Columns
+
+::::: columns
+::: {.column width="50%"}
+This is a column on the left.
+:::
+
+::: {.column width="50%"}
+This is a column on the right.
+:::
+:::::
+
+## More Information
+
+You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+
+```{=html}
+<!-- This background won't show properly in the example rendered slide, but when used with `quarto use template AAGI-AUS/AAGIQuarto`
+you will have the closing slide display the same image as the title slide under "Thank You" (or the H1 text of your choosing)
+-->
+```
+
+# Thank You {background-image="_extensions/AAGI-AUS/aagi/assets/title-slide-main.png" background-size="1050px auto" background-position="50% 85%"}
+
+```{=html}
+<!-- Uncomment if you have a bibliography
+## References 
+-->
+```
