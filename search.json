@@ -24,7 +24,7 @@
     "href": "index.html#example",
     "title": "AAGI Quarto Templates Extension",
     "section": "Example",
-    "text": "Example\nFor each format, there is a template file available.\n\nReport Formats\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\nPresentation Formats\n\nAAGI RevealJS Presentation: AAGI RevealJS Slide Demo (Source)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)",
+    "text": "Example\nFor each format, there is a template file available.\n\nReport Formats\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\nPresentation Formats\n\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)\nAAGI RevealJS Presentation: AAGI RevealJS Slide Demo (Source)\n\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.",
     "crumbs": [
       "Home"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#using",
     "title": "AAGI Quarto Templates Extension",
     "section": "Using",
-    "text": "Using\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for a full length MS Word report\naagi-docx+short+report, for a short MS Word report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report\n\n\nTemplate\nIf you use the bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.",
+    "text": "Using\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for a full length MS Word report\naagi-docx+short+report, for a short MS Word report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report\n\n\nTemplate\nIf you use the bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.",
     "crumbs": [
       "Home"
     ]
