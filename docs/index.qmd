@@ -17,7 +17,7 @@ This will install the extension and create an example qmd file that you can use 
 
 ## Example
 
-For each format, there is a template file available. See:
+For each format, there is a template file available.
 
 ### Report Formats
 
