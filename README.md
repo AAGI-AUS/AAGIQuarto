@@ -50,6 +50,8 @@ Then, in the output format use:
 If you use the `bash` command above to install the extension and create a sub directory following the command prompt, there
 will be a .qmd file created using the name that you input for the sub directory.
 
+By default, these templates use [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/) and [{AAGIPalettes}](https://aagi-aus.github.io/AAGIPalettes/) for R graphical and tabular outputs.
+
 ## Updating
 
 As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:
