@@ -24,7 +24,7 @@
     "href": "index.html#example",
     "title": "AAGI Quarto Templates Extension",
     "section": "Example",
-    "text": "Example\nFor each format, there is a template file available. See:\n\nReport Formats\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\nPresentation Formats\n\nAAGI RevealJS Presentation: AAGI RevealJS Slide Demo (Source)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)",
+    "text": "Example\nFor each format, there is a template file available.\n\nReport Formats\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\nPresentation Formats\n\nAAGI RevealJS Presentation: AAGI RevealJS Slide Demo (Source)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)",
     "crumbs": [
       "Home"
     ]
