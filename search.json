@@ -24,7 +24,7 @@
     "href": "index.html#example",
     "title": "AAGI Quarto Templates Extension",
     "section": "Example",
-    "text": "Example\nFor each format, there is a template file available.\n\nReport Formats\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\nPresentation Formats\n\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)\nAAGI RevealJS Presentation: AAGI RevealJS Slide Demo (Source)\n\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.",
+    "text": "Example\nFor each format, there is a template file available.\n\nReport Formats\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\nPresentation Formats\n\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)\nAAGI revealjs Presentation: AAGI revealjs Slide Demo (Source)\n\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.",
     "crumbs": [
       "Home"
     ]
@@ -139,6 +139,6 @@
     "href": "demos/template-revealjs.html#more-information",
     "title": "AAGI",
     "section": "More Information",
-    "text": "More Information\nYou can learn more about controlling the appearance of RevealJS output here: https://quarto.org/docs/presentations/revealjs/"
+    "text": "More Information\nYou can learn more about controlling the appearance of revealjs output here: https://quarto.org/docs/presentations/revealjs/"
   }
 ]
