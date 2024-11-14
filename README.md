@@ -19,7 +19,7 @@ See the included template and demo file for each format here:
 
 ### Presentation Formats
 
-- **AAGI RevealJS Presentation:** [AAGI RevealJS Slide Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-revealjs.html#/title-slide) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd)) (this is an AAGIQuarto exclusive)
+- **AAGI revealjs Presentation:** [AAGI revealjs Slide Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-revealjs.html#/title-slide) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd)) (this is an AAGIQuarto exclusive)
 - **AAGI PowerPoint Presentation:** [AAGI PPT Slide Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pptx.pptx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pptx.qmd))
 
 ## Installing

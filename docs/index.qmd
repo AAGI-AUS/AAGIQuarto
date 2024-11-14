@@ -32,7 +32,7 @@ For each format, there is a template file available.
 ### Presentation Formats
 
 - **AAGI PowerPoint Presentation:** [AAGI PPT Slide Demo](demos/template-pptx.pptx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pptx.qmd))
-- **AAGI RevealJS Presentation:** [AAGI RevealJS Slide Demo](demos/template-revealjs.qmd) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd)) 
+- **AAGI revealjs Presentation:** [AAGI revealjs Slide Demo](demos/template-revealjs.qmd) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd)) 
   - For documentation on using reveal.js slides in Quarto, please see, <https://quarto.org/docs/presentations/revealjs/>.
 
 ## Using

@@ -162,7 +162,7 @@ This is a column on the right.
 
 ## More Information
 
-You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+You can learn more about controlling the appearance of revealjs output here: <https://quarto.org/docs/presentations/revealjs/>
 
 ```{=html}
 <!-- This background won't show properly in the example rendered slide, but when used with `quarto use template AAGI-AUS/AAGIQuarto`
