@@ -49,8 +49,6 @@ library(AAGIThemes)
 theme_set(theme_aagi())
 ```
 
-## Hello AAGI
-
 ## An AAGI Reveal.js Theme for Quarto
 
 This Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide.
