@@ -117,7 +117,10 @@ set_flextable_defaults(
 
 # Executive summary
 
-What was provided by AAGI and the main results?
+What was provided by AAGI and the main results? 
+
+- Citation example (@sparks2018nasapower), another example @butler2017asreml and @brien2020asremlplus.
+
 
 # Introduction
 
@@ -166,6 +169,16 @@ Findings and their implications.
 # Map (Location, Optional)
 
 Include if relevant to the project.
+
+# Conclusion or Discussion
+
+-  Summary of the main findings.
+-  Implications for the industry (for example).
+
+# Acknowledgements
+
+-   Funding sources.
+-   Collaborators.
 
 # References
 
