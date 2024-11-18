@@ -87,3 +87,10 @@ td {
   right: 10px;
   max-height: 86px !important;
 }
+
+.reveal .slide-number {
+  position: absolute;
+  bottom: 10px !important;
+  right: 10px !important;
+  top: unset !important;
+}
