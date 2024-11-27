@@ -64,4 +64,9 @@ cd your_quarto_project_folder
 quarto update AAGI-AUS/AAGIQuarto
 ```
 
+## Logo Rights
+
+The logo of this project and the AAGI strategic partners do not come under MIT License.
+AAGI retains full rights to the AGGI logo and the strategic retain full rights to their own logos, respectively.
+
 ![](docs/demos/assets/Partners.svg)
