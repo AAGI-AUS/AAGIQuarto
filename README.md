@@ -67,6 +67,6 @@ quarto update AAGI-AUS/AAGIQuarto
 ## Logo Rights
 
 The logo of this project and the AAGI strategic partners do not come under MIT License.
-AAGI retains full rights to the AGGI logo and the strategic retain full rights to their own logos, respectively.
+AAGI retains full rights to the AGGI logo and the GRDC and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.
 
 ![](docs/demos/assets/Partners.svg)
