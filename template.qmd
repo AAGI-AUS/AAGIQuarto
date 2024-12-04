@@ -52,6 +52,7 @@ if (params$uni == "CU") {
 
 ---
 title: "Analytics for the Australian Grains Industry - `r university` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
+# To force line spacing put two spaces before \n instead of one
 subtitle: "Descriptive title for report  \n Report for `r params$project_num`"
 author:
   - "Prepared for: `r params$partner` (`r params$partner_email`)"
@@ -117,10 +118,9 @@ set_flextable_defaults(
 
 # Executive summary
 
-What was provided by AAGI and the main results? 
+What was provided by AAGI and the main results?
 
-- Citation example (@sparks2018nasapower), another example @butler2017asreml and @brien2020asremlplus.
-
+-   Citation example (@sparks2018nasapower), another example @butler2017asreml and @brien2020asremlplus.
 
 # Introduction
 
@@ -172,8 +172,8 @@ Include if relevant to the project.
 
 # Conclusion or Discussion
 
--  Summary of the main findings.
--  Implications for the industry (for example).
+-   Summary of the main findings.
+-   Implications for the industry (for example).
 
 # Acknowledgements
 
