@@ -53,6 +53,13 @@ if (!require(AAGIPalettes)) {
     dependencies = TRUE, upgrade = FALSE
   )
 }
+if (!require(flextable)) {
+  pak::pkg_install(
+    "flextable",
+    dependencies = TRUE, upgrade = FALSE
+  )
+}
+library(flextable)
 library(AAGIThemes)
 library(AAGIPalettes)
 ```
@@ -83,15 +90,11 @@ email: "`r email`"
 
 # Section 1
 
-This template is designed for smaller ("one-page") AAGI reports.
-The AAGI logo and partners footer appear only on this first page.
+This template is designed for smaller ("one-page") AAGI reports. The AAGI logo and partners footer appear only on this first page.
 
-You can colour text/tables/etc using the various AAGI palette colours.
-Use `\textcolor{aagiteal}{...}` for `\textcolor{aagiteal}{AAGI Teal}`, or  `\textcolor{aagibrightgreen}{...}` for `\textcolor{aagibrightgreen}{AAGI Bright Green}`, for instance.
-@tbl-aagipalette shows the standard palette colours available for use.
+You can colour text/tables/etc using the various AAGI palette colours. Use `\textcolor{aagiteal}{...}` for `\textcolor{aagiteal}{AAGI Teal}`, or `\textcolor{aagibrightgreen}{...}` for `\textcolor{aagibrightgreen}{AAGI Bright Green}`, for instance. @tbl-aagipalette shows the standard palette colours available for use.
 
 ::: {#tbl-aagipalette}
-```{=tex}
   \centering
   \begin{tabular}{|c | c | c | c |}
     \hline
@@ -106,16 +109,13 @@ Use `\textcolor{aagiteal}{...}` for `\textcolor{aagiteal}{AAGI Teal}`, or  `\tex
     \cellcolor{aagigrey}\texttt{aagigrey} \\
     \hline
   \end{tabular} 
-```
 
 The AAGI palette colours.
 :::
 
-
 ## This is a subsection heading
 
-This is an example of a reference [@blah].
-References appear at the end of the report by default, after the last heading `# References` on the last line of this .Rmd file (but feel free to change the title to whatever you like).
+This is an example of a reference [@blah]. References appear at the end of the report by default, after the last heading `# References` on the last line of this .Rmd file (but feel free to change the title to whatever you like).
 
 \begin{note}
   {\bf\color{aagiteal!75!black} Example Note}\quad
@@ -131,6 +131,21 @@ Example R code, using the [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/)
 #| fig-height: 3
 plot_aagi(pressure)
 ```
+
+# Table example using {flextable}
+
+```{r}
+#| label: tbl-example
+#| tbl-cap: "An example table using {flextable}."
+
+ft <- flextable(head(airquality)) |>
+  theme_ft_aagi() |>
+  autofit()
+
+ft
+
+```
+
 
 ### This is a subsubsection heading
 

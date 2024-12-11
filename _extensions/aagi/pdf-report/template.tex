@@ -40,8 +40,16 @@ includefoot]{geometry}
 \setlength{\fboxsep}{0pt}
 
 % URL styling
-\usepackage{url}
+% Load hyperref (generally load this one last so all of the tex packages
+% play nice with each other)
+\usepackage[hyphens]{url}
 \let\harvardurl\url
+\usepackage[unicode]{hyperref}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=aagiteal,
+  urlcolor=aagiteal,
+  citecolor=aagiteal}
 
 % Tikzpictures/PGFplots (if desired)
 %\usepackage{tikz}
@@ -116,30 +124,30 @@ includefoot]{geometry}
 $pandoc.tex()$
 
 \begin{document}
-	
+
 	\begin{titlepage}
-		
+
 		\thispagestyle{Title_page}
-		
+
 		\vspace*{-2cm}
-		
+
 		\begin{center}
 			\includegraphics[height=3cm]{aagi_logo.pdf}
 		\end{center}
-		
+
 		\vfill
-		
+
 		\rule{\textwidth}{0.5pt}
-		
+
 		\begin{FlushRight}
-			
+
 			\huge
 			\textcolor{aagiteal}{\textbf{$title$}}\\[6mm]
-			
+
 			\large
 			{\textbf{$subtitle$}}\\[5mm]
 			\vspace{2mm}
-			
+
 			\normalsize
 			$for(author)$
 			$author$
@@ -152,11 +160,11 @@ $pandoc.tex()$
   \rule{\textwidth}{0.5pt}
 
   \vfill
-		
+
 	\end{titlepage}
-	
+
 	\newpage
-	
+
 	$body$
-	
+
 \end{document}

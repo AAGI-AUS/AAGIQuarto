@@ -188,15 +188,19 @@ $for(header-includes)$
   $header-includes$
 $endfor$
 
-% Load hyperref (generally load this one last so all of the tex packages
-% play nice with each other)
-\usepackage[hyphens]{url}
-\usepackage[unicode]{hyperref}
+% URL styling
 \hypersetup{%
   colorlinks=true,
   linkcolor=aagiteal,
   urlcolor=aagiteal,
   citecolor=aagiteal}
+
+ % Hyperref for links/cross-referencing
+\def\sectionautorefname{Section}
+\def\subsectionautorefname{Subsection}
+\def\appendixautorefname{Appendix}
+\def\figureautorefname{Figure}
+\def\tableautorefname{Table}
 
 $if(links-as-footnotes)$
   % make links footnotes instead of hotlinks:
