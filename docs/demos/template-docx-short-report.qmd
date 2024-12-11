@@ -13,7 +13,6 @@ bibliography: references.bib
 date: last-modified
 version-number: 1.0.0
 format: aagi-docx+short+report
-
 ---
 
 ```{r setup}
