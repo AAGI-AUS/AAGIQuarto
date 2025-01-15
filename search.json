@@ -70,39 +70,6 @@
     ]
   },
   {
-    "objectID": "release-notes.html",
-    "href": "release-notes.html",
-    "title": "Release Notes",
-    "section": "",
-    "text": "Add example outputs for reports using AAGI themes for graphs and tables\nAdd starter pack instructions for easily creating an AAGI file rather than setting up your own YAML\nFixed links in README",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "release-notes.html#minor-changes",
-    "href": "release-notes.html#minor-changes",
-    "title": "Release Notes",
-    "section": "",
-    "text": "Add example outputs for reports using AAGI themes for graphs and tables\nAdd starter pack instructions for easily creating an AAGI file rather than setting up your own YAML\nFixed links in README",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "release-notes.html#major-changes",
-    "href": "release-notes.html#major-changes",
-    "title": "Release Notes",
-    "section": "Major Changes",
-    "text": "Major Changes\n\nThis is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
-  },
-  {
     "objectID": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
     "href": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
     "title": "AAGI",
@@ -150,5 +117,38 @@
     "title": "AAGI",
     "section": "More Information",
     "text": "More Information\nYou can learn more about controlling the appearance of revealjs output here: https://quarto.org/docs/presentations/revealjs/"
+  },
+  {
+    "objectID": "release-notes.html",
+    "href": "release-notes.html",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Add example outputs for reports using AAGI themes for graphs and tables\nAdd starter pack instructions for easily creating an AAGI file rather than setting up your own YAML\nFixed links in README",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes",
+    "href": "release-notes.html#minor-changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Add example outputs for reports using AAGI themes for graphs and tables\nAdd starter pack instructions for easily creating an AAGI file rather than setting up your own YAML\nFixed links in README",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#major-changes",
+    "href": "release-notes.html#major-changes",
+    "title": "Release Notes",
+    "section": "Major Changes",
+    "text": "Major Changes\n\nThis is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
   }
 ]

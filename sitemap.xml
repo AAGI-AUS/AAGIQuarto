@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://AAGI-AUS.github.io/AAGIQuarto/index.html</loc>
-    <lastmod>2024-12-11T05:53:20.067Z</lastmod>
-  </url>
-  <url>
-    <loc>https://AAGI-AUS.github.io/AAGIQuarto/release-notes.html</loc>
-    <lastmod>2024-12-11T05:53:20.067Z</lastmod>
+    <lastmod>2025-01-15T03:49:50.657Z</lastmod>
   </url>
   <url>
     <loc>https://AAGI-AUS.github.io/AAGIQuarto/demos/template-revealjs.html</loc>
-    <lastmod>2024-12-11T05:53:20.067Z</lastmod>
+    <lastmod>2025-01-15T03:49:50.657Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AAGI-AUS.github.io/AAGIQuarto/release-notes.html</loc>
+    <lastmod>2025-01-15T03:49:50.657Z</lastmod>
   </url>
 </urlset>
