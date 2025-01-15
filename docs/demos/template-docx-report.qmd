@@ -17,7 +17,64 @@ date: "`r Sys.Date()`"
 date-format: long
 ---
 
-```{r}
+```{r setup}
+#| include: false
+
+if (toupper(Sys.info()["sysname"]) == "LINUX" ||
+  toupper(Sys.info()["sysname"]) == "DARWIN") {
+  knitr::opts_chunk$set(dev = c("cairo_pdf"))
+}
+
+if (require(xtable)) {
+  options(xtable.comment = FALSE)
+}
+if (require(formatR)) {
+  options(formatR.arrow = FALSE)
+  knitr::opts_chunk$set(
+    tidy = TRUE,
+    tidy.opts = list(width.cutoff = 60)
+  )
+}
+
+# Integrating with AAGIPalettes, AAGIThemes
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
+}
+if (!require(AAGIThemes)) {
+  pak::pkg_install(
+    "AAGI-AUS/AAGIThemes",
+    dependencies = TRUE, upgrade = FALSE
+  )
+}
+if (!require(AAGIPalettes)) {
+  pak::pkg_install(
+    "AAGI-AUS/AAGIPalettes",
+    dependencies = TRUE, upgrade = FALSE
+  )
+}
+if (!require(flextable)) {
+  install.packages("flextable")
+}
+library(AAGIThemes)
+library(AAGIPalettes)
+library(flextable)
+```
+
+```{r university}
+#| label: university
+#| include: false
+
+if (params$uni == "CU") {
+  university <- "Curtin University"
+} else if (params$uni == "UA") {
+  university <- "University of Adelaide"
+} else {
+  university <- "University of Queensland"
+}
+```
+
+
+```{r project-lead}
 #| include: false
 if (params$uni == "CU") {
   project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
@@ -28,7 +85,7 @@ if (params$uni == "CU") {
 }
 ```
 
-```{r}
+```{r lead-email}
 #| include: false
 #| label: email for project lead
 
@@ -41,25 +98,11 @@ if (params$uni == "CU") {
 }
 ```
 
-```{r}
+```{r project-number}
 #| label: Project number
 #| include: false
 
 Pro_Num = params$project_num
-
-```
-
-```{r}
-#| label: title param
-#| include: false
-
-if (params$uni == "CU") {
-  university <- "Curtin University"
-} else if (params$uni == "UA") {
-  university <- "University of Adelaide"
-} else {
-  university <- "University of Queensland"
-}
 
 ```
 

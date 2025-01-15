@@ -18,10 +18,6 @@ format: aagi-docx+short+report
 ```{r setup}
 #| include: false
 
-# library(rmarkdown)
-
-# This is probably necessary on Linux (with Proxima Nova and Cairo
-# installed). We may need something else on Mac.
 if (toupper(Sys.info()["sysname"]) == "LINUX" ||
   toupper(Sys.info()["sysname"]) == "DARWIN") {
   knitr::opts_chunk$set(dev = c("cairo_pdf"))
