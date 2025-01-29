@@ -24,7 +24,7 @@ See the included template and demo file for each format here:
 
 ## Installing
 
-You can obtain a copy of the extension by using the following commands in your terminal\* (CLI):
+You can obtain a copy of the extension by using the following commands in your bash terminal\* (CLI):
 
 ```bash
 cd your_quarto_project_folder
@@ -32,6 +32,11 @@ quarto use template AAGI-AUS/AAGIQuarto
 ```
 
 This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.
+
+\*Use your terminal or command prompt to run the install commands.
+Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL, in those IDEs to run the commands.
+Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the `bash` command.
+For more information, see [Microsoft's documentation](https://docs.microsoft.com/en-us/windows/wsl/install).
 
 ## Using
 
@@ -70,8 +75,3 @@ The logo of this project and the AAGI strategic partners do not come under MIT L
 The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AGGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.
 
 ![](docs/demos/assets/Partners.svg)
-
-\*Use your terminal or command prompt to run the install commands.
-Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL, in those IDEs to run the commands.
-Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the `bash` command.
-For more information, see [Microsoft's documentation](https://docs.microsoft.com/en-us/windows/wsl/install).
