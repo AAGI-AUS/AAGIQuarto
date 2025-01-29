@@ -33,7 +33,7 @@ quarto use template AAGI-AUS/AAGIQuarto
 
 This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.
 
-\*Use your terminal or command prompt to run the install commands.
+Use your terminal or command prompt to run the install commands.
 Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL, in those IDEs to run the commands.
 Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the `bash` command.
 For more information, see [Microsoft's documentation](https://docs.microsoft.com/en-us/windows/wsl/install).
