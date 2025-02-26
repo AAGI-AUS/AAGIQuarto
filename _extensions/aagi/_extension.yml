@@ -1,6 +1,6 @@
 title: AAGIQuarto
 author: Adam H. Sparks, James J Balamuta, Russel Edson, Vinh Thiem Ma, Rose Megirian, Sam Rogers, Julian Taylor
-version: 1.0.0
+version: 1.0.1
 quarto-required: ">=1.4.0"
 contributes:
   formats:
@@ -46,3 +46,4 @@ contributes:
       toc: true
       number-sections: false
       incremental: true
+
