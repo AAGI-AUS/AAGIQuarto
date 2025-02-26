@@ -36,15 +36,15 @@ bibliography: your_references.bib # Replace with your .bib file
 
 if (params$uni == "CU") {
   project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
-  email = "cbada@curtin.edu.au"
+  email <- "cbada@curtin.edu.au"
   university <- "Curtin University"
 } else if (params$uni == "UA") {
   project_lead = "University of Adelaide -- Assoc Prof Julian Taylor, Dr Olena Kravchuck"
-  email = paste(params$pri_bio, "@adelaide.edu.au", sep = "")
+  email <- paste(params$pri_bio, "@adelaide.edu.au", sep = "")
   university <- "University of Adelaide"
 } else {
   project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
-  email = paste(params$pri_bio, "@uq.edu.au")
+  email <- paste(params$pri_bio, "@uq.edu.au")
   university <- "University of Queensland"
 }
 
@@ -66,29 +66,28 @@ email: "`r email`"
 #| include: false
 
 # Install the {pak} package to install AAGI package
-if(!requireNamespace("pak", quietly = TRUE)){
+if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages("pak")
 }
 
 # {flextable} can be used for both word and pdf output
-if(!require(flextable)){
+if (!require(flextable)) {
   install.packages("flextable")
 }
 
-if(!require(AAGIThemes)){
+if (!require(AAGIThemes)) {
   pak::pkg_install(
     "AAGI-AUS/AAGIThemes",
     dependencies = TRUE, upgrade = TRUE
   )
 }
 
-if(!require(AAGIPalettes)){
+if (!require(AAGIPalettes)) {
   pak::pkg_install(
     "AAGI-AUS/AAGIPalettes",
     dependencies = TRUE, upgrade = TRUE 
   )
 }
-
 ```
 
 ```{r}
