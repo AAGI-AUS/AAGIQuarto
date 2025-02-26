@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://AAGI-AUS.github.io/AAGIQuarto/index.html</loc>
-    <lastmod>2025-01-29T02:56:56.694Z</lastmod>
+    <loc>https://AAGI-AUS.github.io/AAGIQuarto/release-notes.html</loc>
+    <lastmod>2025-02-26T08:45:47.831Z</lastmod>
   </url>
   <url>
     <loc>https://AAGI-AUS.github.io/AAGIQuarto/demos/template-revealjs.html</loc>
-    <lastmod>2025-01-29T02:56:56.694Z</lastmod>
+    <lastmod>2025-02-26T08:45:47.831Z</lastmod>
   </url>
   <url>
-    <loc>https://AAGI-AUS.github.io/AAGIQuarto/release-notes.html</loc>
-    <lastmod>2025-01-29T02:56:56.694Z</lastmod>
+    <loc>https://AAGI-AUS.github.io/AAGIQuarto/index.html</loc>
+    <lastmod>2025-02-26T08:45:47.831Z</lastmod>
   </url>
 </urlset>
