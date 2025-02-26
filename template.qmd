@@ -39,7 +39,7 @@ if (params$uni == "CU") {
   email = "cbada@curtin.edu.au"
   university <- "Curtin University"
 } else if (params$uni == "UA") {
-  project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
+  project_lead = "University of Adelaide -- Assoc Prof Julian Taylor, Dr Olena Kravchuck"
   email = paste(params$pri_bio, "@adelaide.edu.au", sep = "")
   university <- "University of Adelaide"
 } else {
