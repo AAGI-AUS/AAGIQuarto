@@ -47,7 +47,6 @@ if (params$uni == "CU") {
   email <- paste(params$pri_bio, "@uq.edu.au")
   university <- "University of Queensland"
 }
-
 ```
 
 ---
@@ -81,13 +80,6 @@ if (!require(AAGIThemes)) {
     dependencies = TRUE, upgrade = TRUE
   )
 }
-
-if (!require(AAGIPalettes)) {
-  pak::pkg_install(
-    "AAGI-AUS/AAGIPalettes",
-    dependencies = TRUE, upgrade = TRUE 
-  )
-}
 ```
 
 ```{r}
@@ -106,7 +98,6 @@ theme_set(theme_aagi())
 set_flextable_defaults(
   theme_fun = theme_ft_aagi
 )
-
 ```
 
 # To compile a presentation, please see:

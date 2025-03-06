@@ -40,7 +40,6 @@ $presentation-h2-font-size: 1.75em;
 $presentation-h3-font-size: 1.5em;
 $presentation-font-size-root: 2em;
 
-
 /*-- scss:rules --*/
 
 .reveal h1 {
@@ -73,12 +72,12 @@ td {
 
 .reveal table th {
   color: #ffffff;
-  background:theme-color("aagi-teal");
+  background: theme-color("aagi-teal");
 }
 
 .reveal .aside {
   font-size: 0.25em;
-  color: theme-color("aagi-grey")
+  color: theme-color("aagi-grey");
 }
 
 .reveal .slide-logo {
@@ -94,3 +93,4 @@ td {
   right: 10px !important;
   top: unset !important;
 }
+
