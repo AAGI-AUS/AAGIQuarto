@@ -83,4 +83,4 @@ The Analytics for the Australian Grains Industry (AAGI) project retains full rig
 
 ![](docs/demos/assets/Partners.svg)
 
-[^1]: If you are installing AAGIQuarto on a Linux computer for the first time, please refer to the [{AAGIThemes} README](https://github.com/AAGI-AUS/AAGIThemes) for special instructions on how to install this R package that AAGIQuarto uses in it's templates.
+[^1]: If you are installing AAGIQuarto on a Linux computer for the first time, please refer to the [{AAGIThemes} README](https://github.com/AAGI-AUS/AAGIThemes#note-for-linux-users) for special instructions on how to install this R package that AAGIQuarto uses in it's templates.
