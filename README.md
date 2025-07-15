@@ -32,18 +32,18 @@ If you do not have Quarto installed on your device (and are not already using RS
 ### Getting the Template
 
 Use your terminal or command prompt to run the install commands.
-Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL, in those IDEs to run the commands.
+Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands.
 Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the `bash` command.
 For more information, see [Microsoft's documentation](https://docs.microsoft.com/en-us/windows/wsl/install).
 
-You can obtain a copy of the extension by using the following commands in your bash terminal (CLI):
+You can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):
 
 ```bash
 cd your_quarto_project_folder
 quarto use template AAGI-AUS/AAGIQuarto
 ```
 
-This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.[^1]
+This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.
 
 ## Using
 
@@ -62,7 +62,7 @@ Then, in the output format use:
 
 ### Template
 
-If you use the `bash` command above to install the extension and create a sub directory following the command prompt, there
+If you use the `Bash` command above to install the extension and create a sub directory following the command prompt, there
 will be a .qmd file created using the name that you input for the sub directory.
 
 By default, these templates use [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/) and [{AAGIPalettes}](https://aagi-aus.github.io/AAGIPalettes/) for R graphical and tabular outputs.
@@ -82,5 +82,3 @@ The logo of this project and the AAGI strategic partners do not come under MIT L
 The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.
 
 ![](docs/demos/assets/Partners.svg)
-
-[^1]: If you are installing AAGIQuarto on a Linux computer for the first time, please refer to the [{AAGIThemes} README](https://github.com/AAGI-AUS/AAGIThemes#note-for-linux-users) for special instructions on how to install this R package that AAGIQuarto uses in it's templates.
