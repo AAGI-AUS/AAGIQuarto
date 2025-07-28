@@ -35,27 +35,34 @@ if (require(formatR)) {
 }
 
 # Integrating with AAGIPalettes, AAGIThemes
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages("pak")
-}
+
 if (!require(AAGIThemes)) {
-  pak::pkg_install(
-    "AAGI-AUS/AAGIThemes",
-    dependencies = TRUE, upgrade = FALSE
-  )
+install.packages('AAGIThemes',
+                 repos = c('https://aagi-aus.r-universe.dev',
+                           'https://cloud.r-project.org'))
 }
 if (!require(AAGIPalettes)) {
-  pak::pkg_install(
-    "AAGI-AUS/AAGIPalettes",
-    dependencies = TRUE, upgrade = FALSE
-  )
+install.packages('AAGIPalettes',
+                 repos = c('https://aagi-aus.r-universe.dev',
+                           'https://cloud.r-project.org'))
 }
+
 if (!require(flextable)) {
   install.packages("flextable")
 }
 library(AAGIThemes)
 library(AAGIPalettes)
 library(flextable)
+library(ggplot2)
+
+
+# set ggplot2 theme
+theme_set(theme_aagi())
+
+# set flextable theme
+set_flextable_defaults(
+  theme_fun = theme_ft_aagi
+  )
 ```
 
 ```{r sp}

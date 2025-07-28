@@ -78,6 +78,17 @@ email: "`r email`"
 #| label: load
 #| message: false
 
+
+if (!require(AAGIThemes)) {
+install.packages('AAGIThemes',
+                 repos = c('https://aagi-aus.r-universe.dev',
+                           'https://cloud.r-project.org'))
+}
+if (!require(AAGIPalettes)) {
+install.packages('AAGIPalettes',
+                 repos = c('https://aagi-aus.r-universe.dev',
+                           'https://cloud.r-project.org'))
+
 library(ggplot2)
 library(AAGIThemes)
 library(flextable)
