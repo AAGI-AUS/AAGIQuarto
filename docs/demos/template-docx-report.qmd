@@ -17,12 +17,13 @@ date: "`r Sys.Date()`"
 date-format: long
 ---
 
-```{r setup}
+```{r}
 #| include: false
+#| label: setup
 
 if (toupper(Sys.info()["sysname"]) == "LINUX" ||
   toupper(Sys.info()["sysname"]) == "DARWIN") {
-  knitr::opts_chunk$set(dev = c("cairo_pdf"))
+  knitr::opts_chunk$set(dev = "cairo_pdf")
 }
 
 if (require(xtable)) {
@@ -58,11 +59,10 @@ library(flextable)
 theme_set(theme_aagi())
 
 # set flextable theme
-set_flextable_defaults(
-  theme_fun = theme_ft_aagi)
+set_flextable_defaults(theme_fun = theme_ft_aagi)
 ```
 
-```{r university}
+```{r}
 #| label: university
 #| include: false
 

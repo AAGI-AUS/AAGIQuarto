@@ -15,12 +15,13 @@ version-number: 1.0.0
 format: aagi-docx+short+report
 ---
 
-```{r setup}
+```{r}
 #| include: false
+#| label: setup
 
 if (toupper(Sys.info()["sysname"]) == "LINUX" ||
-  toupper(Sys.info()["sysname"]) == "DARWIN") {
-  knitr::opts_chunk$set(dev = c("cairo_pdf"))
+    toupper(Sys.info()["sysname"]) == "DARWIN") {
+    knitr::opts_chunk$set(dev = "cairo_pdf")
 }
 
 if (require(xtable)) {
@@ -35,7 +36,6 @@ if (require(formatR)) {
 }
 
 # Integrating with AAGIPalettes, AAGIThemes
-
 if (!require(AAGIThemes)) {
 install.packages('AAGIThemes',
                  repos = c('https://aagi-aus.r-universe.dev',
@@ -50,22 +50,20 @@ install.packages('AAGIPalettes',
 if (!require(flextable)) {
   install.packages("flextable")
 }
+
 library(AAGIThemes)
 library(AAGIPalettes)
 library(flextable)
 library(ggplot2)
 
-
 # set ggplot2 theme
 theme_set(theme_aagi())
 
 # set flextable theme
-set_flextable_defaults(
-  theme_fun = theme_ft_aagi
-  )
+set_flextable_defaults(theme_fun = theme_ft_aagi)
 ```
 
-```{r sp}
+```{r}
 #| include: false
 #| label: config-for-title
 
