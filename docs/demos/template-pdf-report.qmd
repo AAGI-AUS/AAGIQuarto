@@ -79,6 +79,12 @@ email: "`r email`"
 #| message: false
 
 
+if (!require(pak)) {
+  install.packages("pak", dependencies = TRUE)
+}
+if (!require(flextable)) {
+  pak::pak("flextable", dependencies = TRUE)
+}
 if (!require(AAGIThemes)) {
 install.packages("AAGIThemes",
                  repos = c("https://aagi-aus.r-universe.dev",

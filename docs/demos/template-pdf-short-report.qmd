@@ -35,6 +35,12 @@ if (require(formatR)) {
   )
 }
 
+if (!require(pak)) {
+  install.packages("pak", dependencies = TRUE)
+}
+if (!require(flextable)) {
+  pak::pak("flextable", dependencies = TRUE)
+}
 # Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {
 install.packages("AAGIThemes",
@@ -46,9 +52,7 @@ install.packages("AAGIPalettes",
                  repos = c("https://aagi-aus.r-universe.dev",
                            "https://cloud.r-project.org"))
 }
-if (!require(flextable)) {
-  install.packages("flextable", dependencies = TRUE)
-}
+
 library(flextable)
 library(AAGIThemes)
 library(AAGIPalettes)
