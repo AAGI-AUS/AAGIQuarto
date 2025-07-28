@@ -47,8 +47,7 @@ install.packages('AAGIThemes',
 if (!require(AAGIPalettes)) {
 install.packages('AAGIPalettes',
                  repos = c('https://aagi-aus.r-universe.dev',
-}                           'https://cloud.r-project.org'))
-
+                           'https://cloud.r-project.org'))
 if (!require(flextable)) {
   install.packages("flextable", dependencies = TRUE)
 }
