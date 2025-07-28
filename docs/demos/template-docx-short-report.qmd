@@ -37,14 +37,14 @@ if (require(formatR)) {
 
 # Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {
-install.packages('AAGIThemes',
-                 repos = c('https://aagi-aus.r-universe.dev',
-                           'https://cloud.r-project.org'))
+  install.packages("AAGIThemes",
+                    repos = c("https://aagi-aus.r-universe.dev",
+                              "https://cloud.r-project.org"))
 }
 if (!require(AAGIPalettes)) {
-install.packages('AAGIPalettes',
-                 repos = c('https://aagi-aus.r-universe.dev',
-                           'https://cloud.r-project.org'))
+  install.packages("AAGIPalettes",
+                 repos = c("https://aagi-aus.r-universe.dev",
+                           "https://cloud.r-project.org"))
 }
 
 if (!require(flextable)) {
@@ -67,10 +67,10 @@ set_flextable_defaults(theme_fun = theme_ft_aagi)
 #| include: false
 #| label: config-for-title
 
-if(params$uni == "CU"){
+if (params$uni == "CU") {
   project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
   email = "cbada@curtin.edu.au"
-} else if(params$uni == "UA"){
+} else if (params$uni == "UA") {
   project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
   email = paste(params$pri_bio, "adelaide.edu.au", sep = "")
 } else {

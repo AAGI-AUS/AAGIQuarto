@@ -39,14 +39,14 @@ if (require(formatR)) {
 
 # Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {
-install.packages('AAGIThemes',
-                 repos = c('https://aagi-aus.r-universe.dev',
-                           'https://cloud.r-project.org'))
+install.packages("AAGIThemes",
+                 repos = c("https://aagi-aus.r-universe.dev",
+                           "https://cloud.r-project.org"))
 }
 if (!require(AAGIPalettes)) {
-install.packages('AAGIPalettes',
-                 repos = c('https://aagi-aus.r-universe.dev',
-                           'https://cloud.r-project.org'))
+install.packages("AAGIPalettes",
+                 repos = c("https://aagi-aus.r-universe.dev",
+                           "https://cloud.r-project.org"))
 }
 if (!require(flextable)) {
   install.packages("flextable")
