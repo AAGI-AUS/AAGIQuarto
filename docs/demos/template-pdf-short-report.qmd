@@ -14,7 +14,7 @@ version-number: 1.0.0
 format: aagi-pdf+short+report
 ---
 
-```{r setup}
+```{r}
 #| include: false
 #| label: setup
 # This is probably necessary on Linux (with Proxima Nova and Cairo
