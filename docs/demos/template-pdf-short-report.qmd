@@ -16,9 +16,7 @@ format: aagi-pdf+short+report
 
 ```{r setup}
 #| include: false
-
-# library(rmarkdown)
-
+#| label: setup
 # This is probably necessary on Linux (with Proxima Nova and Cairo
 # installed). We may need something else on Mac.
 if (toupper(Sys.info()["sysname"]) == "LINUX" ||
@@ -38,7 +36,6 @@ if (require(formatR)) {
 }
 
 # Integrating with AAGIPalettes, AAGIThemes
-
 if (!require(AAGIThemes)) {
 install.packages('AAGIThemes',
                  repos = c('https://aagi-aus.r-universe.dev',
@@ -62,11 +59,11 @@ theme_set(theme_aagi())
 
 # set flextable theme
 set_flextable_defaults(
-  theme_fun = theme_ft_aagi
+  theme_fun = theme_ft_aagi()
 )
 ```
 
-```{r sp}
+```{r}
 #| include: false
 #| label: config-for-title
 
@@ -127,7 +124,7 @@ This is an example of a reference [@blah]. References appear at the end of the r
 
 Example R code, using the [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/) package to produce Figure @fig-example1.
 
-```{r plot-eg}
+```{r}
 #| label: fig-example1
 #| fig-cap: "Here is a plot."
 #| fig-height: 3
