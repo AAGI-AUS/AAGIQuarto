@@ -112,7 +112,7 @@ This is an example of a reference [@blah]. References appear at the end of the r
 
 Example R code, using the [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/) package to produce Figure @fig-example1.
 
-```{r plot-eg}
+```{r}
 #| label: fig-example1
 #| fig-cap: "Here is a plot."
 #| fig-height: 3

@@ -147,7 +147,6 @@ ft
 
 ```
 
-
 ### This is a subsubsection heading
 
 \lipsum[1-3]

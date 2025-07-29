@@ -81,7 +81,7 @@ if (params$uni == "CU") {
 
 
 ```{r}
-
+#| label: sp lead
 #| include: false
 if (params$uni == "CU") {
   project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
@@ -109,8 +109,7 @@ if (params$uni == "CU") {
 #| label: Project number
 #| include: false
 
-Pro_Num = params$project_num
-
+Pro_Num <- params$project_num
 ```
 
 ---

@@ -65,7 +65,7 @@ This Quarto extension allows you to create your slides using a theme that follow
 
 [AAGIQuarto](https://github.com/AAGI-AUS/AAGIQuarto) provides basic theming of HTML tables through CSS, for example, this is a markdown table.
 
-```         
+```
 | Syntax      | Description |
 | ----------- | ----------- |
 | Header      | Title       |
