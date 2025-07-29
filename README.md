@@ -3,7 +3,7 @@
 # AAGI Extension For Quarto
 
 The `AAGIQuarto` Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.
-If you prefer to use R Markdown, please see the excellent [{AAGIThemes}](https://github.com/AAGI-AUS/AAGITemplates) package, which AAGIQuarto has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools.
+If you prefer to use R Markdown, please see the excellent [{AAGITemplates}](https://github.com/AAGI-AUS/AAGITemplates) package, which AAGIQuarto has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools.
 AAGIQuarto was developed to provide next-generation literate programming tools for AAGI's reporting and presentation needs that support R, Python and Julia languages.
 
 ## Template Formats
