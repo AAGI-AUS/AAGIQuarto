@@ -123,7 +123,7 @@
     "href": "release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "Set language in Word document templates to en-AU\nEnhanced installation instructions\nAdds header and footer to full length reports\nInstall AAGI R packages using R-Universe methods\n\n\n\n\n\nEnsure\nis called\nSpelling corrections",
+    "text": "More polishing missed in last round, e.g., duplicated labels, etc. # 0.1.3 2025-07-29\n\n\n\n\n\nSet language in Word document templates to en-AU\nEnhanced installation instructions\nAdds header and footer to full length reports\nInstall AAGI R packages using R-Universe methods\n\n\n\n\n\nEnsure\nis called\nSpelling corrections",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -132,6 +132,17 @@
   {
     "objectID": "release-notes.html#minor-changes",
     "href": "release-notes.html#minor-changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "More polishing missed in last round, e.g., duplicated labels, etc. # 0.1.3 2025-07-29",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-1",
+    "href": "release-notes.html#minor-changes-1",
     "title": "Release Notes",
     "section": "",
     "text": "Set language in Word document templates to en-AU\nEnhanced installation instructions\nAdds header and footer to full length reports\nInstall AAGI R packages using R-Universe methods",
@@ -152,8 +163,8 @@
     ]
   },
   {
-    "objectID": "release-notes.html#minor-changes-1",
-    "href": "release-notes.html#minor-changes-1",
+    "objectID": "release-notes.html#minor-changes-2",
+    "href": "release-notes.html#minor-changes-2",
     "title": "Release Notes",
     "section": "Minor changes",
     "text": "Minor changes\n\nAdds example using {flextable} in AAGI Short Report PDF format document",
@@ -174,8 +185,8 @@
     ]
   },
   {
-    "objectID": "release-notes.html#minor-changes-2",
-    "href": "release-notes.html#minor-changes-2",
+    "objectID": "release-notes.html#minor-changes-3",
+    "href": "release-notes.html#minor-changes-3",
     "title": "Release Notes",
     "section": "Minor Changes",
     "text": "Minor Changes\n\nAdd example outputs for reports using AAGI themes for graphs and tables\nAdd starter pack instructions for easily creating an AAGI file rather than setting up your own YAML\nFixed links in README",
