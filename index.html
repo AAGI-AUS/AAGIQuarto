@@ -202,37 +202,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The <code>AAGIQuarto</code> Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents. If you prefer to use R Markdown, please see the excellent <a href="https://github.com/AAGI-AUS/AAGITemplates">{AAGIThemes}</a> package, which AAGIQuarto has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similiar if not identical between these two tools. AAGIQuarto was developed to provide next-generation literate programming tools for AAGI’s reporting and presentation needs that support R, Python and Julia languages.</p>
-<section id="installing" class="level2">
-<h2 class="anchored" data-anchor-id="installing">Installing</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template AAGI-AUS/AAGIQuarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will install the extension and create an example qmd file that you can use as a starting place for your article.</p>
-</section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>For each format, there is a template file available.</p>
+<section id="aagi-extension-for-quarto" class="level1">
+<h1>AAGI Extension For Quarto</h1>
+<p>The <code>AAGIQuarto</code> Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents. If you prefer to use R Markdown, please see the excellent <a href="https://github.com/AAGI-AUS/AAGITemplates">{AAGITemplates}</a> package, which <code>AAGIQuarto</code> has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools. <code>AAGIQuarto</code> was developed to provide next-generation literate programming tools for AAGI’s reporting and presentation needs that support R, Python and Julia languages.</p>
+<section id="template-formats" class="level2">
+<h2 class="anchored" data-anchor-id="template-formats">Template Formats</h2>
+<p>See the included template and demo file for each format here:</p>
 <section id="report-formats" class="level3">
 <h3 class="anchored" data-anchor-id="report-formats">Report Formats</h3>
 <ul>
-<li><strong>AAGI PDF Short Report:</strong> <a href="demos/template-pdf-short-report+short+report.pdf">AAGI PDF Short Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd">Source</a>)</li>
-<li><strong>AAGI PDF Report:</strong> <a href="demos/template-pdf-report+report.pdf">AAGI PDF Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd">Source</a>)</li>
-<li><strong>AAGI Word Document Report:</strong> <a href="demos/template-docx-report.docx">AAGI Word Document Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd">Source</a>)</li>
+<li><strong>AAGI PDF Short Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-short-report+short+report.pdf">AAGI PDF Short Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd">Source</a>)</li>
+<li><strong>AAGI PDF Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report+report.pdf">AAGI PDF Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd">Source</a>)</li>
+<li><strong>AAGI Word Document Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-docx-report.docx">AAGI Word Document Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd">Source</a>)</li>
 <li><strong>AAGI Word Document Short Report:</strong> <a href="demos/template-docx-short-report.docx">AAGI Word Document Short Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-short-report.qmd">Source</a>)</li>
 </ul>
 </section>
 <section id="presentation-formats" class="level3">
 <h3 class="anchored" data-anchor-id="presentation-formats">Presentation Formats</h3>
 <ul>
-<li><strong>AAGI PowerPoint Presentation:</strong> <a href="demos/template-pptx.pptx">AAGI PPT Slide Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pptx.qmd">Source</a>)</li>
-<li><strong>AAGI revealjs Presentation:</strong> <a href="./demos/template-revealjs.html">AAGI revealjs Slide Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd">Source</a>)
-<ul>
-<li>For documentation on using reveal.js slides in Quarto, please see, <a href="https://quarto.org/docs/presentations/revealjs/" class="uri">https://quarto.org/docs/presentations/revealjs/</a>.</li>
-</ul></li>
+<li><strong>AAGI revealjs Presentation:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-revealjs.html#/title-slide">AAGI revealjs Slide Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd">Source</a>) (this is an AAGIQuarto exclusive)</li>
+<li><strong>AAGI PowerPoint Presentation:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pptx.pptx">AAGI PPT Slide Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pptx.qmd">Source</a>)</li>
 </ul>
+</section>
+</section>
+<section id="installing" class="level2">
+<h2 class="anchored" data-anchor-id="installing">Installing</h2>
+<section id="getting-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="getting-quarto">Getting Quarto</h3>
+<p>If you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. <a href="https://quarto.org/docs/get-started/">Go here</a> for instructions on how to install Quarto.</p>
+</section>
+<section id="getting-the-template" class="level3">
+<h3 class="anchored" data-anchor-id="getting-the-template">Getting the Template</h3>
+<p>Use your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the <code>bash</code> command. For more information, see <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Microsoft’s documentation</a>.</p>
+<p>You can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template AAGI-AUS/AAGIQuarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.</p>
 </section>
 </section>
 <section id="using" class="level2">
 <h2 class="anchored" data-anchor-id="using">Using</h2>
+<p>For documentation on using reveal.js slides in Quarto, please see, <a href="https://quarto.org/docs/presentations/revealjs/" class="uri">https://quarto.org/docs/presentations/revealjs/</a>.</p>
 <p>To use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:</p>
 <ul>
 <li><code>aagi-docx+report</code>, for a full length MS Word report</li>
@@ -244,10 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="template" class="level3">
 <h3 class="anchored" data-anchor-id="template">Template</h3>
-<p>If you use the <code>bash</code> command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.</p>
-</section>
-<section id="r-output-formatting" class="level3">
-<h3 class="anchored" data-anchor-id="r-output-formatting">R Output Formatting</h3>
+<p>If you use the <code>Bash</code> command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.</p>
 <p>By default, these templates use <a href="https://aagi-aus.github.io/AAGIThemes/">{AAGIThemes}</a> and <a href="https://aagi-aus.github.io/AAGIPalettes/">{AAGIPalettes}</a> for R graphical and tabular outputs.</p>
 </section>
 </section>
@@ -257,15 +264,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> update AAGI-AUS/AAGIQuarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="logos" class="level2">
-<h2 class="anchored" data-anchor-id="logos">Logos</h2>
-<p>The logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AGGI logo and the Grains Research and Development Corporation (GRDC) and AAGI strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.</p>
+<section id="logo-rights" class="level2">
+<h2 class="anchored" data-anchor-id="logo-rights">Logo Rights</h2>
+<p>The logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.</p>
+<p><img src="docs/demos/assets/Partners.svg" class="img-fluid"></p>
+
+
 </section>
-<section id="acknowledgments" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>Thanks to <a href="https://github.com/coatless">@coatless</a> for his assistance in setting up this Quarto extension.</p>
-
-
 </section>
 
 <p><img src="./demos/assets/Partners.svg" class="img-fluid"></p></main> <!-- /main -->
