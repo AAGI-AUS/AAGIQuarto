@@ -27,7 +27,7 @@ format:
 
 ## Bug fixes
 
-* Ensure \usepackage{hyperref} is called
+* Ensure `\usepackage{hyperref}` is called
 
 * Spelling corrections
 
