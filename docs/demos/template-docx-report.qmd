@@ -57,6 +57,7 @@ install.packages("AAGIPalettes",
 library(AAGIThemes)
 library(AAGIPalettes)
 library(flextable)
+library(ggplot2)
 
 # set ggplot2 theme
 theme_set(theme_aagi())
@@ -79,7 +80,8 @@ if (params$uni == "CU") {
 ```
 
 
-```{r project-lead}
+```{r}
+
 #| include: false
 if (params$uni == "CU") {
   project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
@@ -90,7 +92,7 @@ if (params$uni == "CU") {
 }
 ```
 
-```{r lead-email}
+```{r}
 #| include: false
 #| label: email for project lead
 
@@ -103,7 +105,7 @@ if (params$uni == "CU") {
 }
 ```
 
-```{r project-number}
+```{r}
 #| label: Project number
 #| include: false
 
