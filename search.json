@@ -156,7 +156,7 @@
     "href": "release-notes.html#bug-fixes",
     "title": "Release Notes",
     "section": "Bug fixes",
-    "text": "Bug fixes\n\nEnsure\nis called\nSpelling corrections",
+    "text": "Bug fixes\n\nEnsure \\usepackage{hyperref} is called\nSpelling corrections",
     "crumbs": [
       "Extra",
       "Release Notes"
