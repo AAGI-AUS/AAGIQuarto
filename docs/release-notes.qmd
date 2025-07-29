@@ -12,6 +12,7 @@ format:
 ## Minor changes
 
 * More polishing missed in last round, _e.g._, duplicated labels, etc.
+
 # 0.1.3 2025-07-29
 
 ## Minor changes
