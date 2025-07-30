@@ -63,22 +63,22 @@ email: "`r email`"
 ```{r}
 #| label: install-load-aagi-theme
 #| include: false
-
-# Install the {pak} package to install AAGI package
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages("pak")
-}
-
 # {flextable} can be used for both word and pdf output
 if (!require(flextable)) {
   install.packages("flextable")
 }
 
+# Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {
-  pak::pkg_install(
-    "AAGI-AUS/AAGIThemes",
-    dependencies = TRUE, upgrade = TRUE
-  )
+install.packages("AAGIThemes",
+                 repos = c("https://aagi-aus.r-universe.dev",
+                           "https://cloud.r-project.org"))
+}
+
+if (!require(AAGIPalettes)) {
+install.packages("AAGIPalettes",
+                 repos = c("https://aagi-aus.r-universe.dev",
+                           "https://cloud.r-project.org"))
 }
 ```
 
