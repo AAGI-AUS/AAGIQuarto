@@ -1,114 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "",
-    "text": "The AAGIQuarto Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents. If you prefer to use R Markdown, please see the excellent {AAGITemplates} package, which AAGIQuarto has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools. AAGIQuarto was developed to provide next-generation literate programming tools for AAGI’s reporting and presentation needs that support R, Python and Julia languages.\n\n\nSee the included template and demo file for each format here:\n\n\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\n\n\nAAGI revealjs Presentation: AAGI revealjs Slide Demo (Source) (this is an AAGIQuarto exclusive)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)\n\n\n\n\n\n\n\nIf you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. Go here for instructions on how to install Quarto.\n\n\n\nUse your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the bash command. For more information, see Microsoft’s documentation.\nYou can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):\ncd your_quarto_project_folder\nquarto use template AAGI-AUS/AAGIQuarto\nThis will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.\n\n\n\n\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for a full length MS Word report\naagi-docx+short+report, for a short MS Word report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report\n\n\n\nIf you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.\nBy default, these templates use {AAGIThemes} and {AAGIPalettes} for R graphical and tabular outputs.\n\n\n\n\nAs we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:\ncd your_quarto_project_folder\nquarto update AAGI-AUS/AAGIQuarto\n\n\n\nThe logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#template-formats",
-    "href": "index.html#template-formats",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "",
-    "text": "See the included template and demo file for each format here:\n\n\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\n\n\nAAGI revealjs Presentation: AAGI revealjs Slide Demo (Source) (this is an AAGIQuarto exclusive)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#installing",
-    "href": "index.html#installing",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "",
-    "text": "If you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. Go here for instructions on how to install Quarto.\n\n\n\nUse your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the bash command. For more information, see Microsoft’s documentation.\nYou can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):\ncd your_quarto_project_folder\nquarto use template AAGI-AUS/AAGIQuarto\nThis will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#using",
-    "href": "index.html#using",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "",
-    "text": "For documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for a full length MS Word report\naagi-docx+short+report, for a short MS Word report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report\n\n\n\nIf you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.\nBy default, these templates use {AAGIThemes} and {AAGIPalettes} for R graphical and tabular outputs.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#updating",
-    "href": "index.html#updating",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "",
-    "text": "As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:\ncd your_quarto_project_folder\nquarto update AAGI-AUS/AAGIQuarto",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#logo-rights",
-    "href": "index.html#logo-rights",
-    "title": "AAGI Quarto Templates Extension",
-    "section": "",
-    "text": "The logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
-    "href": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
-    "title": "AAGI",
-    "section": "An AAGI Reveal.js Theme for Quarto",
-    "text": "An AAGI Reveal.js Theme for Quarto\nThis Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide."
-  },
-  {
-    "objectID": "demos/template-revealjs.html#basic-tables",
-    "href": "demos/template-revealjs.html#basic-tables",
-    "title": "AAGI",
-    "section": "Basic Tables",
-    "text": "Basic Tables\nAAGIQuarto provides basic theming of HTML tables through CSS, for example, this is a markdown table.\n| Syntax      | Description |\n| ----------- | ----------- |\n| Header      | Title       |\n| Paragraph   | Text        |\nThat renders like this.\n\n\n\nSyntax\nDescription\n\n\n\n\nHeader\nTitle\n\n\nParagraph\nText"
-  },
-  {
-    "objectID": "demos/template-revealjs.html#advanced-tables",
-    "href": "demos/template-revealjs.html#advanced-tables",
-    "title": "AAGI",
-    "section": "Advanced Tables",
-    "text": "Advanced Tables\nFor more advanced tables, we suggest pairing with the R package {AAGIThemes} to provide AAGI themed tables using theme_gt_aagi(), that offers more flexibility in formatting.\n\nlibrary(dplyr)\nlibrary(gt)\nlibrary(AAGIThemes)\n\ngt &lt;- gt(head(airquality) |&gt;\n mutate(`Month Name` = \"May\"))\ngt &lt;- theme_gt_aagi(gt)\ngt\n\n\n\n\n\n\n\nOzone\nSolar.R\nWind\nTemp\nMonth\nDay\nMonth Name\n\n\n\n\n41\n190\n7.4\n67\n5\n1\nMay\n\n\n36\n118\n8.0\n72\n5\n2\nMay\n\n\n12\n149\n12.6\n74\n5\n3\nMay\n\n\n18\n313\n11.5\n62\n5\n4\nMay\n\n\nNA\nNA\n14.3\n56\n5\n5\nMay\n\n\n28\nNA\n14.9\n66\n5\n6\nMay"
-  },
-  {
-    "objectID": "demos/template-revealjs.html#basic-figures",
-    "href": "demos/template-revealjs.html#basic-figures",
-    "title": "AAGI",
-    "section": "Basic Figures",
-    "text": "Basic Figures\n{AAGIThemes} also provides support for theming basic figures in R, for example.\n\nlibrary(AAGIThemes)\nplot_aagi(pressure)\n\n\n\n\n\n\n\n\n\n\nThis is an aside."
-  },
-  {
-    "objectID": "demos/template-revealjs.html#figures-with-ggplot2",
-    "href": "demos/template-revealjs.html#figures-with-ggplot2",
-    "title": "AAGI",
-    "section": "Figures with {ggplot2}",
-    "text": "Figures with {ggplot2}\n{AAGIThemes} also provides support for theming {ggplot2} outputs in R, for example.\n\n#Prepare data\n\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(AAGIThemes)\n\nfacet &lt;- gapminder |&gt;\n  filter(continent != \"Americas\") |&gt;\n  group_by(continent, year) |&gt;\n  summarise(pop = sum(as.numeric(pop)))\n#&gt; `summarise()` has grouped output by 'continent'. You can override using the\n#&gt; `.groups` argument.\n\ncol_values &lt;- c(\n  AAGIPalettes::colour_as_hex(\"AAGI Teal\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Green\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Yellow\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Blue\")\n)\n\n#Make plot\nggplot() +\n  geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +\n  scale_fill_manual(values = col_values) +\n  facet_wrap(~ continent, ncol = 5) +\n  scale_y_continuous(breaks = c(0, 2000000000, 4000000000),\n                    labels = c(0, \"2bn\", \"4bn\")) +\n  theme_aagi() +\n  geom_hline(yintercept = 0,\n            linewidth = 1,\n            colour = \"#474747\") +\n  theme(legend.position = \"none\", axis.text.x = element_blank()) +\n  labs(title = \"Asia's rapid growth\", subtitle = \"Population growth by continent, 1952-2007\")"
-  },
-  {
-    "objectID": "demos/template-revealjs.html#slides-with-columns",
-    "href": "demos/template-revealjs.html#slides-with-columns",
-    "title": "AAGI",
-    "section": "Slides With Columns",
-    "text": "Slides With Columns\n\n\nThis is a column on the left.\n\nThis is a column on the right."
-  },
-  {
-    "objectID": "demos/template-revealjs.html#more-information",
-    "href": "demos/template-revealjs.html#more-information",
-    "title": "AAGI",
-    "section": "More Information",
-    "text": "More Information\nYou can learn more about controlling the appearance of revealjs output here: https://quarto.org/docs/presentations/revealjs/"
-  },
-  {
     "objectID": "release-notes.html",
     "href": "release-notes.html",
     "title": "Release Notes",
@@ -194,6 +85,115 @@
     "crumbs": [
       "Extra",
       "Release Notes"
+    ]
+  },
+  {
+    "objectID": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
+    "href": "demos/template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
+    "title": "AAGI",
+    "section": "An AAGI Reveal.js Theme for Quarto",
+    "text": "An AAGI Reveal.js Theme for Quarto\nThis Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide."
+  },
+  {
+    "objectID": "demos/template-revealjs.html#basic-tables",
+    "href": "demos/template-revealjs.html#basic-tables",
+    "title": "AAGI",
+    "section": "Basic Tables",
+    "text": "Basic Tables\nAAGIQuarto provides basic theming of HTML tables through CSS, for example, this is a markdown table.\n| Syntax      | Description |\n| ----------- | ----------- |\n| Header      | Title       |\n| Paragraph   | Text        |\nThat renders like this.\n\n\n\nSyntax\nDescription\n\n\n\n\nHeader\nTitle\n\n\nParagraph\nText"
+  },
+  {
+    "objectID": "demos/template-revealjs.html#advanced-tables",
+    "href": "demos/template-revealjs.html#advanced-tables",
+    "title": "AAGI",
+    "section": "Advanced Tables",
+    "text": "Advanced Tables\nFor more advanced tables, we suggest pairing with the R package {AAGIThemes} to provide AAGI themed tables using theme_gt_aagi(), that offers more flexibility in formatting.\n\nlibrary(dplyr)\nlibrary(gt)\nlibrary(AAGIThemes)\n\ngt &lt;- gt(head(airquality) |&gt;\n mutate(`Month Name` = \"May\"))\ngt &lt;- theme_gt_aagi(gt)\ngt\n\n\n\n\n\n\n\nOzone\nSolar.R\nWind\nTemp\nMonth\nDay\nMonth Name\n\n\n\n\n41\n190\n7.4\n67\n5\n1\nMay\n\n\n36\n118\n8.0\n72\n5\n2\nMay\n\n\n12\n149\n12.6\n74\n5\n3\nMay\n\n\n18\n313\n11.5\n62\n5\n4\nMay\n\n\nNA\nNA\n14.3\n56\n5\n5\nMay\n\n\n28\nNA\n14.9\n66\n5\n6\nMay"
+  },
+  {
+    "objectID": "demos/template-revealjs.html#basic-figures",
+    "href": "demos/template-revealjs.html#basic-figures",
+    "title": "AAGI",
+    "section": "Basic Figures",
+    "text": "Basic Figures\n{AAGIThemes} also provides support for theming basic figures in R, for example.\n\nlibrary(AAGIThemes)\nplot_aagi(pressure)\n\n\n\n\n\n\n\n\n\n\nThis is an aside."
+  },
+  {
+    "objectID": "demos/template-revealjs.html#figures-with-ggplot2",
+    "href": "demos/template-revealjs.html#figures-with-ggplot2",
+    "title": "AAGI",
+    "section": "Figures with {ggplot2}",
+    "text": "Figures with {ggplot2}\n{AAGIThemes} also provides support for theming {ggplot2} outputs in R, for example.\n\n#Prepare data\n\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(AAGIThemes)\n\nfacet &lt;- gapminder |&gt;\n  filter(continent != \"Americas\") |&gt;\n  group_by(continent, year) |&gt;\n  summarise(pop = sum(as.numeric(pop)))\n#&gt; `summarise()` has grouped output by 'continent'. You can override using the\n#&gt; `.groups` argument.\n\ncol_values &lt;- c(\n  AAGIPalettes::colour_as_hex(\"AAGI Teal\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Green\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Yellow\"),\n  AAGIPalettes::colour_as_hex(\"AAGI Blue\")\n)\n\n#Make plot\nggplot() +\n  geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +\n  scale_fill_manual(values = col_values) +\n  facet_wrap(~ continent, ncol = 5) +\n  scale_y_continuous(breaks = c(0, 2000000000, 4000000000),\n                    labels = c(0, \"2bn\", \"4bn\")) +\n  theme_aagi() +\n  geom_hline(yintercept = 0,\n            linewidth = 1,\n            colour = \"#474747\") +\n  theme(legend.position = \"none\", axis.text.x = element_blank()) +\n  labs(title = \"Asia's rapid growth\", subtitle = \"Population growth by continent, 1952-2007\")"
+  },
+  {
+    "objectID": "demos/template-revealjs.html#slides-with-columns",
+    "href": "demos/template-revealjs.html#slides-with-columns",
+    "title": "AAGI",
+    "section": "Slides With Columns",
+    "text": "Slides With Columns\n\n\nThis is a column on the left.\n\nThis is a column on the right."
+  },
+  {
+    "objectID": "demos/template-revealjs.html#more-information",
+    "href": "demos/template-revealjs.html#more-information",
+    "title": "AAGI",
+    "section": "More Information",
+    "text": "More Information\nYou can learn more about controlling the appearance of revealjs output here: https://quarto.org/docs/presentations/revealjs/"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "The AAGIQuarto Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents. If you prefer to use R Markdown, please see the excellent {AAGITemplates} package, which AAGIQuarto has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools. AAGIQuarto was developed to provide next-generation literate programming tools for AAGI’s reporting and presentation needs that support R, Python and Julia languages.\n\n\nSee the included template and demo file for each format here:\n\n\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\n\n\nAAGI revealjs Presentation: AAGI revealjs Slide Demo (Source) (this is an AAGIQuarto exclusive)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)\n\n\n\n\n\n\n\nIf you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. Go here for instructions on how to install Quarto.\n\n\n\nUse your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the bash command. For more information, see Microsoft’s documentation.\nYou can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):\ncd your_quarto_project_folder\nquarto use template AAGI-AUS/AAGIQuarto\nThis will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.\n\n\n\n\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for a full length MS Word report\naagi-docx+short+report, for a short MS Word report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report\n\n\n\nIf you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.\nBy default, these templates use {AAGIThemes} and {AAGIPalettes} for R graphical and tabular outputs.\n\n\n\n\nAs we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:\ncd your_quarto_project_folder\nquarto update AAGI-AUS/AAGIQuarto\n\n\n\nThe logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#template-formats",
+    "href": "index.html#template-formats",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "See the included template and demo file for each format here:\n\n\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\n\n\n\n\n\nAAGI revealjs Presentation: AAGI revealjs Slide Demo (Source) (this is an AAGIQuarto exclusive)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#installing",
+    "href": "index.html#installing",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "If you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. Go here for instructions on how to install Quarto.\n\n\n\nUse your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the bash command. For more information, see Microsoft’s documentation.\nYou can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):\ncd your_quarto_project_folder\nquarto use template AAGI-AUS/AAGIQuarto\nThis will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#using",
+    "href": "index.html#using",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "For documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docx+report, for a full length MS Word report\naagi-docx+short+report, for a short MS Word report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdf+report, for a full length PDF report\naagi-pdf+short+report, for a short PDF report\n\n\n\nIf you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.\nBy default, these templates use {AAGIThemes} and {AAGIPalettes} for R graphical and tabular outputs.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#updating",
+    "href": "index.html#updating",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:\ncd your_quarto_project_folder\nquarto update AAGI-AUS/AAGIQuarto",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#logo-rights",
+    "href": "index.html#logo-rights",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "The logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.",
+    "crumbs": [
+      "Home"
     ]
   }
 ]
