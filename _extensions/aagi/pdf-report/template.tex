@@ -1,47 +1,32 @@
-% LaTeX template for AAGI Reports
-% Date last modified: 07/11/2025
-
-\documentclass[12pt]{article}
+\documentclass{scrartcl}
 
 %% Configuration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% (Modify these if you have a need to do so, or if you have additional
-% packages that you need to load. Otherwise this configuration should 
-% be left as-is.)
 \usepackage{lmodern}
 \usepackage{microtype}
-\usepackage[paper=a4paper,top=35mm,left=25mm,right=25mm,bottom=30mm]{geometry}
-\usepackage{adjustbox}
 \usepackage[title]{appendix}
 \usepackage{parskip}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{fancyvrb}
-\usepackage{rotating}
-\renewcommand{\familydefault}{\sfdefault}
+\usepackage{ragged2e}
+
+% Page layout
+\usepackage[$if(papersize)$$papersize$paper,$endif$
+left=12mm,
+right=12mm,top=30mm,
+includefoot]{geometry}
 
 % AAGI colours
 \usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
+\definecolor{aagibrightgreen}{HTML}{b6d438}
 \definecolor{aagiteal}{HTML}{00808b}
-\definecolor{aagigreen}{HTML}{b6d438}
+\definecolor{aagiblue}{HTML}{648fd2}
+\definecolor{aagigreen}{HTML}{54921e}
+\definecolor{aagiyellow}{HTML}{ffbc42}
+\definecolor{aagiorange}{HTML}{ec8525}
 \definecolor{aagiblack}{HTML}{414042}
-
-% Command definitions and settings copied over from the old AAGI.sty
-\newcommand{\HRule}{\hspace{-25mm}\rule{160mm}{0.6mm}}
-\setlength{\parindent}{0cm}
-\setlength{\headheight}{2pt}
-\setlength{\parskip}{2.5ex}
-\setlength{\emergencystretch}{3em}
-\DeclareOldFontCommand{\sbf}{\normalfont\bfseries\sffamily}{\mathsf}
-\DeclareOldFontCommand{\tbf}{\normalfont\bfseries\ttfamily}{\mathtt}
-\pagestyle{fancy}
-\renewcommand{\sectionmark}[1]{\markboth{\thesection\hspace{2.5mm} #1}{}}
-\fancyhf{}
-\fancyhead[L]{\sffamily\leftmark}
-\fancyfoot[C]{\sffamily \thepage}
-\fancypagestyle{bibliography}{\fancyhead[L]{\sffamily References}}
+\definecolor{aagigrey}{HTML}{f2f2f2}
+\definecolor{pagenum}{HTML}{7F7F7F}
 
 % Colour tables + long tables
 \usepackage{colortbl}
@@ -55,10 +40,16 @@
 \setlength{\fboxsep}{0pt}
 
 % URL styling
-\usepackage{url}
-
-% FontAwesome icons
-\usepackage{fontawesome5}
+% Load hyperref (generally load this one last so all of the tex packages
+% play nice with each other)
+\usepackage[hyphens]{url}
+\let\harvardurl\url
+\usepackage[unicode]{hyperref}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=aagiteal,
+  urlcolor=aagiteal,
+  citecolor=aagiteal}
 
 % Tikzpictures/PGFplots (if desired)
 %\usepackage{tikz}
@@ -73,234 +64,107 @@
 %  keywordstyle=\footnotesize\ttfamily,
 %  language=R}
 
-% Bibliography (bibtex, natbib)
-\usepackage{natbib}
-
-
 % A fancy coloured box for notes/warnings
 \usepackage[most]{tcolorbox}
 \newtcolorbox{note}[1][]{%
-  colback=aagiteal!7, colframe=aagiteal!7, notitle, sharp corners,
-  borderline west={2pt}{0pt}{aagiteal}, borderline east={2pt}{0pt}{aagiteal},
-  enhanced, breakable}
+	colback=aagiteal!7, colframe=aagiteal!7, notitle, sharp corners,
+	borderline west={2pt}{0pt}{aagiblue}, borderline east={2pt}{0pt}{aagiteal},
+	enhanced, breakable}
 
 % Hyperref for links/cross-referencing
 \usepackage{hyperref}
-\hypersetup{%
-  colorlinks=true, linkcolor=aagiteal, urlcolor=aagiteal, citecolor=aagiteal}
 \def\sectionautorefname{Section}
 \def\subsectionautorefname{Subsection}
 \def\appendixautorefname{Appendix}
 \def\figureautorefname{Figure}
 \def\tableautorefname{Table}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=aagiblue,
+	urlcolor=aagiteal,
+}
 
+% Formatting the headings
+\setkomafont{section}{\color{aagiteal}\huge\bfseries}
+\setkomafont{subsection}{\large\bfseries}
+\setkomafont{subsubsection}{\normalfont}
+\setkomafont{pageheadfoot}{\normalfont}
+\setkomafont{title}{\color{aagiteal}\RaggedRight\huge\bfseries}
+\addtokomafont{disposition}{\rmfamily}
 
-%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%EDIT these parameters for your project here
-\newcommand{\myuniversity}{University Name}
-\newcommand{\myaaginode}{AAGI-XX}
-\newcommand{\myprogram}{AAGI Program}  % e.g. Service \& Support,
-                                       %      Research \& Development,
-                                       %      Upskilling \& Awareness
+% Header and footer
+\usepackage[automark]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ohead{\includegraphics[width=3.54cm, height=1.85cm]{aagi_logo.pdf}}
+\cfoot{\includegraphics[width=\linewidth]{Partners.pdf}\\
+	\begin{FlushRight}
+		\textbf{\pagemark} \textbf{|} \textcolor{pagenum}{Page}
+	\end{FlushRight}
+}
+
+\newpairofpagestyles[scrheadings]{Title_page}{
+	\clearpairofpagestyles
+	\cfoot{\includegraphics[width=\linewidth]{partners.pdf}}
+}
+
+%Set the font
+\usepackage{fontspec}
+% Check to see if this font is installed system-wide
+\IfFontExistsTF{Proxima Nova}{
+  \setmainfont{Proxima Nova}
+}{
+% If not, use Arial
+  \setmainfont{Arial}
+}
+
+%TOC entry formating
+\RedeclareSectionCommand[toclinefill=\TOCLineLeaderFill]{section}
+\setcounter{secnumdepth}{0}
+
+$pandoc.tex()$
 
 \begin{document}
-  %% Title page
-  \thispagestyle{empty}
-  \vspace*{-30mm}
-  \begin{center}
-    \includegraphics[height=3cm]{assets/AAGI_logo.pdf}    
-  \end{center}
-  \vspace*{2cm}
-  \begin{flushright}
-    \HRule\\[5mm]
-    \adjustbox{tabular=@{}r@{}r@{},width=\linewidth}{%
-      \color{aagiteal}\sbf Analytics for the Australian Grains Industry\\[1pt]
-      \color{aagiteal}\sbf {\myuniversity} ({\myaaginode})\\[0pt]
-      \color{aagiteal}\sbf {\myprogram} Report\\}\\[0pt]
-    \vspace*{6mm}
-    {\LARGE\sbf%
-       Informative title for report  %EDIT your report title here
-    }\\[4pt]
-    {\Large\sbf%
-      Report for GRDC/AAGI Project Code  %EDIT your project code here
-    }\\[8mm]
-    
-    %EDIT your report audience/writers here
-    \sf\normalsize
-    Prepared for:
-      {\sbf Client Name (Client Organisation)}\\
-      Name 2 (Organisation 2)  % and so on...
-    
-    Prepared by:
-      {\sbf Your Name}\\
-      Name 2\\
-      Name 3  % and so on...
 
-    %EDIT your email here
-    \newcommand{\myemail}{your.email@example.edu.au}
-    Correspondence email:\; \texttt{\href{mailto:{\myemail}}{\myemail}}
-      
-    \today\\[-2pt]
-    \HRule
-  \end{flushright}
+	\begin{titlepage}
+
+		\thispagestyle{Title_page}
+
+		\vspace*{-2cm}
+
+		\begin{center}
+			\includegraphics[height=3cm]{aagi_logo.pdf}
+		\end{center}
+
+		\vfill
+
+		\rule{\textwidth}{0.5pt}
+
+		\begin{FlushRight}
+
+			\huge
+			\textcolor{aagiteal}{\textbf{$title$}}\\[6mm]
+
+			\large
+			{\textbf{$subtitle$}}\\[5mm]
+			\vspace{2mm}
+
+			\normalsize
+			$for(author)$
+			$author$
+			$sep$ \\[8mm]
+			$endfor$\\[8mm]
+
+    		\today
+  \end{FlushRight}
+
+  \rule{\textwidth}{0.5pt}
 
   \vfill
 
-  \noindent\makebox[\textwidth]{%
-    \includegraphics[width=\paperwidth]{assets/Partners.pdf}}
-  \vspace*{-36mm}
-  
-  \clearpage
-  \pagestyle{plain}
-  \setcounter{page}{1}
-  \tableofcontents
+	\end{titlepage}
 
-  % Other lists of tables or figures (uncomment as desired)
-  %\listoftables
-  %\addcontentsline{toc}{chapter}{List of Tables}
-  %\listoffigures
-  %\addcontentsline{toc}{chapter}{List of Figures}
+	\newpage
 
-  %% Document proper
-  \clearpage
-  \phantomsection
-  \section*{Executive Summary}
-  \addcontentsline{toc}{section}{Executive summary}
-  Executive summary goes here. Summarise the work that was provided by AAGI and
-  the main results. (Try to limit this to a single page.)
+	$body$
 
-  \pagestyle{fancy}
-
-  \clearpage
-  \section{Introduction}
-  
-  The report body text goes here.
-  
-  Note that the following section titles are provided as a guide, but feel free
-  to modify them in any way that you like if they are not relevant to your work
-  of if using a different set of titles enhances the readability of your report.
-  
-  Use AAGI theme colours for emphasis (\verb|\color{aagiteal}|
-  for {\color{aagiteal}AAGI teal}, \verb|\color{aagigreen}| for
-  {\color{aagigreen}AAGI green}, and \verb|\color{aagiblack}| for
-  {\color{aagiblack}AAGI black}).
-  
-  Use \verb|\citep{blah}| for parenthetical
-  citations: \citep{blah}. Use \verb|\citet{blah}| for text citations, e.g.
-  \citet{blah}. References should be entered in bibtex format in the
-  \texttt{references.bib} file.
-  
-  A simple AAGI-themed table could be done as in \autoref{tab:aagi}.
-  \begin{table}[h]
-    \caption{An AAGI-themed table.}\label{tab:aagi}
-    \centering
-    \begin{tabular}{| l | r r |}
-    \rowcolor{aagiteal} {\color{white}Table Heading} & %
-    {\color{white}Next Heading} & {\color{white}Another Heading} \\
-    \hline
-    blah & 2 & 3 \\
-    \hline
-    \end{tabular}
-  \end{table}
-  
-  Use \verb|\begin{note} ... \end{note}| for emphatic notes throughout
-  the report if you like. You can use \verb|\faIcon{...}| to add 
-  FontAwesome icons
-  for decoration, as shown below.
-  
-  \begin{note}
-    {\sbf\color{aagiteal!75!black} \faIcon{exclamation-triangle} NOTE}\quad
-    This is an example of a note.
-  \end{note}
-  
-  \vspace*{1cm}  
-  
-  In this introduction section, outline the goals of the research project and
-  any necessary background to provide contexts and rationale for the
-  research/work.
-
-  \subsection{This is a subsection}
-  
-  Use subsections (and subsubsections) as much as you like to help structure
-  your content.
-
-  \subsubsection{This is a subsubsection}
-
-  \clearpage
-  \section{Trial design}
-  
-  Include the trial layout, type, and the experimental design, such as treatments,
-  number of replicates, blocking, etc. Include graphics and pictures where useful.
-  
-  Make sure to include notes about any specific considerations that must be kept
-  in mind for the type of trial (e.g., small plots, glasshouse experiments,
-  genetics, breeding trials, OFE projects, bioinformatics projects, and so on).
-  
-  \clearpage
-  \section{Exploratory data analysis}
-  
-  You can use a dedicated section here for the preliminary data exploration and
-  dataset visualisation. This can be useful to aid in the interpretation of the
-  data and graphs generated throughout the work, as well as for providing a
-  rationale for the statistical methodologies used.  
-  
-  \clearpage
-  \section{Methods}
-  
-  Use this section to include a detailed description of the procedures and
-  methodologies used for the analysis. Include versions/commits on developed
-  pipelines, code scripts, and input/output details as relevant.
-  
-  Detail also the approach taken for the data analysis work here (or in a
-  separate section).
-  
-  \clearpage
-  \section{Results and discussion}
-  
-  Include all of the results of the analytical work, and discuss the findings
-  and their implications with respect to the research question.
-  
-  \clearpage
-  \section{Datasets and metadata}
-  
-  (Optional) Where useful, include descriptions of the datasets relevant to
-  this research, including links and DOIs to enable findability of these datasets.
-  (Often for GRDC projects these will have associated metadata entries in the GRDC
-  Data Catalogue, which can be linked where appropriate.)
-  
-  Where you have publicly available code on GitHub associated with the analytics
-  (e.g., pipelines), you can include git commit numbers and tags. Including
-  md5/sha256 checksums for input data and outputs is also useful for
-  research reproducibility.
-  
-  \clearpage
-  \section{Trial location maps}
-  
-  (Optional) Include if relevant to the project.
-    
-  
-  % Appendices
-  \clearpage
-  \begin{appendices}
-    \clearpage
-    \section{This is an appendix}
-    
-    Include Appendices at the end of the report as necessary, to contain any
-    additional supporting information of interest.
-    
-    \subsection{This is an appendix subsection}
-
-    \clearpage
-    \section{This is another appendix}
-    And so on. Include as many appendices as you like.    
-    
-  \end{appendices}
-
-  % Bibliography
-  \clearpage
-  \phantomsection
-  \pagestyle{bibliography}
-  \addcontentsline{toc}{section}{References}
-  \bibliographystyle{assets/biom}
-  \bibliography{references.bib}
 \end{document}
