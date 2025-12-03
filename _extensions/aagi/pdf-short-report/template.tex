@@ -55,12 +55,13 @@
     \noindent\makebox[\textwidth]{%
       \includegraphics[width=\paperwidth]{assets/Partners.pdf}}}
   \renewcommand{\headrulewidth}{0pt}}
+
 \fancypagestyle{otherpages}{%
   \fancyhf{}
-  \rhead{{\sf {\myshorttitle}}}
+  \rhead{{\sf {Short title for report, e.g., AAGI/GRDC Project code}}}
   \fancyfoot[C]{%
     \rule{\textwidth}{0.4pt}\\[-2pt]
-    {\sf Correspondence email: \texttt{\href{mailto:{\myemail}}{\myemail}}}
+    {\sf Correspondence email: \texttt{\href{mailto:{{your.email@example.edu.au}}}{{your.email@example.edu.au}}}}
     \hfill
     {\sf \thepage}}}
 
@@ -100,7 +101,6 @@
 % Bibliography (bibtex, natbib)
 \usepackage{natbib}
 
-
 % A fancy coloured box for notes/warnings
 \usepackage[most]{tcolorbox}
 \newtcolorbox{note}[1][]{%
@@ -117,7 +117,6 @@
 \def\appendixautorefname{Appendix}
 \def\figureautorefname{Figure}
 \def\tableautorefname{Table}
-
 
 %% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %EDIT these parameters for your project here
@@ -143,11 +142,11 @@
   
   %EDIT your report audience/writers here
   Prepared for: Client 1, Client 2 (Organisation)\\[2pt]  
-  Prepared by: Author 1, Author 2 ({\myuniversity}, {\myaaginode})\\[-20pt]
+  Prepared by: Author 1, Author 2 (\myuniversity, \myaaginode)\\[-20pt]
   
   %EDIT your email here
-  \newcommand{\myemail}{your.email@example.edu.au}
-  Correspondence email: \texttt{\href{mailto:{\myemail}}{\myemail}}\\[-20pt]
+  \newcommand{\myemail}{{{your.email@example.edu.au}}}
+  Correspondence email: \texttt{\href{mailto:\myemail}{\myemail}}\\[-20pt]
   
   Last updated: \today
   
@@ -221,7 +220,7 @@ plot(pressure)
           axis lines=middle, xlabel=$x$, ylabel=$y$,
           xmin=-5, xmax=5, ymin=-1, ymax=25, samples=40]
         \addplot[domain=-5:5, blue, thick]{x^2};
-        \node at (axis cs: 3.9,23) {$y=x^2$};
+        \node at (axis cs: 3.9,23) {\(y=x^2\)};
       \end{axis}
     \end{tikzpicture}
     \caption{A graph of a quadratic.}
@@ -241,6 +240,6 @@ plot(pressure)
   \phantomsection
   \addcontentsline{toc}{section}{References}
   \bibliographystyle{assets/biom}
-  \bibliography{references.bib}  
+  \bibliography{references.bib} 
   
 \end{document}
