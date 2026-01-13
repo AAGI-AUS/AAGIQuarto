@@ -1,180 +1,105 @@
-% original file from https://github.com/AAGI-AUS/AAGITemplates/blob/master/inst/rmarkdown/templates/AAGI_short_report/skeleton/assets/AAGI_markdown.tex
-% original author @RusselAndrewEdson
+% LaTeX template for AAGI Short/Interim Reports
+% Date last modified: 10/11/2025
 
-\documentclass[
-$if(fontsize)$
-  $fontsize$,
-$endif$
-$if(papersize)$
-  $papersize$paper,
-$endif$
-$for(classoption)$
-  $classoption$$sep$,
-$endfor$
-]{$documentclass$}
+\documentclass[12pt]{article}
 
-\usepackage[$if(papersize)$$papersize$paper,$endif$left=12mm,right=12mm,top=22mm,bottom=22mm]{geometry}
-
-% Force placement of table
-\usepackage{float}
-\floatplacement{table}{H}
-
-% Random texts
-\usepackage{lipsum}
-
-% Colours and graphics
-\usepackage[dvipsnames,svgnames,x11names,table]{xcolor}
-\usepackage{graphicx}
-
-% AAGI palette colours
-\definecolor{aagibrightgreen}{HTML}{b6d438}
-\definecolor{aagiteal}{HTML}{00808b}
-\definecolor{aagiblue}{HTML}{648fd2}
-\definecolor{aagigreen}{HTML}{54921e}
-\definecolor{aagiyellow}{HTML}{ffbc42}
-\definecolor{aagiorange}{HTML}{ec8525}
-\definecolor{aagiblack}{HTML}{414042}
-\definecolor{aagigrey}{HTML}{f2f2f2}
-
-% Enable shading (i.e., Shaded environment) if set
-$if(highlighting-macros)$
-  $highlighting-macros$
-$endif$
-
-% Fonts/encoding
-\usepackage{amsmath,amssymb}
-$if(linestretch)$
-  \usepackage{setspace}
-$endif$
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-$if(mathspec)$
-  \ifXeTeX
-    \usepackage{mathspec} % this also loads fontspec
-  \else
-    \usepackage{unicode-math} % this also loads fontspec
-  \fi
-$else$
-  \usepackage{unicode-math}
-$endif$
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-$if(fontfamily)$
-  \usepackage{$fontfamily$}
-$else$
-  \usepackage{lmodern}
-$endif$
-
-%Set the font
-\usepackage{fontspec}
-% Check to see if this font is installed system-wide
-\IfFontExistsTF{Proxima Nova}{
-  \setmainfont{Proxima Nova}
-}{
-% If not, use Arial
-  \setmainfont{Arial}
-}
-
-
-%TODO: more font stuff from template.latex?
-
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-  \usepackage{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath}}{} % disable protrusion for tt fonts
-\usepackage{bm}
-
-$if(number-sections)$
-  \setcounter{secnumdepth}{2}
-$else$
-  \setcounter{secnumdepth}{0}
-$endif$
-
-% (Default) CSL referencing with citeproc
-$if(csl-refs)$
-% definitions for citeproc citations
-\NewDocumentCommand\citeproctext{}{}
-\NewDocumentCommand\citeproc{mm}{%
-  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
-\makeatletter
- % allow citations to break across lines
- \let\@cite@ofmt\@firstofone
- % avoid brackets around text for \cite:
- \def\@biblabel#1{}
- \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
-\makeatother
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
- {\begin{list}{}{%
-  \setlength{\itemindent}{0pt}
-  \setlength{\leftmargin}{0pt}
-  \setlength{\parsep}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-   \setlength{\leftmargin}{\cslhangindent}
-   \setlength{\itemindent}{-1\cslhangindent}
-  \fi
-  % set entry spacing
-  \setlength{\itemsep}{#2\baselineskip}}}
- {\end{list}}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-$endif$
-
-% Fancy header/footer, different for the first page of report
+%% Configuration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (Modify these if you have a need to do so, or if you have additional
+% packages that you need to load. Otherwise this configuration should 
+% be left as-is.)
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
+\usepackage{adjustbox}
+\usepackage[title]{appendix}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
+\usepackage{rotating}
+\renewcommand{\familydefault}{\sfdefault}
+
+% AAGI colours
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\definecolor{aagiteal}{HTML}{00808b}
+\definecolor{aagigreen}{HTML}{b6d438}
+\definecolor{aagiblack}{HTML}{414042}
+
+% Command definitions and settings copied over from the old AAGI.sty
+\newcommand{\HRule}{\hspace{-25mm}\rule{160mm}{0.6mm}}
+\setlength{\parindent}{0cm}
+\setlength{\headheight}{2pt}
+\setlength{\parskip}{2.5ex}
+\setlength{\emergencystretch}{3em}
+\DeclareOldFontCommand{\sbf}{\normalfont\bfseries\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tbf}{\normalfont\bfseries\ttfamily}{\mathtt}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection\hspace{2.5mm} #1}{}}
+\fancyhf{}
+\fancyhead[L]{\sffamily\leftmark}
+\fancyfoot[C]{\sffamily \thepage}
+\fancypagestyle{bibliography}{\fancyhead[L]{\sffamily References}}
+
+% Different Header/Footer on first page
 \usepackage{afterpage}
 \fancypagestyle{firstpage}{%
   \fancyhf{}
   \fancyhead[R]{%
     \noindent\makebox[\textwidth][r]{%
-      \includegraphics[height=2.3cm]{aagi_logo.pdf}\hspace*{-0.5cm}}}
+      \includegraphics[height=2.3cm]{assets/AAGI_logo.pdf}\hspace*{-0.5cm}}}
   \fancyfoot[C]{%
     \rule{\textwidth}{0.4pt}\\[-10pt]
     \noindent\makebox[\textwidth]{%
-      %TODO: In here: want a YAML option for 'project-partner' or something,
-      % in which case we swap out the footer graphic and overlay the partner
-      % logo in the right place.
-      \includegraphics[width=\paperwidth]{partners.pdf}}}
+      \includegraphics[width=\paperwidth]{assets/Partners.pdf}}}
   \renewcommand{\headrulewidth}{0pt}}
+
 \fancypagestyle{otherpages}{%
   \fancyhf{}
-  $if(params.project-number)$
-    \rhead{{\sf Project number:\;$params.project-number$}}
-  $endif$
-  $if(email)$
-    %TODO: We could make these multiple emails? for(email) email... etc.
-    \lfoot{{\sf Contact email:\;$email$}}
-  $endif$
-  \cfoot{\thepage}}
+  \rhead{{\sf {Short title for report, e.g., AAGI/GRDC Project code}}}
+  \fancyfoot[C]{%
+    \rule{\textwidth}{0.4pt}\\[-2pt]
+    {\sf Correspondence email: \texttt{\href{mailto:{{your.email@example.edu.au}}}{{your.email@example.edu.au}}}}
+    \hfill
+    {\sf \thepage}}}
 
-$if(sans-serif)$
-  \renewcommand{\familydefault}{\sfdefault}
-$endif$
+% No section numbering by default
+\setcounter{secnumdepth}{0}
 
-\usepackage{parskip}
-\setlength{\parindent}{0cm}
+% Colour tables + long tables
+\usepackage{colortbl}
 
-% Copied from the old AAGI_markdown.tex (I'm not sure we still need
-% it though)
-% Set up tightlist because Rmarkdown is crashing on it
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}
-  \setlength{\parskip}{0pt}}
+\usepackage{longtable}
+\setlength{\LTcapwidth}{\textwidth}
+
+% Figures configuration
+\usepackage{caption}
+\captionsetup{font={sf}}
+\setlength{\fboxsep}{0pt}
+
+% URL styling
+\usepackage{url}
+
+% FontAwesome icons
+\usepackage{fontawesome5}
+
+% Tikzpictures/PGFplots (if desired)
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+% Listings for code (if desired)
+%\usepackage{inconsolata}
+\usepackage{listings}
+\lstset{%
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\footnotesize\ttfamily,
+  language=R}
+
+% Bibliography (bibtex, natbib)
+\usepackage{natbib}
 
 % A fancy coloured box for notes/warnings
 \usepackage[most]{tcolorbox}
@@ -183,84 +108,138 @@ $endif$
   borderline west={2pt}{0pt}{aagiteal}, borderline east={2pt}{0pt}{aagiteal},
   enhanced, breakable}
 
-% Any other user-defined header inclusions
-$for(header-includes)$
-  $header-includes$
-$endfor$
-
+% Hyperref for links/cross-referencing
 \usepackage{hyperref}
-% URL styling
 \hypersetup{%
-  colorlinks=true,
-  linkcolor=aagiteal,
-  urlcolor=aagiteal,
-  citecolor=aagiteal}
-
- % Hyperref for links/cross-referencing
+  colorlinks=true, linkcolor=aagiteal, urlcolor=aagiteal, citecolor=aagiteal}
 \def\sectionautorefname{Section}
 \def\subsectionautorefname{Subsection}
 \def\appendixautorefname{Appendix}
 \def\figureautorefname{Figure}
 \def\tableautorefname{Table}
 
-$if(links-as-footnotes)$
-  % make links footnotes instead of hotlinks:
-  \renewcommand{\href}[2]{#2\footnote{\protect\url{#1}}}
-$endif$
+%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%EDIT these parameters for your project here
+\newcommand{\myuniversity}{University Name}
+\newcommand{\myaaginode}{AAGI-XX}
+\newcommand{\myshorttitle}{Short title for report, e.g., AAGI/GRDC Project code}
 
-\newcommand{\pandocbounded}[1]{#1}
-
-%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\pagestyle{otherpages}
-\thispagestyle{firstpage}
-\newgeometry{left=12mm, right=12mm, top=20mm, bottom=24mm, includefoot}
-\afterpage{\aftergroup\restoregeometry}
+  \pagestyle{otherpages}
 
-%%% First page top-matter
-$if(colspace)$
-  \setlength{\tabcolsep}{$colspace$}
-$else$
-  \setlength{\tabcolsep}{12pt}
-$endif$
-
-% Title
-{\Large\bf $title$}\\[4pt]
-$if(subtitle)$
-  {\normalsize $subtitle$}
-$else$
-  \phantom{text}\\[-32pt]
-$endif$
-
-% Authors
-{\normalsize{%
-$if(author)$
-  $for(author)$$author$$sep$\\ $endfor$\\[-20pt]
-$endif$}}
-
-% Emails
-{\normalsize{%
-$if(email)$
-  Contact email:\;$email$\\[-20pt]
-$endif$}}
-
-% Version
-{\normalsize{%
-$if(version-number)$
-  Document version:\;\texttt{$version-number$}\\[-20pt]
-$endif$}}
-
-% Last updated
-Last updated $if(date)$$date$$else$\today$endif$
-\vspace{1mm}
-%%% End first page top-matter
-
-
-$if(toc)$
+  % Logo and SP footer only appears on first page  
+  \thispagestyle{firstpage}
+  \newgeometry{left=12mm, right=12mm, top=17mm, bottom=24mm, includefoot}
+  \afterpage{\aftergroup\restoregeometry}
+  
+  \vspace*{0.6cm}
+  {\Large\sbf%
+    Informative title for interim report  %EDIT your report title here
+  }\\[2pt]
+  {\large%
+    Optional subtitle here  %EDIT your report subtitle here
+  }
+  
+  %EDIT your report audience/writers here
+  Prepared for: Client 1, Client 2 (Organisation)\\[2pt]  
+  Prepared by: Author 1, Author 2 (\myuniversity, \myaaginode)\\[-20pt]
+  
+  %EDIT your email here
+  \newcommand{\myemail}{{{your.email@example.edu.au}}}
+  Correspondence email: \texttt{\href{mailto:\myemail}{\myemail}}\\[-20pt]
+  
+  Last updated: \today
+  
+  % Table of contents
+  % (Omit if the document is short enough to not benefit from having a ToC)
   \setcounter{page}{1}
-  \setcounter{tocdepth}{2}
   \tableofcontents
-$endif$
 
-$body$
+  % Report body text (break up into as many sections as needed)  
+  \section{Section 1}
+  
+  Report text goes here. This template is designed for smaller summary/interim
+  reports, typically less than 10 pages or so. The AAGI logo and partners footer
+  appear only on this first page to maximise space for the body text. Feel free
+  to remove the Table of Contents if the report is short enough to not need one.
+  
+  Use the AAGI theme colours for emphasis if you like (\verb|\color{aagiteal}|
+  for {\color{aagiteal}AAGI teal}, \verb|\color{aagigreen}| for
+  {\color{aagigreen}AAGI green}, and \verb|\color{aagiblack}| for
+  {\color{aagiblack}AAGI black}).
+  
+  \subsection{This is a subsection heading}
+  
+  Example R code (using the basic \texttt{lstlisting} environment):
+
+\begin{lstlisting}
+plot(pressure)
+\end{lstlisting}
+
+  Use \verb|\citep{blah}| for parenthetical
+  citations: \citep{blah}. Use \verb|\citet{blah}| for text citations, e.g.
+  \citet{blah}. References should be entered in bibtex format in the
+  \texttt{references.bib} file.
+  
+  A simple AAGI-themed table could be done as in \autoref{tab:aagi}.
+  \begin{table}[h]
+    \caption{An AAGI-themed table.}\label{tab:aagi}
+    \centering
+    \begin{tabular}{| l | r r |}
+    \rowcolor{aagiteal} {\color{white}Table Heading} & %
+    {\color{white}Next Heading} & {\color{white}Another Heading} \\
+    \hline
+    blah & 2 & 3 \\
+    \hline
+    \end{tabular}
+  \end{table}
+  
+  \subsubsection{This is a subsubsection heading}
+  
+  And so on, etc.
+  
+  Use \verb|\begin{note} ... \end{note}| for emphatic notes throughout
+  the report if you like. You can use \verb|\faIcon{...}| to add 
+  FontAwesome icons
+  for decoration, as shown below.
+  
+  \begin{note}
+    {\sbf\color{aagiteal!75!black} \faIcon{exclamation-triangle} NOTE}\quad
+    This is an example of a note.
+  \end{note}
+  
+  \vspace*{0.7cm}
+  
+  Insert graphics (JPEGs, PNGs, PDFs, tikzpictures, or whatever) as you like,
+  and add captions as necessary.
+  
+  \begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[width=0.85\textwidth, height=8cm, 
+          axis lines=middle, xlabel=$x$, ylabel=$y$,
+          xmin=-5, xmax=5, ymin=-1, ymax=25, samples=40]
+        \addplot[domain=-5:5, blue, thick]{x^2};
+        \node at (axis cs: 3.9,23) {\(y=x^2\)};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{A graph of a quadratic.}
+  \end{figure}
+  
+  \section{Next Section}
+  
+  Add as many sections as needed.
+  
+  Note that on page 2 and beyond, the header and footer have changed to contain
+  a short title in the top-right (e.g., project code), and the correspondence
+  email across the bottom. Make sure that you update these (via the
+  \verb|\myshorttitle| and \verb|\myemail| command definitions) to whatever
+  you need.  
+  
+  % Bibliography (as the last section)
+  \phantomsection
+  \addcontentsline{toc}{section}{References}
+  \bibliographystyle{assets/biom}
+  \bibliography{references.bib} 
+  
 \end{document}
