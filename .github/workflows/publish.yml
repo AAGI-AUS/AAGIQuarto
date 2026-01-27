@@ -1,64 +1,51 @@
 on:
-    push:
-      branches: [main]
-    release:
-        types: [published]
-    workflow_dispatch: {}
+  push:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch: {}
 
 name: demo-website
 
 jobs:
-    demo-page:
-        runs-on: ubuntu-latest
-        # Only restrict concurrency for non-PR jobs
-        concurrency:
-          group: quarto-publish-${{ github.event_name != 'pull_request' || github.run_id }}
-        permissions:
-          contents: write
-        steps:
-        - name: "Check out repository"
-          uses: actions/checkout@v4
+  demo-page:
+    runs-on: ubuntu-latest
 
-        # To render using knitr, we need a few more setup steps...
-        # If we didn't want the examples to use `engine: knitr`, we could
-        # skip a few of the setup steps.
-        - name: "Setup R"
-          uses: r-lib/actions/setup-r@v2
+    # Restrict concurrent publishes per ref
+    concurrency:
+      group: quarto-publish-${{ github.ref }}
 
-        - name: "Setup R dependencies for Quarto's knitr engine"
-          uses: r-lib/actions/setup-r-dependencies@v2
-          with:
-            packages:
-              any::knitr
-              any::rmarkdown
-              any::downlit
-              any::xml2
-              any::ggplot2
+    permissions:
+      contents: write
 
-      # install ms-corefonts for Arial font since Proxima Nova isn't available
-        - name: "Install ms-corefonts"
-          run: |
-            echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-            sudo apt install ttf-mscorefonts-installer
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # recommended for versioned sites / changelogs
 
-      # update font cache
-        - name: "Update font cache"
-          run: sudo fc-cache -fv
+      # Quarto's knitr engine needs R available
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
 
-      # Back to our regularly scheduled Quarto output
-        - name: "Set up Quarto"
-          uses: quarto-dev/quarto-actions/setup@v2
-          with:
-            version: "release"
-            tinytex: true # required for PDF reports
+      - name: Setup R dependencies for Quarto's knitr engine
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::knitr
+            any::rmarkdown
+            any::downlit
+            any::xml2
+            any::ggplot2
 
-        - name: Add extension directly into demos
-          working-directory: ./docs/demos
-          run: |
-            quarto add AAGI-AUS/AAGIQuarto --no-prompt
+      # Install ms-corefonts for Arial (Proxima Nova not available on runners)
+      - name: Install ms-corefonts
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+          sudo apt-get install -y ttf-mscorefonts-installer
 
-        - name: Publish to GitHub Pages (and render)
-          uses: quarto-dev/quarto-actions/publish@v2
-          with:
-              target: gh-pages
-              path: docs
+      - name: Update font cache
+        run: sudo fc-cache -fv
