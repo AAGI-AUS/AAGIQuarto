@@ -1,6 +1,6 @@
 ---
 title: "AAGI Quarto Templates Extension"
-format: 
+format:
   html:
     toc: false
 ---
