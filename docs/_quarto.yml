@@ -11,7 +11,7 @@ website:
   margin-header: |
     ![](/demos/assets/aagi-logo.svg)
   body-footer: |
-    ![](/demos/assets/AAGI SP Logo Block - Portrait.svg)
+    ![](/demos/assets/AAGI_SP_Logo_Block-Portrait.svg)
   sidebar:
     style: "floating"
     search: true
