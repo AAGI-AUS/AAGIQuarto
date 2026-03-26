@@ -42,7 +42,7 @@ jobs:
             "ggplot2",
             "sysfonts",
             "flextable",
-            "AAGI-AUS/AAGIThemes,
+            "AAGI-AUS/AAGIThemes",
             "AAGI-AUS/AAGIPalettes"
           ))
         shell: Rscript {0}
