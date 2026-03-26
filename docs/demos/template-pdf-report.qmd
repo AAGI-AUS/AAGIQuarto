@@ -21,9 +21,9 @@ editor: visual
 #| label: param_uni
 
 if (params$uni == "CU") {
-  project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
+  project_lead = "Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
 } else if (params$uni == "UA") {
-  project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
+  project_lead = "University of Adelaide -- Assoc Prof Julian Taylor, Dr Olena Kravchuck"
 } else {
   project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
 }
