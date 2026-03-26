@@ -37,6 +37,7 @@ jobs:
             any::downlit
             any::xml2
             any::ggplot2
+            any::sysfonts
 
       # Install ms-corefonts for Arial (Proxima Nova not available on runners)
       - name: Install ms-corefonts
@@ -45,7 +46,7 @@ jobs:
         run: |
           sudo apt-get update
           echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-          sudo apt-get install -y ttf-mscorefonts-installer libfontconfig1-dev
+          sudo apt-get install -y ttf-mscorefonts-installer libfontconfig1-dev libcairo2-dev
 
       - name: Update font cache
         run: sudo fc-cache -fv
