@@ -19,8 +19,10 @@ format: aagi-pdf+short+report
 #| label: setup
 # This is probably necessary on Linux (with Proxima Nova and Cairo
 # installed). We may need something else on Mac.
-if (toupper(Sys.info()["sysname"]) == "LINUX" ||
-  toupper(Sys.info()["sysname"]) == "DARWIN") {
+if (
+  toupper(Sys.info()["sysname"]) == "LINUX" ||
+    toupper(Sys.info()["sysname"]) == "DARWIN"
+) {
   knitr::opts_chunk$set(dev = c("cairo_pdf"))
 }
 
@@ -43,14 +45,16 @@ if (!require(flextable)) {
 }
 # Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {
-install.packages("AAGIThemes",
-                 repos = c("https://aagi-aus.r-universe.dev",
-                           "https://cloud.r-project.org"))
+  install.packages(
+    "AAGIThemes",
+    repos = c("https://aagi-aus.r-universe.dev", "https://cloud.r-project.org")
+  )
 }
 if (!require(AAGIPalettes)) {
-install.packages("AAGIPalettes",
-                 repos = c("https://aagi-aus.r-universe.dev",
-                           "https://cloud.r-project.org"))
+  install.packages(
+    "AAGIPalettes",
+    repos = c("https://aagi-aus.r-universe.dev", "https://cloud.r-project.org")
+  )
 }
 
 library(flextable)
@@ -69,10 +73,10 @@ set_flextable_defaults(theme_fun = theme_ft_aagi)
 #| include: false
 #| label: config-for-title
 
-if(params$uni == "CU"){
+if (params$uni == "CU") {
   project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
   email = "cbada@curtin.edu.au"
-} else if(params$uni == "UA"){
+} else if (params$uni == "UA") {
   project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
   email = paste(params$pri_bio, "adelaide.edu.au", sep = "")
 } else {
@@ -144,7 +148,6 @@ ft <- flextable(head(airquality)) |>
   autofit()
 
 ft
-
 ```
 
 ### This is a subsubsection heading

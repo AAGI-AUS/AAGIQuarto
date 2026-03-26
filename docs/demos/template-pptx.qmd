@@ -17,14 +17,16 @@ if (!require(flextable)) {
   pak::pak("flextable", dependencies = TRUE)
 }
 if (!require(AAGIThemes)) {
-  install.packages("AAGIThemes",
-                 repos = c("https://aagi-aus.r-universe.dev",
-                           "https://cloud.r-project.org"))
+  install.packages(
+    "AAGIThemes",
+    repos = c("https://aagi-aus.r-universe.dev", "https://cloud.r-project.org")
+  )
 }
 if (!require(AAGIPalettes)) {
-  install.packages("AAGIPalettes",
-                   repos = c("https://aagi-aus.r-universe.dev",
-                             "https://cloud.r-project.org"))
+  install.packages(
+    "AAGIPalettes",
+    repos = c("https://aagi-aus.r-universe.dev", "https://cloud.r-project.org")
+  )
 }
 
 if (!require("gapminder")) {
@@ -67,8 +69,10 @@ set_flextable_defaults(
   theme_fun = theme_ft_aagi
 )
 
-flex_tab <- flextable(head(airquality) |>
- mutate(`Month Name` = "May")) |>
+flex_tab <- flextable(
+  head(airquality) |>
+    mutate(`Month Name` = "May")
+) |>
   autofit()
 flex_tab
 ```
@@ -116,15 +120,18 @@ col_values <- c(
 ggplot() +
   geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +
   scale_fill_manual(values = col_values) +
-  facet_wrap(~ continent, ncol = 5) +
-  scale_y_continuous(breaks = c(0, 2000000000, 4000000000),
-                    labels = c(0, "2bn", "4bn")) +
+  facet_wrap(~continent, ncol = 5) +
+  scale_y_continuous(
+    breaks = c(0, 2000000000, 4000000000),
+    labels = c(0, "2bn", "4bn")
+  ) +
   theme_aagi() +
-  geom_hline(yintercept = 0,
-            linewidth = 1,
-            colour = "#474747") +
+  geom_hline(yintercept = 0, linewidth = 1, colour = "#474747") +
   theme(legend.position = "none", axis.text.x = element_blank()) +
-  labs(title = "Asia's rapid growth", subtitle = "Population growth by continent, 1952-2007")
+  labs(
+    title = "Asia's rapid growth",
+    subtitle = "Population growth by continent, 1952-2007"
+  )
 ```
 
 ## Slides With Columns

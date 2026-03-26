@@ -1,7 +1,7 @@
 ---
 format:
   aagi-docx+report: default
-execute: 
+execute:
   echo: false
 knitr:
   opts_chunk:
@@ -21,8 +21,10 @@ date-format: long
 #| include: false
 #| label: setup
 
-if (toupper(Sys.info()["sysname"]) == "LINUX" ||
-  toupper(Sys.info()["sysname"]) == "DARWIN") {
+if (
+  toupper(Sys.info()["sysname"]) == "LINUX" ||
+    toupper(Sys.info()["sysname"]) == "DARWIN"
+) {
   knitr::opts_chunk$set(dev = "cairo_pdf")
 }
 
@@ -45,14 +47,16 @@ if (!require(flextable)) {
 }
 # Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {
-install.packages("AAGIThemes",
-                 repos = c("https://aagi-aus.r-universe.dev",
-                           "https://cloud.r-project.org"))
+  install.packages(
+    "AAGIThemes",
+    repos = c("https://aagi-aus.r-universe.dev", "https://cloud.r-project.org")
+  )
 }
 if (!require(AAGIPalettes)) {
-install.packages("AAGIPalettes",
-                 repos = c("https://aagi-aus.r-universe.dev",
-                           "https://cloud.r-project.org"))
+  install.packages(
+    "AAGIPalettes",
+    repos = c("https://aagi-aus.r-universe.dev", "https://cloud.r-project.org")
+  )
 }
 library(AAGIThemes)
 library(AAGIPalettes)
@@ -186,11 +190,9 @@ Findings and their implications.
 #| label: fig-example
 #| fig-cap: "An example figure using {ggplot2}."
 
-ggplot(data = pressure, aes(x = temperature, 
-                            y = pressure)) + 
+ggplot(data = pressure, aes(x = temperature, y = pressure)) +
   geom_point() +
   theme_aagi()
-
 ```
 
 # Table example
@@ -204,7 +206,6 @@ ft <- flextable(head(airquality)) |>
   autofit()
 
 ft
-
 ```
 
 # Metadata and Datasets (Optional)
