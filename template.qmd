@@ -35,7 +35,7 @@ bibliography: your_references.bib # Replace with your .bib file
 #| label: variable-based-on-param
 
 if (params$uni == "CU") {
-  project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
+  project_lead = "Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
   email <- "cbada@curtin.edu.au"
   university <- "Curtin University"
 } else if (params$uni == "UA") {
