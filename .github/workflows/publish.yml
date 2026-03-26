@@ -42,6 +42,7 @@ jobs:
             "ggplot2",
             "sysfonts",
             "flextable",
+            "tinytex",
             "AAGI-AUS/AAGIThemes",
             "AAGI-AUS/AAGIPalettes"
           ))
