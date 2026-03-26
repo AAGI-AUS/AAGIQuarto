@@ -28,16 +28,22 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
 
-      - name: Setup R dependencies for Quarto's knitr engine
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            any::knitr
-            any::rmarkdown
-            any::downlit
-            any::xml2
-            any::ggplot2
-            any::sysfonts
+      - name: Install pak
+        run: install.packages('pak', repos = 'https://r-lib.github.io/p/pak/dev/')
+        shell: Rscript {0}
+
+      - name: Install R (and system) dependencies with pak
+        run: |
+          pak::pkg_install(c(
+            "knitr",
+            "rmarkdown",
+            "downlit",
+            "xml2",
+            "ggplot2",
+            "sysfonts",
+            "flextable"   # add other pkgs you use!
+          ))
+        shell: Rscript {0}
 
       # Install ms-corefonts for Arial (Proxima Nova not available on runners)
       - name: Install ms-corefonts
