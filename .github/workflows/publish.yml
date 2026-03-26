@@ -41,7 +41,9 @@ jobs:
             "xml2",
             "ggplot2",
             "sysfonts",
-            "flextable"   # add other pkgs you use!
+            "flextable",
+            "AAGI-AUS/AAGIThemes,
+            "AAGI-AUS/AAGIPalettes"
           ))
         shell: Rscript {0}
 
@@ -52,7 +54,7 @@ jobs:
         run: |
           sudo apt-get update
           echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-          sudo apt-get install -y ttf-mscorefonts-installer libfontconfig1-dev libcairo2-dev libcurl4-openssl-dev
+          sudo apt-get install -y ttf-mscorefonts-installer
 
       - name: Update font cache
         run: sudo fc-cache -fv
