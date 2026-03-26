@@ -69,10 +69,10 @@ set_flextable_defaults(theme_fun = theme_ft_aagi)
 #| label: config-for-title
 
 if (params$uni == "CU") {
-  project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
+  project_lead = "Curtin University -- Prof Mark Gibberd, A/Prof Julia Easton, Prof Adam Sparks"
   email = "cbada@curtin.edu.au"
 } else if (params$uni == "UA") {
-  project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
+  project_lead = "University of Adelaide -- A/Prof Julian Taylor, Dr Olena Kravchuck"
   email = paste(params$pri_bio, "adelaide.edu.au", sep = "")
 } else {
   project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
