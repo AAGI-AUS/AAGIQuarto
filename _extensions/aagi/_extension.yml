@@ -1,5 +1,5 @@
 title: AAGIQuarto
-author: Adam H. Sparks, James J. Balamuta, Russell Edson, Vinh Thiem Ma, Rose Megirian, Zhanglong Cao, Sam Rogers, Julian Taylor
+author: Adam H. Sparks, James J. Balamuta, Russell Edson, Vinh Thiem Ma, Rose Megirian, Zhanglong Cao, Sam Rogers, Julian Taylor, Peter Misiun
 version: 1.0.4
 quarto-required: ">=1.4.0"
 contributes:
@@ -27,7 +27,7 @@ contributes:
       csl: assets/biometrics.csl
       format-resources:
         - assets/aagi_logo.pdf
-        - assets/partners.pdf
+        - assets/AAGI SP Logo Block - Landscape.pdf
     pdf+short+report:
       template: pdf-short-report/template.tex
       engine: xelatex
@@ -35,7 +35,7 @@ contributes:
       link-citations: true
       format-resources:
         - assets/aagi_logo.pdf
-        - assets/partners.pdf
+        - assets/AAGI SP Logo Block - Landscape.pdf
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
