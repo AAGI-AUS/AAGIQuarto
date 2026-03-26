@@ -5,7 +5,6 @@ format:
     toc: false
 ---
 
-
 # AAGI Extension For Quarto
 
 The `AAGIQuarto` Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents.
