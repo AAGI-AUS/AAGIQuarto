@@ -34,7 +34,7 @@ jobs:
 
       - name: Install R (and system) dependencies with pak
         run: |
-          pak::pkg_install(c(
+          pak::pak(c(
             "knitr",
             "rmarkdown",
             "downlit",
