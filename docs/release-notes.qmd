@@ -7,6 +7,16 @@ format:
     toc: true
 ---
 
+# 0.1.6  2026-03-27
+
+## Minor changes 
+
+* Fix Adelaide University in parameters of "template.qmd"
+
+## Bug fixes 
+
+* Fix bug in "_extension.yml" where the asset for the partner logo block was incorrectly referred to.
+
 # 0.1.5  2026-03-26
 
 ## Minor changes 
