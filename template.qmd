@@ -38,10 +38,10 @@ if (params$uni == "CU") {
   project_lead = "Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
   email <- "cbada@curtin.edu.au"
   university <- "Curtin University"
-} else if (params$uni == "UA") {
+} else if (params$uni == "AU") {
   project_lead = "University of Adelaide -- Assoc Prof Julian Taylor, Dr Olena Kravchuck"
   email <- paste(params$pri_bio, "@adelaide.edu.au", sep = "")
-  university <- "University of Adelaide"
+  university <- "Adelaide University"
 } else {
   project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
   email <- paste(params$pri_bio, "@uq.edu.au")
