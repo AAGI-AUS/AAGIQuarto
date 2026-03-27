@@ -35,7 +35,7 @@ contributes:
       link-citations: true
       format-resources:
         - assets/AAGI_logo.pdf
-        - assets/AAGI SP Logo Block - Landscape.pdf
+        - assets/AAGI_SP_Logo_Block-Landscape.pdf
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
