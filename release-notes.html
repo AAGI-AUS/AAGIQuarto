@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AAGI Quarto Templates Extension – AAGIQuarto</title>
+<title>Release Notes – AAGIQuarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -118,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./release-notes.html">Extra</a></li><li class="breadcrumb-item"><a href="./release-notes.html">Release Notes</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -153,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -168,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./release-notes.html" class="sidebar-item-text sidebar-link">
+  <a href="./release-notes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Release Notes</span></a>
   </div>
 </li>
@@ -182,13 +147,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><img src="./demos/assets/aagi-logo.svg" class="img-fluid"></p>
 </div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">0.1.5 2026-03-26</a>
+  <ul class="collapse">
+  <li><a href="#minor-changes" id="toc-minor-changes" class="nav-link" data-scroll-target="#minor-changes">Minor changes</a></li>
+  </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">0.1.4 2025-07-29</a>
+  <ul class="collapse">
+  <li><a href="#minor-changes-1" id="toc-minor-changes-1" class="nav-link" data-scroll-target="#minor-changes-1">Minor changes</a></li>
+  </ul></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">0.1.3 2025-07-29</a>
+  <ul class="collapse">
+  <li><a href="#minor-changes-2" id="toc-minor-changes-2" class="nav-link" data-scroll-target="#minor-changes-2">Minor changes</a></li>
+  <li><a href="#bug-fixes" id="toc-bug-fixes" class="nav-link" data-scroll-target="#bug-fixes">Bug fixes</a></li>
+  </ul></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">0.1.2 2024-12-11</a>
+  <ul class="collapse">
+  <li><a href="#minor-changes-3" id="toc-minor-changes-3" class="nav-link" data-scroll-target="#minor-changes-3">Minor changes</a></li>
+  <li><a href="#bug-fixes-1" id="toc-bug-fixes-1" class="nav-link" data-scroll-target="#bug-fixes-1">Bug fixes</a></li>
+  </ul></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">0.1.1 2024-10-28</a>
+  <ul class="collapse">
+  <li><a href="#minor-changes-4" id="toc-minor-changes-4" class="nav-link" data-scroll-target="#minor-changes-4">Minor Changes</a></li>
+  </ul></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">0.1.0 2024-09-26</a>
+  <ul class="collapse">
+  <li><a href="#major-changes" id="toc-major-changes" class="nav-link" data-scroll-target="#major-changes">Major Changes</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/release-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./release-notes.html">Extra</a></li><li class="breadcrumb-item"><a href="./release-notes.html">Release Notes</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">AAGI Quarto Templates Extension</h1>
+<h1 class="title">Release Notes</h1>
 </div>
 
 
@@ -197,6 +194,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">March 27, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -205,71 +208,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="aagi-extension-for-quarto" class="level1">
-<h1>AAGI Extension For Quarto</h1>
-<p>The <code>AAGIQuarto</code> Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents. If you prefer to use R Markdown, please see the excellent <a href="https://github.com/AAGI-AUS/AAGITemplates">{AAGITemplates}</a> package, which <code>AAGIQuarto</code> has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools. <code>AAGIQuarto</code> was developed to provide next-generation literate programming tools for AAGI’s reporting and presentation needs that support R, Python and Julia languages.</p>
-<section id="template-formats" class="level2">
-<h2 class="anchored" data-anchor-id="template-formats">Template Formats</h2>
-<p>See the included template and demo file for each format here:</p>
-<section id="report-formats" class="level3">
-<h3 class="anchored" data-anchor-id="report-formats">Report Formats</h3>
+<section id="section" class="level1">
+<h1>0.1.5 2026-03-26</h1>
+<section id="minor-changes" class="level2">
+<h2 class="anchored" data-anchor-id="minor-changes">Minor changes</h2>
 <ul>
-<li><p><strong>AAGI PDF Short Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-short-report+short+report.pdf">AAGI PDF Short Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI PDF Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report+report.pdf">AAGI PDF Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI Word Document Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-docx-report.docx">AAGI Word Document Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI Word Document Short Report:</strong> <a href="demos/template-docx-short-report.docx">AAGI Word Document Short Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-short-report.qmd">Source</a>)</p></li>
-</ul>
-</section>
-<section id="presentation-formats" class="level3">
-<h3 class="anchored" data-anchor-id="presentation-formats">Presentation Formats</h3>
-<ul>
-<li><p><strong>AAGI revealjs Presentation:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-revealjs.html#/title-slide">AAGI revealjs Slide Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd">Source</a>) (this is an <code>AAGIQuarto</code> exclusive)</p></li>
-<li><p><strong>AAGI PowerPoint Presentation:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pptx.pptx">AAGI PPT Slide Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pptx.qmd">Source</a>)</p></li>
+<li>Update SP logo block to use new AU logo and new order</li>
+<li>Polish extension contents, delete extra files, lint and format files</li>
 </ul>
 </section>
 </section>
-<section id="installing" class="level2">
-<h2 class="anchored" data-anchor-id="installing">Installing</h2>
-<section id="getting-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="getting-quarto">Getting Quarto</h3>
-<p>If you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. <a href="https://quarto.org/docs/get-started/">Go here</a> for instructions on how to install Quarto.</p>
-</section>
-<section id="getting-the-template" class="level3">
-<h3 class="anchored" data-anchor-id="getting-the-template">Getting the Template</h3>
-<p>Use your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the <code>bash</code> command. For more information, see <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Microsoft’s documentation</a>.</p>
-<p>You can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template AAGI-AUS/AAGIQuarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.</p>
-</section>
-</section>
-<section id="using" class="level2">
-<h2 class="anchored" data-anchor-id="using">Using</h2>
-<p>For documentation on using reveal.js slides in Quarto, please see, <a href="https://quarto.org/docs/presentations/revealjs/" class="uri">https://quarto.org/docs/presentations/revealjs/</a>.</p>
-<p>To use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:</p>
+<section id="section-1" class="level1">
+<h1>0.1.4 2025-07-29</h1>
+<section id="minor-changes-1" class="level2">
+<h2 class="anchored" data-anchor-id="minor-changes-1">Minor changes</h2>
 <ul>
-<li><code>aagi-docx+report</code>, for a full length MS Word report</li>
-<li><code>aagi-docx+short+report</code>, for a short MS Word report</li>
-<li><code>aagi-pptx</code>, for MS PPT output</li>
-<li><code>aagi-revealjs</code>, for a revealjs presentation</li>
-<li><code>aagi-pdf+report</code>, for a full length PDF report</li>
-<li><code>aagi-pdf+short+report</code>, for a short PDF report</li>
+<li>More polishing missed in last round, <em>e.g.</em>, duplicated labels, etc.</li>
 </ul>
-<section id="template" class="level3">
-<h3 class="anchored" data-anchor-id="template">Template</h3>
-<p>If you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.</p>
-<p>By default, these templates use <a href="https://aagi-aus.github.io/AAGIThemes/">{AAGIThemes}</a> and <a href="https://aagi-aus.github.io/AAGIPalettes/">{AAGIPalettes}</a> for R graphical and tabular outputs.</p>
 </section>
 </section>
-<section id="updating" class="level2">
-<h2 class="anchored" data-anchor-id="updating">Updating</h2>
-<p>As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> update AAGI-AUS/AAGIQuarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="section-2" class="level1">
+<h1>0.1.3 2025-07-29</h1>
+<section id="minor-changes-2" class="level2">
+<h2 class="anchored" data-anchor-id="minor-changes-2">Minor changes</h2>
+<ul>
+<li><p>Set language in Word document templates to en-AU</p></li>
+<li><p>Enhanced installation instructions</p></li>
+<li><p>Adds header and footer to full length reports</p></li>
+<li><p>Install AAGI R packages using R-Universe methods</p></li>
+</ul>
 </section>
-<section id="logo-rights" class="level2">
-<h2 class="anchored" data-anchor-id="logo-rights">Logo Rights</h2>
-<p>The logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.</p>
+<section id="bug-fixes" class="level2">
+<h2 class="anchored" data-anchor-id="bug-fixes">Bug fixes</h2>
+<ul>
+<li><p>Ensure <code>\usepackage{hyperref}</code> is called</p></li>
+<li><p>Spelling corrections</p></li>
+</ul>
+</section>
+</section>
+<section id="section-3" class="level1">
+<h1>0.1.2 2024-12-11</h1>
+<section id="minor-changes-3" class="level2">
+<h2 class="anchored" data-anchor-id="minor-changes-3">Minor changes</h2>
+<ul>
+<li>Adds example using {flextable} in AAGI Short Report PDF format document</li>
+</ul>
+</section>
+<section id="bug-fixes-1" class="level2">
+<h2 class="anchored" data-anchor-id="bug-fixes-1">Bug fixes</h2>
+<ul>
+<li>Fixes bug in AAGI Short Report PDF format wherein using {flextable} caused the PDF to not compile properly (at all)</li>
+</ul>
+</section>
+</section>
+<section id="section-4" class="level1">
+<h1>0.1.1 2024-10-28</h1>
+<section id="minor-changes-4" class="level2">
+<h2 class="anchored" data-anchor-id="minor-changes-4">Minor Changes</h2>
+<ul>
+<li><p>Add example outputs for reports using AAGI themes for graphs and tables</p></li>
+<li><p>Add starter pack instructions for easily creating an AAGI file rather than setting up your own YAML</p></li>
+<li><p>Fixed links in README</p></li>
+</ul>
+</section>
+</section>
+<section id="section-5" class="level1">
+<h1>0.1.0 2024-09-26</h1>
+<section id="major-changes" class="level2">
+<h2 class="anchored" data-anchor-id="major-changes">Major Changes</h2>
+<ul>
+<li>This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX</li>
+</ul>
 
 
 </section>
@@ -681,4 +690,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/release-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
