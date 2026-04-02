@@ -38,13 +38,10 @@ if (!require(flextable)) {
 
 # Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {
-  pak::pak("AAGI-AUS/AAGIThemes")
+  pak::pak("AAGI-AUS/AAGIThemes", dependencies = TRUE)
 }
 if (!require(AAGIPalettes)) {
-  pak::pak("AAGI-AUS/AAGIPalettes")
-}
-if (!require(gapminder)) {
-  pak::pak("gapminder")
+  pak::pak("AAGI-AUS/AAGIPalettes", dependencies = TRUE)
 }
 
 library(ggplot2)
@@ -81,6 +78,7 @@ That renders like this.
 For more advanced tables, we suggest pairing with the R package [{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) to provide AAGI themed tables using `theme_gt_aagi()`, that offers more flexibility in formatting.
 
 ```{r}
+
 #| label: AAGI table
 #| message: false
 #| echo: true

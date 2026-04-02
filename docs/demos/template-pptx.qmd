@@ -19,13 +19,10 @@ if (!require(flextable)) {
 
 # Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {
-  pak::pak("AAGI-AUS/AAGIThemes")
+  pak::pak("AAGI-AUS/AAGIThemes", dependencies = TRUE)
 }
 if (!require(AAGIPalettes)) {
-  pak::pak("AAGI-AUS/AAGIPalettes")
-}
-if (!require("gapminder")) {
-  pak::pak("gapminder")
+  pak::pak("AAGI-AUS/AAGIPalettes", dependencies = TRUE)
 }
 
 library(ggplot2)
