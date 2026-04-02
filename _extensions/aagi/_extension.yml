@@ -9,9 +9,9 @@ contributes:
       date-format: long
       slide-number: true
       footer: ""
-      logo: assets/aagi-logo.svg
+      logo: _extensions/aagi/assets/AAGI_logo.svg
       title-slide-attributes:
-        data-background-image: assets/title-slide-main.png
+        data-background-image: _extensions/aagi/assets/title-slide-main.png
         data-background-size: 1050px auto
         data-background-position: 50% 85%
       highlight-style: breeze
@@ -26,16 +26,16 @@ contributes:
       engine: xelatex
       csl: assets/biometrics.csl
       format-resources:
-        - assets/AAGI_logo.pdf
-        - assets/AAGI_SP_Logo_Block-Portrait.pdf
+        - _extensions/aagi/assets/AAGI_logo.pdf
+        - _extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.pdf
     pdf+short+report:
       template: pdf-short-report/template.tex
       engine: xelatex
       csl: assets/biometrics.csl
       link-citations: true
       format-resources:
-        - assets/AAGI_logo.pdf
-        - assets/AAGI_SP_Logo_Block-Portrait.pdf
+        - _extensions/aagi/assets/AAGI_logo.pdf
+        - _extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.pdf
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
