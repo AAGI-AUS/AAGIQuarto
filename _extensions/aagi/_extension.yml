@@ -27,7 +27,7 @@ contributes:
       csl: assets/biometrics.csl
       format-resources:
         - assets/AAGI_logo.pdf
-        - assets/AAGI SP Logo Block - Landscape.pdf
+        - assets/AAGI_SP_Logo_Block-Portrait.pdf
     pdf+short+report:
       template: pdf-short-report/template.tex
       engine: xelatex
@@ -35,7 +35,7 @@ contributes:
       link-citations: true
       format-resources:
         - assets/AAGI_logo.pdf
-        - assets/AAGI_SP_Logo_Block-Landscape.pdf
+        - assets/AAGI_SP_Logo_Block-Portrait.pdf
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
