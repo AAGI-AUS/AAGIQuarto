@@ -9,9 +9,9 @@ website:
   repo-url: https://github.com/AAGI-AUS/AAGIQuarto
   repo-actions: [edit, issue]
   margin-header: |
-    ![](/demos/assets/aagi-logo.svg)
+    ![](/_extensions/aagi/assets/aagi-logo.svg)
   body-footer: |
-    ![](/demos/assets/AAGI_SP_Logo_Block-Portrait.svg)
+    ![](/_extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg)
   sidebar:
     style: "floating"
     search: true
