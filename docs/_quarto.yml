@@ -7,24 +7,24 @@ website:
   repo-url: https://github.com/AAGI-AUS/AAGIQuarto
   repo-actions: [edit, issue]
   margin-header: |
-    ![](../_extensions/aagi/assets/AAGI_logo.svg)
+    ![](_extensions/aagi/assets/AAGI_logo.svg)
   body-footer: |
-    ![](../_extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg)
+    ![](_extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg)
   sidebar:
     style: "floating"
     search: true
     tools:
       - icon: github
         href: https://github.com/AAGI-AUS/AAGIQuarto
-    contents: 
+    contents:
       - text: "Home"
         file: index.qmd
       - section: "Extra"
         contents:
-        - release-notes.qmd
-format: 
+          - release-notes.qmd
+format:
   html:
     toc: true
-    theme: 
+    theme:
       - none
       - _extensions/aagi/revealjs/aagi.scss
