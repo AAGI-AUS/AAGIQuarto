@@ -66,8 +66,15 @@ jobs:
       - name: Install TinyTex
         run: quarto install tinytex
 
+      - name: Install Quarto extension into docs project
+        run: |
+          cd docs
+          quarto add --no-prompt ../_extensions/aagi
+
       - name: Render site
-        run: quarto render
+        run: |
+          cd docs
+          quarto render
 
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
