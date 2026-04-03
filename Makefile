@@ -1,23 +1,24 @@
+
 .PHONY: asset-revealjs asset-docx asset-report asset-pdf-short-report assets help
 .DEFAULT_GOAL := help
 
-asset-revealjs: ## Render reveal.js Slides
-	quarto render docs/demos/template-revealjs.qmd --output-dir assets
-
-asset-docx: ## Render docx report document
-	quarto render docs/demos/template-docx-report.qmd --output-dir assets
-
-asset-short-docx: ## Render short docx report document
-	quarto render docs/demos/template-docx-short-report.qmd --output-dir assets
-
 asset-report: ## Render pdf report document
-	quarto render docs/demos/template-pdf-report.qmd --output-dir assets
+	quarto render docs/demos/template-pdf-report.qmd --project . --output-dir assets
 
 asset-short-report: ## Render short pdf report document
-	quarto render docs/demos/template-pdf-short-report.qmd --output-dir assets
+	quarto render docs/demos/template-pdf-short-report.qmd --project . --output-dir assets
+
+asset-docx: ## Render docx report document
+	quarto render docs/demos/template-docx-report.qmd --project . --output-dir assets
+
+asset-short-docx: ## Render short docx report document
+	quarto render docs/demos/template-docx-short-report.qmd --project . --output-dir assets
+
+asset-revealjs: ## Render reveal.js Slides
+	quarto render docs/demos/template-revealjs.qmd --project . --output-dir assets
 
 asset-pptx: ## Render pptx Slides
-	quarto render docs/demos/template-pptx.qmd --output-dir assets
+	quarto render docs/demos/template-pptx.qmd --project . --output-dir assets
 
 assets:	asset-report asset-short-report asset-docx asset-short-docx asset-revealjs asset-pptx ## Render all assets
 
