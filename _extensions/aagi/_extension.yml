@@ -25,17 +25,23 @@ contributes:
       template: pdf-report/template.tex
       engine: xelatex
       csl: assets/biometrics.csl
+      resources:
+        - assets/AAGI_logo.pdf
+        - assets/AAGI_SP_Logo_Block-Portrait.pdf
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
-    pdf+short+report:
-      template: pdf-short-report/template.tex
-      engine: xelatex
-      csl: assets/biometrics.csl
-      link-citations: true
-      format-resources:
-        - assets/AAGI_logo.pdf
-        - assets/AAGI_SP_Logo_Block-Portrait.pdf
+  pdf+short+report:
+    template: pdf-short-report/template.tex
+    engine: xelatex
+    csl: assets/biometrics.csl
+    link-citations: true
+    resources:
+      - assets/AAGI_logo.pdf
+      - assets/AAGI_SP_Logo_Block-Portrait.pdf
+    format-resources:
+      - assets/AAGI_logo.pdf
+      - assets/AAGI_SP_Logo_Block-Portrait.pdf
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
