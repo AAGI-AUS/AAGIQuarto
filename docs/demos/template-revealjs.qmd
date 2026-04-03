@@ -43,7 +43,9 @@ if (!require(AAGIThemes)) {
 if (!require(AAGIPalettes)) {
   pak::pak("AAGI-AUS/AAGIPalettes", dependencies = TRUE)
 }
-
+if (!require(gapminder)) {
+  pak::pak("gapminder", dependencies = TRUE)
+}
 library(ggplot2)
 library(AAGIThemes)
 
