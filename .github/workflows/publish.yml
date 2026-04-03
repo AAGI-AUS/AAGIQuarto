@@ -45,7 +45,7 @@ jobs:
             "tinytex",
             "AAGI-AUS/AAGIThemes",
             "AAGI-AUS/AAGIPalettes"
-          ), dependencies = TRUE)
+          ))
         shell: Rscript {0}
 
       # Install ms-corefonts for Arial (Proxima Nova not available on runners)
