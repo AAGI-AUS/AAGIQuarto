@@ -7,9 +7,9 @@ website:
   repo-url: https://github.com/AAGI-AUS/AAGIQuarto
   repo-actions: [edit, issue]
   margin-header: |
-    ![](_extensions/aagi/assets/AAGI_logo.svg)
+    ![](aagi/assets/AAGI_logo.svg)
   body-footer: |
-    ![](_extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg)
+    ![](aagi/assets/AAGI_SP_Logo_Block-Portrait.svg)
   sidebar:
     style: "floating"
     search: true
@@ -27,4 +27,4 @@ format:
     toc: true
     theme:
       - none
-      - _extensions/aagi/revealjs/aagi.scss
+      - aagi/revealjs/aagi.scss
