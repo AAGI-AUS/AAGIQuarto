@@ -68,7 +68,7 @@ jobs:
           tinytex: true # required for beamer
 
       - name: Add extension directly into demos
-        working-directory: ./docs/demos
+        working-directory: ./docs
         run: |
           quarto add --no-prompt AAGI-AUS/AAGIQuarto
 
