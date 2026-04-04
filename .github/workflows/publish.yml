@@ -70,7 +70,7 @@ jobs:
       - name: Add extension directly into demos
         working-directory: ./docs
         run: |
-          quarto add --no-prompt AAGI-AUS/AAGIQuarto
+          quarto add --no-prompt https://github.com/AAGI-AUS/AAGIQuarto/tree/main/_extensions/aagi
 
       - name: Debug installed extension content
         run: |
