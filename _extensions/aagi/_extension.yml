@@ -21,6 +21,7 @@ contributes:
       chalkboard: true
       execute:
         echo: true
+
     pdf+report:
       template: pdf-report/template.tex
       engine: xelatex
@@ -31,22 +32,26 @@ contributes:
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
-  pdf+short+report:
-    template: pdf-short-report/template.tex
-    engine: xelatex
-    csl: assets/biometrics.csl
-    link-citations: true
-    resources:
-      - assets/AAGI_logo.pdf
-      - assets/AAGI_SP_Logo_Block-Portrait.pdf
-    format-resources:
-      - assets/AAGI_logo.pdf
-      - assets/AAGI_SP_Logo_Block-Portrait.pdf
+
+    pdf+short+report:
+      template: pdf-short-report/template.tex
+      engine: xelatex
+      csl: assets/biometrics.csl
+      link-citations: true
+      resources:
+        - assets/AAGI_logo.pdf
+        - assets/AAGI_SP_Logo_Block-Portrait.pdf
+      format-resources:
+        - assets/AAGI_logo.pdf
+        - assets/AAGI_SP_Logo_Block-Portrait.pdf
+
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
+
     docx+short+report:
       reference-doc: docx-short-report/template.docx
+
     pptx:
       reference-doc: pptx/template.pptx
       toc: true

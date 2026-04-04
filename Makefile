@@ -1,26 +1,23 @@
 .PHONY: asset-revealjs asset-docx asset-short-docx asset-report asset-short-report asset-pptx assets help
 .DEFAULT_GOAL := help
 
-# Render outputs as part of the docs/ website project so Quarto can discover
-# docs/_extensions (including the aagi extension).
-
-asset-revealjs: ## Render reveal.js Slides
-	quarto render docs/demos/template-revealjs.qmd --project docs --output-dir docs/assets
+asset-revealjs: ## Render reveal.js Slides (AAGI theme)
+	cd docs && quarto render demos/template-revealjs.qmd --to revealjs --output-dir assets
 
 asset-docx: ## Render docx report document
-	quarto render docs/demos/template-docx-report.qmd --project docs --output-dir docs/assets
+	cd docs && quarto render demos/template-docx-report.qmd --to docx+report --output-dir assets
 
 asset-short-docx: ## Render short docx report document
-	quarto render docs/demos/template-docx-short-report.qmd --project docs --output-dir docs/assets
+	cd docs && quarto render demos/template-docx-short-report.qmd --to docx+short+report --output-dir assets
 
 asset-report: ## Render pdf report document
-	quarto render docs/demos/template-pdf-report.qmd --project docs --output-dir docs/assets
+	cd docs && quarto render demos/template-pdf-report.qmd --to pdf+report --output-dir assets
 
 asset-short-report: ## Render short pdf report document
-	quarto render docs/demos/template-pdf-short-report.qmd --project docs --output-dir docs/assets
+	cd docs && quarto render demos/template-pdf-short-report.qmd --to pdf+short+report --output-dir assets
 
 asset-pptx: ## Render pptx Slides
-	quarto render docs/demos/template-pptx.qmd --project docs --output-dir docs/assets
+	cd docs && quarto render demos/template-pptx.qmd --to pptx --output-dir assets
 
 assets: asset-report asset-short-report asset-docx asset-short-docx asset-revealjs asset-pptx ## Render all assets
 
