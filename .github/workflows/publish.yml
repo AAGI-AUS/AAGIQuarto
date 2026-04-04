@@ -67,33 +67,10 @@ jobs:
           version: "pre-release"
           tinytex: true # required for beamer
 
-      - name: Add extension directly into demos
-        working-directory: ./docs
+      - name: Stage local extension into docs project
         run: |
-          quarto add --no-prompt https://github.com/AAGI-AUS/AAGIQuarto/tree/main/_extensions/aagi
-
-      - name: Debug installed extension content
-        run: |
-          echo "List installed extensions:"
-          find docs/_extensions -maxdepth 4 -type f -name "_extension.yml" -print || true
-
-          echo "Where is aagibrightgreen defined?"
-          grep -R "definecolor{aagibrightgreen}" -n docs/_extensions || true
-
-          echo "Show the xcolor block in installed template:"
-          sed -n '1,80p' docs/_extensions/**/aagi/pdf-short-report/template.tex 2>/dev/null || true
-
-      - name: Debug LaTeX log (on failure)
-        if: failure()
-        run: |
-          sed -n '1,120p' docs/demos/template-pdf-short-report+short+report.log || true
-          grep -n "template.tex" -n docs/demos/template-pdf-short-report+short+report.log || true
-          grep -n "aagibrightgreen" docs/demos/template-pdf-short-report+short+report.log || true
-
-      - name: Render failing demo explicitly (debug)
-        run: |
-          cd docs
-          quarto render demos/template-pdf-short-report.qmd --to aagi-pdf+short+report --log-level debug
+          mkdir -p docs/_extensions
+          cp -R _extensions/aagi docs/_extensions/aagi
 
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
