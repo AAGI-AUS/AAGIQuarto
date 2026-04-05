@@ -30,4 +30,4 @@ format:
     toc: true
     theme:
       - none
-      - _extensions/aagi/revealjs/aagi.scss
+      - _extensions/aagi/html/aagi-html.scss
