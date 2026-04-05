@@ -5,17 +5,24 @@ quarto-required: ">=1.4.0"
 contributes:
   formats:
     revealjs:
-      theme:
-        - default
-        - _extensions/aagi/revealjs/aagi.scss
+      theme: default
+      css:
+        - revealjs/aagi.scss
+
+      # stage extension assets and reference them by basename
+      format-resources:
+        - assets/AAGI_logo.svg
+        - assets/title-slide-main.png
+
+      logo: AAGI_logo.svg
+      title-slide-attributes:
+        data-background-image: title-slide-main.png
+        data-background-size: 1050px auto
+        data-background-position: 50% 85%
+
       date-format: long
       slide-number: true
       footer: ""
-      logo: assets/AAGI_logo.svg
-      title-slide-attributes:
-        data-background-image: assets/title-slide-main.png
-        data-background-size: 1050px auto
-        data-background-position: 50% 85%
       highlight-style: breeze
       overview: true
       progress: true
