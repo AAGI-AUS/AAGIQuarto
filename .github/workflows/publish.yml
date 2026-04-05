@@ -16,13 +16,11 @@ jobs:
       group: quarto-publish-${{ github.ref }}
 
     permissions:
-      contents: read
-      pages: write
-      id-token: write
+      contents: write
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # recommended for versioned sites / changelogs
 
@@ -76,5 +74,7 @@ jobs:
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          target: github-pages
+          target: gh-pages
           path: docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
