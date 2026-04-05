@@ -139,7 +139,7 @@
     "href": "demos/template-revealjs.html#advanced-tables",
     "title": "AAGI",
     "section": "Advanced Tables",
-    "text": "Advanced Tables\nFor more advanced tables, we suggest pairing with the R package {AAGIThemes} to provide AAGI themed tables using theme_gt_aagi(), that offers more flexibility in formatting.\n\nlibrary(dplyr)\nlibrary(gt)\nlibrary(AAGIThemes)\n\ngt &lt;- gt(\n  head(airquality) |&gt;\n    mutate(`Month Name` = \"May\")\n)\ngt &lt;- theme_gt_aagi(gt)\ngt\n\n\n\n\n\n\n\nOzone\nSolar.R\nWind\nTemp\nMonth\nDay\nMonth Name\n\n\n\n\n41\n190\n7.4\n67\n5\n1\nMay\n\n\n36\n118\n8.0\n72\n5\n2\nMay\n\n\n12\n149\n12.6\n74\n5\n3\nMay\n\n\n18\n313\n11.5\n62\n5\n4\nMay\n\n\nNA\nNA\n14.3\n56\n5\n5\nMay\n\n\n28\nNA\n14.9\n66\n5\n6\nMay"
+    "text": "Advanced Tables\nFor more advanced tables, we suggest pairing with the R package {AAGIThemes} to provide AAGI themed tables using theme_gt_aagi(), that offers more flexibility in formatting.\n\n#| label: AAGI table\n#| message: false\n#| echo: true\n\nlibrary(dplyr)\nlibrary(gt)\nlibrary(AAGIThemes)\n\ngt &lt;- gt(\n  head(airquality) |&gt;\n    mutate(`Month Name` = \"May\")\n)\ngt &lt;- theme_gt_aagi(gt)\ngt\n\n\n\n\n\n\n\nOzone\nSolar.R\nWind\nTemp\nMonth\nDay\nMonth Name\n\n\n\n\n41\n190\n7.4\n67\n5\n1\nMay\n\n\n36\n118\n8.0\n72\n5\n2\nMay\n\n\n12\n149\n12.6\n74\n5\n3\nMay\n\n\n18\n313\n11.5\n62\n5\n4\nMay\n\n\nNA\nNA\n14.3\n56\n5\n5\nMay\n\n\n28\nNA\n14.9\n66\n5\n6\nMay"
   },
   {
     "objectID": "demos/template-revealjs.html#basic-figures",
