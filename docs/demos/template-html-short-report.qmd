@@ -1,0 +1,57 @@
+---
+title: "Informative title for short report"
+subtitle: "Report for GRDC/AAGI Project Code"
+author:
+  - name: "Your Name"
+date: last-modified
+format:
+  html+short+report:
+    toc: true
+execute:
+  echo: true
+bibliography: references.bib
+csl: assets/biometrics.csl
+---
+
+::: {.aagi-titlepage}
+![](AAGI_logo.svg){.aagi-logo}
+
+:::{.aagi-title-block}
+**Analytics for the Australian Grains Industry**  
+**University Name (AAGI-XX)**  
+**AAGI Program Report**
+
+# Informative title for short report
+
+## Report for GRDC/AAGI Project Code
+
+Prepared for: **Client Name (Client Organisation)**  
+Prepared by: **Your Name**, Name 2  
+Correspondence email: <your.email@example.edu.au>  
+_Last updated: {{< meta date >}}_
+:::
+
+![](AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
+:::
+
+# Executive Summary {#executive-summary}
+Executive summary goes here. Summarise the work provided by AAGI and the main results.
+
+# Key findings
+- Finding 1
+- Finding 2
+- Finding 3
+
+::: {.aagi-note}
+**NOTE** — This is an example of an AAGI note callout.
+:::
+
+# Methods (brief)
+Briefly describe the analysis approach and any key assumptions.
+
+# Results (brief)
+Summarise the primary results, with 1–2 key figures/tables as needed.
+
+# References
+::: {#refs}
+:::
