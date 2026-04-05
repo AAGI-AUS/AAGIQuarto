@@ -17,6 +17,8 @@ See the included template and demo file for each format here:
 
 ### Report Formats
 
+- **AAGI HTML Report:** [AAGI HTML Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-html-report.html) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-html-report.qmd))
+
 - **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-short-report+short+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
 
 - **AAGI PDF Report:** [AAGI PDF Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
@@ -64,6 +66,8 @@ Then, in the output format use:
 
 - `aagi-docx+report`, for a full length MS Word report
 - `aagi-docx+short+report`, for a short MS Word report
+- `aagi-html+report`, for a full length HTML report
+- `aagi-html+short+report`, for a short HTML report
 - `aagi-pptx`, for MS PPT output
 - `aagi-revealjs`, for a revealjs presentation
 - `aagi-pdf+report`, for a full length PDF report

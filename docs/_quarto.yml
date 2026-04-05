@@ -19,6 +19,9 @@ website:
     contents:
       - text: "Home"
         file: index.qmd
+      - section: "Demos"
+        contents:
+          - demos/template-html-report.qmd
       - section: "Extra"
         contents:
           - release-notes.qmd
