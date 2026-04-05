@@ -9,8 +9,8 @@ format:
     toc: true
 execute:
   echo: true
-bibliography: references.bib
-csl: assets/biometrics.csl
+bibliography: ../references.bib
+csl: ../biometrics.csl
 ---
 
 ::: {.aagi-titlepage}
