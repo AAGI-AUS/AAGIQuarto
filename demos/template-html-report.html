@@ -6,8 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Prepared for: collab_partner (collab_partner@email.com.au)">
+<meta name="author" content="Prepared by: Your.Name, Author 2">
+<meta name="author" content="Project Lead: Curtin University – Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks">
+<meta name="dcterms.date" content="2026-04-05">
 
-<title>Release Notes – AAGIQuarto</title>
+<title>Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123 – AAGIQuarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,26 +27,80 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bd303ecb911b8848e0b4f13b186f488c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bdcf68db3f4f2a6df804e36b945c039f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-fe5ad13b8d64e11e5b00d8468829abcf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fcbccd77e42278b69c39208c516d3693.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -83,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./release-notes.html">Extra</a></li><li class="breadcrumb-item"><a href="./release-notes.html">Release Notes</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../demos/template-html-report.html">Demos</a></li><li class="breadcrumb-item"><a href="../demos/template-html-report.html">Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -98,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AAGIQuarto</a> 
+      <a href="../">AAGIQuarto</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/AAGI-AUS/AAGIQuarto" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -118,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -133,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./demos/template-html-report.html" class="sidebar-item-text sidebar-link">
+  <a href="../demos/template-html-report.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123</span></a>
   </div>
 </li>
@@ -150,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./release-notes.html" class="sidebar-item-text sidebar-link active">
+  <a href="../release-notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Release Notes</span></a>
   </div>
 </li>
@@ -162,66 +220,58 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><img src="site_libs/quarto-contrib/quarto-project/aagi/assets/AAGI_logo.svg" class="img-fluid"></p>
+<p><img src="_extensions/aagi/assets/AAGI_logo.svg" class="img-fluid"></p>
 </div></div>
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">0.1.6 2026-03-27</a>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive Summary</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2</span> Introduction</a></li>
+  <li><a href="#experimentaltrial-design" id="toc-experimentaltrial-design" class="nav-link" data-scroll-target="#experimentaltrial-design"><span class="header-section-number">3</span> Experimental/Trial Design</a></li>
+  <li><a href="#exploratory-data-analysis-and-data-visualisation" id="toc-exploratory-data-analysis-and-data-visualisation" class="nav-link" data-scroll-target="#exploratory-data-analysis-and-data-visualisation"><span class="header-section-number">4</span> Exploratory Data Analysis and Data Visualisation</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">5</span> Methods</a></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion"><span class="header-section-number">6</span> Results and Discussion</a>
   <ul class="collapse">
-  <li><a href="#minor-changes" id="toc-minor-changes" class="nav-link" data-scroll-target="#minor-changes">Minor changes</a></li>
-  <li><a href="#bug-fixes" id="toc-bug-fixes" class="nav-link" data-scroll-target="#bug-fixes">Bug fixes</a></li>
+  <li><a href="#note-callout-example" id="toc-note-callout-example" class="nav-link" data-scroll-target="#note-callout-example"><span class="header-section-number">6.1</span> Note callout example</a></li>
+  <li><a href="#table-example" id="toc-table-example" class="nav-link" data-scroll-target="#table-example"><span class="header-section-number">6.2</span> Table example</a></li>
+  <li><a href="#figure-example" id="toc-figure-example" class="nav-link" data-scroll-target="#figure-example"><span class="header-section-number">6.3</span> Figure example</a></li>
   </ul></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">0.1.5 2026-03-26</a>
-  <ul class="collapse">
-  <li><a href="#minor-changes-1" id="toc-minor-changes-1" class="nav-link" data-scroll-target="#minor-changes-1">Minor changes</a></li>
-  </ul></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">0.1.4 2025-07-29</a>
-  <ul class="collapse">
-  <li><a href="#minor-changes-2" id="toc-minor-changes-2" class="nav-link" data-scroll-target="#minor-changes-2">Minor changes</a></li>
-  </ul></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">0.1.3 2025-07-29</a>
-  <ul class="collapse">
-  <li><a href="#minor-changes-3" id="toc-minor-changes-3" class="nav-link" data-scroll-target="#minor-changes-3">Minor changes</a></li>
-  <li><a href="#bug-fixes-1" id="toc-bug-fixes-1" class="nav-link" data-scroll-target="#bug-fixes-1">Bug fixes</a></li>
-  </ul></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">0.1.2 2024-12-11</a>
-  <ul class="collapse">
-  <li><a href="#minor-changes-4" id="toc-minor-changes-4" class="nav-link" data-scroll-target="#minor-changes-4">Minor changes</a></li>
-  <li><a href="#bug-fixes-2" id="toc-bug-fixes-2" class="nav-link" data-scroll-target="#bug-fixes-2">Bug fixes</a></li>
-  </ul></li>
-  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">0.1.1 2024-10-28</a>
-  <ul class="collapse">
-  <li><a href="#minor-changes-5" id="toc-minor-changes-5" class="nav-link" data-scroll-target="#minor-changes-5">Minor Changes</a></li>
-  </ul></li>
-  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">0.1.0 2024-09-26</a>
-  <ul class="collapse">
-  <li><a href="#major-changes" id="toc-major-changes" class="nav-link" data-scroll-target="#major-changes">Major Changes</a></li>
-  </ul></li>
+  <li><a href="#metadata-and-datasets-optional" id="toc-metadata-and-datasets-optional" class="nav-link" data-scroll-target="#metadata-and-datasets-optional"><span class="header-section-number">7</span> Metadata and Datasets (Optional)</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> References</a></li>
+  <li><a href="#appendix-optional" id="toc-appendix-optional" class="nav-link" data-scroll-target="#appendix-optional"><span class="header-section-number">9</span> Appendix (Optional)</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/release-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/demos/template-html-report.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./release-notes.html">Extra</a></li><li class="breadcrumb-item"><a href="./release-notes.html">Release Notes</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../demos/template-html-report.html">Demos</a></li><li class="breadcrumb-item"><a href="../demos/template-html-report.html">Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Release Notes</h1>
+<h1 class="title">Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123</h1>
+<p class="subtitle lead">Descriptive title for report Report for AAA–BBB</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    
-  
     <div>
-    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 5, 2026</p>
+             <p>Prepared for: collab_partner (collab_partner@email.com.au) </p>
+             <p>Prepared by: Your.Name, Author 2 </p>
+             <p>Project Lead: Curtin University – Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 5, 2026</p>
     </div>
   </div>
+  
     
   </div>
   
@@ -230,98 +280,160 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="section" class="level1">
-<h1>0.1.6 2026-03-27</h1>
-<section id="minor-changes" class="level2">
-<h2 class="anchored" data-anchor-id="minor-changes">Minor changes</h2>
+<section id="executive-summary" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Executive Summary</h1>
+<p>This document demonstrates the <strong>AAGI HTML report format</strong> provided by the <code>AAGIQuarto</code> extension. It renders a fully styled, self-contained HTML report using AAGI branding — AAGI teal headings, teal table headers with alternating row shading, teal hyperlinks, and an AAGI-styled note callout.</p>
+<p>Use this format for sharing AAGI technical reports as web-ready HTML documents.</p>
+</section>
+<section id="introduction" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Introduction</h1>
+<p>The <code>aagi-html+report</code> format applies AAGI branding to Quarto HTML output:</p>
 <ul>
-<li>Fix Adelaide University in parameters of “template.qmd”</li>
+<li>Teal headings and hyperlinks matching the AAGI colour palette.</li>
+<li>Table styling with a teal header row, white text, and alternating row backgrounds.</li>
+<li>A note callout styled to match the LaTeX <code>tcolorbox</code> note environment.</li>
+<li>Table of contents and numbered sections for longer reports.</li>
+<li>A title block styled with AAGI colours.</li>
+</ul>
+<p>To use this format in your own document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aagi-html+report</span><span class="kw">:</span><span class="at"> default</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then render with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render your-report.qmd <span class="at">--to</span> aagi-html+report</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="experimentaltrial-design" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Experimental/Trial Design</h1>
+<ul>
+<li>Trial design type and layout.</li>
+<li>Treatments, number of replicates.</li>
+<li>Specific considerations for small plots, glasshouse, genetics, breeding trials, OFE projects, or bioinformatics.</li>
 </ul>
 </section>
-<section id="bug-fixes" class="level2">
-<h2 class="anchored" data-anchor-id="bug-fixes">Bug fixes</h2>
+<section id="exploratory-data-analysis-and-data-visualisation" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exploratory Data Analysis and Data Visualisation</h1>
 <ul>
-<li>Fix bug in “_extension.yml” where the asset for the partner logo block was incorrectly referred to.</li>
+<li>Interpretation of plots and data.</li>
+<li>Rationale behind specific methods used.</li>
 </ul>
 </section>
+<section id="methods" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Methods</h1>
+<p>Detailed description of the procedures and methodologies used.</p>
 </section>
-<section id="section-1" class="level1">
-<h1>0.1.5 2026-03-26</h1>
-<section id="minor-changes-1" class="level2">
-<h2 class="anchored" data-anchor-id="minor-changes-1">Minor changes</h2>
+<section id="results-and-discussion" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Results and Discussion</h1>
+<p>Findings and their implications.</p>
+<section id="note-callout-example" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="note-callout-example"><span class="header-section-number">6.1</span> Note callout example</h2>
+<p>Use Quarto’s built-in callout note for important information:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is an AAGI-styled note callout, analogous to the <code>note</code> environment in the LaTeX PDF report template. Use it to highlight important information for the reader.</p>
+</div>
+</div>
+<p>Alternatively, use the <code>.aagi-note</code> class for the tcolorbox-style appearance:</p>
+<div class="aagi-note">
+<p>This is an <code>.aagi-note</code> div. It mimics the left- and right-bordered teal box from the LaTeX template.</p>
+</div>
+</section>
+<section id="table-example" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="table-example"><span class="header-section-number">6.2</span> Table example</h2>
+<p>AAGI table styling is applied automatically to all Markdown tables. The header row uses AAGI teal with white text, and rows alternate between AAGI grey and white.</p>
+<div id="tbl-results" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Trial results summary
+</figcaption>
+<div aria-describedby="tbl-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Treatment</th>
+<th>Replicate</th>
+<th style="text-align: center;">Yield (t/ha)</th>
+<th style="text-align: center;">Protein (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Control</td>
+<td>1</td>
+<td style="text-align: center;">3.21</td>
+<td style="text-align: center;">11.4</td>
+</tr>
+<tr class="even">
+<td>Control</td>
+<td>2</td>
+<td style="text-align: center;">3.08</td>
+<td style="text-align: center;">11.8</td>
+</tr>
+<tr class="odd">
+<td>Nitrogen</td>
+<td>1</td>
+<td style="text-align: center;">4.15</td>
+<td style="text-align: center;">12.9</td>
+</tr>
+<tr class="even">
+<td>Nitrogen</td>
+<td>2</td>
+<td style="text-align: center;">4.32</td>
+<td style="text-align: center;">13.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="figure-example" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="figure-example"><span class="header-section-number">6.3</span> Figure example</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-example" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="template-html-report_files/figure-html/fig-example-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An example figure using {ggplot2} with the AAGI theme.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="metadata-and-datasets-optional" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Metadata and Datasets (Optional)</h1>
 <ul>
-<li>Update SP logo block to use new AU logo and new order</li>
-<li>Polish extension contents, delete extra files, lint and format files</li>
+<li>md5sums for input data and outputs (if applicable).</li>
+<li>Git commit numbers and tags.</li>
+<li>Location of outputs (FAIR Data).</li>
+<li>DOI for AAGI outputs.</li>
 </ul>
 </section>
+<section id="references" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> References</h1>
+<div id="refs" role="list">
+
+</div>
 </section>
-<section id="section-2" class="level1">
-<h1>0.1.4 2025-07-29</h1>
-<section id="minor-changes-2" class="level2">
-<h2 class="anchored" data-anchor-id="minor-changes-2">Minor changes</h2>
-<ul>
-<li>More polishing missed in last round, <em>e.g.</em>, duplicated labels, etc.</li>
-</ul>
-</section>
-</section>
-<section id="section-3" class="level1">
-<h1>0.1.3 2025-07-29</h1>
-<section id="minor-changes-3" class="level2">
-<h2 class="anchored" data-anchor-id="minor-changes-3">Minor changes</h2>
-<ul>
-<li><p>Set language in Word document templates to en-AU</p></li>
-<li><p>Enhanced installation instructions</p></li>
-<li><p>Adds header and footer to full length reports</p></li>
-<li><p>Install AAGI R packages using R-Universe methods</p></li>
-</ul>
-</section>
-<section id="bug-fixes-1" class="level2">
-<h2 class="anchored" data-anchor-id="bug-fixes-1">Bug fixes</h2>
-<ul>
-<li><p>Ensure <code>\usepackage{hyperref}</code> is called</p></li>
-<li><p>Spelling corrections</p></li>
-</ul>
-</section>
-</section>
-<section id="section-4" class="level1">
-<h1>0.1.2 2024-12-11</h1>
-<section id="minor-changes-4" class="level2">
-<h2 class="anchored" data-anchor-id="minor-changes-4">Minor changes</h2>
-<ul>
-<li>Adds example using {flextable} in AAGI Short Report PDF format document</li>
-</ul>
-</section>
-<section id="bug-fixes-2" class="level2">
-<h2 class="anchored" data-anchor-id="bug-fixes-2">Bug fixes</h2>
-<ul>
-<li>Fixes bug in AAGI Short Report PDF format wherein using {flextable} caused the PDF to not compile properly (at all)</li>
-</ul>
-</section>
-</section>
-<section id="section-5" class="level1">
-<h1>0.1.1 2024-10-28</h1>
-<section id="minor-changes-5" class="level2">
-<h2 class="anchored" data-anchor-id="minor-changes-5">Minor Changes</h2>
-<ul>
-<li><p>Add example outputs for reports using AAGI themes for graphs and tables</p></li>
-<li><p>Add starter pack instructions for easily creating an AAGI file rather than setting up your own YAML</p></li>
-<li><p>Fixed links in README</p></li>
-</ul>
-</section>
-</section>
-<section id="section-6" class="level1">
-<h1>0.1.0 2024-09-26</h1>
-<section id="major-changes" class="level2">
-<h2 class="anchored" data-anchor-id="major-changes">Major Changes</h2>
-<ul>
-<li>This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX</li>
-</ul>
+<section id="appendix-optional" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Appendix (Optional)</h1>
+<p>Additional supporting information.</p>
 
 
 </section>
-</section>
 
-<p><img src="site_libs/quarto-contrib/quarto-project/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg" class="img-fluid"></p></main> <!-- /main -->
+<p><img src="_extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg" class="img-fluid"></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -727,4 +839,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/release-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/demos/template-html-report.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
