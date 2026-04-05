@@ -19,7 +19,13 @@ asset-short-report: ## Render short pdf report document
 asset-pptx: ## Render pptx Slides
 	cd docs && quarto render demos/template-pptx.qmd --to pptx --output-dir assets
 
-assets: asset-report asset-short-report asset-docx asset-short-docx asset-revealjs asset-pptx ## Render all assets
+asset-html: ## Render HTML report document
+	cd docs && quarto render demos/template-html-report.qmd --to html+report --output-dir assets
+
+asset-short-html: ## Render short HTML report document
+	cd docs && quarto render demos/template-html-short-report.qmd --to html+short+report --output-dir assets
+
+assets: asset-report asset-short-report asset-docx asset-short-docx asset-html asset-short-html asset-revealjs asset-pptx ## Render all assets
 
 help: ## Show help messages for make targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-18s\033[0m %s\n", $$1, $$2}'
