@@ -24,7 +24,7 @@ contributes:
 
     pdf+report:
       template: pdf-report/template.tex
-      engine: xelatex
+      pdf-engine: xelatex
       csl: assets/biometrics.csl
       resources:
         - assets/AAGI_logo.pdf
@@ -35,7 +35,7 @@ contributes:
 
     pdf+short+report:
       template: pdf-short-report/template.tex
-      engine: xelatex
+      pdf-engine: xelatex
       csl: assets/biometrics.csl
       link-citations: true
       resources:
