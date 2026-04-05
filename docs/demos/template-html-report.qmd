@@ -60,7 +60,7 @@ format:
 Then render with:
 
 ```bash
-quarto render your-report.qmd --to html+report
+quarto render your-report.qmd --to aagi-html+report
 ```
 
 # Experimental/Trial Design
