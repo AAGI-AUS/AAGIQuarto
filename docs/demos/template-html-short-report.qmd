@@ -10,11 +10,9 @@ format:
 execute:
   echo: true
 bibliography: references.bib
-csl: .._extensions/aagi/assets/biometrics.csl
+csl: ../_extensions/aagi/assets/biometrics.csl
 ---
-
-::: {.aagi-titlepage}
-![](AAGI_logo.svg){.aagi-logo}
+::: {.aagi-titlepage} ![](AAGI_logo.svg){.aagi-logo}
 
 :::{.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
