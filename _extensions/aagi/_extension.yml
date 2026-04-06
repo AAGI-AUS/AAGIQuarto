@@ -41,6 +41,7 @@ contributes:
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
+        - assets/biometrics.csl
 
     pdf+short+report:
       template: pdf-short-report/template.tex
@@ -53,6 +54,7 @@ contributes:
       format-resources:
         - assets/AAGI_logo.pdf
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
+        - assets/biometrics.csl
 
     docx+report:
       reference-doc: docx-report/template.docx
