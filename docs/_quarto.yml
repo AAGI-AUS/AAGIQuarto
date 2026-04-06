@@ -27,4 +27,4 @@ format:
     toc: true
     theme:
       - none
-      - _extensions/AAGI-AUS/aagi/assets/html/aagi-html.scss
+      - _extensions/AAGI-AUS/aagi/html/aagi-html.scss
