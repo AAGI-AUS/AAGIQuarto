@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Your Name">
+<meta name="dcterms.date" content="2026-04-06">
 
-<title>AAGI Quarto Templates Extension – AAGIQuarto</title>
+<title>Informative title for short report – AAGIQuarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,61 +25,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-12acf3a2dea5fb6071b1261511aaf884.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-12acf3a2dea5fb6071b1261511aaf884.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      AAGIQuarto
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AAGIQuarto</a> 
+      <a href="../">AAGIQuarto</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/AAGI-AUS/AAGIQuarto" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -153,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -168,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./release-notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../release-notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Release Notes</span></a>
   </div>
 </li>
@@ -180,22 +168,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><img src="site_libs/quarto-contrib/quarto-project/AAGI-AUS/aagi/assets/AAGI_logo.svg" class="img-fluid"></p>
+<p><img src="_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg" class="img-fluid"></p>
 </div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive Summary</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key findings</a></li>
+  <li><a href="#methods-brief" id="toc-methods-brief" class="nav-link" data-scroll-target="#methods-brief">Methods (brief)</a></li>
+  <li><a href="#results-brief" id="toc-results-brief" class="nav-link" data-scroll-target="#results-brief">Results (brief)</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/demos/template-html-short-report.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AAGI Quarto Templates Extension</h1>
+<h1 class="title">Informative title for short report</h1>
+<p class="subtitle lead">Report for GRDC/AAGI Project Code</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Your Name </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 6, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -205,82 +217,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="aagi-extension-for-quarto" class="level1">
-<h1>AAGI Extension For Quarto</h1>
-<p>The <code>AAGIQuarto</code> Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents. If you prefer to use R Markdown, please see the excellent <a href="https://github.com/AAGI-AUS/AAGITemplates">{AAGITemplates}</a> package, which <code>AAGIQuarto</code> has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools. <code>AAGIQuarto</code> was developed to provide next-generation literate programming tools for AAGI’s reporting and presentation needs that support R, Python and Julia languages.</p>
-<section id="template-formats" class="level2">
-<h2 class="anchored" data-anchor-id="template-formats">Template Formats</h2>
-<p>See the included template and demo file for each format here:</p>
-<section id="report-formats" class="level3">
-<h3 class="anchored" data-anchor-id="report-formats">Report Formats</h3>
+<div class="aagi-titlepage">
+<p><img src="AAGI_logo.svg" class="aagi-logo img-fluid"></p>
+<div class="aagi-title-block">
+<p><strong>Analytics for the Australian Grains Industry</strong><br>
+<strong>University Name (AAGI-XX)</strong><br>
+<strong>AAGI Program Report</strong></p>
+<section id="informative-title-for-short-report" class="level1">
+<h1>Informative title for short report</h1>
+<section id="report-for-grdcaagi-project-code" class="level2">
+<h2 class="anchored" data-anchor-id="report-for-grdcaagi-project-code">Report for GRDC/AAGI Project Code</h2>
+<p>Prepared for: <strong>Client Name (Client Organisation)</strong><br>
+Prepared by: <strong>Your Name</strong>, Name 2<br>
+Correspondence email: <a href="mailto:your.email@example.edu.au" class="email">your.email@example.edu.au</a><br>
+<em>Last updated: <code>r Sys.Date()</code></em></p>
+</section>
+</section>
+</div>
+<p><img src="AAGI_SP_Logo_Block-Portrait.png" class="aagi-partners img-fluid"></p>
+</div>
+<section id="executive-summary" class="level1">
+<h1>Executive Summary</h1>
+<p>Executive summary goes here. Summarise the work provided by AAGI and the main results.</p>
+</section>
+<section id="key-findings" class="level1">
+<h1>Key findings</h1>
 <ul>
-<li><p><strong>AAGI HTML Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-html-report.html">AAGI HTML Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-html-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI PDF Short Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-short-report+short+report.pdf">AAGI PDF Short Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI PDF Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report+report.pdf">AAGI PDF Report Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI Word Document Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-docx-report.docx">AAGI Word Document Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI Word Document Short Report:</strong> <a href="demos/template-docx-short-report.docx">AAGI Word Document Short Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-short-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI HTML Document Report:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-html-report.html">AAGI HTML Document Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-html-report.qmd">Source</a>)</p></li>
-<li><p><strong>AAGI HTML Document Short Report:</strong> <a href="demos/template-html-short-report.html">AAGI HTML Document Short Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-html-short-report.qmd">Source</a>)</p></li>
+<li>Finding 1</li>
+<li>Finding 2</li>
+<li>Finding 3</li>
 </ul>
+<div class="aagi-note">
+<p><strong>NOTE</strong> — This is an example of an AAGI note callout.</p>
+</div>
 </section>
-<section id="presentation-formats" class="level3">
-<h3 class="anchored" data-anchor-id="presentation-formats">Presentation Formats</h3>
-<ul>
-<li><p><strong>AAGI revealjs Presentation:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-revealjs.html#/title-slide">AAGI revealjs Slide Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd">Source</a>) (this is an <code>AAGIQuarto</code> exclusive)</p></li>
-<li><p><strong>AAGI PowerPoint Presentation:</strong> <a href="https://aagi-aus.github.io/AAGIQuarto/demos/template-pptx.pptx">AAGI PPT Slide Demo</a> (<a href="https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pptx.qmd">Source</a>)</p></li>
-</ul>
+<section id="methods-brief" class="level1">
+<h1>Methods (brief)</h1>
+<p>Briefly describe the analysis approach and any key assumptions.</p>
 </section>
+<section id="results-brief" class="level1">
+<h1>Results (brief)</h1>
+<p>Summarise the primary results, with 1–2 key figures/tables as needed.</p>
 </section>
-<section id="installing" class="level2">
-<h2 class="anchored" data-anchor-id="installing">Installing</h2>
-<section id="getting-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="getting-quarto">Getting Quarto</h3>
-<p>If you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. <a href="https://quarto.org/docs/get-started/">Go here</a> for instructions on how to install Quarto.</p>
-</section>
-<section id="getting-the-template" class="level3">
-<h3 class="anchored" data-anchor-id="getting-the-template">Getting the Template</h3>
-<p>Use your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the <code>bash</code> command. For more information, see <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Microsoft’s documentation</a>.</p>
-<p>You can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template AAGI-AUS/AAGIQuarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.</p>
-</section>
-</section>
-<section id="using" class="level2">
-<h2 class="anchored" data-anchor-id="using">Using</h2>
-<p>For documentation on using reveal.js slides in Quarto, please see, <a href="https://quarto.org/docs/presentations/revealjs/" class="uri">https://quarto.org/docs/presentations/revealjs/</a>.</p>
-<p>To use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:</p>
-<ul>
-<li><code>aagi-docx+report</code>, for a full length MS Word report</li>
-<li><code>aagi-docx+short+report</code>, for a short MS Word report</li>
-<li><code>aagi-html+report</code>, for a full length HTML report</li>
-<li><code>aagi-html+short+report</code>, for a short HTML report</li>
-<li><code>aagi-pptx</code>, for MS PPT output</li>
-<li><code>aagi-revealjs</code>, for a revealjs presentation</li>
-<li><code>aagi-pdf+report</code>, for a full length PDF report</li>
-<li><code>aagi-pdf+short+report</code>, for a short PDF report</li>
-</ul>
-<section id="template" class="level3">
-<h3 class="anchored" data-anchor-id="template">Template</h3>
-<p>If you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.</p>
-<p>By default, these templates use <a href="https://aagi-aus.github.io/AAGIThemes/">{AAGIThemes}</a> and <a href="https://aagi-aus.github.io/AAGIPalettes/">{AAGIPalettes}</a> for R graphical and tabular outputs.</p>
-</section>
-</section>
-<section id="updating" class="level2">
-<h2 class="anchored" data-anchor-id="updating">Updating</h2>
-<p>As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> update AAGI-AUS/AAGIQuarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="logo-rights" class="level2">
-<h2 class="anchored" data-anchor-id="logo-rights">Logo Rights</h2>
-<p>The logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.</p>
+<section id="references" class="level1">
+<h1>References</h1>
+<div id="refs" role="list">
+
+</div>
 
 
 </section>
-</section>
 
-<p><img src="site_libs/quarto-contrib/quarto-project/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg" class="img-fluid"></p></main> <!-- /main -->
+<p><img src="_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg" class="img-fluid"></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -686,4 +674,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/edit/main/demos/template-html-short-report.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AAGI-AUS/AAGIQuarto/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
