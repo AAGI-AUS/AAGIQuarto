@@ -27,6 +27,10 @@ See the included template and demo file for each format here:
 
 - **AAGI Word Document Short Report:** [AAGI Word Document Short Demo](demos/template-docx-short-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-short-report.qmd))
 
+- **AAGI HTML Document Report:** [AAGI HTML Document Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-html-report.html) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-html-report.qmd))
+
+- **AAGI HTML Document Short Report:** [AAGI HTML Document Short Demo](demos/template-html-short-report.html) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-html-short-report.qmd))
+
 ### Presentation Formats
 
 - **AAGI revealjs Presentation:** [AAGI revealjs Slide Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-revealjs.html#/title-slide) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-revealjs.qmd)) (this is an `AAGIQuarto` exclusive)
@@ -58,8 +62,7 @@ This will install the extension and create an example qmd file that you can use 
 
 ## Using
 
-For documentation on using reveal.js slides in Quarto, please see,
-<https://quarto.org/docs/presentations/revealjs/>.
+For documentation on using reveal.js slides in Quarto, please see, <https://quarto.org/docs/presentations/revealjs/>.
 
 To use the formatted output, save your qmd file into the extension folder that you created using the command above.
 Then, in the output format use:
