@@ -77,4 +77,3 @@ jobs:
         with:
           target: gh-pages
           path: docs
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
