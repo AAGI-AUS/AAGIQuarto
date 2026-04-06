@@ -14,7 +14,7 @@ csl: ../assets/biometrics.csl
 ---
 ::: {.aagi-titlepage} ![](AAGI_logo.svg){.aagi-logo}
 
-:::{.aagi-title-block}
+::: {.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
 **University Name (AAGI-XX)**  
 **AAGI Program Report**
