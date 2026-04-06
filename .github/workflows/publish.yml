@@ -9,6 +9,9 @@ name: demo-website
 
 jobs:
   demo-page:
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
     runs-on: ubuntu-latest
 
     # Restrict concurrent publishes per ref
