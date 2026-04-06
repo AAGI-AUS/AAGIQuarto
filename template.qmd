@@ -28,7 +28,7 @@ params:
 date: "`r Sys.Date()`"
 date-format: long
 bibliography: your_references.bib # Replace with your .bib file
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
 
 ```{r}
