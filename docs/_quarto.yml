@@ -30,4 +30,4 @@ format:
     toc: true
     theme:
       - none
-      - _extensions/aagi/html/aagi-html.scss
+      - _extensions/aagi/assets/html/aagi-html.scss
