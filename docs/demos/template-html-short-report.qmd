@@ -10,7 +10,7 @@ format:
 execute:
   echo: true
 bibliography: references.bib
-csl: assets/biometrics.csl
+csl: .._extensions/aagi/assets/biometrics.csl
 ---
 
 ::: {.aagi-titlepage}
