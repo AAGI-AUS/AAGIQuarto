@@ -9,7 +9,7 @@ params:
   partner: collab_partner
   partner_email: colla_partner@email.com.au
 bibliography: references.bib
-csl: ../assets/biometrics.csl
+csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl
 date: last-modified
 version-number: 1.0.0
 format: aagi-pdf+short+report
