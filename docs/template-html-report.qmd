@@ -5,11 +5,18 @@ knitr:
   opts_chunk:
     fig.path: figures/
     fig.pos: H
-title: "Analytics for the Australian Grains Industry -- Curtin University (AAGI-CU) Technical Report Series: 123"
-subtitle: "Report for GRDC Project Code"
-author:
-  - "Prepared for: collab_partner (collab_partner@email.com.au)"
-  - "Prepared by: Your.Name, Author 2"
+params:
+  university:
+    values:
+      CU: Curtin University (AAGI-CU)
+      AU: University of Adelaide (AAGI-AU)
+      UQ: University of Queensland (AAGI-UQ)
+    value: CU
+  pri_bio: Your.Name
+  project_code: GRDC/AAGI Project Code
+  partner: Client Name (Client Organisation)
+  partner_email: your.email@example.edu.au
+  report_title: Informative title for short report
 date: last-modified
 date-format: long
 format:
@@ -18,13 +25,21 @@ format:
     self-contained: true
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+
+title: !expr params$report_title
+subtitle: !expr paste("Report for", params$project_code)
+author:
+  - !expr sprintf("Prepared for: %s", params$partner)
+  - !expr sprintf("Prepared by: %s, Author 2", params$pri_bio)
+university: !expr params$university
+email: !expr params$partner_email
 ---
 
 ```{r}
 #| label: load
 #| message: false
 
-# Ensure pak is installed (using custom repo block!):
+# Ensure pak is installed (using custom repo block)
 if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages(
     "pak",
@@ -62,129 +77,3 @@ library(AAGIPalettes)
 # Set plot/table themes (ensure HTML styling is always AAGI)
 theme_set(theme_aagi())
 set_flextable_defaults(theme_fun = theme_ft_aagi)
-```
-
-::: {.aagi-titlepage}
-
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
-
-:::: {.aagi-title-block}
-**Analytics for the Australian Grains Industry**  
-**University Name (AAGI-XX)**  
-**AAGI Program Report**
-
-# Informative title for short report
-
-## Report for GRDC/AAGI Project Code
-
-Prepared for: **Client Name (Client Organisation)**  
-Prepared by: **Your Name**, Name 2  
-Correspondence email: <your.email@example.edu.au>  
-_Last updated: `r Sys.Date()`_
-::::
-
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
-:::
-
-# Executive Summary
-
-This document demonstrates the **AAGI HTML report format** provided by the `AAGIQuarto` extension.
-It renders a fully styled, self-contained HTML report using AAGI branding — AAGI teal headings, teal table headers with alternating row shading, teal hyperlinks, and an AAGI-styled note callout.
-
-Use this format for sharing AAGI technical reports as web-ready HTML documents.
-
-# Introduction
-
-The `aagi-html+report` format applies AAGI branding to Quarto HTML output:
-
-- Teal headings and hyperlinks matching the AAGI colour palette.
-- Table styling with a teal header row, white text, and alternating row backgrounds.
-- A note callout styled to match the LaTeX `tcolorbox` note environment.
-- Table of contents and numbered sections for longer reports.
-- A title block styled with AAGI colours.
-
-To use this format in your own document:
-
-```yaml
-format:
-  aagi-html+report: default
-```
-
-Then render with:
-
-```bash
-quarto render your-report.qmd --to aagi-html+report
-```
-
-# Experimental/Trial Design
-
-- Trial design type and layout.
-- Treatments, number of replicates.
-- Specific considerations for small plots, glasshouse, genetics, breeding trials, OFE projects, or bioinformatics.
-
-# Exploratory Data Analysis and Data Visualisation
-
-- Interpretation of plots and data.
-- Rationale behind specific methods used.
-
-# Methods
-
-Detailed description of the procedures and methodologies used.
-
-# Results and Discussion
-
-Findings and their implications.
-
-## Note callout example
-
-Use Quarto's built-in callout note for important information:
-
-::: {.callout-note}
-This is an AAGI-styled note callout, analogous to the `note` environment in the LaTeX PDF report template. Use it to highlight important information for the reader.
-:::
-
-Alternatively, use the `.aagi-note` class for the tcolorbox-style appearance:
-
-::: {.aagi-note}
-This is an `.aagi-note` div. It mimics the left- and right-bordered teal box from the LaTeX template.
-:::
-
-## Table example
-
-AAGI table styling is applied automatically to all Markdown tables. The header row uses AAGI teal with white text, and rows alternate between AAGI grey and white.
-
-| Treatment | Replicate | Yield (t/ha) | Protein (%) |
-|-----------|-----------|:------------:|:-----------:|
-| Control   | 1         | 3.21         | 11.4        |
-| Control   | 2         | 3.08         | 11.8        |
-| Nitrogen  | 1         | 4.15         | 12.9        |
-| Nitrogen  | 2         | 4.32         | 13.1        |
-
-: Trial results summary {#tbl-results}
-
-## Figure example
-
-```{r}
-#| label: fig-example
-#| fig-cap: "An example figure using {ggplot2} with the AAGI theme."
-
-ggplot(data = pressure, aes(x = temperature, y = pressure)) +
-  geom_point(colour = "#00808b") +
-  theme_aagi()
-```
-
-# Metadata and Datasets (Optional)
-
-- md5sums for input data and outputs (if applicable).
-- Git commit numbers and tags.
-- Location of outputs (FAIR Data).
-- DOI for AAGI outputs.
-
-# References
-
-::: {#refs}
-:::
-
-# Appendix (Optional)
-
-Additional supporting information.

@@ -6,29 +6,33 @@ knitr:
     fig.path: figures/
     fig.pos: H
 params:
-  uni: [AU, CU, UQ]
+  university:
+    values:
+      CU: Curtin University
+      AU: Adelaide University
+      UQ: University of Queensland
+    value: CU
   pri_bio: Your.Name
   project_num: ABC1234-OO1ABC
   partner: collab_partner
   partner_email: collab_partner@email.com.au
+  report_title: Descriptive title for report
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 date: last-modified
 date-format: long
 format: aagi-docx+report
-title: !expr paste(
-  "Analytics for the Australian Grains Industry -",
-  if (params$uni == "CU") "Curtin University" else if (params$uni == "AU") "Adelaide University" else "University of Queensland",
-  sprintf("(AAGI-%s) Technical Report Series: 123", params$uni)
-)
-subtitle: !expr paste0("Descriptive title for report  \nReport for ", params$project_num)
+
+title: !expr paste("Analytics for the Australian Grains Industry -", params$university, sprintf("(AAGI-%s) Technical Report Series: 123", names(params$university)))
+subtitle: !expr paste0(params$report_title, "\nReport for ", params$project_num)
 author:
   - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
   - !expr sprintf("Prepared by: %s", params$pri_bio)
-email: !expr if (params$uni == "CU") "cbada@curtin.edu.au" else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au") else paste0(params$pri_bio, "@uq.edu.au")
+university: !expr params$university
+email: !expr params$partner_email
 ---
 
-``` {r}
+```{r}
 #| label: setup
 #| include: false
 
@@ -48,10 +52,10 @@ if (!requireNamespace("pak", quietly = TRUE)) {
 # Helper to install package using pak if missing
 ensure_pkg <- function(pkg, github = NULL) {
   if (!requireNamespace(pkg, quietly = TRUE)) {
-    if (is.null(github)) {
-      pak::pak(pkg, dependencies = TRUE)
-    } else {
+    if (!is.null(github)) {
       pak::pak(github, dependencies = TRUE)
+    } else {
+      pak::pak(pkg, dependencies = TRUE)
     }
   }
 }

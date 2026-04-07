@@ -8,7 +8,8 @@ knitr:
 title: !expr paste('Progress report for project', params[['project-number']])
 subtitle: "Subtitle Here"
 params:
-  uni: [AU, CU, UQ]
+  uni:
+    values: [AU, CU, UQ]
   pri_bio: Your.Name
   project-number: ABC1234-001RTX
   partner: collab_partner

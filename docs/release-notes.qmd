@@ -7,15 +7,23 @@ format:
     toc: true
 ---
 
-# 0.1.6  2026-03-27
+# 0.1.0  2026-04-07
+
+## Major changes 
+
+* Adds long and short HTML format reports.
 
 ## Minor changes 
 
-* Fix Adelaide University in parameters of "template.qmd"
+* Fix Adelaide University in parameters of "template.qmd".
 
 ## Bug fixes 
 
+* Ensures that "AU" and "Adelaide University" are used in the documents.
+
 * Fix bug in "_extension.yml" where the asset for the partner logo block was incorrectly referred to.
+
+* Lints files 
 
 # 0.1.5  2026-03-26
 

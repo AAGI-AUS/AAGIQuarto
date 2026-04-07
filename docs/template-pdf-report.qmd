@@ -33,7 +33,7 @@ email: !expr if (params$uni == "CU") "cbada@curtin.edu.au" else if (params$uni =
 ---
 
 ```{r}
-#| label: setup session for R
+#| label: setup
 #| include: FALSE
 #| message: FALSE
 
