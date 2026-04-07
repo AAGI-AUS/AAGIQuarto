@@ -72,7 +72,12 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: "release"
-          tinytex: true # required for PDF reports
+          tinytex: false
+
+      - name: Install TinyTeX (R)
+        run: |
+          tinytex::install_tinytex()
+          shell: Rscript {0}
 
       - name: Add extension directly into demos
         working-directory: ./docs
