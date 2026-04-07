@@ -9,6 +9,7 @@ params:
 date: last-modified
 format:
   aagi-revealjs: default
+csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
 
 ```{r}

@@ -13,6 +13,7 @@ params:
   partner: collab_partner
   partner_email: collab_partner@email.com.au
 bibliography: references.bib
+csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 date: "`r Sys.Date()`"
 date-format: long
 ---
