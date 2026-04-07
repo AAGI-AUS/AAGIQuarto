@@ -14,7 +14,7 @@ csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
 
 ::: {.aagi-titlepage}
-![](AAGI_logo.svg){.aagi-logo}
+![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
 
 :::: {.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
@@ -31,12 +31,13 @@ Correspondence email: <your.email@example.edu.au>
 _Last updated: `r Sys.Date()`_
 ::::
 
-![](AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
+![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
 :::
 
 # Executive Summary {#executive-summary}
 
-Executive summary goes here. Summarise the work provided by AAGI and the main results.
+Executive summary goes here.
+Summarise the work provided by AAGI and the main results.
 
 # Key findings
 

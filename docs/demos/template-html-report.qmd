@@ -34,9 +34,31 @@ library(AAGIThemes)
 theme_set(theme_aagi())
 ```
 
+::: {.aagi-titlepage}
+![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
+
+:::: {.aagi-title-block}
+**Analytics for the Australian Grains Industry**  
+**University Name (AAGI-XX)**  
+**AAGI Program Report**
+
+# Informative title for short report
+
+## Report for GRDC/AAGI Project Code
+
+Prepared for: **Client Name (Client Organisation)**  
+Prepared by: **Your Name**, Name 2  
+Correspondence email: <your.email@example.edu.au>  
+_Last updated: `r Sys.Date()`_
+::::
+
+![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
+:::
+
 # Executive Summary
 
-This document demonstrates the **AAGI HTML report format** provided by the `AAGIQuarto` extension. It renders a fully styled, self-contained HTML report using AAGI branding — AAGI teal headings, teal table headers with alternating row shading, teal hyperlinks, and an AAGI-styled note callout.
+This document demonstrates the **AAGI HTML report format** provided by the `AAGIQuarto` extension.
+It renders a fully styled, self-contained HTML report using AAGI branding — AAGI teal headings, teal table headers with alternating row shading, teal hyperlinks, and an AAGI-styled note callout.
 
 Use this format for sharing AAGI technical reports as web-ready HTML documents.
 
