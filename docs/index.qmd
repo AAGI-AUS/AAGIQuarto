@@ -17,8 +17,6 @@ See the included template and demo file for each format here:
 
 ### Report Formats
 
-- **AAGI HTML Report:** [AAGI HTML Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-html-report.html) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-html-report.qmd))
-
 - **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-short-report+short+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
 
 - **AAGI PDF Report:** [AAGI PDF Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
