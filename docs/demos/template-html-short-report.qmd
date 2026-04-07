@@ -5,7 +5,7 @@ author:
   - name: "Your Name"
 date: last-modified
 format:
-  html+short+report:
+  aagi-html+short+report:
     toc: true
 execute:
   echo: true
@@ -15,7 +15,7 @@ csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
 ::: {.aagi-titlepage}
 
-![](./_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
+![](AAGI_logo.svg){.aagi-logo}
 
 :::: {.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
@@ -32,7 +32,7 @@ Correspondence email: <your.email@example.edu.au>
 _Last updated: `r Sys.Date()`_
 ::::
 
-![](./_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
+![](AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
 
 :::
 
