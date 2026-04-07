@@ -17,7 +17,11 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 date: last-modified
 date-format: long
 
-title: "Analytics for the Australian Grains Industry - `r university` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
+params:
+  uni: CU
+  Pro_Num: ABC2026-001RTX
+  university: !expr if (params$uni == "CU") "Curtin University" else if (params$uni == "UA") "University of Adelaide" else "University of Queensland"
+title: "Analytics for the Australian Grains Industry - `r params$university` (AAGI-`r params$uni`) Technical Report Series: 123"
 subtitle: "Descriptive title for report  \n Report for `r Pro_Num`"
 author:
   - "Prepared for: `r params$partner` (`r params$partner_email`)"

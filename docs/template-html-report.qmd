@@ -10,7 +10,7 @@ subtitle: "Report for GRDC Project Code"
 author:
   - "Prepared for: collab_partner (collab_partner@email.com.au)"
   - "Prepared by: Your.Name, Author 2"
-date: "`r Sys.Date()`"
+date: !expr format(Sys.Date(), "%Y-%m-%d")
 format:
   aagi-html+report:
     toc: true

@@ -1,7 +1,7 @@
 ---
-title: "`r paste('Progress report for project', params[['project-number']])`"
+title: !expr paste('Progress report for project', params[["project-number"]])
 subtitle: "Subtitle here"
-category: "`r paste(params[['project-number']])`"
+category: !expr params[["project-number"]]
 params:
   uni: CU
   pri_bio: Your.Name
@@ -13,12 +13,26 @@ date: last-modified
 date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
-author:
-  - "Prepared for: `r params$partner` (`r params$partner_email`)"
-  - "Prepared by: `r params$pri_bio`, Author 2"
-  - "Project Lead: `r project_lead`"
-  - "email: `r email`"
-subject: "`r email`"
+
+author: 
+  - !expr sprintf("Prepared for: %s (%s)", params[["partner"]], params[["partner_email"]])
+  - !expr sprintf("Prepared by: %s, Author 2", params[["pri_bio"]])
+  - !expr paste("Project Lead:", 
+        if (params[["uni"]] == "CU") "Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
+        else if (params[["uni"]] == "UA") "University of Adelaide -- Assoc Prof Julian Taylor, Dr Olena Kravchuck"
+        else "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
+      )
+  - !expr paste(
+        "email:", 
+        if (params[["uni"]] == "CU") "cbada@curtin.edu.au"
+        else if (params[["uni"]] == "UA") paste0(params[["pri_bio"]], "@adelaide.edu.au")
+        else paste0(params[["pri_bio"]], "@uq.edu.au")
+    )
+subject: !expr (
+  if (params[["uni"]] == "CU") "cbada@curtin.edu.au"
+  else if (params[["uni"]] == "UA") paste0(params[["pri_bio"]], "@adelaide.edu.au")
+  else paste0(params[["pri_bio"]], "@uq.edu.au")
+)
 ---
 
 ```{r}

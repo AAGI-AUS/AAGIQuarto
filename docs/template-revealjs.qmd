@@ -19,7 +19,7 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
 
 ```{r}
-#| label: title affiliation
+#| label: title affiliation and setup
 #| include: false
 
 if (params$affiliation == "CU") {
@@ -29,11 +29,6 @@ if (params$affiliation == "CU") {
 } else {
   university <- "University of Queensland"
 }
-```
-
-```{r}
-#| label: load
-#| message: false
 
 if (!require(pak)) {
   install.packages(
@@ -49,7 +44,6 @@ if (!require(pak)) {
 if (!require(flextable)) {
   pak::pak("flextable", dependencies = TRUE)
 }
-
 
 # Integrating with AAGIPalettes, AAGIThemes
 if (!require(AAGIThemes)) {

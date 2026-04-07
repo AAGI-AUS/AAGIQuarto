@@ -8,7 +8,7 @@ knitr:
 title: "AAGI"
 author: "Analytics for the Australian Grain Industry"
 format: aagi-pptx
-date: "`r Sys.Date()`"
+date: date-modified
 date-format: long
 ---
 
