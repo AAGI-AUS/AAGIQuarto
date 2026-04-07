@@ -1,16 +1,15 @@
 ---
-title: "Analytics for the Australian Grains Industry -- Curtin University (AAGI-CU)\nTechnical Report Series: 123"
-subtitle: "Descriptive title for report\nReport for AAA--BBB"
+title: "Analytics for the Australian Grains Industry -- Curtin University (AAGI-CU) Technical Report Series: 123"
+subtitle: "Descriptive title for report Report for AAA--BBB"
 author:
   - "Prepared for: collab_partner (collab_partner@email.com.au)"
   - "Prepared by: Your.Name, Author 2"
-  - "Project Lead: Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
 date: last-modified
 date-format: long
 format:
-  aagi-html+report: default
+  aagi-html+report:
     toc: true
-  self-contained: true
+    self-contained: true
 execute:
   echo: false
 bibliography: references.bib

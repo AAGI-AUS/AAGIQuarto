@@ -6,9 +6,9 @@ author:
 date: last-modified
 date-format: long
 format:
-  aagi-html+report: default
+  aagi-html+report:
     toc: true
-  self-contained: true
+    self-contained: true
 execute:
   echo: false
 bibliography: references.bib
