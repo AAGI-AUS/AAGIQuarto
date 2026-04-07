@@ -18,15 +18,12 @@ date-format: long
 format: aagi-docx+report
 title: !expr paste(
   "Analytics for the Australian Grains Industry -",
-  if (params$uni == "CU") "Curtin University"
-    else if (params$uni == "UA") "University of Adelaide"
-    else "University of Queensland",
+  if (params$uni == "CU") "Curtin University" else if (params$uni == "AU") "Adelaide University" else "University of Queensland",
   sprintf("(AAGI-%s) Technical Report Series: 123", params$uni)
 )
 subtitle: !expr paste0("Descriptive title for report  \nReport for ", params$project_num)
 author:
-  - !expr sprintf("Prepared for: %s (%s)", params$partner, 
-                  params$project_code)
+  - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
   - !expr sprintf("Prepared by: %s", params$pri_bio)
 email: !expr if (params$uni == "CU") "cbada@curtin.edu.au" else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au") else paste0(params$pri_bio, "@uq.edu.au")
 ---

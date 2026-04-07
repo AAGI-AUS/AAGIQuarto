@@ -25,7 +25,7 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 title: !expr params$report_title
 subtitle: !expr paste("Report for", params$project_code)
 author:
-  - !expr sprintf("Prepared for: %s (%s)", params$partner, params$project_code)
+  - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
   - !expr sprintf("Prepared by: %s", params$pri_bio)
 email: !expr if (params$uni == "CU") "cbada@curtin.edu.au" else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au") else paste0(params$pri_bio, "@uq.edu.au")
 ---

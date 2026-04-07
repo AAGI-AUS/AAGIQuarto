@@ -29,9 +29,7 @@ subtitle: !expr paste0("Descriptive title for report  \nReport for ", params$pro
 author:
   - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
   - !expr sprintf("Prepared by: %s, Author 2", params$pri_bio)
-email: !expr if (params$uni == "CU") "cbada@curtin.edu.au"
-       else if (params$uni == "UA") paste0(params$pri_bio, "@adelaide.edu.au")
-       else paste0(params$pri_bio, "@uq.edu.au")
+email: !expr if (params$uni == "CU") "cbada@curtin.edu.au" else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au") else paste0(params$pri_bio, "@uq.edu.au")
 ---
 
 ```{r}
