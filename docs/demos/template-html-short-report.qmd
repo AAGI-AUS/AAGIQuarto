@@ -4,13 +4,14 @@ subtitle: "Report for GRDC/AAGI Project Code"
 author:
   - name: "Your Name"
 date: last-modified
+date-format: long
 format:
-  aagi-html+short+report:
+  aagi-html+report: default
     toc: true
+  self-contained: true
 execute:
-  echo: true
+  echo: false
 bibliography: references.bib
-csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
 
 ::: {.aagi-titlepage}

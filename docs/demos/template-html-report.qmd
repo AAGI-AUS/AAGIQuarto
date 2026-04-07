@@ -9,6 +9,8 @@ date: last-modified
 date-format: long
 format:
   aagi-html+report: default
+    toc: true
+  self-contained: true
 execute:
   echo: false
 bibliography: references.bib
