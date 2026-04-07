@@ -6,9 +6,9 @@ knitr:
     fig.path: figures/
     fig.pos: H
 params:
-  uni: CU
+  uni: [AU, CU, UQ]
   pri_bio: Your.Name
-  project_num: AAA--BBB
+  project_num: ABC1234-OO1ABC
   partner: collab_partner
   partner_email: collab_partner@email.com.au
 bibliography: references.bib
@@ -27,39 +27,17 @@ subtitle: !expr paste0("Descriptive title for report  \nReport for ", params$pro
 author:
   - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
   - !expr sprintf("Prepared by: %s, Author 2", params$pri_bio)
-  - !expr paste("Project Lead:",
-      if (params$uni == "CU") "Curtin University -- Prof Mark Gibberd, A/Prof Julia Easton, Prof Adam Sparks"
-      else if (params$uni == "UA") "University of Adelaide -- A/Prof Julian Taylor, Dr Olena Kravchuck"
-      else "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
-    )
 email: !expr if (params$uni == "CU") "cbada@curtin.edu.au"
        else if (params$uni == "UA") paste0(params$pri_bio, "@adelaide.edu.au")
        else paste0(params$pri_bio, "@uq.edu.au")
 ---
 
-```{r}
-#| include: false
+``` {r}
 #| label: setup
+#| include: false
 
-if (
-  toupper(Sys.info()["sysname"]) == "LINUX" ||
-    toupper(Sys.info()["sysname"]) == "DARWIN"
-) {
-  knitr::opts_chunk$set(dev = "cairo_pdf")
-}
-
-if (require(xtable)) {
-  options(xtable.comment = FALSE)
-}
-if (require(formatR)) {
-  options(formatR.arrow = FALSE)
-  knitr::opts_chunk$set(
-    tidy = TRUE,
-    tidy.opts = list(width.cutoff = 60)
-  )
-}
-
-if (!require(pak)) {
+# Install 'pak' from custom repository if missing
+if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages(
     "pak",
     repos = sprintf(
@@ -71,90 +49,36 @@ if (!require(pak)) {
   )
 }
 
-if (!require(flextable)) {
-  pak::pak("flextable", dependencies = TRUE)
+# Helper to install package using pak if missing
+ensure_pkg <- function(pkg, github = NULL) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    if (is.null(github)) {
+      pak::pak(pkg, dependencies = TRUE)
+    } else {
+      pak::pak(github, dependencies = TRUE)
+    }
+  }
 }
-# Integrating with AAGIPalettes, AAGIThemes
-if (!require(AAGIThemes)) {
-  pak::pak("AAGI-AUS/AAGIThemes", dependencies = TRUE)
-}
-if (!require(AAGIPalettes)) {
-  pak::pak("AAGI-AUS/AAGIPalettes", dependencies = TRUE)
-}
+
+# Ensure required packages are installed
+ensure_pkg("ggplot2")
+ensure_pkg("flextable")
+ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
+ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
+
+library(ggplot2)
+library(flextable)
 library(AAGIThemes)
 library(AAGIPalettes)
-library(flextable)
-library(ggplot2)
 
-# set ggplot2 theme
+# Set chunk options if needed (e.g., for Linux/Darwin PDF device)
+if (toupper(Sys.info()[["sysname"]]) %in% c("LINUX", "DARWIN")) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+
+# Apply custom themes
 theme_set(theme_aagi())
-
-# set flextable theme
 set_flextable_defaults(theme_fun = theme_ft_aagi)
-```
-
-```{r}
-#| label: university
-#| include: false
-
-if (params$uni == "CU") {
-  university <- "Curtin University"
-} else if (params$uni == "UA") {
-  university <- "University of Adelaide"
-} else {
-  university <- "University of Queensland"
-}
-```
-
-
-```{r}
-#| label: sp lead
-#| include: false
-if (params$uni == "CU") {
-  project_lead = "Curtin University -- Prof Mark Gibberd, A/Prof Julia Easton, Prof Adam Sparks"
-} else if (params$uni == "UA") {
-  project_lead = "University of Adelaide -- A/Prof Julian Taylor, Dr Olena Kravchuck"
-} else {
-  project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
-}
-```
-
-```{r}
-#| include: false
-#| label: email for project lead
-
-if (params$uni == "CU") {
-  email = "cbada@curtin.edu.au"
-} else if (params$uni == "UA") {
-  email = paste(params$pri_bio, "@adelaide.edu.au", sep = "")
-} else {
-  email = paste(params$pri_bio, "@uq.edu.au")
-}
-```
-
-```{r}
-#| label: Project number
-#| include: false
-
-Pro_Num <- params$project_num
-```
-
-```{r}
-#| label: load
-#| message: false
-
-library(ggplot2)
-library(AAGIThemes)
-library(flextable)
-library(dplyr)
-
-# set ggplot2 theme
-theme_set(theme_aagi())
-
-# set flextable theme
-set_flextable_defaults(
-  theme_fun = theme_ft_aagi
-)
 ```
 
 \newpage

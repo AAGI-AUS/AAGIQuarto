@@ -5,10 +5,14 @@ knitr:
   opts_chunk:
     fig.path: figures/
     fig.pos: H
-title: "Informative title for short report"
-subtitle: "Report for GRDC Project Code"
-author:
-  - name: "Your Name"
+params:
+  uni:
+    values: [CU, AU, UQ]
+  pri_bio: Your.Name
+  project_code: ABC2026-001ABC
+  partner: collab_partner
+  partner_email: collab_partner@email.com.au
+  report_title: Informative title for short report
 format:
   aagi-html+report:
     toc: true
@@ -17,6 +21,15 @@ date: last-modified
 date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+
+title: !expr params$report_title
+subtitle: !expr paste("Report for", params$project_code)
+author:
+  - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
+  - !expr sprintf("Prepared by: %s, Name 2", params$pri_bio)
+email: !expr if (params$uni == "CU") "cbada@curtin.edu.au"
+  else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au")
+  else paste0(params$pri_bio, "@uq.edu.au")
 ---
 
 ::: {.aagi-titlepage}
@@ -25,16 +38,22 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
 :::: {.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
-**University Name (AAGI-XX)**  
+**`r switch(params$uni,
+  CU = "Curtin University (AAGI-CU)",
+  AU = "University of Adelaide (AAGI-AU)",
+  UQ = "University of Queensland (AAGI-UQ)",
+  "University Name (AAGI-XX)")`**  
 **AAGI Program Report**
 
-# Informative title for short report
+# `r params$report_title`
 
-## Report for GRDC/AAGI Project Code
+## Report for `r params$project_code`
 
-Prepared for: **Client Name (Client Organisation)**  
-Prepared by: **Your Name**, Name 2  
-Correspondence email: <your.email@example.edu.au>  
+Prepared for: **`r params$partner` (`r params$partner_email`)**  
+Prepared by: **`r params$pri_bio`**, Name 2  
+Correspondence email: <`r if (params$uni == "CU") "cbada@curtin.edu.au"
+  else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au")
+  else paste0(params$pri_bio, "@uq.edu.au")`>  
 _Last updated: `r Sys.Date()`_
 ::::
 

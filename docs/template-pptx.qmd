@@ -8,15 +8,15 @@ knitr:
 title: "AAGI"
 author: "Analytics for the Australian Grain Industry"
 format: aagi-pptx
-date: date-modified
+date: last-modified
 date-format: long
 ---
 
 ```{r}
-#| label: load
-#| message: false
+#| label: setup
+#| include: false
 
-if (!require(pak)) {
+if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages(
     "pak",
     repos = sprintf(
@@ -27,24 +27,31 @@ if (!require(pak)) {
     )
   )
 }
-
-if (!require(flextable)) {
-  pak::pak("flextable", dependencies = TRUE)
+ensure_pkg <- function(pkg, github = NULL) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    if (!is.null(github)) {
+      pak::pak(github, dependencies = TRUE)
+    } else {
+      pak::pak(pkg, dependencies = TRUE)
+    }
+  }
 }
-
-# Integrating with AAGIPalettes, AAGIThemes
-if (!require(AAGIThemes)) {
-  pak::pak("AAGI-AUS/AAGIThemes", dependencies = TRUE)
-}
-if (!require(AAGIPalettes)) {
-  pak::pak("AAGI-AUS/AAGIPalettes", dependencies = TRUE)
-}
+ensure_pkg("ggplot2")
+ensure_pkg("flextable")
+ensure_pkg("dplyr")
+ensure_pkg("gapminder")
+ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
+ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
 
 library(ggplot2)
+library(flextable)
+library(dplyr)
+library(gapminder)
 library(AAGIThemes)
+library(AAGIPalettes)
 
-# set ggplot2 theme
 theme_set(theme_aagi())
+set_flextable_defaults(theme_fun = theme_ft_aagi)
 ```
 
 ## An AAGI pptx Theme for Quarto

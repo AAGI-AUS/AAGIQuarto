@@ -8,11 +8,11 @@ knitr:
 title: !expr paste('Progress report for project', params[['project-number']])
 subtitle: "Subtitle Here"
 params:
-  uni: CU
+  uni: [AU, CU, UQ]
   pri_bio: Your.Name
-  project-number: ABC1234-567XYZ
+  project-number: ABC1234-001RTX
   partner: collab_partner
-  partner_email: colla_partner@email.com.au
+  partner_email: collab_partner@email.com.au
 format: aagi-pdf+short+report
 date: last-modified
 date-format: long
@@ -21,40 +21,17 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 author:
   - !expr sprintf("Prepared for: %s (%s)", params[["partner"]], params[["partner_email"]])
   - !expr sprintf("Prepared by: %s, Author 2", params[["pri_bio"]])
-  - !expr paste("Project Lead:",
-    if (params[["uni"]] == "CU") "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
-    else if (params[["uni"]] == "UA") "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
-    else "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
-    )
 email: !expr if (params[["uni"]] == "CU") "cbada@curtin.edu.au"
-  else if (params[["uni"]] == "UA") paste0(params[["pri_bio"]], "@adelaide.edu.au")
+  else if (params[["uni"]] == "AU") paste0(params[["pri_bio"]], "@adelaide.edu.au")
   else paste0(params[["pri_bio"]], "@uq.edu.au")
 ---
 
 ```{r}
 #| label: setup
 #| include: false
-# This is probably necessary on Linux (with Proxima Nova and Cairo
-# installed). We may need something else on Mac.
-if (
-  toupper(Sys.info()["sysname"]) == "LINUX" ||
-    toupper(Sys.info()["sysname"]) == "DARWIN"
-) {
-  knitr::opts_chunk$set(dev = c("cairo_pdf"))
-}
 
-if (require(xtable)) {
-  options(xtable.comment = FALSE)
-}
-if (require(formatR)) {
-  options(formatR.arrow = FALSE)
-  knitr::opts_chunk$set(
-    tidy = TRUE,
-    tidy.opts = list(width.cutoff = 60)
-  )
-}
-
-if (!require(pak)) {
+if (!requireNamespace("pak", quietly = TRUE)) {
+  # Robust pak install
   install.packages(
     "pak",
     repos = sprintf(
@@ -66,44 +43,35 @@ if (!require(pak)) {
   )
 }
 
-if (!require(flextable)) {
-  pak::pak("flextable", dependencies = TRUE)
+ensure_pkg <- function(pkg, github = NULL) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    if (!is.null(github)) {
+      pak::pak(github, dependencies = TRUE)
+    } else {
+      pak::pak(pkg, dependencies = TRUE)
+    }
+  }
 }
 
-# Integrating with AAGIPalettes, AAGIThemes
-if (!require(AAGIThemes)) {
-  pak::pak("AAGI-AUS/AAGIThemes", dependencies = TRUE)
-}
-if (!require(AAGIPalettes)) {
-  pak::pak("AAGI-AUS/AAGIPalettes", dependencies = TRUE)
+if (
+  toupper(Sys.info()[["sysname"]]) == "LINUX" ||
+    toupper(Sys.info()[["sysname"]]) == "DARWIN"
+) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
 }
 
+ensure_pkg("ggplot2")
+ensure_pkg("flextable")
+ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
+ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
+
+library(ggplot2)
 library(flextable)
 library(AAGIThemes)
 library(AAGIPalettes)
-library(ggplot2)
 
-# set ggplot2 theme
 theme_set(theme_aagi())
-
-# set flextable theme
 set_flextable_defaults(theme_fun = theme_ft_aagi)
-```
-
-```{r}
-#| include: false
-#| label: config-for-title
-
-if (params$uni == "CU") {
-  project_lead = "Curtin University -- Prof Mark Gibberd, Dr Julia Easton, Prof Adam Sparks"
-  email = "cbada@curtin.edu.au"
-} else if (params$uni == "UA") {
-  project_lead = "University of Adelaide -- Dr Julian Taylor, Dr Olena Kravchuck"
-  email = paste(params$pri_bio, "adelaide.edu.au", sep = "")
-} else {
-  project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
-  email = paste(params$pri_bio, "@uq.edu.au", sep = "")
-}
 ```
 
 # Section 1

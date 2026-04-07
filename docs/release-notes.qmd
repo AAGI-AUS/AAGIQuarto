@@ -1,6 +1,6 @@
 ---
 title: "Release Notes"
-date-modified: last-modified
+date: last-modified
 engine: markdown
 format:
   html:

@@ -10,7 +10,8 @@ subtitle: "Report for GRDC Project Code"
 author:
   - "Prepared for: collab_partner (collab_partner@email.com.au)"
   - "Prepared by: Your.Name, Author 2"
-date: !expr format(Sys.Date(), "%Y-%m-%d")
+date: last-modified
+date-format: long
 format:
   aagi-html+report:
     toc: true
@@ -23,7 +24,8 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 #| label: load
 #| message: false
 
-if (!require(pak)) {
+# Ensure pak is installed (using custom repo block!):
+if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages(
     "pak",
     repos = sprintf(
@@ -34,17 +36,32 @@ if (!require(pak)) {
     )
   )
 }
-if (!require("ggplot2", quietly = TRUE)) {
-  pak::pak("ggplot2", dependencies = TRUE)
+
+# Helper: install (if needed) via pak, from CRAN or GitHub
+ensure_pkg <- function(pkg, github = NULL) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    if (!is.null(github)) {
+      pak::pak(github, dependencies = TRUE)
+    } else {
+      pak::pak(pkg, dependencies = TRUE)
+    }
+  }
 }
-if (!require("AAGIThemes", quietly = TRUE)) {
-  pak::pak("AAGI-AUS/AAGIThemes", dependencies = TRUE)
-}
+
+# Install packages needed for this report
+ensure_pkg("ggplot2")
+ensure_pkg("flextable")
+ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
+ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
 
 library(ggplot2)
+library(flextable)
 library(AAGIThemes)
+library(AAGIPalettes)
 
+# Set plot/table themes (ensure HTML styling is always AAGI)
 theme_set(theme_aagi())
+set_flextable_defaults(theme_fun = theme_ft_aagi)
 ```
 
 ::: {.aagi-titlepage}

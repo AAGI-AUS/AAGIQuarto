@@ -45,7 +45,7 @@ If you do not have Quarto installed on your device (and are not already using RS
 ### Getting the Template
 
 Use your terminal or command prompt to run the install commands.
-Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands.
+Alternatively, if you use RStudio or VS Code (including VSCodium or Positron) you can use the terminal emulator, but not the R, Python, or Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands.
 Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the `bash` command.
 For more information, see [Microsoft's documentation](https://docs.microsoft.com/en-us/windows/wsl/install).
 
@@ -74,6 +74,8 @@ Then, in the output format use:
 - `aagi-pdf+report`, for a full length PDF report
 - `aagi-pdf+short+report`, for a short PDF report
 
+See all available document formats using `quarto use template --list AAGI-AUS/AAGIQuarto`.
+
 ### Template
 
 If you use the Bash command above to install the extension and create a sub directory following the command prompt, there
@@ -83,7 +85,8 @@ By default, these templates use [{AAGIThemes}](https://aagi-aus.github.io/AAGITh
 
 ## Updating
 
-As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:
+As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so.
+Navigate to your Quarto project folder if you aren’t already there:
 
 ```bash
 cd your_quarto_project_folder
@@ -92,5 +95,5 @@ quarto update AAGI-AUS/AAGIQuarto
 
 ## Logo Rights
 
-The logo of this project and the AAGI strategic partners do not come under MIT License.
-The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.
+The logos for this project and AAGI strategic partners do not come under the MIT License.
+The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo, and the Grains Research and Development Corporation (GRDC) and strategic partners, Adelaide University, Curtin University, and the University of Queensland retain full rights to their respective logos.

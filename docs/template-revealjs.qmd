@@ -5,32 +5,35 @@ knitr:
   opts_chunk:
     fig.path: figures/
     fig.pos: H
-title: "AAGI"
+title: !expr sprintf("AAGI – %s",
+  switch(params$university,
+  CU = "Curtin University",
+  AU = "Adelaide University",
+  UQ = "University of Queensland"
+  ))
 author:
   - name: Adam Sparks
     orcid: 0000-0002-0061-8359
     email: adam.sparks@curtin.edu.au
 params:
-  affiliation: CU
+  university:
+    values:
+      CU: Curtin University
+      AU: Adelaide University
+      UQ: University of Queensland
+    value: CU
 date: last-modified
+date-format: long
 format: aagi-revealjs
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
 
 ```{r}
-#| label: title affiliation and setup
+#| label: setup
 #| include: false
 
-if (params$affiliation == "CU") {
-  university <- "Curtin University"
-} else if (params$affiliation == "UA") {
-  university <- "University of Adelaide"
-} else {
-  university <- "University of Queensland"
-}
-
-if (!require(pak)) {
+if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages(
     "pak",
     repos = sprintf(
@@ -41,25 +44,33 @@ if (!require(pak)) {
     )
   )
 }
-if (!require(flextable)) {
-  pak::pak("flextable", dependencies = TRUE)
+ensure_pkg <- function(pkg, github = NULL) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    if (!is.null(github)) {
+      pak::pak(github, dependencies = TRUE)
+    } else {
+      pak::pak(pkg, dependencies = TRUE)
+    }
+  }
 }
+ensure_pkg("ggplot2")
+ensure_pkg("dplyr")
+ensure_pkg("flextable")
+ensure_pkg("gapminder")
+ensure_pkg("gt")
+ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
+ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
 
-# Integrating with AAGIPalettes, AAGIThemes
-if (!require(AAGIThemes)) {
-  pak::pak("AAGI-AUS/AAGIThemes", dependencies = TRUE)
-}
-if (!require(AAGIPalettes)) {
-  pak::pak("AAGI-AUS/AAGIPalettes", dependencies = TRUE)
-}
-if (!require(gapminder)) {
-  pak::pak("gapminder", dependencies = TRUE)
-}
 library(ggplot2)
+library(dplyr)
+library(flextable)
+library(gapminder)
+library(gt)
 library(AAGIThemes)
+library(AAGIPalettes)
 
-# set ggplot2 theme
 theme_set(theme_aagi())
+set_flextable_defaults(theme_fun = theme_ft_aagi)
 ```
 
 ## An AAGI Reveal.js Theme for Quarto
