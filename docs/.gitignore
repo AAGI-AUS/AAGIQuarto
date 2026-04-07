@@ -1,4 +1,5 @@
 /.quarto/
-/_extension/
+/_extensions/
 /_site
+/demos/figures/
 **/*.quarto_ipynb
