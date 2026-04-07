@@ -16,7 +16,8 @@ jobs:
 
     # Restrict concurrent publishes per ref
     concurrency:
-      group: "quarto-publish-${{ github.ref }}"
+      group: quarto-publish-${{ github.ref }}
+      cancel-in-progress: true
 
     permissions:
       contents: write
