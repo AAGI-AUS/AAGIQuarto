@@ -37,7 +37,7 @@ theme_set(theme_aagi())
 
 ::: {.aagi-titlepage}
 
-![](AAGI_logo.svg){.aagi-logo}
+![](../_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
 
 :::: {.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
