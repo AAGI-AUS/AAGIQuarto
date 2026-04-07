@@ -1,9 +1,15 @@
 ---
+execute:
+  echo: false
+knitr:
+  opts_chunk:
+    fig.path: figures/
+    fig.pos: H
 title: "AAGI"
 author: "Analytics for the Australian Grain Industry"
-date: last-modified
-format:
-  aagi-pptx: default
+format: aagi-pptx
+date: "`r Sys.Date()`"
+date-format: long
 ---
 
 ```{r}
@@ -11,8 +17,17 @@ format:
 #| message: false
 
 if (!require(pak)) {
-  install.packages("pak", dependencies = TRUE)
+  install.packages(
+    "pak",
+    repos = sprintf(
+      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+      .Platform$pkgType,
+      R.Version()$os,
+      R.Version()$arch
+    )
+  )
 }
+
 if (!require(flextable)) {
   pak::pak("flextable", dependencies = TRUE)
 }

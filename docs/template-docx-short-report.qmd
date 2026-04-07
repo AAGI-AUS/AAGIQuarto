@@ -1,5 +1,4 @@
 ---
-# Report details
 title: "`r paste('Progress report for project', params[['project-number']])`"
 subtitle: "Subtitle here"
 category: "`r paste(params[['project-number']])`"
@@ -9,10 +8,17 @@ params:
   project-number: ABC1234-567XYZ
   partner: collab_partner
   partner_email: collab_partner@email.com.au
+format: aagi-docx+short+report
+date: last-modified
+date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
-date: last-modified
-format: aagi-docx+short+report
+author:
+  - "Prepared for: `r params$partner` (`r params$partner_email`)"
+  - "Prepared by: `r params$pri_bio`, Author 2"
+  - "Project Lead: `r project_lead`"
+  - "email: `r email`"
+subject: "`r email`"
 ---
 
 ```{r}
@@ -38,7 +44,15 @@ if (require(formatR)) {
 }
 
 if (!require(pak)) {
-  install.packages("pak", dependencies = TRUE)
+  install.packages(
+    "pak",
+    repos = sprintf(
+      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+      .Platform$pkgType,
+      R.Version()$os,
+      R.Version()$arch
+    )
+  )
 }
 if (!require(flextable)) {
   pak::pak("flextable", dependencies = TRUE)
@@ -79,15 +93,6 @@ if (params$uni == "CU") {
   email = paste(params$pri_bio, "@uq.edu.au", sep = "")
 }
 ```
-
----
-author:
-  - "Prepared for: `r params$partner` (`r params$partner_email`)"
-  - "Prepared by: `r params$pri_bio`, Author 2"
-  - "Project Lead: `r project_lead`"
-  - "email: `r email`"
-subject: "`r email`"
----
 
 # Section 1
 

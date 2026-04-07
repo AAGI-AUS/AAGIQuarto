@@ -1,4 +1,10 @@
 ---
+execute:
+  echo: false
+knitr:
+  opts_chunk:
+    fig.path: figures/
+    fig.pos: H
 title: "AAGI"
 author:
   - name: Adam Sparks
@@ -7,8 +13,8 @@ author:
 params:
   affiliation: CU
 date: last-modified
-format:
-  aagi-revealjs: default
+format: aagi-revealjs
+bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
 
@@ -16,7 +22,7 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 #| label: title affiliation
 #| include: false
 
-if (params$affiliat == "CU") {
+if (params$affiliation == "CU") {
   university <- "Curtin University"
 } else if (params$affiliation == "UA") {
   university <- "University of Adelaide"
@@ -30,7 +36,15 @@ if (params$affiliat == "CU") {
 #| message: false
 
 if (!require(pak)) {
-  install.packages("pak", dependencies = TRUE)
+  install.packages(
+    "pak",
+    repos = sprintf(
+      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+      .Platform$pkgType,
+      R.Version()$os,
+      R.Version()$arch
+    )
+  )
 }
 if (!require(flextable)) {
   pak::pak("flextable", dependencies = TRUE)

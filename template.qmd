@@ -25,7 +25,7 @@ params:
   project_num: AAA--BBB
   partner: collab_partner
   partner_email: collab_partner@email.com.au
-date: "`r Sys.Date()`"
+date: last-modified
 date-format: long
 bibliography: your_references.bib # Replace with your .bib file
 csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl

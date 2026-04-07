@@ -1,17 +1,20 @@
 ---
+execute:
+  echo: false
+knitr:
+  opts_chunk:
+    fig.path: figures/
+    fig.pos: H
 title: "Analytics for the Australian Grains Industry -- Curtin University (AAGI-CU) Technical Report Series: 123"
-subtitle: "Descriptive title for report Report for AAA--BBB"
+subtitle: "Report for GRDC Project Code"
 author:
   - "Prepared for: collab_partner (collab_partner@email.com.au)"
   - "Prepared by: Your.Name, Author 2"
-date: last-modified
-date-format: long
+date: "`r Sys.Date()`"
 format:
   aagi-html+report:
     toc: true
     self-contained: true
-execute:
-  echo: false
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
@@ -20,8 +23,16 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 #| label: load
 #| message: false
 
-if (!require("pak", quietly = TRUE)) {
-  install.packages("pak", dependencies = TRUE)
+if (!require(pak)) {
+  install.packages(
+    "pak",
+    repos = sprintf(
+      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+      .Platform$pkgType,
+      R.Version()$os,
+      R.Version()$arch
+    )
+  )
 }
 if (!require("ggplot2", quietly = TRUE)) {
   pak::pak("ggplot2", dependencies = TRUE)

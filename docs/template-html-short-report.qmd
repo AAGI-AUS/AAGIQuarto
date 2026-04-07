@@ -1,16 +1,20 @@
 ---
+execute:
+  echo: false
+knitr:
+  opts_chunk:
+    fig.path: figures/
+    fig.pos: H
 title: "Informative title for short report"
-subtitle: "Report for GRDC/AAGI Project Code"
+subtitle: "Report for GRDC Project Code"
 author:
   - name: "Your Name"
-date: last-modified
-date-format: long
 format:
   aagi-html+report:
     toc: true
     self-contained: true
-execute:
-  echo: false
+date: last-modified
+date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
