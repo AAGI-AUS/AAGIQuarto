@@ -6,8 +6,12 @@ knitr:
     fig.path: figures/
     fig.pos: H
 params:
-  uni:
-    values: [CU, AU, UQ]
+  university:
+    values:
+      CU: Curtin University (AAGI-CU)
+      AU: University of Adelaide (AAGI-AU)
+      UQ: University of Queensland (AAGI-UQ)
+    value: CU
   pri_bio: Your.Name
   project_code: ABC2026-001ABC
   partner: collab_partner
@@ -27,8 +31,8 @@ subtitle: !expr paste("Report for", params$project_code)
 author:
   - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
   - !expr sprintf("Prepared by: %s", params$pri_bio)
-university: !expr switch(params$uni, CU = "Curtin University (AAGI-CU)", AU = "University of Adelaide (AAGI-AU)", UQ = "University of Queensland (AAGI-UQ)", "University Name (AAGI-XX)")
-email: !expr if (params$uni == "CU") "cbada@curtin.edu.au" else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au") else paste0(params$pri_bio, "@uq.edu.au")
+university: !expr params$university
+email: !expr params$partner_email
 ---
 
 ::: {.aagi-titlepage}
