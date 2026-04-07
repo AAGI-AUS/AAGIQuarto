@@ -81,7 +81,7 @@ theme_set(theme_aagi())
 set_flextable_defaults(theme_fun = theme_ft_aagi)
 ```
 
-\newpage
+{{< pagebreak >}}
 
 # Executive summary
 
