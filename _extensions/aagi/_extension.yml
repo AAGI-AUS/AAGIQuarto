@@ -71,19 +71,21 @@ contributes:
 
     html+report:
       theme:
-        - cosmo
+        - none
         - html/aagi-html.scss
       toc: true
       toc-depth: 3
       number-sections: true
       format-resources:
         - assets/AAGI_logo.svg
+        - assets/AAGI_SP_Logo_Block-Portrait.svg
 
     html+short+report:
       theme:
-        - cosmo
+        - none
         - html/aagi-html.scss
       toc: false
       number-sections: false
       format-resources:
         - assets/AAGI_logo.svg
+        - assets/AAGI_SP_Logo_Block-Portrait.svg
