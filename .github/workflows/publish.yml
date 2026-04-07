@@ -75,9 +75,8 @@ jobs:
           tinytex: false
 
       - name: Install TinyTeX (R)
-        run: |
-          tinytex::install_tinytex()
-          shell: Rscript {0}
+        run: tinytex::install_tinytex()
+        shell: Rscript {0}
 
       - name: Add extension directly into demos
         working-directory: ./docs
