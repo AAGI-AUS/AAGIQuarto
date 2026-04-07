@@ -53,7 +53,7 @@ Correspondence email: <your.email@example.edu.au>
 _Last updated: `r Sys.Date()`_
 ::::
 
-![](./_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
+![](AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
 :::
 
 # Executive Summary
