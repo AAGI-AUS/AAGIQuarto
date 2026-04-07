@@ -188,28 +188,35 @@
     "href": "demos/template-html-report.html",
     "title": "Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123",
     "section": "",
-    "text": "This document demonstrates the AAGI HTML report format provided by the AAGIQuarto extension. It renders a fully styled, self-contained HTML report using AAGI branding — AAGI teal headings, teal table headers with alternating row shading, teal hyperlinks, and an AAGI-styled note callout.\nUse this format for sharing AAGI technical reports as web-ready HTML documents."
+    "text": "Analytics for the Australian Grains Industry\nUniversity Name (AAGI-XX)\nAAGI Program Report\n\n\n\n\nPrepared for: Client Name (Client Organisation)\nPrepared by: Your Name, Name 2\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-04-07"
+  },
+  {
+    "objectID": "demos/template-html-report.html#report-for-grdcaagi-project-code",
+    "href": "demos/template-html-report.html#report-for-grdcaagi-project-code",
+    "title": "Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123",
+    "section": "",
+    "text": "Prepared for: Client Name (Client Organisation)\nPrepared by: Your Name, Name 2\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-04-07"
   },
   {
     "objectID": "demos/template-html-report.html#note-callout-example",
     "href": "demos/template-html-report.html#note-callout-example",
     "title": "Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123",
-    "section": "6.1 Note callout example",
-    "text": "6.1 Note callout example\nUse Quarto’s built-in callout note for important information:\n\n\n\n\n\n\nNote\n\n\n\nThis is an AAGI-styled note callout, analogous to the note environment in the LaTeX PDF report template. Use it to highlight important information for the reader.\n\n\nAlternatively, use the .aagi-note class for the tcolorbox-style appearance:\n\nThis is an .aagi-note div. It mimics the left- and right-bordered teal box from the LaTeX template."
+    "section": "7.1 Note callout example",
+    "text": "7.1 Note callout example\nUse Quarto’s built-in callout note for important information:\n\n\n\n\n\n\nNote\n\n\n\nThis is an AAGI-styled note callout, analogous to the note environment in the LaTeX PDF report template. Use it to highlight important information for the reader.\n\n\nAlternatively, use the .aagi-note class for the tcolorbox-style appearance:\n\nThis is an .aagi-note div. It mimics the left- and right-bordered teal box from the LaTeX template."
   },
   {
     "objectID": "demos/template-html-report.html#table-example",
     "href": "demos/template-html-report.html#table-example",
     "title": "Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123",
-    "section": "6.2 Table example",
-    "text": "6.2 Table example\nAAGI table styling is applied automatically to all Markdown tables. The header row uses AAGI teal with white text, and rows alternate between AAGI grey and white.\n\n\n\nTable 1: Trial results summary\n\n\n\n\n\nTreatment\nReplicate\nYield (t/ha)\nProtein (%)\n\n\n\n\nControl\n1\n3.21\n11.4\n\n\nControl\n2\n3.08\n11.8\n\n\nNitrogen\n1\n4.15\n12.9\n\n\nNitrogen\n2\n4.32\n13.1"
+    "section": "7.2 Table example",
+    "text": "7.2 Table example\nAAGI table styling is applied automatically to all Markdown tables. The header row uses AAGI teal with white text, and rows alternate between AAGI grey and white.\n\n\n\nTable 1: Trial results summary\n\n\n\n\n\nTreatment\nReplicate\nYield (t/ha)\nProtein (%)\n\n\n\n\nControl\n1\n3.21\n11.4\n\n\nControl\n2\n3.08\n11.8\n\n\nNitrogen\n1\n4.15\n12.9\n\n\nNitrogen\n2\n4.32\n13.1"
   },
   {
     "objectID": "demos/template-html-report.html#figure-example",
     "href": "demos/template-html-report.html#figure-example",
     "title": "Analytics for the Australian Grains Industry – Curtin University (AAGI-CU) Technical Report Series: 123",
-    "section": "6.3 Figure example",
-    "text": "6.3 Figure example\n\n\n\n\n\n\n\n\nFigure 1: An example figure using {ggplot2} with the AAGI theme."
+    "section": "7.3 Figure example",
+    "text": "7.3 Figure example\n\n\n\n\n\n\n\n\nFigure 1: An example figure using {ggplot2} with the AAGI theme."
   },
   {
     "objectID": "index.html",
