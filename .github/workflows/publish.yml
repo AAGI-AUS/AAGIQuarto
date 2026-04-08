@@ -11,6 +11,7 @@ jobs:
   demo-page:
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      AAGI_AUTO_INSTALL: "true"
 
     runs-on: ubuntu-latest
 
@@ -49,6 +50,9 @@ jobs:
             "ggplot2",
             "sysfonts",
             "flextable",
+            "gapminder",
+            "dplyr",
+            "gt",
             "tinytex",
             "AAGI-AUS/AAGIThemes",
             "AAGI-AUS/AAGIPalettes"
