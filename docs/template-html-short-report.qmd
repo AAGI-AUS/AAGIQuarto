@@ -44,7 +44,7 @@ source("_scripts/setup_reports.R", local = TRUE)
 
 ![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
 
-:::: {.aagi-title-block}
+:::: {.aagi-title_block}
 **Analytics for the Australian Grains Industry**  
 **`r uni_name` (AAGI-`r params$uni`)**  
 **AAGI Program Report**

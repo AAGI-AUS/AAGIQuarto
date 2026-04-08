@@ -32,7 +32,7 @@ email: "`r params$uni_info[[params$uni]]$email`"
 source("_scripts/setup_reports.R", local = TRUE)
 ```
 
-```{r child="_includes/title-block.qmd"}
+```{r child="_includes/title_block.qmd"}
 ```
 
 {{< pagebreak >}}

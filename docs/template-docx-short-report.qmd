@@ -8,7 +8,7 @@ params:
   partner: "collab_partner_org"
   partner_email: "partner@example.com"
   aagi_email: "contact@example.com"
-  # optional metadata used by title-block-long.qmd (add only if needed)
+  # optional metadata used by title_block_long.qmd (add only if needed)
   report_number: "123"
   report_version: "1.0"
   authors: ["Alice A.", "Bob B."]
@@ -39,7 +39,7 @@ email: "`r params$aagi_email`"
 source("_scripts/setup_reports.R", local = TRUE)
 ```
 
-```{r child="_includes/title-block_short.qmd"}
+```{r child="_includes/title_block_short.qmd"}
 ```
 
 # Executive Summary {#executive-summary}
