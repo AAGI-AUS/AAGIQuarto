@@ -1,7 +1,8 @@
 # AAGI Quarto setup (reports)
 # - Optional auto-install via pak/CRAN (controlled by AAGI_AUTO_INSTALL)
 # - Safe when params are missing (presentations etc.)
-# - Avoids knitr device width/height duplication (do NOT pass width/height in dev.args)
+# - Avoids knitr device width/height duplication (do NOT pass width/height in
+#   dev.args)
 
 allow_install <- isTRUE(as.logical(Sys.getenv(
   "AAGI_AUTO_INSTALL",
@@ -115,7 +116,8 @@ have_params <- exists("params", inherits = TRUE)
 
 uni_code <- if (have_params) params$uni %||% "CU" else "CU"
 
-# uni_info is typically defined in _quarto.yml as a param list; use a safe fallback.
+# uni_info is typically defined in _quarto.yml as a param list; use a safe
+# fallback.
 uni_info_all <- if (have_params) params$uni_info %||% list() else list()
 uni_info <- uni_info_all[[uni_code]] %||% list(name = uni_code)
 uni_name <- uni_info$name %||% uni_code
@@ -125,33 +127,26 @@ uni_name <- uni_info$name %||% uni_code
 # ---------------------------------------------------------------------------
 
 is_latex <- knitr::is_latex_output()
-is_word <- knitr::is_word_output()
-is_html <- knitr::is_html_output()
-
 use_ragg <- requireNamespace("ragg", quietly = TRUE)
 
-# For raster outputs (html/docx/pptx), resolution is safe in dev.args.
-# Do NOT pass width/height here; knitr manages sizing via fig.width/fig.height.
+# For raster outputs, resolution is safe in dev.args.
+# Do NOT pass width/height; knitr manages sizing via fig.width/fig.height.
 png_dev_args <- list(res = 300)
 
 if (is_latex) {
-  # PDF rendering: prefer knitr's ragg device if available, otherwise base pdf
-  if (use_ragg) {
-    knitr::opts_chunk$set(dev = "ragg_pdf")
-    msg("Graphics device: ragg_pdf (LaTeX/PDF)")
-  } else {
-    knitr::opts_chunk$set(dev = "pdf")
-    msg("Graphics device: pdf (LaTeX/PDF)")
-  }
+  # For PDF/LaTeX output:
+  # - Prefer base 'pdf' to avoid dev2ext issues across knitr versions
+  # - If you *really* want ragg for PDF, do it per-chunk or ensure your
+  # knitr supports it
+  knitr::opts_chunk$set(dev = "pdf", dev.args = NULL)
+  msg("Graphics device: pdf (LaTeX/PDF)")
 } else {
-  # Everything else (docx/html/pptx/revealjs): use PNG
-  if (use_ragg) {
-    knitr::opts_chunk$set(dev = "ragg_png", dev.args = png_dev_args)
-    msg("Graphics device: ragg_png (raster)")
-  } else {
-    knitr::opts_chunk$set(dev = "png", dev.args = png_dev_args)
-    msg("Graphics device: png (raster)")
-  }
+  # For everything else (HTML, DOCX, PPTX, revealjs, etc.): PNG is the safest
+  # If ragg is installed, it will still be used by some systems when
+  # device='png' is backed by ragg/cairo;
+  # but we avoid passing a device function that breaks dev2ext().
+  knitr::opts_chunk$set(dev = "png", dev.args = png_dev_args)
+  msg("Graphics device: png (raster)")
 }
 
 # Common knitr defaults (don't override YAML-provided ones unless needed)
