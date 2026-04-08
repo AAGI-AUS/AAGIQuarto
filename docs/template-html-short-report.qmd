@@ -29,12 +29,14 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 title: !expr params$report_title
 subtitle: !expr paste("Report for", params$project_code)
 author:
-  - !expr sprintf(
+  - !expr >
+    sprintf(
       "Prepared for: %s (%s)",
       params$partner,
       params$partner_email
     )
-  - !expr sprintf("Prepared by: %s", params$pri_bio)
+  - !expr > 
+    sprintf("Prepared by: %s", params$pri_bio)
 university: !expr params$university
 email: !expr params$partner_email
 ---
