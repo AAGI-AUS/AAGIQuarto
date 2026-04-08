@@ -121,39 +121,37 @@ uni_info <- uni_info_all[[uni_code]] %||% list(name = uni_code)
 uni_name <- uni_info$name %||% uni_code
 
 # ---------------------------------------------------------------------------
-# Graphics device setup (avoid width/height duplication)
+# Graphics device setup (robust across pdf/docx/html/pptx/revealjs)
 # ---------------------------------------------------------------------------
 
-use_ragg <- requireNamespace("ragg", quietly = TRUE)
 is_latex <- knitr::is_latex_output()
+is_word <- knitr::is_word_output()
+is_html <- knitr::is_html_output()
 
-# IMPORTANT:
-# - Do NOT pass width/height in dev.args; knitr provides these based on fig.width/fig.height.
-# - Only pass args that won't conflict, e.g. res for raster outputs.
+use_ragg <- requireNamespace("ragg", quietly = TRUE)
+
+# For raster outputs (html/docx/pptx), resolution is safe in dev.args.
+# Do NOT pass width/height here; knitr manages sizing via fig.width/fig.height.
 png_dev_args <- list(res = 300)
 
-set_device <- function(dev, args = NULL, label) {
-  if (is.null(args)) {
-    knitr::opts_chunk$set(dev = dev)
+if (is_latex) {
+  # PDF rendering: prefer knitr's ragg device if available, otherwise base pdf
+  if (use_ragg) {
+    knitr::opts_chunk$set(dev = "ragg_pdf")
+    msg("Graphics device: ragg_pdf (LaTeX/PDF)")
   } else {
-    knitr::opts_chunk$set(dev = dev, dev.args = args)
+    knitr::opts_chunk$set(dev = "pdf")
+    msg("Graphics device: pdf (LaTeX/PDF)")
   }
-  msg("Graphics device: %s", label)
-}
-
-if (
-  use_ragg &&
-    is_latex &&
-    exists("agg_pdf", where = asNamespace("ragg"), mode = "function")
-) {
-  set_device(ragg::agg_pdf, NULL, "ragg::agg_pdf (LaTeX/PDF)")
-} else if (use_ragg) {
-  set_device(ragg::agg_png, png_dev_args, "ragg::agg_png (raster)")
-} else if (.Platform$OS.type == "unix" && capabilities("cairo") && is_latex) {
-  set_device(grDevices::cairo_pdf, NULL, "grDevices::cairo_pdf (LaTeX/PDF)")
 } else {
-  # Fallback for HTML/Word/etc when ragg isn't available
-  set_device("png", png_dev_args, "png (fallback raster)")
+  # Everything else (docx/html/pptx/revealjs): use PNG
+  if (use_ragg) {
+    knitr::opts_chunk$set(dev = "ragg_png", dev.args = png_dev_args)
+    msg("Graphics device: ragg_png (raster)")
+  } else {
+    knitr::opts_chunk$set(dev = "png", dev.args = png_dev_args)
+    msg("Graphics device: png (raster)")
+  }
 }
 
 # Common knitr defaults (don't override YAML-provided ones unless needed)
