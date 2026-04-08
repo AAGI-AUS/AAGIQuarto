@@ -1,13 +1,14 @@
 ---
+format: aagi-pptx
 execute:
   echo: false
+  message: false
 knitr:
   opts_chunk:
     fig.path: figures/
     fig.pos: H
-title: "AAGI"
-author: "Analytics for the Australian Grain Industry"
-format: aagi-pptx
+title: "AAGI PPTX Presentation"
+author: "Adam Sparks"
 date: last-modified
 date-format: long
 ---
@@ -15,43 +16,19 @@ date-format: long
 ```{r}
 #| label: setup
 #| include: false
+#| message: false
 
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages(
-    "pak",
-    repos = sprintf(
-      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-      .Platform$pkgType,
-      R.Version()$os,
-      R.Version()$arch
-    )
-  )
-}
-ensure_pkg <- function(pkg, github = NULL) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    if (!is.null(github)) {
-      pak::pak(github, dependencies = TRUE)
-    } else {
-      pak::pak(pkg, dependencies = TRUE)
-    }
-  }
-}
-ensure_pkg("ggplot2")
-ensure_pkg("flextable")
-ensure_pkg("dplyr")
-ensure_pkg("gapminder")
-ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
-ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
+# Centralised setup: optional installs, themes, devices, uni_name, etc.
+source("_scripts/setup.R", local = TRUE)
 
-library(ggplot2)
-library(flextable)
-library(dplyr)
-library(gapminder)
-library(AAGIThemes)
-library(AAGIPalettes)
-
-theme_set(theme_aagi())
-set_flextable_defaults(theme_fun = theme_ft_aagi)
+suppressPackageStartupMessages({
+  library(ggplot2)
+  library(flextable)
+  library(dplyr)
+  library(gapminder)
+  library(AAGIThemes)
+  library(AAGIPalettes)
+})
 ```
 
 ## An AAGI pptx Theme for Quarto
@@ -60,68 +37,52 @@ This Quarto extension allows you to create your slides using a theme that follow
 
 ## Bullet point
 
--   Point 1
--   Point 2
+- Point 1
+- Point 2
 
 ## Tables
 
-For tables, we suggest paring with the R package [{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) to provide AAGI themed tables using `theme_ft_aagi`, that offers more flexibility in formatting.
+For tables, we suggest pairing with the R package [{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) to provide AAGI themed tables using `theme_ft_aagi`, which offers more flexibility in formatting.
 
 ## Example
 
 ```{r}
-#| label: tab-AAGI
+#| label: tab-aagi
 #| message: false
-#| echo: false
-
-library(dplyr)
-library(flextable)
-library(AAGIThemes)
-
-# set flextable theme
-set_flextable_defaults(
-  theme_fun = theme_ft_aagi
-)
 
 flex_tab <- flextable(
   head(airquality) |>
     mutate(`Month Name` = "May")
 ) |>
+  theme_ft_aagi() |>
   autofit()
+
 flex_tab
 ```
 
 ## Basic Figures
 
-[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming basic figures in R, for example.
+[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming basic figures in R.
 
 ```{r}
 #| label: graphics-figure
 #| message: false
-library(AAGIThemes)
+
 plot_aagi(pressure)
 ```
 
 ## Figures with {ggplot2}
 
-[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming [{ggplot2}](https://ggplot2.tidyverse.org) outputs in R, for example.
+[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming [{ggplot2}](https://ggplot2.tidyverse.org) outputs in R.
 
 ```{r}
 #| label: ggplot2-figure
 #| message: false
-#Prepare data
-
-library(gapminder)
-library(dplyr)
-library(ggplot2)
-library(AAGIThemes)
 
 facet <- gapminder |>
   filter(continent != "Americas") |>
   group_by(continent, year) |>
-  summarise(pop = sum(as.numeric(pop)))
-#> `summarise()` has grouped output by 'continent'. You can override using the
-#> `.groups` argument.
+  summarise(pop = sum(as.numeric(pop)), .groups = "drop")
 
 col_values <- c(
   AAGIPalettes::colour_as_hex("AAGI Teal"),
@@ -130,7 +91,6 @@ col_values <- c(
   AAGIPalettes::colour_as_hex("AAGI Blue")
 )
 
-#Make plot
 ggplot() +
   geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +
   scale_fill_manual(values = col_values) +
@@ -144,7 +104,7 @@ ggplot() +
   theme(legend.position = "none", axis.text.x = element_blank()) +
   labs(
     title = "Asia's rapid growth",
-    subtitle = "Population growth by continent, 1952-2007"
+    subtitle = "Population growth by continent, 1952–2007"
   )
 ```
 
@@ -161,9 +121,3 @@ This is a column on the right.
 :::::
 
 # Thank You
-
-```{=html}
-<!-- Uncomment if you have a bibliography
-## References
--->
-```

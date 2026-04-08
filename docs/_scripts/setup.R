@@ -103,7 +103,7 @@ ensure_pkg <- function(pkg, github = NULL) {
 }
 
 # Install packages (CRAN and GitHub)
-all_pkgs <- c("ggplot2", "flextable", "cli", "ragg")
+all_pkgs <- c("ggplot2", "flextable", "cli", "ragg", "dplyr", "gapminder", "gt")
 for (pkg in all_pkgs) {
   ensure_pkg(pkg)
 }

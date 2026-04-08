@@ -1,22 +1,18 @@
 ---
 execute:
   echo: false
+  message: false
 knitr:
   opts_chunk:
     fig.path: figures/
     fig.pos: H
+date: last-modified
+date-format: long
 format: aagi-revealjs
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
-date: last-modified
-date-format: long
 
-# Inherit params$uni and params$uni_info from _quarto.yml.
-# If you want to override the university for *this* deck only, uncomment:
-# params:
-#   uni: AU
-
-title: "`r sprintf('AAGI – %s', params$uni_info[[params$uni]]$name)`"
+title: "AAGI Demonstration Presentation"
 author:
   - name: "Adam Sparks"
     orcid: "0000-0002-0061-8359"
@@ -28,16 +24,17 @@ author:
 #| include: false
 #| message: false
 
-# Centralised setup: installs (optionally), sets themes/devices, exports uni_name
+# Centralised setup: optional installs, themes, devices, uni_name, etc.
 source("_scripts/setup.R", local = TRUE)
 
-# Slide-deck-specific libraries (install handled by setup.R when AAGI_AUTO_INSTALL=true)
 suppressPackageStartupMessages({
   library(ggplot2)
-  library(dplyr)
   library(flextable)
+  library(dplyr)
   library(gapminder)
   library(gt)
+  library(AAGIThemes)
+  library(AAGIPalettes)
 })
 ```
 
@@ -91,7 +88,6 @@ gt
 ```{r}
 #| label: graphics-figure
 #| message: false
-library(AAGIThemes)
 plot_aagi(pressure)
 ```
 
@@ -108,17 +104,10 @@ This is an aside.
 #| message: false
 #Prepare data
 
-library(gapminder)
-library(dplyr)
-library(ggplot2)
-library(AAGIThemes)
-
 facet <- gapminder |>
   filter(continent != "Americas") |>
   group_by(continent, year) |>
   summarise(pop = sum(as.numeric(pop)))
-#> `summarise()` has grouped output by 'continent'. You can override using the
-#> `.groups` argument.
 
 col_values <- c(
   AAGIPalettes::colour_as_hex("AAGI Teal"),
@@ -128,6 +117,7 @@ col_values <- c(
 )
 
 #Make plot
+
 ggplot() +
   geom_area(data = facet, aes(x = year, y = pop, fill = continent)) +
   scale_fill_manual(values = col_values) +
