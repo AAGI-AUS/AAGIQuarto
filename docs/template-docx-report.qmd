@@ -29,7 +29,7 @@ email: "`r params$uni_info[[params$uni]]$email`"
 #| message: false
 
 # Source centralized setup (must run before inline R in child include and before plots)
-source("_scripts/setup.R", local = TRUE)
+source("_scripts/setup_reports.R", local = TRUE)
 ```
 
 ```{r child="_includes/title-block.qmd"}

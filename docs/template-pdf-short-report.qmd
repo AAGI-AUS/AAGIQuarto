@@ -8,7 +8,7 @@ params:
 #| include: false
 #| message: false
 
-source("_scripts/setup.R", local = TRUE)
+source("_scripts/setup_reports.R", local = TRUE)
 ```
 
 # Section 

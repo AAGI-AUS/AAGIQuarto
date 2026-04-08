@@ -34,7 +34,7 @@ email: "`r params$aagi_email`"
 #| message: false
 
 # Source centralized setup (must run before plots)
-source("_scripts/setup.R", local = TRUE)
+source("_scripts/setup_reports.R", local = TRUE)
 ```
 
 \newpage

@@ -36,7 +36,7 @@ email: "`r params$aagi_email`"
 
 # Source centralized setup script. This must exist at _scripts/setup.R (repo root).
 # It will export uni_name and set knitr options/device/theme.
-source("_scripts/setup.R", local = TRUE)
+source("_scripts/setup_reports.R", local = TRUE)
 ```
 
 ```{r child="_includes/title-block_short.qmd"}
