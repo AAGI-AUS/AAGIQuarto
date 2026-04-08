@@ -1,18 +1,21 @@
+# AAGI Quarto setup (reports)
+# - Optional auto-install via pak/CRAN (controlled by AAGI_AUTO_INSTALL)
+# - Safe when params are missing (presentations etc.)
+# - Avoids knitr device width/height duplication (do NOT pass width/height in dev.args)
+
 allow_install <- isTRUE(as.logical(Sys.getenv(
   "AAGI_AUTO_INSTALL",
   unset = interactive()
 )))
+
+`%||%` <- function(x, y) if (is.null(x)) y else x
 
 # Conditional messaging (prefers cli for nicer output)
 have_cli <- requireNamespace("cli", quietly = TRUE)
 
 msg <- function(...) {
   txt <- sprintf(...)
-  if (have_cli) {
-    cli::cli_alert_info(txt)
-  } else {
-    message("[setup] ", txt)
-  }
+  if (have_cli) cli::cli_alert_info(txt) else message("[setup] ", txt)
 }
 
 warn <- function(...) {
@@ -32,17 +35,6 @@ try_library <- function(pkg) {
   } else {
     FALSE
   }
-}
-
-# ---------------------------------------------------------------------------
-# Validate environment
-# ---------------------------------------------------------------------------
-
-if (!exists("params")) {
-  stop(
-    "[setup] 'params' not found. Source this script from a document render.",
-    call. = FALSE
-  )
 }
 
 # ---------------------------------------------------------------------------
@@ -67,12 +59,11 @@ if (allow_install && !requireNamespace("pak", quietly = TRUE)) {
   )
 }
 
-# Install a package (CRAN or GitHub)
+# Install a package (CRAN or GitHub). Returns TRUE if available after call.
 ensure_pkg <- function(pkg, github = NULL) {
   if (requireNamespace(pkg, quietly = TRUE)) {
     return(invisible(TRUE))
   }
-
   if (!allow_install) {
     return(invisible(FALSE))
   }
@@ -85,7 +76,7 @@ ensure_pkg <- function(pkg, github = NULL) {
     return(invisible(FALSE))
   }
 
-  tryCatch(
+  ok <- tryCatch(
     {
       if (use_pak) {
         pak::pak(target, dependencies = TRUE)
@@ -96,60 +87,76 @@ ensure_pkg <- function(pkg, github = NULL) {
           repos = getOption("repos", default = "https://cloud.r-project.org")
         )
       }
-      invisible(TRUE)
+      TRUE
     },
-    error = function(e) invisible(FALSE)
+    error = function(e) {
+      warn("Failed to install %s: %s", target, e$message)
+      FALSE
+    }
   )
+
+  invisible(ok && requireNamespace(pkg, quietly = TRUE))
 }
 
 # Install packages (CRAN and GitHub)
-all_pkgs <- c("ggplot2", "flextable", "cli", "ragg")
-for (pkg in all_pkgs) {
+for (pkg in c("ggplot2", "flextable", "cli", "ragg")) {
   ensure_pkg(pkg)
 }
-
 for (pkg in c("AAGIThemes", "AAGIPalettes")) {
   ensure_pkg(pkg, github = sprintf("AAGI-AUS/%s", pkg))
 }
 
 # ---------------------------------------------------------------------------
-# University configuration
+# University configuration (SAFE when params missing)
 # ---------------------------------------------------------------------------
 
-uni_code <- params$uni %||% "CU"
-uni_info <- params$uni_info[[uni_code]] %||% list(name = uni_code)
+# params exists during Quarto renders; for presentations you may not have it.
+have_params <- exists("params", inherits = TRUE)
+
+uni_code <- if (have_params) params$uni %||% "CU" else "CU"
+
+# uni_info is typically defined in _quarto.yml as a param list; use a safe fallback.
+uni_info_all <- if (have_params) params$uni_info %||% list() else list()
+uni_info <- uni_info_all[[uni_code]] %||% list(name = uni_code)
 uni_name <- uni_info$name %||% uni_code
 
 # ---------------------------------------------------------------------------
-# Graphics device setup
+# Graphics device setup (avoid width/height duplication)
 # ---------------------------------------------------------------------------
 
 use_ragg <- requireNamespace("ragg", quietly = TRUE)
 is_latex <- knitr::is_latex_output()
 
-default_dev_args <- list(width = 7, height = 5)
-png_dev_args <- list(width = 7, height = 5, units = "in", res = 300)
+# IMPORTANT:
+# - Do NOT pass width/height in dev.args; knitr provides these based on fig.width/fig.height.
+# - Only pass args that won't conflict, e.g. res for raster outputs.
+png_dev_args <- list(res = 300)
 
-# Select graphics device based on capabilities
-set_device <- function(dev, args, label) {
-  knitr::opts_chunk$set(dev = dev, dev.args = args)
+set_device <- function(dev, args = NULL, label) {
+  if (is.null(args)) {
+    knitr::opts_chunk$set(dev = dev)
+  } else {
+    knitr::opts_chunk$set(dev = dev, dev.args = args)
+  }
   msg("Graphics device: %s", label)
 }
 
-if (use_ragg && is_latex) {
-  set_device(ragg::agg_tiff, default_dev_args, "ragg::agg_tiff (LaTeX/PDF)")
+if (
+  use_ragg &&
+    is_latex &&
+    exists("agg_pdf", where = asNamespace("ragg"), mode = "function")
+) {
+  set_device(ragg::agg_pdf, NULL, "ragg::agg_pdf (LaTeX/PDF)")
 } else if (use_ragg) {
   set_device(ragg::agg_png, png_dev_args, "ragg::agg_png (raster)")
-} else if (.Platform$OS.type == "unix" && capabilities("cairo")) {
-  dev <- if (is_latex) grDevices::cairo_pdf else "png"
-  args <- if (is_latex) default_dev_args else png_dev_args
-  label <- if (is_latex) "cairo_pdf (LaTeX/PDF)" else "png/cairo (raster)"
-  set_device(dev, args, label)
+} else if (.Platform$OS.type == "unix" && capabilities("cairo") && is_latex) {
+  set_device(grDevices::cairo_pdf, NULL, "grDevices::cairo_pdf (LaTeX/PDF)")
 } else {
-  set_device("png", png_dev_args, "png (fallback)")
+  # Fallback for HTML/Word/etc when ragg isn't available
+  set_device("png", png_dev_args, "png (fallback raster)")
 }
 
-# Common knitr defaults
+# Common knitr defaults (don't override YAML-provided ones unless needed)
 knitr::opts_chunk$set(fig.path = "figures/", fig.pos = "H")
 
 # ---------------------------------------------------------------------------
@@ -157,30 +164,34 @@ knitr::opts_chunk$set(fig.path = "figures/", fig.pos = "H")
 # ---------------------------------------------------------------------------
 
 try_library("ggplot2")
-
-if (
-  try_library("AAGIThemes") &&
-    exists("theme_aagi", where = asNamespace("AAGIThemes"), mode = "function")
-) {
-  try(theme_set(theme_aagi()), silent = TRUE)
-  msg("AAGIThemes loaded and applied.")
-}
-
+try_library("AAGIThemes")
 try_library("AAGIPalettes")
 try_library("flextable")
 
-# Configure flextable with AAGI theme if available
-if (exists("set_flextable_defaults", mode = "function")) {
+# Apply ggplot theme if available
+if (
+  requireNamespace("AAGIThemes", quietly = TRUE) &&
+    exists("theme_aagi", where = asNamespace("AAGIThemes"), mode = "function")
+) {
+  try(ggplot2::theme_set(AAGIThemes::theme_aagi()), silent = TRUE)
+  msg("AAGIThemes loaded and ggplot theme applied.")
+}
+
+# Configure flextable theme if available
+if (
+  requireNamespace("flextable", quietly = TRUE) &&
+    requireNamespace("AAGIThemes", quietly = TRUE) &&
+    exists(
+      "theme_ft_aagi",
+      where = asNamespace("AAGIThemes"),
+      mode = "function"
+    )
+) {
   try(
-    set_flextable_defaults(
-      theme_fun = if (exists("theme_ft_aagi", where = .GlobalEnv)) {
-        theme_ft_aagi
-      } else {
-        NULL
-      }
-    ),
+    flextable::set_flextable_defaults(theme_fun = AAGIThemes::theme_ft_aagi),
     silent = TRUE
   )
+  msg("flextable defaults set to AAGI theme.")
 }
 
 # ---------------------------------------------------------------------------
