@@ -23,11 +23,21 @@ date: last-modified
 date-format: long
 format: aagi-docx+report
 
-title: !expr paste("Analytics for the Australian Grains Industry -", params$university, sprintf("(AAGI-%s) Technical Report Series: 123", names(params$university)))
-subtitle: !expr paste0(params$report_title, "\nReport for ", params$project_num)
+title: !expr >
+  paste("Analytics for the Australian Grains Industry -", params$university,
+  sprintf("(AAGI-%s) Technical Report Series: 123", names(params$university)))
+subtitle: !expr >
+  paste0(params$report_title, "\nReport for ", params$project_num)
+
 author:
-  - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
-  - !expr sprintf("Prepared by: %s", params$pri_bio)
+  - !expr >
+    sprintf(
+      "Prepared for: %s (%s)",
+      params$partner,
+      params$partner_email
+    )
+  - !expr > 
+    sprintf("Prepared by: %s", params$pri_bio)
 university: !expr params$university
 email: !expr params$partner_email
 ---

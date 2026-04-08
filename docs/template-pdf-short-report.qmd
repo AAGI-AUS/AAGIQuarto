@@ -19,10 +19,18 @@ date: last-modified
 date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+
 author:
-  - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
-  - !expr sprintf("Prepared by: %s", params$pri_bio)
-email: !expr if (params$uni == "CU") "cbada@curtin.edu.au" else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au") else paste0(params$pri_bio, "@uq.edu.au")
+  - !expr >
+    sprintf(
+      "Prepared for: %s (%s)",
+      params$partner,
+      params$partner_email
+    )
+  - !expr > 
+    sprintf("Prepared by: %s", params$pri_bio)
+university: !expr params$university
+email: !expr params$partner_email
 ---
 
 ```{r}

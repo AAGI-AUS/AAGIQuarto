@@ -18,12 +18,14 @@ format: aagi-pdf+report
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title: !expr paste(
-  "Analytics for the Australian Grains Industry -",
-  if (params$uni == "CU") "Curtin University"
-    else if (params$uni == "AU") "Adelaide University"
-    else "University of Queensland",
-  sprintf("(AAGI-%s)\nTechnical Report Series: 123", params$uni)
+title:
+  !expr >
+    paste(
+      "Analytics for the Australian Grains Industry -",
+      if (params$uni == "CU") "Curtin University"
+      else if (params$uni == "AU") "Adelaide University"
+      else "University of Queensland",
+    sprintf("(AAGI-%s)\nTechnical Report Series: 123", params$uni)
 )
 subtitle: !expr paste0("Descriptive title for report  \nReport for ", params$project_num)
 author:
