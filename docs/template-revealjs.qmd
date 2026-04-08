@@ -20,7 +20,7 @@ csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
 title: !expr >
   sprintf('AAGI – %s",
-  switch(params[['university"))
+  switch(params[['university'))
 author:
   - name: Adam Sparks
   - orcid: 0000-0002-0061-8359
