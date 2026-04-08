@@ -22,7 +22,9 @@ date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title: !expr paste('Progress report for project', params$project_number)
+title:
+  !expr >
+    paste('Progress report for project', params$project_number)
 subtitle: "Subtitle here"
 category: !expr params$project_number
 

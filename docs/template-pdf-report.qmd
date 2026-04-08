@@ -27,11 +27,21 @@ title:
       else "University of Queensland",
     sprintf("(AAGI-%s)\nTechnical Report Series: 123", params$uni)
 )
-subtitle: !expr paste0("Descriptive title for report  \nReport for ", params$project_num)
+subtitle:
+  !expr >
+  sprintf("Descriptive title for report
+    \nReport for %s", params$project_num)
 author:
-  - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
-  - !expr sprintf("Prepared by: %s, Author 2", params$pri_bio)
-email: !expr if (params$uni == "CU") "cbada@curtin.edu.au" else if (params$uni == "AU") paste0(params$pri_bio, "@adelaide.edu.au") else paste0(params$pri_bio, "@uq.edu.au")
+  - !expr >
+    sprintf(
+      "Prepared for: %s (%s)",
+      params$partner,
+      params$partner_email
+    )
+  - !expr > 
+    sprintf("Prepared by: %s", params$pri_bio)
+university: !expr params$university
+email: !expr params$partner_email
 ---
 
 ```{r}

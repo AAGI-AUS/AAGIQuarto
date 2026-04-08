@@ -27,7 +27,10 @@ bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
 title: !expr params$report_title
-subtitle: !expr paste("Report for", params$project_code)
+subtitle:
+  !expr >
+    sprintf('Progress report for project %s',
+    params[['project_code']])
 
 author:
   - !expr >

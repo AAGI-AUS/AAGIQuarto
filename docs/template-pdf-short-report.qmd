@@ -5,13 +5,16 @@ knitr:
   opts_chunk:
     fig.path: figures/
     fig.pos: H
-title: !expr paste('Progress report for project', params[['project-number']])
+title:
+  !expr >
+    sprintf('Progress report for project %s',
+    params[['project_code']])
 subtitle: "Subtitle Here"
 params:
   uni:
     values: [AU, CU, UQ]
   pri_bio: Your.Name
-  project-number: ABC1234-001RTX
+  project_code: ABC1234-001RTX
   partner: collab_partner
   partner_email: collab_partner@email.com.au
 format: aagi-pdf+short+report
@@ -81,7 +84,7 @@ theme_set(theme_aagi())
 set_flextable_defaults(theme_fun = theme_ft_aagi)
 ```
 
-# Section 1
+# Section 
 
 This template is designed for smaller ("one-page") AAGI reports. The AAGI logo and partners footer appear only on this first page.
 

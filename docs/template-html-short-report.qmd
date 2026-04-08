@@ -26,8 +26,12 @@ date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title: !expr params$report_title
-subtitle: !expr paste("Report for", params$project_code)
+title:
+  !expr >
+  params$report_title
+subtitle:
+  !expr >
+  paste("Report for", params$project_code)
 author:
   - !expr >
     sprintf(
