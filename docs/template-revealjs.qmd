@@ -5,74 +5,41 @@ knitr:
   opts_chunk:
     fig.path: figures/
     fig.pos: H
-params:
-  university:
-    values:
-      CU: Curtin University
-      AU: Adelaide University
-      UQ: University of Queensland
-    value: CU
-date: last-modified
-date-format: long
 format: aagi-revealjs
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+date: last-modified
+date-format: long
 
-title: !expr >
-  sprintf('AAGI – %s",
-  switch(params[['university'))
+# Inherit params$uni and params$uni_info from _quarto.yml.
+# If you want to override the university for *this* deck only, uncomment:
+# params:
+#   uni: AU
+
+title: "`r sprintf('AAGI – %s', params$uni_info[[params$uni]]$name)`"
 author:
-  - name: Adam Sparks
-  - orcid: 0000-0002-0061-8359
-  - email: adam.sparks@curtin.edu.au
+  - name: "Adam Sparks"
+    orcid: "0000-0002-0061-8359"
+    email: "adam.sparks@curtin.edu.au"
 ---
 
 ```{r}
 #| label: setup
 #| include: false
+#| message: false
 
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages(
-    "pak",
-    repos = sprintf(
-      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-      .Platform$pkgType,
-      R.Version()$os,
-      R.Version()$arch
-    )
-  )
-}
+# Centralised setup: installs (optionally), sets themes/devices, exports uni_name
+source("_scripts/setup.R", local = TRUE)
 
-ensure_pkg <- function(pkg, github = NULL) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    if (!is.null(github)) {
-      pak::pak(github, dependencies = TRUE)
-    } else {
-      pak::pak(pkg, dependencies = TRUE)
-    }
-  }
-}
-
-ensure_pkg("ggplot2")
-ensure_pkg("dplyr")
-ensure_pkg("flextable")
-ensure_pkg("gapminder")
-ensure_pkg("gt")
-ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
-ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
-
-library(ggplot2)
-library(dplyr)
-library(flextable)
-library(gapminder)
-library(gt)
-library(AAGIThemes)
-library(AAGIPalettes)
-
-theme_set(theme_aagi())
-set_flextable_defaults(theme_fun = theme_ft_aagi)
+# Slide-deck-specific libraries (install handled by setup.R when AAGI_AUTO_INSTALL=true)
+suppressPackageStartupMessages({
+  library(ggplot2)
+  library(dplyr)
+  library(flextable)
+  library(gapminder)
+  library(gt)
+})
 ```
-
 
 ## An AAGI Reveal.js Theme for Quarto
 
