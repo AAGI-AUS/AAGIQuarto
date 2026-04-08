@@ -82,6 +82,7 @@ The `aagi-html+report` format applies AAGI branding to Quarto HTML output:
 To use this format in your own document:
 
 ```{.yaml filename="AAGI_HTML_report"}
+#| eval: FALSE
 format:
   aagi-html+report: default
 ```
@@ -89,6 +90,7 @@ format:
 Then render with:
 
 ```{bash}
+#| eval: FALSE
 quarto render your-report.qmd --to aagi-html+report
 ```
 
