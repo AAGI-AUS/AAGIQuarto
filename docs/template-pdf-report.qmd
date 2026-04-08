@@ -1,4 +1,5 @@
 ---
+format: aagi-pdf+report
 execute:
   echo: false
 knitr:
@@ -6,84 +7,34 @@ knitr:
     fig.path: figures/
     fig.pos: H
 params:
-  uni:
-    values: [CU, AU, UQ]
-  pri_bio: Your.Name
-  project_num: AAA--BBB
-  partner: collab_partner
-  partner_email: collab_partner@email.com.au
+  aagi_staff: "your_name"
+  project_code: "ABC2026-001ABC"
+  report_title: "My Report Title"
+  partner: "collab_partner_org"
+  partner_email: "collab_partner@email.com.au"
+  aagi_email: "your.email@example.edu.au"
+
 date: last-modified
 date-format: long
-format: aagi-pdf+report
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title:
-  !expr >
-    paste(
-      "Analytics for the Australian Grains Industry -",
-      if (params$uni == "CU") "Curtin University"
-      else if (params$uni == "AU") "Adelaide University"
-      else "University of Queensland",
-    sprintf("(AAGI-%s)\nTechnical Report Series: 123", params$uni)
-)
-subtitle:
-  !expr >
-  sprintf("Descriptive title for report
-    \nReport for %s", params$project_num)
+title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
+subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
 author:
-  - !expr >
-    sprintf(
-      "Prepared for: %s (%s)",
-      params$partner,
-      params$partner_email
-    )
-  - !expr > 
-    sprintf("Prepared by: %s", params$pri_bio)
-university: !expr params$university
-email: !expr params$partner_email
+  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
+  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
+university: "`r params$uni_info[[params$uni]]$name`"
+email: "`r params$aagi_email`"
 ---
 
 ```{r}
 #| label: setup
-#| include: FALSE
-#| message: FALSE
+#| include: false
+#| message: false
 
-# Ensure pak is installed (using custom repo block)
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages(
-    "pak",
-    repos = sprintf(
-      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-      .Platform$pkgType,
-      R.Version()$os,
-      R.Version()$arch
-    )
-  )
-}
-ensure_pkg <- function(pkg, github = NULL) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    if (!is.null(github)) {
-      pak::pak(github, dependencies = TRUE)
-    } else {
-      pak::pak(pkg, dependencies = TRUE)
-    }
-  }
-}
-# PDF device for Linux/Mac (optional)
-if (toupper(Sys.info()[["sysname"]]) %in% c("LINUX", "DARWIN")) {
-  knitr::opts_chunk$set(dev = "cairo_pdf")
-}
-ensure_pkg("ggplot2")
-ensure_pkg("flextable")
-ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
-ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
-library(ggplot2)
-library(flextable)
-library(AAGIThemes)
-library(AAGIPalettes)
-theme_set(theme_aagi())
-set_flextable_defaults(theme_fun = theme_ft_aagi)
+# Source centralized setup (must run before plots)
+source("_scripts/setup.R", local = TRUE)
 ```
 
 \newpage

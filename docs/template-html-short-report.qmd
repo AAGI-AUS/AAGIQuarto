@@ -1,4 +1,8 @@
 ---
+format:
+  aagi-html+short+report:
+    toc: true
+    self-contained: true
 execute:
   echo: false
 knitr:
@@ -6,44 +10,35 @@ knitr:
     fig.path: figures/
     fig.pos: H
 params:
-  university:
-    values:
-      CU: Curtin University (AAGI-CU)
-      AU: University of Adelaide (AAGI-AU)
-      UQ: University of Queensland (AAGI-UQ)
-    value: CU
-  pri_bio: Your.Name
-  project_code: ABC2026-001ABC
-  partner: collab_partner
-  partner_email: collab_partner@email.com.au
-  report_title: Informative title for short report
-format:
-  aagi-html+report:
-    toc: true
-    self-contained: true
+  aagi_staff: "your_name"
+  project_code: "ABC2026-001ABC"
+  report_title: "My Short Report"
+  partner: "collab_partner_org"
+  partner_email: "collab_partner@email.com.au"
+  aagi_email: "your.email@example.edu.au"
+
 date: last-modified
 date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title:
-  !expr >
-  params$report_title
-subtitle:
-  !expr >
-  paste("Report for", params$project_code)
+title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
+subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
 author:
-  - !expr >
-    sprintf(
-      "Prepared for: %s (%s)",
-      params$partner,
-      params$partner_email
-    )
-  - !expr > 
-    sprintf("Prepared by: %s", params$pri_bio)
-university: !expr params$university
-email: !expr params$partner_email
+  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
+  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
+university: "`r params$uni_info[[params$uni]]$name`"
+email: "`r params$aagi_email`"
 ---
+
+```{r}
+#| label: setup
+#| include: false
+#| message: false
+
+# Source centralized setup (must run before inline R in title block and before plots)
+source("_scripts/setup.R", local = TRUE)
+```
 
 ::: {.aagi-titlepage}
 
@@ -51,7 +46,7 @@ email: !expr params$partner_email
 
 :::: {.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
-**`r params$university`**  
+**`r uni_name` (AAGI-`r params$uni`)**  
 **AAGI Program Report**
 
 # `r params$report_title`
@@ -59,13 +54,12 @@ email: !expr params$partner_email
 ## Report for `r params$project_code`
 
 Prepared for: **`r params$partner` (`r params$partner_email`)**  
-Prepared by: **`r params$pri_bio`**, Name 2  
-Correspondence email: <`r params$email`>  
+Prepared by: **`r params$aagi_staff`**  
+Correspondence email: <`r params$aagi_email`>  
 _Last updated: `r Sys.Date()`_
 ::::
 
 ![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
-
 :::
 
 # Executive Summary {#executive-summary}

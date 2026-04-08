@@ -23,6 +23,7 @@ website:
         contents:
           - release-notes.qmd
 
+# Unified format settings (one place only)
 format:
   html:
     toc: true
@@ -33,3 +34,36 @@ format:
       <link rel="icon" type="image/svg+xml" href="/AAGIQuarto/favicon.svg">
       <link rel="icon" type="image/png" sizes="32x32" href="/AAGIQuarto/favicon-32x32.png">
       <link rel="alternate icon" href="/AAGIQuarto/favicon.ico">
+  docx: {}
+  pdf: {}
+
+# Global defaults and shared params for example docs (individual docs may override)
+execute:
+  echo: false
+
+knitr:
+  opts_chunk:
+    fig.path: figures/
+    fig.pos: H
+
+params:
+  uni:
+    values:
+      CU: "Curtin University"
+      AU: "University of Adelaide"
+      UQ: "University of Queensland"
+      ANU: "Australian National University"
+    value: CU
+
+  uni_info:
+    CU:
+      name: "Curtin University"
+    AU:
+      name: "University of Adelaide"
+    UQ:
+      name: "University of Queensland"
+    ANU:
+      name: "Australian National University"
+
+bibliography: references.bib
+csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl

@@ -18,16 +18,13 @@ format: aagi-revealjs
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title:
-  !expr >
-    sprintf("AAGI – %s", switch(params$university,
-    AU = "Adelaide University",
-    CU = "Curtin University",
-    UQ = "University of Queensland"))
+title: !expr >
+  sprintf('AAGI – %s",
+  switch(params[['university"))
 author:
   - name: Adam Sparks
-    orcid: 0000-0002-0061-8359
-    email: adam.sparks@curtin.edu.au
+  - orcid: 0000-0002-0061-8359
+  - email: adam.sparks@curtin.edu.au
 ---
 
 ```{r}

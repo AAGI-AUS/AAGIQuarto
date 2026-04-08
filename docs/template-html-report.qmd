@@ -1,4 +1,8 @@
 ---
+format:
+  aagi-html+report:
+    toc: true
+    self-contained: true
 execute:
   echo: false
 knitr:
@@ -6,89 +10,35 @@ knitr:
     fig.path: figures/
     fig.pos: H
 params:
-  university:
-    values:
-      CU: Curtin University (AAGI-CU)
-      AU: University of Adelaide (AAGI-AU)
-      UQ: University of Queensland (AAGI-UQ)
-    value: CU
-  pri_bio: Your.Name
-  project_code: GRDC/AAGI Project Code
-  partner: Client Name (Client Organisation)
-  partner_email: your.email@example.edu.au
-  report_title: Informative title for short report
+  aagi_staff: "your_name"
+  project_code: "ABC2026-001ABC"
+  report_title: "My Report Title"
+  partner: "collab_partner_org"
+  partner_email: "collab_partner@email.com.au"
+  aagi_email: "your.email@example.edu.au"
+
 date: last-modified
 date-format: long
-format:
-  aagi-html+report:
-    toc: true
-    self-contained: true
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title: !expr params$report_title
-subtitle:
-  !expr >
-    sprintf('Progress report for project %s',
-    params[['project_code']])
-
+title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
+subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
 author:
-  - !expr >
-    sprintf(
-      "Prepared for: %s (%s)",
-      params$partner,
-      params$partner_email
-    )
-  - !expr > 
-    sprintf("Prepared by: %s", params$pri_bio)
-university: !expr params$university
-email: !expr params$partner_email
+  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
+  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
+university: "`r params$uni_info[[params$uni]]$name`"
+email: "`r params$aagi_email`"
 ---
 
 ```{r}
-#| label: load
+#| label: setup
+#| include: false
 #| message: false
 
-# Ensure pak is installed (using custom repo block)
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages(
-    "pak",
-    repos = sprintf(
-      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-      .Platform$pkgType,
-      R.Version()$os,
-      R.Version()$arch
-    )
-  )
-}
-
-# Helper: install (if needed) via pak, from CRAN or GitHub
-ensure_pkg <- function(pkg, github = NULL) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    if (!is.null(github)) {
-      pak::pak(github, dependencies = TRUE)
-    } else {
-      pak::pak(pkg, dependencies = TRUE)
-    }
-  }
-}
-
-# Install packages needed for this report
-ensure_pkg("ggplot2")
-ensure_pkg("flextable")
-ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
-ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
-
-library(ggplot2)
-library(flextable)
-library(AAGIThemes)
-library(AAGIPalettes)
-
-# Set plot/table themes (ensure HTML styling is always AAGI)
-theme_set(theme_aagi())
-set_flextable_defaults(theme_fun = theme_ft_aagi)
+# Source centralized setup (must run before inline R in title block and before plots)
+source("_scripts/setup.R", local = TRUE)
 ```
-
 
 ::: {.aagi-titlepage}
 
@@ -96,16 +46,16 @@ set_flextable_defaults(theme_fun = theme_ft_aagi)
 
 :::: {.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
-**University Name (AAGI-XX)**  
+**`r uni_name` (AAGI-`r params$uni`)**  
 **AAGI Program Report**
 
-# Informative title for short report
+# `r params$report_title`
 
-## Report for GRDC/AAGI Project Code
+## Report for `r params$project_code`
 
-Prepared for: **Client Name (Client Organisation)**  
-Prepared by: **Your Name**, Name 2  
-Correspondence email: <your.email@example.edu.au>  
+Prepared for: **`r params$partner` (`r params$partner_email`)**  
+Prepared by: **`r params$aagi_staff`**  
+Correspondence email: <`r params$aagi_email`>  
 _Last updated: `r Sys.Date()`_
 ::::
 
@@ -132,9 +82,6 @@ The `aagi-html+report` format applies AAGI branding to Quarto HTML output:
 To use this format in your own document:
 
 ```{.yaml filename="AAGI_HTML_report"}
-#| include: TRUE
-#| eval: FALSE
-
 format:
   aagi-html+report: default
 ```
@@ -142,8 +89,6 @@ format:
 Then render with:
 
 ```{bash}
-#| include: TRUE
-#| eval: FALSE
 quarto render your-report.qmd --to aagi-html+report
 ```
 

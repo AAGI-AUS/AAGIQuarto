@@ -1,135 +1,75 @@
 ---
-execute:
-  echo: false
-knitr:
-  opts_chunk:
-    fig.path: figures/
-    fig.pos: H
+format: aagi-docx+report
 params:
-  university:
-    values:
-      CU: Curtin University
-      AU: Adelaide University
-      UQ: University of Queensland
-    value: CU
-  pri_bio: Your.Name
-  project_num: ABC1234-OO1ABC
-  partner: collab_partner
-  partner_email: collab_partner@email.com.au
-  report_title: Descriptive title for report
-bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+  # override values that differ from root _quarto.yml; otherwise inherit
+  report_title: "My Report Title"
+  project_code: "ABC2026-001ABC"
+  aagi_staff: "your_name"
+  partner: "collab_partner_org"
+  partner_email: "partner@example.com"
+
 date: last-modified
 date-format: long
-format: aagi-docx+report
+bibliography: references.bib
+csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title: !expr >
-  paste("Analytics for the Australian Grains Industry -", params$university,
-  sprintf("(AAGI-%s) Technical Report Series: 123", names(params$university)))
-subtitle: !expr >
-  paste0(params$report_title, "\nReport for ", params$project_num)
-
+# Compute title/subtitle/author/university/email from params and params$uni_info
+title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
+subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
 author:
-  - !expr >
-    sprintf(
-      "Prepared for: %s (%s)",
-      params$partner,
-      params$partner_email
-    )
-  - !expr > 
-    sprintf("Prepared by: %s", params$pri_bio)
-university: !expr params$university
-email: !expr params$partner_email
+  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
+  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
+university: "`r params$uni_info[[params$uni]]$name`"
+email: "`r params$uni_info[[params$uni]]$email`"
 ---
 
 ```{r}
 #| label: setup
 #| include: false
+#| message: false
 
-# Install 'pak' from custom repository if missing
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages(
-    "pak",
-    repos = sprintf(
-      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-      .Platform$pkgType,
-      R.Version()$os,
-      R.Version()$arch
-    )
-  )
-}
+# Source centralized setup (must run before inline R in child include and before plots)
+source("_scripts/setup.R", local = TRUE)
+```
 
-# Helper to install package using pak if missing
-ensure_pkg <- function(pkg, github = NULL) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    if (!is.null(github)) {
-      pak::pak(github, dependencies = TRUE)
-    } else {
-      pak::pak(pkg, dependencies = TRUE)
-    }
-  }
-}
-
-# Ensure required packages are installed
-ensure_pkg("ggplot2")
-ensure_pkg("flextable")
-ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
-ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
-
-library(ggplot2)
-library(flextable)
-library(AAGIThemes)
-library(AAGIPalettes)
-
-# Set chunk options if needed (e.g., for Linux/Darwin PDF device)
-if (toupper(Sys.info()[["sysname"]]) %in% c("LINUX", "DARWIN")) {
-  knitr::opts_chunk$set(dev = "cairo_pdf")
-}
-
-# Apply custom themes
-theme_set(theme_aagi())
-set_flextable_defaults(theme_fun = theme_ft_aagi)
+```{r child="_includes/title-block.qmd"}
 ```
 
 {{< pagebreak >}}
 
 # Executive summary
 
-What was provided by AAGI and the main results?
+Concise summary of the work provided by AAGI and the primary findings.
 
 # Introduction
 
--   Goals of the research project.
+- Goals of the research project.
+- Background, context and rationale.
 
--   Background, context and rationale behind the research.
+# Experimental / Trial Design
 
-# Experimental/Trial Design
+- Trial design and layout.
+- Treatments, replicates, blocking, randomisation.
+- Special considerations (small plots, glasshouse, genetics, breeding, OFE, bioinformatics).
 
--   Trial design type and layout.
+# Exploratory Data Analysis & Visualisation
 
--   Treatments, number of replicates.
-
--   Specific considerations for small plots, glasshouse, genetics, breeding trials, OFE projects, or bioinformatics.
-
-# Exploratory Data Analysis and Data Visualisation
-
--   Interpretation of plots and data.
-
--   Rationale behind specific methods used.
+- Interpretation of key plots.
+- Rationale for visualization choices.
 
 # Methods
 
--   Detailed description of the procedures and methodologies used.
+- Detailed procedures, software versions, pipeline commits.
+- Input/output descriptions and pre-processing steps.
 
--   Include versions/commits on developed pipelines, scripts, and input/output details if applicable.
+# Analysis
 
-# Analysis (if separate from Methods)
-
-Approach taken for data analysis.
+- Statistical approaches and workflow.
+- Model specifications and diagnostics.
 
 # Results and Discussion
 
-Findings and their implications.
+- Main findings and implications.
 
 # Figure example
 
@@ -137,7 +77,8 @@ Findings and their implications.
 #| label: fig-example
 #| fig-cap: "An example figure using {ggplot2}."
 
-ggplot(data = pressure, aes(x = temperature, y = pressure)) +
+library(ggplot2)
+ggplot(pressure, aes(temperature, pressure)) +
   geom_point() +
   theme_aagi()
 ```
@@ -148,34 +89,28 @@ ggplot(data = pressure, aes(x = temperature, y = pressure)) +
 #| label: tbl-example
 #| tbl-cap: "An example table using {flextable}."
 
+library(flextable)
 ft <- flextable(head(airquality)) |>
   theme_ft_aagi() |>
   autofit()
-
 ft
 ```
 
-# Metadata and Datasets (Optional)
+# Metadata & Datasets (Optional)
 
--   md5sums for input data and outputs (if applicable).
+- md5sums or checksums for inputs/outputs.
+- Git commit hashes and tags.
+- Output locations (FAIR Data) and DOIs.
 
--   Git commit numbers and tags.
+# Map (Optional)
 
--   Location of outputs (FAIR Data).
+Include maps or geospatial outputs if relevant.
 
--   DOI for AAGI outputs.
-
-# Map (Location, Optional)
-
-Include if relevant to the project.
-
-# References (Optional)
-
-Cited works and literature. @Box1976
+# References
 
 ::: {#refs}
 :::
 
 # Appendix (Optional)
 
-Additional supporting information.
+Supplementary information, extended tables, code snippets.

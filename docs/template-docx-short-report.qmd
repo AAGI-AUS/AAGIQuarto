@@ -1,44 +1,32 @@
 ---
-execute:
-  echo: false
-knitr:
-  opts_chunk:
-    fig.path: figures/
-    fig.pos: H
+format: aagi-docx+report
 params:
-  university:
-    values:
-      CU: Curtin University
-      AU: Adelaide University
-      UQ: University of Queensland
-    value: CU
-  pri_bio: Your.Name
-  project_number: ABC1234-567XYZ
-  partner: collab_partner
-  partner_email: collab_partner@email.com.au
-format: aagi-docx+short+report
+  # override values that differ from root _quarto.yml; everything else inherits
+  report_title: "My Report Title"
+  project_code: "ABC2026-001ABC"
+  aagi_staff: "your_name"
+  partner: "collab_partner_org"
+  partner_email: "partner@example.com"
+  aagi_email: "contact@example.com"
+  # optional metadata used by title-block-long.qmd (add only if needed)
+  report_number: "123"
+  report_version: "1.0"
+  authors: ["Alice A.", "Bob B."]
+  abstract: "Short abstract (1–2 sentences)."
+
 date: last-modified
 date-format: long
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-title:
-  !expr >
-    paste('Progress report for project', params$project_number)
-subtitle: "Subtitle here"
-category: !expr params$project_number
-
+# Title / subtitle / author / contact derived from params
+title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: %s', params$uni_info[[params$uni]]$name, params$uni, params$report_number %||% '')`"
+subtitle: "`r sprintf('%s\\nReport for %s', params$report_title, params$project_code)`"
 author:
-  - !expr >
-    sprintf(
-      "Prepared for: %s (%s)",
-      params$partner,
-      params$partner_email
-    )
-  - !expr > 
-    sprintf("Prepared by: %s", params$pri_bio)
-university: !expr params$university
-email: !expr params$partner_email
+  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
+  - "`r sprintf('Prepared by: %s', paste(params$authors %||% params$aagi_staff, collapse = ', '))`"
+university: "`r params$uni_info[[params$uni]]$name`"
+email: "`r params$aagi_email`"
 ---
 
 ```{r}
@@ -46,73 +34,38 @@ email: !expr params$partner_email
 #| include: false
 #| message: false
 
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages(
-    "pak",
-    repos = sprintf(
-      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-      .Platform$pkgType,
-      R.Version()$os,
-      R.Version()$arch
-    )
-  )
-}
-
-ensure_pkg <- function(pkg, github = NULL) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    if (!is.null(github)) {
-      pak::pak(github, dependencies = TRUE)
-    } else {
-      pak::pak(pkg, dependencies = TRUE)
-    }
-  }
-}
-
-ensure_pkg("ggplot2")
-ensure_pkg("flextable")
-ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
-ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
-
-library(ggplot2)
-library(flextable)
-library(AAGIThemes)
-library(AAGIPalettes)
+# Source centralized setup script. This must exist at _scripts/setup.R (repo root).
+# It will export uni_name and set knitr options/device/theme.
+source("_scripts/setup.R", local = TRUE)
 ```
 
-# Section 1
-
-This template is designed for smaller ("one-page") AAGI reports. The AAGI logo and partners footer appear only on this first page.
-
-```{r}
-#| label: tbl-example
-#| tbl-cap: "Here is a table."
-
-ft <- flextable(head(airquality)) |>
-  theme_ft_aagi() |>
-  autofit()
-
-ft
+```{r child="_includes/title-block_short.qmd"}
 ```
 
-## This is a subsection heading
+# Executive Summary {#executive-summary}
 
-This is an example of a reference [@blah]. References appear at the end of the report by default, after the last heading `# References` on the last line of this .Rmd file (but feel free to change the title to whatever you like).
+Executive summary goes here.
+Summarise the work provided by AAGI and the main results.
 
-Example R code, using the [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/) package to produce Figure @fig-example1.
+# Key findings
 
-```{r}
-#| label: fig-example1
-#| fig-cap: "Here is a plot."
-#| fig-height: 3
-plot_aagi(pressure)
-```
+-   Finding 1
+-   Finding 2
+-   Finding 3
 
-### This is a subsubsection heading
+::: {.aagi-note}
+**NOTE** — This is an example of an AAGI note callout.
+:::
 
-And so on.
+# Methods (brief)
 
-# Next Section
+Briefly describe the analysis approach and any key assumptions.
 
-Add as many sections as needed.
+# Results (brief)
+
+Summarise the primary results, with 1–2 key figures/tables as needed.
 
 # References
+
+::: {#refs}
+:::

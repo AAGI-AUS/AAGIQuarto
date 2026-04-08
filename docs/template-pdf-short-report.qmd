@@ -1,87 +1,13 @@
 ---
-execute:
-  echo: false
-knitr:
-  opts_chunk:
-    fig.path: figures/
-    fig.pos: H
-title:
-  !expr >
-    sprintf('Progress report for project %s',
-    params[['project_code']])
-subtitle: "Subtitle Here"
-params:
-  uni:
-    values: [AU, CU, UQ]
-  pri_bio: Your.Name
-  project_code: ABC1234-001RTX
-  partner: collab_partner
-  partner_email: collab_partner@email.com.au
 format: aagi-pdf+short+report
-date: last-modified
-date-format: long
-bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
-
-author:
-  - !expr >
-    sprintf(
-      "Prepared for: %s (%s)",
-      params$partner,
-      params$partner_email
-    )
-  - !expr > 
-    sprintf("Prepared by: %s", params$pri_bio)
-university: !expr params$university
-email: !expr params$partner_email
+params:
+  # documents typically inherit params from _quarto.yml; you can override here
+  report_title: "Example Short Report"
 ---
 
 ```{r}
-#| label: setup
 #| include: false
-
-if (!requireNamespace("pak", quietly = TRUE)) {
-  # Robust pak install
-  install.packages(
-    "pak",
-    repos = sprintf(
-      "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-      .Platform$pkgType,
-      R.Version()$os,
-      R.Version()$arch
-    )
-  )
-}
-
-ensure_pkg <- function(pkg, github = NULL) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    if (!is.null(github)) {
-      pak::pak(github, dependencies = TRUE)
-    } else {
-      pak::pak(pkg, dependencies = TRUE)
-    }
-  }
-}
-
-if (
-  toupper(Sys.info()[["sysname"]]) == "LINUX" ||
-    toupper(Sys.info()[["sysname"]]) == "DARWIN"
-) {
-  knitr::opts_chunk$set(dev = "cairo_pdf")
-}
-
-ensure_pkg("ggplot2")
-ensure_pkg("flextable")
-ensure_pkg("AAGIThemes", github = "AAGI-AUS/AAGIThemes")
-ensure_pkg("AAGIPalettes", github = "AAGI-AUS/AAGIPalettes")
-
-library(ggplot2)
-library(flextable)
-library(AAGIThemes)
-library(AAGIPalettes)
-
-theme_set(theme_aagi())
-set_flextable_defaults(theme_fun = theme_ft_aagi)
+source("_scripts/setup.R", local = TRUE)
 ```
 
 # Section 

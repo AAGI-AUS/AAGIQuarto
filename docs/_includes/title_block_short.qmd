@@ -1,0 +1,20 @@
+::: {.aagi-titlepage}
+![](AAGI_logo.svg){.aagi-logo}
+
+:::: {.aagi-title-block}
+**Analytics for the Australian Grains Industry**  
+**`r uni_name` (AAGI-`r params$uni`)**  
+**AAGI Program Report**
+
+# `r params$report_title`
+
+## Report for `r params$project_code`
+
+Prepared for: **`r params$partner` (`r params$partner_email`)**  
+Prepared by: **`r params$aagi_staff`**  
+Correspondence email: <`r params$aagi_email`>  
+_Last updated: `r Sys.Date()`_
+::::
+
+![](AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
+:::
