@@ -1,12 +1,13 @@
 ---
 format: aagi-pdf+short+report
 params:
-  # documents typically inherit params from _quarto.yml; you can override here
   report_title: "Example Short Report"
 ---
 
 ```{r}
 #| include: false
+#| message: false
+
 source("_scripts/setup.R", local = TRUE)
 ```
 
@@ -51,6 +52,7 @@ Example R code, using the [{AAGIThemes}](https://aagi-aus.github.io/AAGIThemes/)
 #| label: fig-example1
 #| fig-cap: "Here is a plot."
 #| fig-height: 3
+
 plot_aagi(pressure)
 ```
 
