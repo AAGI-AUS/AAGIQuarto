@@ -1,5 +1,6 @@
 ---
-format: aagi-pdf-short-report
+format: aagi-pdf-short+report
+output-file: template-pdf-short-report.pdf
 params:
   report_title: "Example Short Report"
 ---
