@@ -16,7 +16,6 @@ date-format: long
 bibliography: references.bib
 csl: _extensions/aagi/assets/biometrics.csl
 
-# Minimal, static metadata only (no inline R)
 title: "Analytics for the Australian Grains Industry — Technical Report"
 subtitle: "Report for the project"
 author:
