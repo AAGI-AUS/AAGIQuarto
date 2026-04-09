@@ -138,7 +138,7 @@ if (is_latex) {
   # - Prefer base 'pdf' to avoid dev2ext issues across knitr versions
   # - If you *really* want ragg for PDF, do it per-chunk or ensure your
   # knitr supports it
-  knitr::opts_chunk$set(dev = "pdf", dev.args = NULL)
+  knitr::opts_chunk$set(dev = "pdf")
   msg("Graphics device: pdf (LaTeX/PDF)")
 } else {
   # For everything else (HTML, DOCX, PPTX, revealjs, etc.): PNG is the safest
@@ -150,7 +150,7 @@ if (is_latex) {
 }
 
 # Common knitr defaults (don't override YAML-provided ones unless needed)
-knitr::opts_chunk$set(fig.path = "figures/", fig.pos = "H")
+knitr::opts_chunk$set(fig.path = "figures/", fig.pos = "H", fig.retina = 2)
 
 # ---------------------------------------------------------------------------
 # Load and configure libraries
