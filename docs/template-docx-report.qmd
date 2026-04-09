@@ -1,5 +1,5 @@
 ---
-format: aagi-docx-report
+format: aagi-docxreport
 output-file: template-docx-report.docx
 params:
   # override values that differ from root _quarto.yml; otherwise inherit

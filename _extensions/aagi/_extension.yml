@@ -31,7 +31,7 @@ contributes:
       execute:
         echo: true
 
-    pdf-report:
+    pdfreport:
       template: pdf-report/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
@@ -43,7 +43,7 @@ contributes:
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
         - assets/biometrics.csl
 
-    pdf-short-report:
+    pdfshortreport:
       template: pdf-short-report/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
@@ -56,11 +56,11 @@ contributes:
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
         - assets/biometrics.csl
 
-    docx-report:
+    docxreport:
       reference-doc: docx-report/template.docx
       toc: true
 
-    docx-short-report:
+    docxshortreport:
       reference-doc: docx-short-report/template.docx
 
     pptx:
@@ -69,7 +69,7 @@ contributes:
       number-sections: false
       incremental: true
 
-    html-report:
+    htmlreport:
       theme:
         - none
         - html/aagi-html.scss
@@ -80,7 +80,7 @@ contributes:
         - assets/AAGI_logo.svg
         - assets/AAGI_SP_Logo_Block-Portrait.svg
 
-    html-short-report:
+    htmlshortreport:
       theme:
         - none
         - html/aagi-html.scss
