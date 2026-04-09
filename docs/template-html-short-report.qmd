@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-html-short-report:
+  aagi-html-short+report:
     toc: true
     self-contained: true
 output-file: template-html-short-report.html

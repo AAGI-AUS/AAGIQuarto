@@ -1,5 +1,5 @@
 ---
-format: aagi-pptx
+format: aagi+pptx
 output-file: template-pptx.pptx
 execute:
   echo: false
