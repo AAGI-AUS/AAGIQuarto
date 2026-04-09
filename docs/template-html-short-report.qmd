@@ -1,9 +1,8 @@
 ---
-format:
-  aagi-html-short+report:
-    toc: true
-    self-contained: true
+format: aagi-html-short+report
 output-file: template-html-short-report.html
+toc: true
+self-contained: true
 execute:
   echo: false
 knitr:
