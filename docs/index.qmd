@@ -17,9 +17,9 @@ See the included template and demo file for each format here:
 
 ### Report Formats
 
-- **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-short-report+short+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
+- **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-short-report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
 
-- **AAGI PDF Report:** [AAGI PDF Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report+report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
+- **AAGI PDF Report:** [AAGI PDF Report Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-pdf-report.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-pdf-report.qmd))
 
 - **AAGI Word Document Report:** [AAGI Word Document Demo](https://aagi-aus.github.io/AAGIQuarto/demos/template-docx-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/demos/template-docx-report.qmd))
 
@@ -65,14 +65,14 @@ For documentation on using reveal.js slides in Quarto, please see, <https://quar
 To use the formatted output, save your qmd file into the extension folder that you created using the command above.
 Then, in the output format use:
 
-- `aagi-docx+report`, for a full length MS Word report
-- `aagi-docx+short+report`, for a short MS Word report
-- `aagi-html+report`, for a full length HTML report
-- `aagi-html+short+report`, for a short HTML report
+- `aagi-docx-report`, for a full length MS Word report
+- `aagi-docx-short-report`, for a short MS Word report
+- `aagi-html-report`, for a full length HTML report
+- `aagi-html-short-report`, for a short HTML report
 - `aagi-pptx`, for MS PPT output
 - `aagi-revealjs`, for a revealjs presentation
-- `aagi-pdf+report`, for a full length PDF report
-- `aagi-pdf+short+report`, for a short PDF report
+- `aagi-pdf-report`, for a full length PDF report
+- `aagi-pdf-short-report`, for a short PDF report
 
 See all available document formats using `quarto use template --list AAGI-AUS/AAGIQuarto`.
 

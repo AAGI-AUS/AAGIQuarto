@@ -1,5 +1,5 @@
 ---
-format: aagi-pdf+short+report
+format: aagi-pdf-short-report
 params:
   report_title: "Example Short Report"
 ---
