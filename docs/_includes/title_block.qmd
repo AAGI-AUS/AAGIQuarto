@@ -1,6 +1,6 @@
 ::: {.aagi-titlepage}
 <!-- Primary logo -->
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
+![](_extensions/aagi/assets/AAGI_logo.svg){.aagi-logo}
 
 :::: {.aagi-title-block}
 **Analytics for the Australian Grains Industry**  
@@ -20,19 +20,16 @@
 
 **Prepared for:** `r params$partner` (`r params$partner_email`)  
 **Prepared by:** AAGI — `r params$aagi_staff`  
-**Correspondence:** <`r params$aagi_email`>
+**Correspondence:** <`r aagi_email`>
 
 **Date:** `r format(Sys.Date(), "%B %Y")`  
 `r if (!is.null(params$report_date) && nzchar(params$report_date)) sprintf('Report date: %s', params$report_date) else ''`
 
-<!-- Short abstract / executive summary placeholder (optional param 'abstract') -->
 `r if (!is.null(params$abstract) && nzchar(params$abstract)) paste0('\n\n**Abstract.** ', params$abstract) else ''`
 ::::
 
-<!-- Partner and supporter logos -->
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
+![](_extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
 
-<!-- Small footer with DOI / repository / license (optional params) -->
 :::: {.aagi-meta}
 `r if (!is.null(params$doi)) paste0('DOI: ', params$doi) else ''`  
 `r if (!is.null(params$repo_url)) paste0('Repository: ', params$repo_url) else ''`  

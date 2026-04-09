@@ -1,8 +1,9 @@
 ---
-format: aagi-htmlshortreport
+format:
+  aagi-htmlshortreport:
+    toc: true
+    self-contained: true
 output-file: template-html-short-report.html
-toc: true
-self-contained: true
 execute:
   echo: false
 knitr:
@@ -14,13 +15,12 @@ params:
   project_code: "ABC2026-001ABC"
   report_title: "My Short Report"
   partner: "collab_partner_org"
-  partner_email: "collab_partner@email.com.au"
-  aagi_email: "your.email@example.edu.au"
-
+  partner_email: "partner@example.com"
+  aagi_email: "your.email@example.edu.au"  # REQUIRED unless AAGI_EMAIL env var provided
 date: last-modified
 date-format: long
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+csl: _extensions/aagi/assets/biometrics.csl
 
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
 subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
@@ -28,64 +28,12 @@ author:
   - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
   - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
 university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r params$aagi_email`"
+email: "`r aagi_email`"
 ---
 
 ```{r}
 #| label: setup
 #| include: false
 #| message: false
-
 # Source centralized setup (must run before inline R in title block and before plots)
 source("_scripts/setup_reports.R", local = TRUE)
-```
-
-::: {.aagi-titlepage}
-
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
-
-:::: {.aagi-title_block}
-**Analytics for the Australian Grains Industry**  
-**`r uni_name` (AAGI-`r params$uni`)**  
-**AAGI Program Report**
-
-# `r params$report_title`
-
-## Report for `r params$project_code`
-
-Prepared for: **`r params$partner` (`r params$partner_email`)**  
-Prepared by: **`r params$aagi_staff`**  
-Correspondence email: <`r params$aagi_email`>  
-_Last updated: `r Sys.Date()`_
-::::
-
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
-:::
-
-# Executive Summary {#executive-summary}
-
-Executive summary goes here.
-Summarise the work provided by AAGI and the main results.
-
-# Key findings
-
--   Finding 1
--   Finding 2
--   Finding 3
-
-::: {.aagi-note}
-**NOTE** — This is an example of an AAGI note callout.
-:::
-
-# Methods (brief)
-
-Briefly describe the analysis approach and any key assumptions.
-
-# Results (brief)
-
-Summarise the primary results, with 1–2 key figures/tables as needed.
-
-# References
-
-::: {#refs}
-:::
