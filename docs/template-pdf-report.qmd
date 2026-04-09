@@ -1,5 +1,5 @@
 ---
-format: aagi-pdf+report
+format: aagi-pdfreport
 output-file: template-pdf-report.pdf
 execute:
   echo: false

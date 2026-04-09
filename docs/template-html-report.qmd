@@ -1,9 +1,9 @@
 ---
 format:
-  aagi-html-report:
+  aagi-htmlreport:
     toc: true
     self-contained: true
-output-file: template+html+report.html
+output-file: template-html-report.html
 execute:
   echo: false
 knitr:
@@ -85,14 +85,14 @@ To use this format in your own document:
 ```{.yaml filename="AAGI_HTML_report"}
 #| eval: FALSE
 format:
-  aagi-html-report: default
+  aagi-htmlreport: default
 ```
 
 Then render with:
 
 ```{bash}
 #| eval: FALSE
-quarto render your-report.qmd --to aagi-html-report
+quarto render your-report.qmd --to aagi-htmlreport
 ```
 
 # Experimental/Trial Design
