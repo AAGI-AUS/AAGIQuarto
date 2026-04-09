@@ -238,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="getting-the-template" class="level3">
 <h3 class="anchored" data-anchor-id="getting-the-template">Getting the Template</h3>
-<p>Use your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the <code>bash</code> command. For more information, see <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Microsoft’s documentation</a>.</p>
+<p>Use your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code (including VSCodium or Positron) you can use the terminal emulator, but not the R, Python, or Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the <code>bash</code> command. For more information, see <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Microsoft’s documentation</a>.</p>
 <p>You can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template AAGI-AUS/AAGIQuarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -259,6 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>aagi-pdf+report</code>, for a full length PDF report</li>
 <li><code>aagi-pdf+short+report</code>, for a short PDF report</li>
 </ul>
+<p>See all available document formats using <code>quarto use template --list AAGI-AUS/AAGIQuarto</code>.</p>
 <section id="template" class="level3">
 <h3 class="anchored" data-anchor-id="template">Template</h3>
 <p>If you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.</p>
@@ -267,13 +268,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="updating" class="level2">
 <h2 class="anchored" data-anchor-id="updating">Updating</h2>
-<p>As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so:</p>
+<p>As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so. Navigate to your Quarto project folder if you aren’t already there:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_quarto_project_folder</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> update AAGI-AUS/AAGIQuarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="logo-rights" class="level2">
 <h2 class="anchored" data-anchor-id="logo-rights">Logo Rights</h2>
-<p>The logo of this project and the AAGI strategic partners do not come under MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.</p>
+<p>The logos for this project and AAGI strategic partners do not come under the MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo, and the Grains Research and Development Corporation (GRDC) and strategic partners, Adelaide University, Curtin University, and the University of Queensland retain full rights to their respective logos.</p>
 
 
 </section>
