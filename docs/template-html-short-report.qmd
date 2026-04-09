@@ -22,18 +22,47 @@ date-format: long
 bibliography: references.bib
 csl: _extensions/aagi/assets/biometrics.csl
 
-title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
-subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
+title: "Analytics for the Australian Grains Industry — Short Report"
+subtitle: "Short report for the project"
 author:
-  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
-  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
-university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r aagi_email`"
+  - "Prepared for: collab_partner_org (partner@example.com)"
+  - "Prepared by: your_name"
 ---
 
 ```{r}
 #| label: setup
 #| include: false
 #| message: false
-# Source centralized setup (must run before inline R in title block and before plots)
 source("_scripts/setup_reports.R", local = TRUE)
+```
+
+```{r child="_includes/title_block_short.qmd"}
+```
+
+# Executive Summary {#executive-summary}
+
+Executive summary goes here.
+Summarise the work provided by AAGI and the main results.
+
+# Key findings
+
+-   Finding 1
+-   Finding 2
+-   Finding 3
+
+::: {.aagi-note}
+**NOTE** — This is an example of an AAGI note callout.
+:::
+
+# Methods (brief)
+
+Briefly describe the analysis approach and any key assumptions.
+
+# Results (brief)
+
+Summarise the primary results, with 1–2 key figures/tables as needed.
+
+# References
+
+::: {#refs}
+:::

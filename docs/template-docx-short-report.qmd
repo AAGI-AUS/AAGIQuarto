@@ -1,42 +1,34 @@
 ---
-format: aagi-docxshortreport
+format:
+  aagi-docxshortreport: default
 output-file: template-docx-short-report.docx
 params:
-  # override values that differ from root _quarto.yml; everything else inherits
   report_title: "My Report Title"
   project_code: "ABC2026-001ABC"
   aagi_staff: "your_name"
   partner: "collab_partner_org"
   partner_email: "partner@example.com"
-  aagi_email: "contact@example.com"
-  # optional metadata used by title_block_long.qmd (add only if needed)
+  aagi_email: "contact@example.com"      # required (or set AAGI_EMAIL env var)
   report_number: "123"
   report_version: "1.0"
-  authors: ["Alice A.", "Bob B."]
+  authors:
+    - "Alice A."
+    - "Bob B."
   abstract: "Short abstract (1–2 sentences)."
-
 date: last-modified
 date-format: long
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
-
-# Title / subtitle / author / contact derived from params
-title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: %s', params$uni_info[[params$uni]]$name, params$uni, params$report_number %||% '')`"
-subtitle: "`r sprintf('%s\\nReport for %s', params$report_title, params$project_code)`"
+csl: _extensions/aagi/assets/biometrics.csl
+title: "Analytics for the Australian Grains Industry — Technical Report"
+subtitle: "Short report for the project"
 author:
-  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
-  - "`r sprintf('Prepared by: %s', paste(params$authors %||% params$aagi_staff, collapse = ', '))`"
-university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r params$aagi_email`"
+  - "Prepared for: collab_partner_org (partner@example.com)"
+  - "Prepared by: Alice A., Bob B."
 ---
 
 ```{r}
-#| label: setup
 #| include: false
-#| message: false
-
-# Source centralized setup script. This must exist at _scripts/setup.R (repo root).
-# It will export uni_name and set knitr options/device/theme.
+# Source centralized setup which exports `uni_name` and `aagi_email`
 source("_scripts/setup_reports.R", local = TRUE)
 ```
 
