@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-html:
+  aagi-html-short-report:
     toc: true
     self-contained: true
 execute:

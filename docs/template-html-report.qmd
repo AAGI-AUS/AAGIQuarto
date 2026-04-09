@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-html:
+  aagi-html-report:
     toc: true
     self-contained: true
 execute:
@@ -71,7 +71,7 @@ Use this format for sharing AAGI technical reports as web-ready HTML documents.
 
 # Introduction
 
-The `aagi-html+report` format applies AAGI branding to Quarto HTML output:
+The `aagi-html-report` format applies AAGI branding to Quarto HTML output:
 
 - Teal headings and hyperlinks matching the AAGI colour palette.
 - Table styling with a teal header row, white text, and alternating row backgrounds.
@@ -84,14 +84,14 @@ To use this format in your own document:
 ```{.yaml filename="AAGI_HTML_report"}
 #| eval: FALSE
 format:
-  aagi-html+report: default
+  aagi-html-report: default
 ```
 
 Then render with:
 
 ```{bash}
 #| eval: FALSE
-quarto render your-report.qmd --to aagi-html+report
+quarto render your-report.qmd --to aagi-html-report
 ```
 
 # Experimental/Trial Design
