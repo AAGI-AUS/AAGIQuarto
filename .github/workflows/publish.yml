@@ -85,6 +85,10 @@ jobs:
           version: "release"
           tinytex: true
 
+      - name: Copy favicons to docs
+        run: |
+          ls -v docs/favicon* || echo "No favicons found in docs/"
+
       - name: Add extension directly into demos
         working-directory: ./docs
         run: |

@@ -30,10 +30,11 @@ format:
     theme:
       - none
       - _extensions/AAGI-AUS/aagi/html/aagi-html.scss
+    
     head: |
-      <link rel="icon" type="image/svg+xml" href="/AAGIQuarto/favicon.svg">
-      <link rel="icon" type="image/png" sizes="32x32" href="/AAGIQuarto/favicon-32x32.png">
-      <link rel="alternate icon" href="/AAGIQuarto/favicon.ico">
+      <link rel="icon" type="image/svg+xml" href="favicon.svg">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+      <link rel="alternate icon" href="favicon.ico">
   docx: {}
   pdf: {}
 
