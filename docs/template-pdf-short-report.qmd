@@ -2,14 +2,38 @@
 format: aagi-pdfshortreport
 output-file: template-pdf-short-report.pdf
 params:
-  report_title: "Example Short Report"
+  report_title: "My Report Title"
+  project_code: "ABC2026-001ABC"
+  aagi_staff: "your_name"
+  partner: "collab_partner_org"
+  partner_email: "partner@example.com"
+  aagi_email: "contact@example.com"      # required (or set AAGI_EMAIL env var)
+  report_number: "123"
+  report_version: "1.0"
+  authors:
+    - "Alice A."
+    - "Bob B."
+  abstract: "Short abstract (1–2 sentences)."
+date: last-modified
+date-format: long
+bibliography: references.bib
+csl: _extensions/aagi/assets/biometrics.csl
+title: "Analytics for the Australian Grains Industry — Technical Report"
+subtitle: "Short report for the project"
+author:
+  - "Prepared for: collab_partner_org (partner@example.com)"
+  - "Prepared by: your_name"
 ---
 
 ```{r}
+#| label: setup
 #| include: false
 #| message: false
-
+# Source centralized setup (must run before inline R in title block and before plots)
 source("_scripts/setup_reports.R", local = TRUE)
+```
+
+```{r child="_includes/title_block_short.qmd"}
 ```
 
 # Section 

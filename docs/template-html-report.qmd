@@ -15,28 +15,25 @@ params:
   project_code: "ABC2026-001ABC"
   report_title: "My Report Title"
   partner: "collab_partner_org"
-  partner_email: "collab_partner@email.com.au"
-  aagi_email: "your.email@example.edu.au"
-
+  partner_email: "partner@example.com"
+  aagi_email: "your.email@example.edu.au"    # REQUIRED unless AAGI_EMAIL env var provided
 date: last-modified
 date-format: long
 bibliography: references.bib
 csl: _extensions/aagi/assets/biometrics.csl
 
-title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
-subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
+# Minimal static metadata only (no inline R)
+title: "Analytics for the Australian Grains Industry — Technical Report"
+subtitle: "Report for the project"
 author:
-  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
-  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
-university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r params$aagi_email`"
+  - "Prepared for: collab_partner_org (partner@example.com)"
+  - "Prepared by: your_name"
 ---
 
 ```{r}
 #| label: setup
 #| include: false
 #| message: false
-
 # Source centralized setup (must run before inline R in title block and before plots)
 source("_scripts/setup_reports.R", local = TRUE)
 ```

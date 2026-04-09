@@ -1,7 +1,7 @@
 ---
 format:
   aagi-htmlshortreport:
-    toc: false
+    toc: true
     self-contained: true
 output-file: template-html-short-report.html
 execute:
@@ -15,21 +15,24 @@ params:
   project_code: "ABC2026-001ABC"
   report_title: "My Short Report"
   partner: "collab_partner_org"
-  partner_email: "collab_partner@email.com.au"
-  aagi_email: "your.email@example.edu.au"
-
+  partner_email: "partner@example.com"
+  aagi_email: "your.email@example.edu.au"  # REQUIRED unless AAGI_EMAIL env var provided
 date: last-modified
 date-format: long
 bibliography: references.bib
 csl: _extensions/aagi/assets/biometrics.csl
+
+title: "Analytics for the Australian Grains Industry — Short Report"
+subtitle: "Short report for the project"
+author:
+  - "Prepared for: collab_partner_org (partner@example.com)"
+  - "Prepared by: your_name"
 ---
 
 ```{r}
 #| label: setup
 #| include: false
 #| message: false
-
-# Source centralized setup (must run before inline R in title block and before plots)
 source("_scripts/setup_reports.R", local = TRUE)
 ```
 

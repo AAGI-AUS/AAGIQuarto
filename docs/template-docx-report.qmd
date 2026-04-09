@@ -3,7 +3,7 @@ format:
   aagi-docxreport: default
 output-file: template-docx-report.docx
 params:
-  # override values that differ from root _quarto.yml; otherwise inherit
+  # Values that differ from root _quarto.yml; everything else inherits
   report_title: "My Report Title"
   project_code: "ABC2026-001ABC"
   aagi_staff: "your_name"
@@ -16,22 +16,17 @@ date-format: long
 bibliography: references.bib
 csl: _extensions/aagi/assets/biometrics.csl
 
-# Compute title/subtitle/author/university/email from params and params$uni_info
-title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
-subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
+title: "Analytics for the Australian Grains Industry — Technical Report"
+subtitle: "Report for the project"
 author:
-  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
-  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
-university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r params$aagi_email`"
+  - "Prepared for: collab_partner_org (partner@example.com)"
+  - "Prepared by: your_name"
 ---
 
 ```{r}
-#| label: setup
 #| include: false
-#| message: false
-
-# Source centralized setup (must run before inline R in child include and before plots)
+#| label: setup
+# Source centralized setup which exports `uni_name` and `aagi_email`
 source("_scripts/setup_reports.R", local = TRUE)
 ```
 
