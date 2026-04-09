@@ -89,10 +89,11 @@ jobs:
         run: |
           ls -v docs/favicon* || echo "No favicons found in docs/"
 
-      - name: Add extension directly into demos
-        working-directory: ./docs
+      - name: Copy local extension into demos
+        working-directory: ${{ github.workspace }}
         run: |
-          quarto add AAGI-AUS/AAGIQuarto --no-prompt
+          mkdir -p docs/_extensions/AAGI-AUS/aagi
+          cp -r _extensions/aagi/. docs/_extensions/AAGI-AUS/aagi/
 
       # The Makefile in / will render all the Quarto documents located in /docs/demos in this step
       - name: Publish to GitHub Pages (and render)
