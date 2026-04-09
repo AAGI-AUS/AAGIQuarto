@@ -127,26 +127,15 @@ uni_name <- uni_info$name %||% uni_code
 # ---------------------------------------------------------------------------
 
 is_latex <- knitr::is_latex_output()
-use_ragg <- requireNamespace("ragg", quietly = TRUE)
-
-# For raster outputs, resolution is safe in dev.args.
-# Do NOT pass width/height; knitr manages sizing via fig.width/fig.height.
-png_dev_args <- list(res = 300)
 
 if (is_latex) {
-  # For PDF/LaTeX output:
-  # - Prefer base 'pdf' to avoid dev2ext issues across knitr versions
-  # - If you *really* want ragg for PDF, do it per-chunk or ensure your
-  # knitr supports it
+  # PDF: use pdf device
   knitr::opts_chunk$set(dev = "pdf")
-  msg("Graphics device: pdf (LaTeX/PDF)")
+  msg("Graphics device: pdf")
 } else {
-  # For everything else (HTML, DOCX, PPTX, revealjs, etc.): PNG is the safest
-  # If ragg is installed, it will still be used by some systems when
-  # device='png' is backed by ragg/cairo;
-  # but we avoid passing a device function that breaks dev2ext().
-  knitr::opts_chunk$set(dev = "png", dev.args = png_dev_args)
-  msg("Graphics device: png (raster)")
+  # Everything else: png only, minimal config
+  knitr::opts_chunk$set(dev = "png")
+  msg("Graphics device: png")
 }
 
 # Common knitr defaults (don't override YAML-provided ones unless needed)
