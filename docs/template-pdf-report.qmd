@@ -1,5 +1,5 @@
 ---
-format: aagi-pdf+report
+format: aagi-pdf
 execute:
   echo: false
 knitr:
