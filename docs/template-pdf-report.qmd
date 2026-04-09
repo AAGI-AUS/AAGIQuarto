@@ -1,5 +1,6 @@
 ---
 format: aagi-pdf-report
+output-file: template-pdf-report.pdf
 execute:
   echo: false
 knitr:

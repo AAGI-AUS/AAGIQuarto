@@ -9,6 +9,7 @@ knitr:
 date: last-modified
 date-format: long
 format: aagi-revealjs
+output-file: template-revealjs.html
 bibliography: references.bib
 csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
