@@ -1,31 +1,49 @@
-# AAGI Quarto setup (reports)
-# - Optional auto-install via pak/CRAN (controlled by AAGI_AUTO_INSTALL)
-# - Safe when params are missing (presentations etc.)
-# - Avoids knitr device width/height duplication (do NOT pass width/height in
-#   dev.args)
+# _scripts/setup_reports.R
+# Centralized setup for AAGIQuarto template docs.
+# Source this in the first code chunk of each document:
+#   source("_scripts/setup_reports.R", local = TRUE)
 
-allow_install <- isTRUE(as.logical(Sys.getenv(
-  "AAGI_AUTO_INSTALL",
-  unset = interactive()
-)))
+`%||%` <- function(a, b) if (!is.null(a)) a else b
 
-`%||%` <- function(x, y) if (is.null(x)) y else x
-
-# Conditional messaging (prefers cli for nicer output)
-have_cli <- requireNamespace("cli", quietly = TRUE)
-
-msg <- function(...) {
-  txt <- sprintf(...)
-  if (have_cli) cli::cli_alert_info(txt) else message("[setup] ", txt)
+# Ensure params exists
+if (!exists("params")) {
+  stop("[setup_reports] 'params' not found. Source this script from a rendering context where 'params' exists.")
 }
 
-warn <- function(...) {
-  txt <- sprintf(...)
-  if (have_cli) {
-    cli::cli_alert_warning(txt)
-  } else {
-    warning("[setup] ", txt, call. = FALSE)
-  }
+# Compute uni_name from params$uni_info if present (fallback small mapping)
+uni_code <- params$uni %||% "CU"
+if (!is.null(params$uni_info) && !is.null(params$uni_info[[uni_code]])) {
+  uni_name <- params$uni_info[[uni_code]]$name %||% uni_code
+} else {
+  uni_name <- switch(uni_code,
+    CU = "Curtin University",
+    AU = "University of Adelaide",
+    UQ = "University of Queensland",
+    ANU = "Australian National University",
+    uni_code
+  )
+}
+
+# AAGI email: require explicit provision
+env_email <- Sys.getenv("AAGI_EMAIL", unset = "")
+doc_email <- if (!is.null(params$aagi_email)) params$aagi_email else NULL
+
+aagi_email <- if (nzchar(env_email)) {
+  env_email
+} else if (!is.null(doc_email) && nzchar(doc_email)) {
+  doc_email
+} else {
+  stop(
+    paste0(
+      "[setup_reports] AAGI contact email not provided. Provide either:\n",
+      "  - environment variable AAGI_EMAIL (e.g. export AAGI_EMAIL='name@org.edu')\n",
+      "  - document YAML param params$aagi_email: 'name@org.edu'\n\n",
+      "Example YAML:\n",
+      "params:\n",
+      "  aagi_email: \"contact@institution.edu\"\n"
+    ),
+    call. = FALSE
+  )
 }
 
 # Silently load a package if available
@@ -39,103 +57,15 @@ try_library <- function(pkg) {
 }
 
 # ---------------------------------------------------------------------------
-# Package management
-# ---------------------------------------------------------------------------
-
-# Ensure pak is available for better installation
-if (allow_install && !requireNamespace("pak", quietly = TRUE)) {
-  tryCatch(
-    {
-      install.packages(
-        "pak",
-        repos = sprintf(
-          "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-          .Platform$pkgType,
-          R.Version()$os,
-          R.Version()$arch
-        )
-      )
-    },
-    error = function(e) warn("Failed to install pak: %s", e$message)
-  )
-}
-
-# Install a package (CRAN or GitHub). Returns TRUE if available after call.
-ensure_pkg <- function(pkg, github = NULL) {
-  if (requireNamespace(pkg, quietly = TRUE)) {
-    return(invisible(TRUE))
-  }
-  if (!allow_install) {
-    return(invisible(FALSE))
-  }
-
-  use_pak <- requireNamespace("pak", quietly = TRUE)
-  target <- github %||% pkg
-
-  # Skip GitHub installs without pak
-  if (!is.null(github) && !use_pak) {
-    return(invisible(FALSE))
-  }
-
-  ok <- tryCatch(
-    {
-      if (use_pak) {
-        pak::pak(target, dependencies = TRUE)
-      } else {
-        install.packages(
-          pkg,
-          dependencies = TRUE,
-          repos = getOption("repos", default = "https://cloud.r-project.org")
-        )
-      }
-      TRUE
-    },
-    error = function(e) {
-      warn("Failed to install %s: %s", target, e$message)
-      FALSE
-    }
-  )
-
-  invisible(ok && requireNamespace(pkg, quietly = TRUE))
-}
-
-# Install packages (CRAN and GitHub)
-for (pkg in c("ggplot2", "flextable", "cli", "ragg")) {
-  ensure_pkg(pkg)
-}
-for (pkg in c("AAGIThemes", "AAGIPalettes")) {
-  ensure_pkg(pkg, github = sprintf("AAGI-AUS/%s", pkg))
-}
-
-# ---------------------------------------------------------------------------
-# University configuration (SAFE when params missing)
-# ---------------------------------------------------------------------------
-
-# params exists during Quarto renders; for presentations you may not have it.
-have_params <- exists("params", inherits = TRUE)
-
-uni_code <- if (have_params) params$uni %||% "CU" else "CU"
-
-# uni_info is typically defined in _quarto.yml as a param list; use a safe
-# fallback.
-uni_info_all <- if (have_params) params$uni_info %||% list() else list()
-uni_info <- uni_info_all[[uni_code]] %||% list(name = uni_code)
-uni_name <- uni_info$name %||% uni_code
-
-# ---------------------------------------------------------------------------
 # Graphics device setup (robust across pdf/docx/html/pptx/revealjs)
 # ---------------------------------------------------------------------------
 
 is_latex <- knitr::is_latex_output()
 
 if (is_latex) {
-  # PDF: use pdf device
   knitr::opts_chunk$set(dev = "pdf")
-  msg("Graphics device: pdf")
 } else {
-  # Everything else: png only, minimal config
   knitr::opts_chunk$set(dev = "png")
-  msg("Graphics device: png")
 }
 
 # Common knitr defaults (don't override YAML-provided ones unless needed)
@@ -156,7 +86,6 @@ if (
     exists("theme_aagi", where = asNamespace("AAGIThemes"), mode = "function")
 ) {
   try(ggplot2::theme_set(AAGIThemes::theme_aagi()), silent = TRUE)
-  msg("AAGIThemes loaded and ggplot theme applied.")
 }
 
 # Configure flextable theme if available
@@ -173,17 +102,13 @@ if (
     flextable::set_flextable_defaults(theme_fun = AAGIThemes::theme_ft_aagi),
     silent = TRUE
   )
-  msg("flextable defaults set to AAGI theme.")
 }
 
 # ---------------------------------------------------------------------------
-# Expose variables to knit environment and completion message
+# Export for child includes and inline R
 # ---------------------------------------------------------------------------
 
 assign("uni_name", uni_name, envir = knitr::knit_global())
+assign("aagi_email", aagi_email, envir = knitr::knit_global())
 
-if (have_cli) {
-  cli::cli_alert_success("Setup complete. uni_name={.val {uni_name}}")
-} else {
-  message(sprintf("[setup] Setup complete. uni_name=%s", uni_name))
-}
+message("[setup_reports] exported uni_name=", uni_name, " aagi_email=", aagi_email)

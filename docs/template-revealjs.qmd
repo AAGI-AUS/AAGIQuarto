@@ -11,7 +11,7 @@ date: last-modified
 date-format: long
 output-file: template-revealjs.html
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+csl: _extensions/aagi/assets/biometrics.csl
 
 title: "AAGI Demonstration Presentation"
 author:
@@ -153,7 +153,7 @@ you will have the closing slide display the same image as the title slide under 
 -->
 ```
 
-# Thank You {background-image="_extensions/AAGI-AUS/aagi/assets/title-slide-main.png" background-size="1050px auto" background-position="50% 85%"}
+# Thank You {background-image="_extensions/aagi/assets/title-slide-main.png" background-size="1050px auto" background-position="50% 85%"}
 
 ```{=html}
 <!-- Uncomment if you have a bibliography

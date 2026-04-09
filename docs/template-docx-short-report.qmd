@@ -18,7 +18,7 @@ params:
 date: last-modified
 date-format: long
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+csl: _extensions/aagi/assets/biometrics.csl
 
 # Title / subtitle / author / contact derived from params
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: %s', params$uni_info[[params$uni]]$name, params$uni, params$report_number %||% '')`"

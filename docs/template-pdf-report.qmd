@@ -1,5 +1,6 @@
 ---
-format: aagi-pdfreport
+format:
+  aagi-pdfreport: default
 output-file: template-pdf-report.pdf
 execute:
   echo: false
@@ -18,7 +19,7 @@ params:
 date: last-modified
 date-format: long
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+csl: _extensions/aagi/assets/biometrics.csl
 
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
 subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"

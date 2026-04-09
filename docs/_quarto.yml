@@ -7,9 +7,9 @@ website:
   repo-url: https://github.com/AAGI-AUS/AAGIQuarto
   repo-actions: [edit, issue]
   margin-header: |
-    ![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg)
+    ![](_extensions/aagi/assets/AAGI_logo.svg)
   body-footer: |
-    ![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg)
+    ![](_extensions/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg)
   sidebar:
     style: "floating"
     search: true
@@ -29,7 +29,7 @@ format:
     toc: true
     theme:
       - none
-      - _extensions/AAGI-AUS/aagi/html/aagi-html.scss
+      - _extensions/aagi/html/aagi-html.scss
     
     head: |
       <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -69,4 +69,4 @@ params:
       name: "Australian National University"
 
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+csl: _extensions/aagi/assets/biometrics.csl

@@ -21,7 +21,7 @@ params:
 date: last-modified
 date-format: long
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+csl: _extensions/aagi/assets/biometrics.csl
 
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
 subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
@@ -41,27 +41,8 @@ email: "`r params$aagi_email`"
 source("_scripts/setup_reports.R", local = TRUE)
 ```
 
-::: {.aagi-titlepage}
-
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg){.aagi-logo}
-
-:::: {.aagi-title_block}
-**Analytics for the Australian Grains Industry**  
-**`r uni_name` (AAGI-`r params$uni`)**  
-**AAGI Program Report**
-
-# `r params$report_title`
-
-## Report for `r params$project_code`
-
-Prepared for: **`r params$partner` (`r params$partner_email`)**  
-Prepared by: **`r params$aagi_staff`**  
-Correspondence email: <`r params$aagi_email`>  
-_Last updated: `r Sys.Date()`_
-::::
-
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
-:::
+```{r child="_includes/title_block.qmd"}
+```
 
 # Executive Summary
 

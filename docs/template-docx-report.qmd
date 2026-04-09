@@ -1,5 +1,6 @@
 ---
-format: aagi-docxreport
+format:
+  aagi-docxreport: default
 output-file: template-docx-report.docx
 params:
   # override values that differ from root _quarto.yml; otherwise inherit
@@ -8,11 +9,12 @@ params:
   aagi_staff: "your_name"
   partner: "collab_partner_org"
   partner_email: "partner@example.com"
+  aagi_email: "your.email@example.edu.au"
 
 date: last-modified
 date-format: long
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+csl: _extensions/aagi/assets/biometrics.csl
 
 # Compute title/subtitle/author/university/email from params and params$uni_info
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
@@ -21,7 +23,7 @@ author:
   - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
   - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
 university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r params$uni_info[[params$uni]]$email`"
+email: "`r params$aagi_email`"
 ---
 
 ```{r}
