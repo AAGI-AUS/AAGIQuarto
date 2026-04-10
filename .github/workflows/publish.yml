@@ -108,6 +108,9 @@ jobs:
           target: gh-pages
           path: docs
 
-      - name: Copy favicons to gh-pages
+      - name: Copy favicons to published site root
         run: |
-          cp docs/favicon* ./_site/ 2>/dev/null || echo "No favicons to copy"
+          cp docs/favicon* _site/ 2>/dev/null || echo "No favicons to copy"
+          git -C _site add favicon*
+          git -C _site commit -m "Update favicons" || true
+          git -C _site push

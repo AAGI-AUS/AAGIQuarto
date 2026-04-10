@@ -1,5 +1,10 @@
 project:
   type: website
+  resources:
+    - favicon.ico
+    - favicon.png
+    - favicon.svg
+    - favicon-32x32.png
 
 website:
   title: "AAGIQuarto"
