@@ -196,14 +196,14 @@
     "href": "template-html-report.html",
     "title": "1 My Report Title",
     "section": "",
-    "text": "Analytics for the Australian Grains Industry\nCU (AAGI-)\nAAGI Program Report\n\n\n\n\nPrepared for: collab_partner_org (partner@example.com)\nPrepared by: your_name\nCorrespondence email: &lt;&gt;\nLast updated: 2026-04-10"
+    "text": "Analytics for the Australian Grains Industry\nCU (AAGI-)\nAAGI Program Report\n\n\n\n\nPrepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-04-10"
   },
   {
     "objectID": "template-html-report.html#report-for-abc2026-001abc",
     "href": "template-html-report.html#report-for-abc2026-001abc",
     "title": "1 My Report Title",
     "section": "",
-    "text": "Prepared for: collab_partner_org (partner@example.com)\nPrepared by: your_name\nCorrespondence email: &lt;&gt;\nLast updated: 2026-04-10"
+    "text": "Prepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-04-10"
   },
   {
     "objectID": "template-html-report.html#note-callout-example",
@@ -229,16 +229,16 @@
   {
     "objectID": "template-html-short-report.html",
     "href": "template-html-short-report.html",
-    "title": "My Report Title",
+    "title": "My Short Report",
     "section": "",
-    "text": "Analytics for the Australian Grains Industry\nCU (AAGI-)\nAAGI Program Report\n\n\n\n\nPrepared for: collab_partner_org (partner@example.com)\nPrepared by: your_name\nCorrespondence email: &lt;&gt;\nLast updated: 2026-04-10"
+    "text": "Analytics for the Australian Grains Industry\nCU (AAGI-)\nAAGI Program Report\n\n\n\n\nPrepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-04-10"
   },
   {
     "objectID": "template-html-short-report.html#report-for-abc2026-001abc",
     "href": "template-html-short-report.html#report-for-abc2026-001abc",
-    "title": "My Report Title",
+    "title": "My Short Report",
     "section": "",
-    "text": "Prepared for: collab_partner_org (partner@example.com)\nPrepared by: your_name\nCorrespondence email: &lt;&gt;\nLast updated: 2026-04-10"
+    "text": "Prepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-04-10"
   },
   {
     "objectID": "template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
