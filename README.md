@@ -29,7 +29,7 @@ See the included template and demo file for each format here:
 If you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first.
 [Go here](https://quarto.org/docs/get-started/) for instructions on how to install Quarto.
 
-### Getting the Template
+### Getting the Extension
 
 Use your terminal or command prompt to run the install commands.
 Alternatively, if you use RStudio or VS Code(ium)/Positron you can use the terminal emulator, but not the R/Python/Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands.
@@ -44,6 +44,10 @@ quarto use template AAGI-AUS/AAGIQuarto
 ```
 
 This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.
+
+### Getting the Templates
+
+You can download a [.zip file of all of these templates](https://AAGI-AUS.github.io/AAGIQuarto/_files/templates.zip) as seen above for your own use if you would like, you will need to install the AAGIQuarto extension in the root directory where you intend to use it/them.
 
 ## Using
 
