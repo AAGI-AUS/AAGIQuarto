@@ -97,7 +97,9 @@ jobs:
       - name: Create templates zip file
         run: |
           cd docs
-          zip -r templates.zip template*.qmd _scripts/ _includes/
+          mkdir _files
+          zip -r AAGI_templates.zip template*.qmd _scripts/ _includes/
+          mv AAGI_templates.zip _files
       
       # The Makefile in / will render all the Quarto documents located in /docs/demos in this step
       - name: Publish to GitHub Pages (and render)
