@@ -107,3 +107,7 @@ jobs:
         with:
           target: gh-pages
           path: docs
+
+      - name: Copy favicons to gh-pages
+        run: |
+          cp docs/favicon* ./_site/ 2>/dev/null || echo "No favicons to copy"
