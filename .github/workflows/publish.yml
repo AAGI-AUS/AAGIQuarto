@@ -108,9 +108,13 @@ jobs:
           target: gh-pages
           path: docs
 
-      - name: Copy favicons to published site root
+      - name: Copy favicons to gh-pages root
         run: |
-          cp docs/favicon* _site/ 2>/dev/null || echo "No favicons to copy"
-          git -C _site add favicon*
-          git -C _site commit -m "Update favicons" || true
-          git -C _site push
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages
+          git checkout gh-pages
+          cp ../docs/favicon* ./ 2>/dev/null || echo "No favicons to copy"
+          git add favicon.ico favicon.png favicon.svg favicon-32x32.png || true
+          git diff --cached --quiet || git commit -m "Update favicons"
+          git push origin gh-pages
