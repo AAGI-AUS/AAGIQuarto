@@ -10,7 +10,7 @@ website:
   reader-mode: true
   repo-url: "https://github.com/AAGI-AUS/AAGIQuarto"
   repo-actions: [edit, issue]
-  favicon: favicon.png
+  favicon: favicon.svg
   margin-header: |
     ![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg)
   body-footer: |
