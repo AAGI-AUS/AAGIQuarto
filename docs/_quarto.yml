@@ -4,12 +4,11 @@ project:
     - favicon.ico
     - favicon.png
     - favicon.svg
-    - favicon-32x32.png
 
 website:
   title: "AAGIQuarto"
   reader-mode: true
-  repo-url: https://github.com/AAGI-AUS/AAGIQuarto
+  repo-url: "https://github.com/AAGI-AUS/AAGIQuarto"
   repo-actions: [edit, issue]
   margin-header: |
     ![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg)
@@ -20,7 +19,7 @@ website:
     search: true
     tools:
       - icon: github
-        href: https://github.com/AAGI-AUS/AAGIQuarto
+        href: "https://github.com/AAGI-AUS/AAGIQuarto"
     contents:
       - text: "Home"
         file: index.qmd
@@ -35,11 +34,6 @@ format:
     theme:
       - none
       - _extensions/AAGI-AUS/aagi/html/aagi-html.scss
-    include-in-header:
-      - text: |
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="alternate icon" href="/favicon.ico">
   docx: {}
   pdf: {}
 
