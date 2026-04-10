@@ -93,7 +93,12 @@ jobs:
         working-directory: ./docs
         run: |
           quarto add AAGI-AUS/AAGIQuarto --no-prompt
-
+ 
+      - name: Create templates zip file
+        run: |
+          cd docs
+          zip -r templates.zip template*.qmd _scripts/ _includes/
+      
       # The Makefile in / will render all the Quarto documents located in /docs/demos in this step
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
