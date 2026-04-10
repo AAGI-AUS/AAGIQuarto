@@ -11,6 +11,7 @@ website:
   repo-url: "https://github.com/AAGI-AUS/AAGIQuarto"
   repo-actions: [edit, issue]
   favicon: favicon.svg
+  open-graph: true
   margin-header: |
     ![](_extensions/AAGI-AUS/aagi/assets/AAGI_logo.svg)
   body-footer: |
