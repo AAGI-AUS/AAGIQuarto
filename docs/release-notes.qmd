@@ -7,7 +7,17 @@ format:
     toc: true
 ---
 
-# 0.1.0  2026-04-07
+# 1.0.1  2026-05-04
+
+## Minor changes 
+
+* Updates the strategic partner logo block.
+
+## Bug fixes 
+
+* Fixes links in README to example output files, these were working from the Quarto website but no from the README.
+
+# 1.0.0  2026-04-07
 
 ## Major changes 
 
@@ -23,7 +33,7 @@ format:
 
 * Fix bug in "_extension.yml" where the asset for the partner logo block was incorrectly referred to.
 
-* Lints files 
+* Lints files.
 
 # 0.1.5  2026-03-26
 
