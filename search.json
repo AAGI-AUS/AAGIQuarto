@@ -64,18 +64,7 @@
     "href": "release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "Adds long and short HTML format reports.\n\n\n\n\n\nFix Adelaide University in parameters of “template.qmd”.\n\n\n\n\n\nEnsures that “AU” and “Adelaide University” are used in the documents.\nFix bug in “_extension.yml” where the asset for the partner logo block was incorrectly referred to.\nLints files",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "release-notes.html#major-changes",
-    "href": "release-notes.html#major-changes",
-    "title": "Release Notes",
-    "section": "",
-    "text": "Adds long and short HTML format reports.",
+    "text": "Updates the strategic partner logo block.\n\n\n\n\n\nFixes links in README to example output files, these were working from the Quarto website but no from the README.",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -86,7 +75,7 @@
     "href": "release-notes.html#minor-changes",
     "title": "Release Notes",
     "section": "",
-    "text": "Fix Adelaide University in parameters of “template.qmd”.",
+    "text": "Updates the strategic partner logo block.",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -97,7 +86,18 @@
     "href": "release-notes.html#bug-fixes",
     "title": "Release Notes",
     "section": "",
-    "text": "Ensures that “AU” and “Adelaide University” are used in the documents.\nFix bug in “_extension.yml” where the asset for the partner logo block was incorrectly referred to.\nLints files",
+    "text": "Fixes links in README to example output files, these were working from the Quarto website but no from the README.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#major-changes",
+    "href": "release-notes.html#major-changes",
+    "title": "Release Notes",
+    "section": "Major changes",
+    "text": "Major changes\n\nAdds long and short HTML format reports.",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -108,29 +108,7 @@
     "href": "release-notes.html#minor-changes-1",
     "title": "Release Notes",
     "section": "Minor changes",
-    "text": "Minor changes\n\nUpdate SP logo block to use new AU logo and new order\nPolish extension contents, delete extra files, lint and format files",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "release-notes.html#minor-changes-2",
-    "href": "release-notes.html#minor-changes-2",
-    "title": "Release Notes",
-    "section": "Minor changes",
-    "text": "Minor changes\n\nMore polishing missed in last round, e.g., duplicated labels, etc.",
-    "crumbs": [
-      "Extra",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "release-notes.html#minor-changes-3",
-    "href": "release-notes.html#minor-changes-3",
-    "title": "Release Notes",
-    "section": "Minor changes",
-    "text": "Minor changes\n\nSet language in Word document templates to en-AU\nEnhanced installation instructions\nAdds header and footer to full length reports\nInstall AAGI R packages using R-Universe methods",
+    "text": "Minor changes\n\nFix Adelaide University in parameters of “template.qmd”.",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -141,7 +119,29 @@
     "href": "release-notes.html#bug-fixes-1",
     "title": "Release Notes",
     "section": "Bug fixes",
-    "text": "Bug fixes\n\nEnsure \\usepackage{hyperref} is called\nSpelling corrections",
+    "text": "Bug fixes\n\nEnsures that “AU” and “Adelaide University” are used in the documents.\nFix bug in “_extension.yml” where the asset for the partner logo block was incorrectly referred to.\nLints files.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-2",
+    "href": "release-notes.html#minor-changes-2",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nUpdate SP logo block to use new AU logo and new order\nPolish extension contents, delete extra files, lint and format files",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-3",
+    "href": "release-notes.html#minor-changes-3",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nMore polishing missed in last round, e.g., duplicated labels, etc.",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -152,7 +152,7 @@
     "href": "release-notes.html#minor-changes-4",
     "title": "Release Notes",
     "section": "Minor changes",
-    "text": "Minor changes\n\nAdds example using {flextable} in AAGI Short Report PDF format document",
+    "text": "Minor changes\n\nSet language in Word document templates to en-AU\nEnhanced installation instructions\nAdds header and footer to full length reports\nInstall AAGI R packages using R-Universe methods",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -163,7 +163,7 @@
     "href": "release-notes.html#bug-fixes-2",
     "title": "Release Notes",
     "section": "Bug fixes",
-    "text": "Bug fixes\n\nFixes bug in AAGI Short Report PDF format wherein using {flextable} caused the PDF to not compile properly (at all)",
+    "text": "Bug fixes\n\nEnsure \\usepackage{hyperref} is called\nSpelling corrections",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -172,6 +172,28 @@
   {
     "objectID": "release-notes.html#minor-changes-5",
     "href": "release-notes.html#minor-changes-5",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nAdds example using {flextable} in AAGI Short Report PDF format document",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#bug-fixes-3",
+    "href": "release-notes.html#bug-fixes-3",
+    "title": "Release Notes",
+    "section": "Bug fixes",
+    "text": "Bug fixes\n\nFixes bug in AAGI Short Report PDF format wherein using {flextable} caused the PDF to not compile properly (at all)",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-6",
+    "href": "release-notes.html#minor-changes-6",
     "title": "Release Notes",
     "section": "Minor Changes",
     "text": "Minor Changes\n\nAdd example outputs for reports using AAGI themes for graphs and tables\nAdd starter pack instructions for easily creating an AAGI file rather than setting up your own YAML\nFixed links in README",
