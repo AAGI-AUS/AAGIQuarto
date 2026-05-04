@@ -27,7 +27,7 @@ params:
   partner_email: collab_partner@email.com.au
 date: last-modified
 date-format: long
-bibliography: your_references.bib # Replace with your .bib file
+bibliography: references.bib # Replace with your .bib file
 csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl
 ---
 
