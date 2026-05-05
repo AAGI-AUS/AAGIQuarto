@@ -7,40 +7,38 @@ format:
     toc: true
 ---
 
-# 1.0.1  2026-05-04
+# 1.0.1 2026-05-04
 
-## Minor changes 
+## Minor changes
 
-* Updates the strategic partner logo block.
+* Update the strategic partner logo block.
 
-## Bug fixes 
+## Bug fixes
 
-* Fixes links in README to example output files, these were working from the Quarto website but no from the README.
+* Fix links in README to example output files (these were working from the Quarto website but not from the README).
 
-# 1.0.0  2026-04-07
+# 1.0.0 2026-04-07
 
-## Major changes 
+## Major changes
 
-* Adds long and short HTML format reports.
+* Add long and short HTML format reports.
 
-## Minor changes 
+## Minor changes
 
 * Fix Adelaide University in parameters of "template.qmd".
 
-## Bug fixes 
+## Bug fixes
 
-* Ensures that "AU" and "Adelaide University" are used in the documents.
-
+* Ensure that "AU" and "Adelaide University" are used in the documents.
 * Fix bug in "_extension.yml" where the asset for the partner logo block was incorrectly referred to.
+* Lint files.
 
-* Lints files.
+# 0.1.5 2026-03-26
 
-# 0.1.5  2026-03-26
+## Minor changes
 
-## Minor changes 
-
-* Update SP logo block to use new AU logo and new order 
-* Polish extension contents, delete extra files, lint and format files
+* Update SP logo block to use new AU logo and new order.
+* Polish extension contents, delete extra files, lint and format files.
 
 # 0.1.4 2025-07-29
 
@@ -52,42 +50,36 @@ format:
 
 ## Minor changes
 
-* Set language in Word document templates to en-AU
-
-* Enhanced installation instructions
-
-* Adds header and footer to full length reports
-
-* Install AAGI R packages using R-Universe methods
+* Set language in Word document templates to en-AU.
+* Enhance installation instructions.
+* Add header and footer to full length reports.
+* Install AAGI R packages using R-Universe methods.
 
 ## Bug fixes
 
-* Ensure `\usepackage{hyperref}` is called
-
-* Spelling corrections
+* Ensure `\usepackage{hyperref}` is called.
+* Spelling corrections.
 
 # 0.1.2 2024-12-11
 
 ## Minor changes
 
-* Adds example using {flextable} in AAGI Short Report PDF format document
+* Add example using {flextable} in AAGI Short Report PDF format document.
 
 ## Bug fixes
 
-* Fixes bug in AAGI Short Report PDF format wherein using {flextable} caused the PDF to not compile properly (at all)
+* Fix bug in AAGI Short Report PDF format wherein using {flextable} caused the PDF to not compile properly (at all).
 
 # 0.1.1 2024-10-28
 
-## Minor Changes
+## Minor changes
 
-* Add example outputs for reports using AAGI themes for graphs and tables
-
-* Add starter pack instructions for easily creating an AAGI file rather than setting up your own YAML
-
-* Fixed links in README
+* Add example outputs for reports using AAGI themes for graphs and tables.
+* Add starter pack instructions for easily creating an AAGI file rather than setting up your own YAML.
+* Fix links in README.
 
 # 0.1.0 2024-09-26
 
-## Major Changes
+## Major changes
 
-* This is the first stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX
+* First stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX.
