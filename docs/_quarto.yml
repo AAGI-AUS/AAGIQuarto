@@ -54,7 +54,7 @@ params:
   uni:
     values:
       CU: "Curtin University"
-      AU: "University of Adelaide"
+      AU: "Adelaide University"
       UQ: "University of Queensland"
       ANU: "Australian National University"
     value: CU
@@ -63,7 +63,7 @@ params:
     CU:
       name: "Curtin University"
     AU:
-      name: "University of Adelaide"
+      name: "Adelaide University"
     UQ:
       name: "University of Queensland"
     ANU:
