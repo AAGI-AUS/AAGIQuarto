@@ -60,6 +60,55 @@
     ]
   },
   {
+    "objectID": "template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
+    "href": "template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
+    "title": "AAGI Demonstration Presentation",
+    "section": "An AAGI Reveal.js Theme for Quarto",
+    "text": "An AAGI Reveal.js Theme for Quarto\nThis Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide."
+  },
+  {
+    "objectID": "template-revealjs.html#basic-tables",
+    "href": "template-revealjs.html#basic-tables",
+    "title": "AAGI Demonstration Presentation",
+    "section": "Basic Tables",
+    "text": "Basic Tables\nAAGIQuarto provides basic theming of HTML tables through CSS, for example, this is a Markdown table.\n| Syntax      | Description |\n| ----------- | ----------- |\n| Header      | Title       |\n| Paragraph   | Text        |\nThat renders like this.\n\n\n\nSyntax\nDescription\n\n\n\n\nHeader\nTitle\n\n\nParagraph\nText"
+  },
+  {
+    "objectID": "template-revealjs.html#advanced-tables",
+    "href": "template-revealjs.html#advanced-tables",
+    "title": "AAGI Demonstration Presentation",
+    "section": "Advanced Tables",
+    "text": "Advanced Tables\nFor more advanced tables, we suggest pairing with the R package {AAGIThemes} to provide AAGI themed tables using theme_gt_aagi(), that offers more flexibility in formatting.\n\nlibrary(dplyr)\nlibrary(gt)\nlibrary(AAGIThemes)\n\ngt &lt;- gt(\n  head(airquality) |&gt;\n    mutate(`Month Name` = \"May\")\n)\ngt &lt;- theme_gt_aagi(gt)\ngt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOzone\nSolar.R\nWind\nTemp\nMonth\nDay\nMonth Name\n\n\n\n\n41\n190\n7.4\n67\n5\n1\nMay\n\n\n36\n118\n8.0\n72\n5\n2\nMay\n\n\n12\n149\n12.6\n74\n5\n3\nMay\n\n\n18\n313\n11.5\n62\n5\n4\nMay\n\n\n\n\n\n\n14.3\n56\n5\n5\nMay\n\n\n28\n\n\n14.9\n66\n5\n6\nMay"
+  },
+  {
+    "objectID": "template-revealjs.html#basic-figures",
+    "href": "template-revealjs.html#basic-figures",
+    "title": "AAGI Demonstration Presentation",
+    "section": "Basic Figures",
+    "text": "Basic Figures\n{AAGIThemes} also provides support for theming basic figures in R, for example.\n\n\n\n\n\n\n\n\n\n\n\nThis is an aside."
+  },
+  {
+    "objectID": "template-revealjs.html#figures-with-ggplot2",
+    "href": "template-revealjs.html#figures-with-ggplot2",
+    "title": "AAGI Demonstration Presentation",
+    "section": "Figures with {ggplot2}",
+    "text": "Figures with {ggplot2}\n{AAGIThemes} also provides support for theming {ggplot2} outputs in R, for example."
+  },
+  {
+    "objectID": "template-revealjs.html#slides-with-columns",
+    "href": "template-revealjs.html#slides-with-columns",
+    "title": "AAGI Demonstration Presentation",
+    "section": "Slides With Columns",
+    "text": "Slides With Columns\n\n\nThis is a column on the left.\n\nThis is a column on the right."
+  },
+  {
+    "objectID": "template-revealjs.html#more-information",
+    "href": "template-revealjs.html#more-information",
+    "title": "AAGI Demonstration Presentation",
+    "section": "More Information",
+    "text": "More Information\nYou can learn more about controlling the appearance of revealjs output here: https://quarto.org/docs/presentations/revealjs/"
+  },
+  {
     "objectID": "release-notes.html",
     "href": "release-notes.html",
     "title": "Release Notes",
@@ -218,14 +267,14 @@
     "href": "template-html-report.html",
     "title": "1 My Report Title",
     "section": "",
-    "text": "Analytics for the Australian Grains Industry\nCU (AAGI-)\nAAGI Program Report\n\n\n\n\nPrepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-05-05"
+    "text": "Analytics for the Australian Grains Industry\nCU (AAGI-)\nAAGI Program Report\n\n\n\n\nPrepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-06-04"
   },
   {
     "objectID": "template-html-report.html#report-for-abc2026-001abc",
     "href": "template-html-report.html#report-for-abc2026-001abc",
     "title": "1 My Report Title",
     "section": "",
-    "text": "Prepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-05-05"
+    "text": "Prepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-06-04"
   },
   {
     "objectID": "template-html-report.html#note-callout-example",
@@ -253,62 +302,13 @@
     "href": "template-html-short-report.html",
     "title": "My Short Report",
     "section": "",
-    "text": "Analytics for the Australian Grains Industry\nCU (AAGI-)\nAAGI Program Report\n\n\n\n\nPrepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-05-05"
+    "text": "Analytics for the Australian Grains Industry\nCU (AAGI-)\nAAGI Program Report\n\n\n\n\nPrepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-06-04"
   },
   {
     "objectID": "template-html-short-report.html#report-for-abc2026-001abc",
     "href": "template-html-short-report.html#report-for-abc2026-001abc",
     "title": "My Short Report",
     "section": "",
-    "text": "Prepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-05-05"
-  },
-  {
-    "objectID": "template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
-    "href": "template-revealjs.html#an-aagi-reveal.js-theme-for-quarto",
-    "title": "AAGI Demonstration Presentation",
-    "section": "An AAGI Reveal.js Theme for Quarto",
-    "text": "An AAGI Reveal.js Theme for Quarto\nThis Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide."
-  },
-  {
-    "objectID": "template-revealjs.html#basic-tables",
-    "href": "template-revealjs.html#basic-tables",
-    "title": "AAGI Demonstration Presentation",
-    "section": "Basic Tables",
-    "text": "Basic Tables\nAAGIQuarto provides basic theming of HTML tables through CSS, for example, this is a Markdown table.\n| Syntax      | Description |\n| ----------- | ----------- |\n| Header      | Title       |\n| Paragraph   | Text        |\nThat renders like this.\n\n\n\nSyntax\nDescription\n\n\n\n\nHeader\nTitle\n\n\nParagraph\nText"
-  },
-  {
-    "objectID": "template-revealjs.html#advanced-tables",
-    "href": "template-revealjs.html#advanced-tables",
-    "title": "AAGI Demonstration Presentation",
-    "section": "Advanced Tables",
-    "text": "Advanced Tables\nFor more advanced tables, we suggest pairing with the R package {AAGIThemes} to provide AAGI themed tables using theme_gt_aagi(), that offers more flexibility in formatting.\n\nlibrary(dplyr)\nlibrary(gt)\nlibrary(AAGIThemes)\n\ngt &lt;- gt(\n  head(airquality) |&gt;\n    mutate(`Month Name` = \"May\")\n)\ngt &lt;- theme_gt_aagi(gt)\ngt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOzone\nSolar.R\nWind\nTemp\nMonth\nDay\nMonth Name\n\n\n\n\n41\n190\n7.4\n67\n5\n1\nMay\n\n\n36\n118\n8.0\n72\n5\n2\nMay\n\n\n12\n149\n12.6\n74\n5\n3\nMay\n\n\n18\n313\n11.5\n62\n5\n4\nMay\n\n\n\n\n\n\n14.3\n56\n5\n5\nMay\n\n\n28\n\n\n14.9\n66\n5\n6\nMay"
-  },
-  {
-    "objectID": "template-revealjs.html#basic-figures",
-    "href": "template-revealjs.html#basic-figures",
-    "title": "AAGI Demonstration Presentation",
-    "section": "Basic Figures",
-    "text": "Basic Figures\n{AAGIThemes} also provides support for theming basic figures in R, for example.\n\n\n\n\n\n\n\n\n\n\n\nThis is an aside."
-  },
-  {
-    "objectID": "template-revealjs.html#figures-with-ggplot2",
-    "href": "template-revealjs.html#figures-with-ggplot2",
-    "title": "AAGI Demonstration Presentation",
-    "section": "Figures with {ggplot2}",
-    "text": "Figures with {ggplot2}\n{AAGIThemes} also provides support for theming {ggplot2} outputs in R, for example."
-  },
-  {
-    "objectID": "template-revealjs.html#slides-with-columns",
-    "href": "template-revealjs.html#slides-with-columns",
-    "title": "AAGI Demonstration Presentation",
-    "section": "Slides With Columns",
-    "text": "Slides With Columns\n\n\nThis is a column on the left.\n\nThis is a column on the right."
-  },
-  {
-    "objectID": "template-revealjs.html#more-information",
-    "href": "template-revealjs.html#more-information",
-    "title": "AAGI Demonstration Presentation",
-    "section": "More Information",
-    "text": "More Information\nYou can learn more about controlling the appearance of revealjs output here: https://quarto.org/docs/presentations/revealjs/"
+    "text": "Prepared for: collab_partner_org (collab_partner@email.com.au)\nPrepared by: your_name\nCorrespondence email: your.email@example.edu.au\nLast updated: 2026-06-04"
   }
 ]
