@@ -18,19 +18,56 @@ $link-color:             $aagi-teal;
 $body-color:             $aagi-black;
 $headings-color:         $aagi-teal;
 $font-family-sans-serif: "Proxima Nova", Arial, sans-serif;
-$font-family-monospace:  "Fira Code", monospace;
+$font-family-monospace:  "Fira Code", "Courier New", monospace;
 $table-striped-bg:       $aagi-grey;
 
 /*-- scss:rules --*/
 
-// FiraCode for monospace
-@import url('https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css');
+// Quarto compiler tries to fetch @import url() at compile time, not browser load
+// time — this fails silently in offline/CI environments and always fails
+// during PDF/XeLaTeX rendering. Font files are now loaded via local @font-face
+// declarations referencing WOFF2 files bundled under assets/fonts/.
+// See _extension.yml format-resources for the required file declarations.
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("FiraCode-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("FiraCode-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("FiraCode-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Proxima Nova", Arial, sans-serif;
+  color: $aagi-black;
+  line-height: 1.6;
+  font-size: 1rem;
+}
 
 // --- Typography --------------------------------------------------------------
 
 h1, h2, h3, h4, h5, h6 {
   color: $aagi-teal;
-  font-family: $font-family-sans-serif;
+  font-family: "Proxima Nova", Arial, sans-serif;
+  line-height: 1.2;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
 a {
@@ -39,6 +76,10 @@ a {
 
 a:hover {
   color: darken($aagi-teal, 12%);
+}
+
+code, kbd, pre, samp {
+  font-family: "Fira Code", "Courier New", monospace;
 }
 
 // --- Tables ------------------------------------------------------------------
@@ -77,7 +118,6 @@ table tbody td {
 
 // --- Note callout (analogous to LaTeX tcolorbox note) -----------------------
 
-// Style Quarto's built-in callout-note with AAGI teal
 div.callout-note.callout-style-default > .callout-header {
   background-color: $aagi-teal;
   color: #ffffff;
@@ -91,7 +131,6 @@ div.callout-note.callout-style-default {
   border-left-color: $aagi-teal;
 }
 
-// Custom .aagi-note div analogous to the LaTeX tcolorbox note environment
 div.aagi-note {
   background-color: rgba(0, 128, 139, 0.07);
   border-left: 3px solid $aagi-teal;
@@ -115,7 +154,6 @@ div.aagi-note {
 
 // --- AAGI title-block styling ------------------------------------------------
 
-// Style the standard Quarto title block
 #title-block-header {
   border-top: 3px solid $aagi-teal;
   border-bottom: 3px solid $aagi-teal;
@@ -131,7 +169,6 @@ div.aagi-note {
   color: $aagi-teal;
 }
 
-// Custom AAGI title-block div for a LaTeX-like title page experience
 div.aagi-title-block {
   border-top: 3px solid $aagi-teal;
   border-bottom: 3px solid $aagi-teal;
