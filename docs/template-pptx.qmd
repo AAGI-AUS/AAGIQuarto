@@ -1,12 +1,13 @@
 ---
-format: aagi-pptx
+format:
+  aagi-pptx:
+    fig-path: figures/pptx/
 execute:
   echo: false
   message: false
-knitr:
-  opts_chunk:
-    fig.path: figures/
-    fig.pos: H
+
+# Title metadata is safe
+
 title: "AAGI PPTX Presentation"
 author: "Adam Sparks"
 date: last-modified
@@ -29,7 +30,7 @@ try(
 
 ## An AAGI pptx Theme for Quarto
 
-This Quarto extension allows you to create your slides using a theme that follows AAGI typography and colour styles and provides the official AAGI logo and cover image for the title slide.
+This Quarto extension allows you to create slides using an AAGI-styled theme.
 
 ## Bullet point
 
@@ -38,7 +39,7 @@ This Quarto extension allows you to create your slides using a theme that follow
 
 ## Tables
 
-For tables, we suggest pairing with the R package [{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) to provide AAGI themed tables using `theme_ft_aagi`, which offers more flexibility in formatting.
+For tables, we suggest using {AAGIThemes} with `theme_ft_aagi`.
 
 ## Example
 
@@ -46,19 +47,20 @@ For tables, we suggest pairing with the R package [{AAGIThemes}](https://github.
 #| label: tab-aagi
 #| message: false
 
+library(flextable)
+library(dplyr)
+
 flex_tab <- flextable(
   head(airquality) |>
     mutate(`Month Name` = "May")
-) |>
-  theme_ft_aagi() |>
+) |
+  theme_ft_aagi() |
   autofit()
 
 flex_tab
 ```
 
 ## Basic Figures
-
-[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming basic figures in R.
 
 ```{r}
 #| label: graphics-figure
@@ -69,16 +71,16 @@ plot_aagi(pressure)
 
 ## Figures with {ggplot2}
 
-[{AAGIThemes}](https://github.com/AAGI-AUS/AAGIThemes) also provides support for theming [{ggplot2}](https://ggplot2.tidyverse.org) outputs in R.
-
 ```{r}
 #| label: ggplot2-figure
 #| message: false
 
+library(ggplot2)
+
 facet <- gapminder |>
-  filter(continent != "Americas") |>
-  group_by(continent, year) |>
-  summarise(pop = sum(as.numeric(pop)), .groups = "drop")
+  dplyr::filter(continent != "Americas") |>
+  dplyr::group_by(continent, year) |>
+  dplyr::summarise(pop = sum(as.numeric(pop)), .groups = "drop")
 
 col_values <- c(
   AAGIPalettes::colour_as_hex("AAGI Teal"),

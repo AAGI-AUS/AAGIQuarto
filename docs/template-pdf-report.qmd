@@ -1,11 +1,9 @@
 ---
-format: aagi-pdf+report
+format:
+  aagi-pdf+report:
+    fig-path: figures/pdf-report/
 execute:
   echo: false
-knitr:
-  opts_chunk:
-    fig.path: figures/
-    fig.pos: H
 params:
   aagi_staff: "your_name"
   project_code: "ABC2026-001ABC"
@@ -17,10 +15,11 @@ params:
 date: last-modified
 date-format: long
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
+
+# Do NOT hardcode csl — handled by extension
 
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
-subtitle: "`r sprintf('%s\nReport for %s', params$report_title, params$project_code)`"
+subtitle: "`r sprintf('%s  \\nReport for %s', params$report_title, params$project_code)`"
 author:
   - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
   - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
@@ -33,7 +32,6 @@ email: "`r params$aagi_email`"
 #| include: false
 #| message: false
 
-# Source centralized setup (must run before plots)
 source("_scripts/setup_reports.R", local = TRUE)
 ```
 
@@ -54,33 +52,21 @@ What was provided by AAGI and the main results?
 
 # Introduction
 
--   Goals of the research project.
-
--   Background, context and rationale behind the research.
+- Goals of the research project.
+- Background, context and rationale behind the research.
 
 # Experimental/Trial Design
 
--   Trial design type and layout.
-
--   Treatments, number of replicates.
-
--   Specific considerations for small plots, glasshouse, genetics, breeding trials, OFE projects, or bioinformatics.
+- Trial design type and layout.
+- Treatments, number of replicates.
 
 # Exploratory Data Analysis and Data Visualisation
 
--   Interpretation of plots and data.
-
--   Rationale behind specific methods used.
+- Interpretation of plots and data.
 
 # Methods
 
--   Detailed description of the procedures and methodologies used.
-
--   Include versions/commits on developed pipelines, scripts, and input/output details if applicable.
-
-# Analysis (if separate from Methods)
-
-Approach taken for data analysis.
+- Detailed description of the procedures used.
 
 # Results and Discussion
 
@@ -91,6 +77,8 @@ Findings and their implications.
 ```{r}
 #| label: fig-example
 #| fig-cap: "An example figure using {ggplot2}."
+
+library(ggplot2)
 
 ggplot(data = pressure, aes(x = temperature, y = pressure)) +
   geom_point() +
@@ -103,6 +91,8 @@ ggplot(data = pressure, aes(x = temperature, y = pressure)) +
 #| label: tbl-example
 #| tbl-cap: "An example table using {flextable}."
 
+library(flextable)
+
 ft <- flextable(head(airquality)) |>
   theme_ft_aagi() |>
   autofit()
@@ -112,24 +102,12 @@ ft
 
 # Metadata and Datasets (Optional)
 
--   md5sums for input data and outputs (if applicable).
-
--   Git commit numbers and tags.
-
--   Location of outputs (FAIR Data).
-
--   DOI for AAGI outputs.
-
-# Map (Location, Optional)
-
-Include if relevant to the project.
+- md5sums for input data and outputs.
+- Git commit numbers and tags.
 
 # References
 
-Cited works and literature. @Box1976
-
-::: {#refs}
-:::
+Cited works and literature.
 
 # Appendix (Optional)
 

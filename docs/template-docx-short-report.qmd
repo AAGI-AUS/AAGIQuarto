@@ -1,32 +1,27 @@
 ---
-format: aagi-docx+report
+format:
+  aagi-docx+report:
+    default: true
+    fig-path: figures/docx-report/
+
 params:
-  # override values that differ from root _quarto.yml; everything else inherits
   report_title: "My Report Title"
   project_code: "ABC2026-001ABC"
   aagi_staff: "your_name"
   partner: "collab_partner_org"
   partner_email: "partner@example.com"
-  aagi_email: "contact@example.com"
-  # optional metadata used by title_block_long.qmd (add only if needed)
-  report_number: "123"
-  report_version: "1.0"
-  authors: ["Alice A.", "Bob B."]
-  abstract: "Short abstract (1–2 sentences)."
 
 date: last-modified
 date-format: long
 bibliography: references.bib
-csl: _extensions/AAGI-AUS/aagi/assets/biometrics.csl
 
-# Title / subtitle / author / contact derived from params
-title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: %s', params$uni_info[[params$uni]]$name, params$uni, params$report_number %||% '')`"
-subtitle: "`r sprintf('%s\\nReport for %s', params$report_title, params$project_code)`"
+title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
+subtitle: "`r sprintf('%s  \nReport for %s', params$report_title, params$project_code)`"
 author:
   - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
-  - "`r sprintf('Prepared by: %s', paste(params$authors %||% params$aagi_staff, collapse = ', '))`"
+  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
 university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r params$aagi_email`"
+email: "`r params$uni_info[[params$uni]]$email`"
 ---
 
 ```{r}
@@ -34,36 +29,43 @@ email: "`r params$aagi_email`"
 #| include: false
 #| message: false
 
-# Source centralized setup script. This must exist at _scripts/setup.R (repo root).
-# It will export uni_name and set knitr options/device/theme.
 source("_scripts/setup_reports.R", local = TRUE)
 ```
 
-```{r child="_includes/title_block_short.qmd"}
+```{r child="_includes/title_block.qmd"}
 ```
 
-# Executive Summary {#executive-summary}
+{{< pagebreak >}}
 
-Executive summary goes here.
-Summarise the work provided by AAGI and the main results.
+# Executive summary
 
-# Key findings
+Concise summary of the work provided by AAGI and the primary findings.
 
--   Finding 1
--   Finding 2
--   Finding 3
+# Introduction
 
-::: {.aagi-note}
-**NOTE** — This is an example of an AAGI note callout.
-:::
+- Goals of the research project.
+- Background, context and rationale.
 
-# Methods (brief)
+# Experimental / Trial Design
 
-Briefly describe the analysis approach and any key assumptions.
+- Trial design and layout.
+- Treatments, replicates, blocking, randomisation.
 
-# Results (brief)
+# Exploratory Data Analysis & Visualisation
 
-Summarise the primary results, with 1–2 key figures/tables as needed.
+- Interpretation of key plots.
+
+# Methods
+
+- Detailed procedures, software versions, pipeline commits.
+
+# Analysis
+
+- Statistical approaches and workflow.
+
+# Results and Discussion
+
+- Main findings and implications.
 
 # References
 
