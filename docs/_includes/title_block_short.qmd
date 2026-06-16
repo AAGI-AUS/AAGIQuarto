@@ -16,5 +16,5 @@ Correspondence email: <`r params$aagi_email`>
 _Last updated: `r Sys.Date()`_
 ::::
 
-![](AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
+![](AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
 :::

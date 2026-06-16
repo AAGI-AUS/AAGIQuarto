@@ -30,7 +30,7 @@
 ::::
 
 <!-- Partner and supporter logos -->
-![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.png){.aagi-partners}
+![](_extensions/AAGI-AUS/aagi/assets/AAGI_SP_Logo_Block-Portrait.svg){.aagi-partners}
 
 <!-- Small footer with DOI / repository / license (optional params) -->
 :::: {.aagi-meta}
