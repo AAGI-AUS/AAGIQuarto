@@ -8,18 +8,18 @@ contributes:
       theme: default
       css:
         - revealjs/aagi.scss
-
       # stage extension assets and reference them by basename
       format-resources:
         - assets/AAGI_logo.svg
         - assets/title-slide-main.png
-
+        - assets/fonts/FiraCode-Regular.woff2
+        - assets/fonts/FiraCode-Medium.woff2
+        - assets/fonts/FiraCode-Bold.woff2
       logo: AAGI_logo.svg
       title-slide-attributes:
         data-background-image: title-slide-main.png
         data-background-size: 1050px auto
         data-background-position: 50% 85%
-
       date-format: long
       slide-number: true
       footer: ""
@@ -30,7 +30,6 @@ contributes:
       chalkboard: true
       execute:
         echo: true
-
     pdf+report:
       template: pdf-report/template.tex
       pdf-engine: xelatex
@@ -42,7 +41,6 @@ contributes:
         - assets/AAGI_logo.pdf
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
         - assets/biometrics.csl
-
     pdf+short+report:
       template: pdf-short-report/template.tex
       pdf-engine: xelatex
@@ -55,20 +53,16 @@ contributes:
         - assets/AAGI_logo.pdf
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
         - assets/biometrics.csl
-
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
-
     docx+short+report:
       reference-doc: docx-short-report/template.docx
-
     pptx:
       reference-doc: pptx/template.pptx
       toc: true
       number-sections: false
       incremental: true
-
     html+report:
       theme:
         - none
@@ -79,7 +73,9 @@ contributes:
       format-resources:
         - assets/AAGI_logo.svg
         - assets/AAGI_SP_Logo_Block-Portrait.svg
-
+        - assets/fonts/FiraCode-Regular.woff2
+        - assets/fonts/FiraCode-Medium.woff2
+        - assets/fonts/FiraCode-Bold.woff2
     html+short+report:
       theme:
         - none
@@ -89,3 +85,6 @@ contributes:
       format-resources:
         - assets/AAGI_logo.svg
         - assets/AAGI_SP_Logo_Block-Portrait.svg
+        - assets/fonts/FiraCode-Regular.woff2
+        - assets/fonts/FiraCode-Medium.woff2
+        - assets/fonts/FiraCode-Bold.woff2
