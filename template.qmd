@@ -1,28 +1,51 @@
 ---
+# =============================================================================
+# AAGI Full PDF Report Template
+# =============================================================================
+# USAGE (standalone — no _quarto.yml project required)
+#
+#   1. Install the extension once:
+#        quarto add AAGI-AUS/AAGIQuarto
+#
+#   2. Edit the params block below to match your project.
+#
+#   3. Render:
+#        quarto render template.qmd
+#        # or supply params on the command line:
+#        quarto render template.qmd \
+#          -P uni:AU \
+#          -P aagi_staff:"Jane Smith" \
+#          -P project_code:UA2026-001
+#
+# PARAMS
+#   uni           Your AAGI node code. One of: CU, AU, UQ
+#   aagi_staff    Your full name (used in "Prepared by")
+#   project_code  GRDC/AAGI project code, e.g. "UA2026-001ABC"
+#   report_title  Short descriptive title for the report
+#   partner       Client/partner name
+#   partner_email Client/partner contact email
+#   aagi_email    Your AAGI correspondence email
+# =============================================================================
+
 format:
   aagi-pdf+report:
-    fig-path: figures/pdf-report/
+    fig-path: figures/
+
 execute:
   echo: false
+
 params:
-  aagi_staff: "your_name"
+  uni: "CU"
+  aagi_staff: "Your Name"
   project_code: "ABC2026-001ABC"
   report_title: "My Report Title"
-  partner: "collab_partner_org"
-  partner_email: "collab_partner@email.com.au"
-  aagi_email: "your.email@example.edu.au"
+  partner: "Partner Organisation"
+  partner_email: "partner@email.com.au"
+  aagi_email: "your.name@example.edu.au"
 
 date: last-modified
 date-format: long
 bibliography: references.bib
-
-title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
-subtitle: "`r sprintf('%s Report for %s', params$report_title, params$project_code)`"
-author:
-  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
-  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
-university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r params$aagi_email`"
 ---
 
 ```{r}
@@ -30,8 +53,137 @@ email: "`r params$aagi_email`"
 #| include: false
 #| message: false
 
-source("_scripts/setup_reports.R", local = TRUE)
+# ---------------------------------------------------------------------------
+# Package management
+# ---------------------------------------------------------------------------
+
+allow_install <- isTRUE(as.logical(
+  Sys.getenv("AAGI_AUTO_INSTALL", unset = interactive())
+))
+
+ensure_pkg <- function(pkg, github = NULL) {
+  if (requireNamespace(pkg, quietly = TRUE)) {
+    return(invisible(TRUE))
+  }
+  if (!allow_install) {
+    return(invisible(FALSE))
+  }
+
+  # Bootstrap pak on first use
+  if (!requireNamespace("pak", quietly = TRUE)) {
+    install.packages(
+      "pak",
+      repos = sprintf(
+        "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+        .Platform$pkgType,
+        R.Version()$os,
+        R.Version()$arch
+      )
+    )
+  }
+  tryCatch(
+    pak::pak(github %||% pkg, dependencies = TRUE),
+    error = function(e) {
+      warning(sprintf("Could not install %s: %s", pkg, e$message))
+    }
+  )
+  invisible(requireNamespace(pkg, quietly = TRUE))
+}
+
+for (pkg in c("ggplot2", "flextable", "ragg")) {
+  ensure_pkg(pkg)
+}
+for (pkg in c("AAGIThemes", "AAGIPalettes")) {
+  ensure_pkg(pkg, github = sprintf("AAGI-AUS/%s", pkg))
+}
+
+# ---------------------------------------------------------------------------
+# University metadata (resolved from params$uni)
+# ---------------------------------------------------------------------------
+
+uni_info <- list(
+  CU = list(
+    name = "Curtin University",
+    node = "CU",
+    leads = "Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
+  ),
+  AU = list(
+    name = "Adelaide University",
+    node = "AU",
+    leads = "Assoc Prof Julian Taylor, Dr Olena Kravchuk"
+  ),
+  UQ = list(
+    name = "University of Queensland",
+    node = "UQ",
+    leads = "Prof Scott Chapman, Emeritus Prof Kaye Basford"
+  )
+)
+
+# Validate uni param and fall back to CU with a warning
+uni_code <- toupper(trimws(params$uni))
+if (!uni_code %in% names(uni_info)) {
+  warning(
+    sprintf(
+      "Unknown uni code '%s'. Valid values: %s. Falling back to 'CU'.",
+      params$uni,
+      toString(names(uni_info))
+    ),
+    call. = FALSE
+  )
+  uni_code <- "CU"
+}
+
+info <- uni_info[[uni_code]]
+uni_name <- info$name
+uni_node <- info$node
+uni_leads <- info$leads
+
+# ---------------------------------------------------------------------------
+# Graphics device (pdf for LaTeX output, png otherwise)
+# ---------------------------------------------------------------------------
+
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "pdf")
+} else {
+  knitr::opts_chunk$set(dev = "ragg_png", dpi = 192)
+}
+
+knitr::opts_chunk$set(fig.pos = "H", fig.retina = 2)
+
+# ---------------------------------------------------------------------------
+# Load and configure AAGI packages
+# ---------------------------------------------------------------------------
+
+suppressPackageStartupMessages({
+  library(ggplot2)
+  if (requireNamespace("AAGIThemes", quietly = TRUE)) {
+    library(AAGIThemes)
+  }
+  if (requireNamespace("AAGIPalettes", quietly = TRUE)) {
+    library(AAGIPalettes)
+  }
+  if (requireNamespace("flextable", quietly = TRUE)) library(flextable)
+})
+
+if (exists("theme_aagi")) {
+  ggplot2::theme_set(theme_aagi())
+}
+
+if (requireNamespace("flextable", quietly = TRUE) && exists("theme_ft_aagi")) {
+  flextable::set_flextable_defaults(theme_fun = theme_ft_aagi)
+}
 ```
+
+---
+title:    "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s)\\\nTechnical Report Series: 123', uni_name, uni_node)`"
+subtitle: "`r sprintf('%s\\\nReport for %s', params$report_title, params$project_code)`"
+author:
+  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
+  - "`r sprintf('Prepared by: %s (%s, AAGI-%s)', params$aagi_staff, uni_name, uni_node)`"
+  - "`r sprintf('Project Lead: %s', uni_leads)`"
+university: "`r uni_name`"
+email:      "`r params$aagi_email`"
+---
 
 \newpage
 
@@ -44,69 +196,82 @@ source("_scripts/setup_reports.R", local = TRUE)
 
 \newpage
 
-# Executive summary
+# Executive Summary
 
-What was provided by AAGI and the main results?
+Summarise the work provided by AAGI and the main results. Aim to keep this to
+a single page.
+
+\newpage
 
 # Introduction
 
 - Goals of the research project.
 - Background, context and rationale behind the research.
 
+## This is a subsection
+
+Use subsections (and subsubsections) as needed to structure your content.
+
 # Experimental/Trial Design
 
 - Trial design type and layout.
-- Treatments, number of replicates.
+- Treatments, number of replicates, blocking.
+- Notes on specific considerations (e.g. small plots, glasshouse, breeding
+  trials, OFE, bioinformatics).
 
 # Exploratory Data Analysis and Data Visualisation
 
-- Interpretation of plots and data.
+- Interpretation of data and visualisations.
+- Rationale for the statistical methodologies used.
 
 # Methods
 
-- Detailed description of the procedures used.
+- Detailed description of the procedures and methodologies used.
+- Software versions, pipeline commits, and input/output details.
 
 # Results and Discussion
 
-Findings and their implications.
+Findings and their implications with respect to the research question.
 
-# Figure example
+# Figure Example
 
 ```{r}
 #| label: fig-example
-#| fig-cap: "An example figure using {ggplot2}."
-
-library(ggplot2)
+#| fig-cap: "An example figure using {ggplot2} with the AAGI theme."
 
 ggplot(data = pressure, aes(x = temperature, y = pressure)) +
   geom_point() +
   theme_aagi()
 ```
 
-# Table example
+# Table Example
 
 ```{r}
 #| label: tbl-example
-#| tbl-cap: "An example table using {flextable}."
+#| tbl-cap: "An example table using {flextable} with the AAGI theme."
 
 library(flextable)
 
-ft <- flextable(head(airquality)) |>
+flextable(head(airquality)) |>
   theme_ft_aagi() |>
   autofit()
-
-ft
 ```
 
-# Metadata and Datasets (Optional)
+# Datasets and Metadata (Optional)
 
-- md5sums for input data and outputs.
-- Git commit numbers and tags.
+- Links and DOIs to associated datasets (e.g. GRDC Data Catalogue entries).
+- md5/sha256 checksums for input data and outputs.
+- Git commit numbers and tags for associated code repositories.
+
+# Trial Location Maps (Optional)
+
+Include if relevant to the project.
 
 # References
 
-Cited works and literature.
+::: {#refs}
+:::
 
 # Appendix (Optional)
 
-Additional supporting information.
+Additional supporting information. Add as many appendix sections as required.
