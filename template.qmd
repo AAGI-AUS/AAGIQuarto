@@ -1,25 +1,17 @@
 ---
+# Keep exactly one active format per template file.
 format:
-  # Delete the format that you don't want
-  # Presentation
-  aagi-revealjs: default
-  aagi-pptx: default
-  # Report
-  aagi-pdf+report: default # full length pdf report
-  aagi-pdf+short+report: default # short pdf report (typically one page)
-  aagi-docx+report: default # full length word docx report
-  aagi-docx+short+report: default # short word docx report (typically one page)
+  # aagi-revealjs: default
+  # aagi-pptx: default
+  # Report template (active default)
+  aagi-pdf+report:
+    default: true
+    fig-path: figures/pdf-report/
 execute:
   echo: false
-# Delete these if you're using the template for presentation
-knitr:
-  opts_chunk:
-    fig.path: figures/
 params:
-  # All the params can be changed to align to your organisation and collaborator.
-  # These can be changed here or in the terminal using the following command with
-  # each -P represents a parameter:
-  #             quarto render ... -P $params$:... -P $params2$:///
+  # All params can be changed here or at render time, e.g.:
+  # quarto render template.qmd -P uni:CU -P pri_bio:Your.Name
   uni: CU
   pri_bio: Your.Name
   project_num: AAA--BBB
@@ -27,8 +19,16 @@ params:
   partner_email: collab_partner@email.com.au
 date: last-modified
 date-format: long
-bibliography: references.bib # Replace with your .bib file
-csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl
+bibliography: references.bib
+
+title: "Analytics for the Australian Grains Industry - `r if (params$uni == 'CU') 'Curtin University' else if (params$uni == 'AU') 'Adelaide University' else 'University of Queensland'` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
+# To force line spacing put two spaces before \n instead of one
+subtitle: "Descriptive title for report  \n Report for `r params$project_num`"
+author:
+  - "Prepared for: `r params$partner` (`r params$partner_email`)"
+  - "Prepared by: `r params$pri_bio`, Author 2"
+  - "Project Lead: `r if (params$uni == 'CU') 'Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks' else if (params$uni == 'AU') 'Adelaide University -- Assoc Prof Julian Taylor, Dr Olena Kravchuck' else 'University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford'`"
+email: "`r if (params$uni == 'CU') 'cbada@curtin.edu.au' else if (params$uni == 'AU') paste0(params$pri_bio, '@adelaide.edu.au') else paste0(params$pri_bio, '@uq.edu.au')`"
 ---
 
 ```{r}
@@ -36,51 +36,37 @@ csl: ../_extensions/AAGI-AUS/aagi/assets/biometrics.csl
 #| label: variable-based-on-param
 
 if (params$uni == "CU") {
-  project_lead = "Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
+  project_lead <- "Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
   email <- "cbada@curtin.edu.au"
   university <- "Curtin University"
 } else if (params$uni == "AU") {
-  project_lead = "Adelaide University -- Assoc Prof Julian Taylor, Dr Olena Kravchuck"
-  email <- paste(params$pri_bio, "@adelaide.edu.au", sep = "")
+  project_lead <- "Adelaide University -- Assoc Prof Julian Taylor, Dr Olena Kravchuck"
+  email <- paste0(params$pri_bio, "@adelaide.edu.au")
   university <- "Adelaide University"
 } else {
-  project_lead = "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
-  email <- paste(params$pri_bio, "@uq.edu.au")
+  project_lead <- "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
+  email <- paste0(params$pri_bio, "@uq.edu.au")
   university <- "University of Queensland"
 }
 ```
 
----
-title: "Analytics for the Australian Grains Industry - `r university` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
-# To force line spacing put two spaces before \n instead of one
-subtitle: "Descriptive title for report  \n Report for `r params$project_num`"
-author:
-  - "Prepared for: `r params$partner` (`r params$partner_email`)"
-  - "Prepared by: `r params$pri_bio`, Author 2"
-  - "Project Lead: `r project_lead`"
-email: "`r email`"
----
-
 ```{r}
-#| label: install-load-aagi-theme
+#| label: check-required-packages
 #| include: false
-# {flextable} can be used for both word and pdf output
-if (!require(flextable)) {
-  install.packages("flextable")
-}
 
-# Integrating with AAGIPalettes, AAGIThemes
-if (!require(AAGIThemes)) {
-  install.packages(
-    "AAGIThemes",
-    repos = c("https://aagi-aus.r-universe.dev", "https://cloud.r-project.org")
-  )
-}
+required_pkgs <- c("flextable", "ggplot2", "AAGIThemes", "AAGIPalettes")
+missing_pkgs <- required_pkgs[
+  !vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)
+]
 
-if (!require(AAGIPalettes)) {
-  install.packages(
-    "AAGIPalettes",
-    repos = c("https://aagi-aus.r-universe.dev", "https://cloud.r-project.org")
+if (length(missing_pkgs) > 0L) {
+  stop(
+    "Missing required packages:",
+    toString(missing_pkgs),
+    "\\nInstall them before rendering, e.g.:",
+    "install.packages(c('flextable', 'ggplot2'))",
+    "\\ninstall.packages(c('AAGIThemes', 'AAGIPalettes'), repos = c('https://aagi-aus.r-universe.dev', 'https://cloud.r-project.org'))",
+    call. = FALSE
   )
 }
 ```
@@ -92,7 +78,6 @@ if (!require(AAGIPalettes)) {
 library(flextable)
 library(ggplot2)
 library(AAGIThemes)
-library(AAGIPalettes)
 
 # set ggplot2 theme
 theme_set(theme_aagi())
@@ -176,9 +161,6 @@ Include if relevant to the project.
 # References
 
 Cited works and literature.
-
-::: {#refs}
-:::
 
 # Appendix (Optional)
 
