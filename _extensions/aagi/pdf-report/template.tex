@@ -1,10 +1,60 @@
 % LaTeX template for AAGI Reports
+% Date last modified: 07/11/2025
 
 \documentclass[12pt]{article}
 
 %% Configuration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{lmodern}
+%
+% fontspec lets XeLaTeX resolve fonts by name from the system font catalogue.
+% The chain below tries each font in order and uses the first one found:
+%   1. Proxima Nova     — AAGI brand font, available on developer machines
+%   2. Arial            — Microsoft/Apple system font, widely available
+%   3. TeX Gyre Heros   — metric-compatible Helvetica clone, always present
+%                         in a full TeX Live installation including CI runners
+%
+% TeX Gyre Heros is the guaranteed CI fallback. It is visually close to
+% Helvetica/Arial and far preferable to Latin Modern Sans for AAGI branding.
+%
+% microtype works with XeLaTeX but only in limited mode; it is kept for
+% the margin kerning and font expansion it does provide.
+\usepackage{fontspec}
 \usepackage{microtype}
+
+% Sans-serif body font: Proxima Nova → Arial → TeX Gyre Heros
+\IfFontExistsTF{Proxima Nova}{%
+  \setsansfont{Proxima Nova}[
+    BoldFont     = {Proxima Nova Bold},
+    ItalicFont   = {Proxima Nova Italic},
+    BoldItalicFont = {Proxima Nova Bold Italic}]
+}{%
+  \IfFontExistsTF{Arial}{%
+    \setsansfont{Arial}[
+      BoldFont     = {Arial Bold},
+      ItalicFont   = {Arial Italic},
+      BoldItalicFont = {Arial Bold Italic}]
+  }{%
+    % TeX Gyre Heros: always present in full TeX Live; Helvetica-compatible
+    \setsansfont{TeX Gyre Heros}[
+      BoldFont     = {TeX Gyre Heros Bold},
+      ItalicFont   = {TeX Gyre Heros Italic},
+      BoldItalicFont = {TeX Gyre Heros Bold Italic}]
+  }%
+}
+
+% Monospace font: Fira Code → Courier New → TeX Gyre Cursor
+\IfFontExistsTF{Fira Code}{%
+  \setmonofont{Fira Code}
+}{%
+  \IfFontExistsTF{Courier New}{%
+    \setmonofont{Courier New}
+  }{%
+    \setmonofont{TeX Gyre Cursor}
+  }%
+}
+
+% Make sans-serif the document default (fontspec sets roman by default)
+\renewcommand{\familydefault}{\sfdefault}
+
 \usepackage[paper=a4paper,top=35mm,left=25mm,right=25mm,bottom=30mm]{geometry}
 \usepackage{adjustbox}
 \usepackage[title]{appendix}
@@ -15,7 +65,6 @@
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
 \usepackage{rotating}
-\renewcommand{\familydefault}{\sfdefault}
 
 % AAGI colours
 \usepackage[dvipsnames,table]{xcolor}
@@ -44,6 +93,14 @@
 \fancyhead[L]{\sffamily\leftmark}
 \fancyfoot[C]{\sffamily \thepage}
 \fancypagestyle{bibliography}{\fancyhead[L]{\sffamily References}}
+
+%% Project metadata %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% To set these values, add the corresponding keys to your .qmd YAML:
+%   university:            "Curtin University"
+%   aagi-node:             "CU"
+%   program:               "Research & Development"
+%   correspondence-email:  "you@curtin.edu.au"
 
 \newcommand{\myuniversity}{$if(university)$$university$$else$University Name$endif$}
 \newcommand{\myaaginode}{$if(aagi-node)$$aagi-node$$else$AAGI-XX$endif$}
