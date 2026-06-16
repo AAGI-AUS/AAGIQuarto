@@ -24,7 +24,7 @@ $table-striped-bg:       $aagi-grey;
 /*-- scss:rules --*/
 
 // FiraCode for monospace
-@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
+@import url('https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css');
 
 // --- Typography --------------------------------------------------------------
 
@@ -38,7 +38,7 @@ a {
 }
 
 a:hover {
-  color: darken($aagi-teal, 12%);
+  color: color.adjust($aagi-teal, $lightness: -12%); 
 }
 
 // --- Tables ------------------------------------------------------------------

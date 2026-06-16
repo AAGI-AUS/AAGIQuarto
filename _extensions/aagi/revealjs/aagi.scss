@@ -3,7 +3,7 @@
 // fonts
 
 // FiraCode is OpenSource and looks nice, so we'll use it here
-@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
+@import url('https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css');
 
 // define AAGI colours
 
@@ -50,7 +50,7 @@ $presentation-font-size-root: 2em;
   font-weight: lighter;
 }
 
-.reveal p li {
+.reveal li {
   font-weight: lighter;
 }
 
@@ -59,15 +59,15 @@ $presentation-font-size-root: 2em;
 }
 
 .reveal .slides {
-  border-bottom: solid 0.25em theme_color("aagi-teal");
+  border-bottom: solid 0.25em theme-color("aagi-teal");
 }
 
 .reveal table,
 th,
 td {
   border: 2px solid #ffffff;
-  background: theme_color("aagi-grey");
-  color: theme_color("aagi-black");
+  background: theme-color("aagi-grey");
+  color: theme-color("aagi-black");
 }
 
 .reveal table th {
