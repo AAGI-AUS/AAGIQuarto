@@ -9,8 +9,6 @@ allow_install <- isTRUE(as.logical(Sys.getenv(
   unset = interactive()
 )))
 
-`%||%` <- function(x, y) if (is.null(x)) y else x
-
 # Conditional messaging (prefers cli for nicer output)
 have_cli <- requireNamespace("cli", quietly = TRUE)
 
