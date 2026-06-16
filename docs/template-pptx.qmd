@@ -51,8 +51,8 @@ library(dplyr)
 flex_tab <- flextable(
   head(airquality) |>
     mutate(`Month Name` = "May")
-) |
-  theme_ft_aagi() |
+) |>
+  theme_ft_aagi() |>
   autofit()
 
 flex_tab
