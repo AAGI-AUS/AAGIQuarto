@@ -17,7 +17,7 @@ date-format: long
 bibliography: references.bib
 
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
-subtitle: "`r sprintf('%s  \\nReport for %s', params$report_title, params$project_code)`"
+subtitle: "`r sprintf('%s Report for %s', params$report_title, params$project_code)`"
 author:
   - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
   - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
