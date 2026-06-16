@@ -45,6 +45,13 @@ quarto use template AAGI-AUS/AAGIQuarto
 
 This will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.
 
+Alternatively, you can just install the extension without the template.
+
+```bash
+cd your_quarto_project_folder
+quarto add AAGI-AUS/AAGIQuarto
+```
+
 ### Getting the Templates
 
 You can download a [.zip file of all of these templates](https://AAGI-AUS.github.io/AAGIQuarto/_files/templates.zip) as seen above for your own use if you would like, you will need to install the AAGIQuarto extension in the root directory where you intend to use it/them.
