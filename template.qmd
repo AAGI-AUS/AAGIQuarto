@@ -1,167 +1,50 @@
 ---
-# Keep exactly one active format per template file.
 format:
-  # aagi-revealjs: default
-  # aagi-pptx: default
-  # Report template (active default)
   aagi-pdf+report:
-    default: true
     fig-path: figures/pdf-report/
+    keep-tex: true
+
 execute:
   echo: false
+
 params:
-  # All params can be changed here or at render time, e.g.:
-  # quarto render template.qmd -P uni:CU -P pri_bio:Your.Name
   uni: CU
   pri_bio: Your.Name
   project_num: AAA--BBB
   partner: collab_partner
   partner_email: collab_partner@email.com.au
+
 date: last-modified
 date-format: long
 bibliography: references.bib
 
-title: "Analytics for the Australian Grains Industry - `r if (params$uni == 'CU') 'Curtin University' else if (params$uni == 'AU') 'Adelaide University' else 'University of Queensland'` (AAGI-`r params$uni`)  \n Technical Report Series: 123"
-# To force line spacing put two spaces before \n instead of one
-subtitle: "Descriptive title for report  \n Report for `r params$project_num`"
-author:
-  - "Prepared for: `r params$partner` (`r params$partner_email`)"
-  - "Prepared by: `r params$pri_bio`, Author 2"
-  - "Project Lead: `r if (params$uni == 'CU') 'Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks' else if (params$uni == 'AU') 'Adelaide University -- Assoc Prof Julian Taylor, Dr Olena Kravchuck' else 'University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford'`"
-email: "`r if (params$uni == 'CU') 'cbada@curtin.edu.au' else if (params$uni == 'AU') paste0(params$pri_bio, '@adelaide.edu.au') else paste0(params$pri_bio, '@uq.edu.au')`"
+title: >-
+  Analytics for the Australian Grains Industry -
+  `r if (params$uni == 'CU') 'Curtin University' else if (params$uni == 'AU') 'Adelaide University' else 'University of Queensland'`
+  (AAGI-`r params$uni`) Technical Report Series: 123
+
+subtitle: >-
+  Descriptive title for report —
+  Report for `r params$project_num`
+
 ---
 
 ```{r}
-#| include: false
-#| label: variable-based-on-param
-
-if (params$uni == "CU") {
-  project_lead <- "Curtin University -- Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
-  email <- "cbada@curtin.edu.au"
-  university <- "Curtin University"
-} else if (params$uni == "AU") {
-  project_lead <- "Adelaide University -- Assoc Prof Julian Taylor, Dr Olena Kravchuck"
-  email <- paste0(params$pri_bio, "@adelaide.edu.au")
-  university <- "Adelaide University"
-} else {
-  project_lead <- "University of Queensland -- Prof Scott Chapman, Emeritus Prof Kaye Basford"
-  email <- paste0(params$pri_bio, "@uq.edu.au")
-  university <- "University of Queensland"
-}
-```
-
-```{r}
-#| label: check-required-packages
-#| include: false
-
-required_pkgs <- c("flextable", "ggplot2", "AAGIThemes", "AAGIPalettes")
-missing_pkgs <- required_pkgs[
-  !vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)
-]
-
-if (length(missing_pkgs) > 0L) {
-  stop(
-    "Missing required packages:",
-    toString(missing_pkgs),
-    "\\nInstall them before rendering, e.g.:",
-    "install.packages(c('flextable', 'ggplot2'))",
-    "\\ninstall.packages(c('AAGIThemes', 'AAGIPalettes'), repos = c('https://aagi-aus.r-universe.dev', 'https://cloud.r-project.org'))",
-    call. = FALSE
-  )
-}
-```
-
-```{r}
-#| label: set-the-default-layout
+#| label: setup
 #| include: false
 
 library(flextable)
 library(ggplot2)
 library(AAGIThemes)
+library(AAGIPalettes)
 
-# set ggplot2 theme
 theme_set(theme_aagi())
-
-# set flextable theme
-set_flextable_defaults(
-  theme_fun = theme_ft_aagi
-)
+set_flextable_defaults(theme_fun = theme_ft_aagi)
 ```
-
-# To compile a presentation, please see:
-
--   Revealjs: <https://quarto.org/docs/presentations/revealjs/>
-
--   PowerPoint: <https://quarto.org/docs/presentations/powerpoint.html>
 
 # Executive summary
 
-What was provided by AAGI and the main results?
-
--   Citation example (@sparks2018nasapower), another example @butler2017asreml and @brien2020asremlplus.
-
-# Introduction
-
--   Goals of the research project.
-
--   Background, context and rationale behind the research.
-
-# Experimental/Trial Design
-
--   Trial design type and layout.
-
--   Treatments, number of replicates.
-
--   Specific considerations for small plots, glasshouse, genetics, breeding trials, OFE projects, or bioinformatics.
-
-# Exploratory Data Analysis and Data Visualisation
-
--   Interpretation of plots and data.
-
--   Rationale behind specific methods used.
-
-# Methods
-
--   Detailed description of the procedures and methodologies used.
-
--   Include versions/commits on developed pipelines, scripts, and input/output details if applicable.
-
-# Analysis (if separate from Methods)
-
-Approach taken for data analysis.
-
-# Results and Discussion
-
-Findings and their implications.
-
-# Metadata and Datasets (Optional)
-
--   md5sums for input data and outputs (if applicable).
-
--   Git commit numbers and tags.
-
--   Location of outputs (FAIR Data).
-
--   DOI for AAGI outputs.
-
-# Map (Location, Optional)
-
-Include if relevant to the project.
-
-# Conclusion or Discussion
-
--   Summary of the main findings.
--   Implications for the industry (for example).
-
-# Acknowledgements
-
--   Funding sources.
--   Collaborators.
+Example content.
 
 # References
 
-Cited works and literature.
-
-# Appendix (Optional)
-
-Additional supporting information.
