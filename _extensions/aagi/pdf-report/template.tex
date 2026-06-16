@@ -1,12 +1,8 @@
 % LaTeX template for AAGI Reports
-% Date last modified: 07/11/2025
 
 \documentclass[12pt]{article}
 
 %% Configuration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% (Modify these if you have a need to do so, or if you have additional
-% packages that you need to load. Otherwise this configuration should
-% be left as-is.)
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage[paper=a4paper,top=35mm,left=25mm,right=25mm,bottom=30mm]{geometry}
@@ -34,7 +30,7 @@
 
 \usepackage{graphicx}
 
-% Command definitions and settings copied over from the old AAGI.sty
+% Command definitions and settings
 \newcommand{\HRule}{\hspace{-25mm}\rule{160mm}{0.6mm}}
 \setlength{\parindent}{0cm}
 \setlength{\headheight}{14pt}
@@ -49,38 +45,13 @@
 \fancyfoot[C]{\sffamily \thepage}
 \fancypagestyle{bibliography}{\fancyhead[L]{\sffamily References}}
 
-%% Project metadata %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% These can be set here for standalone LaTeX use, or overridden via Quarto
-% YAML front matter (university, aagi-node, program, correspondence-email).
-$if(university)$
-  \newcommand{\myuniversity}{$university$}
-$else$
-  \newcommand{\myuniversity}{University Name}
-$endif$
-
-$if(aagi-node)$
-  \newcommand{\myaaginode}{$aagi-node$}
-$else$
-  \newcommand{\myaaginode}{AAGI-XX}
-$endif$
-
-$if(program)$
-  \newcommand{\myprogram}{$program$}
-$else$
-  \newcommand{\myprogram}{AAGI Program}  % e.g. Service \& Support,
-                                         %      Research \& Development,
-                                         %      Upskilling \& Awareness
-$endif$
-
-$if(correspondence-email)$
-  \newcommand{\myemail}{$correspondence-email$}
-$else$
-  \newcommand{\myemail}{your.email@example.edu.au}
-$endif$
+\newcommand{\myuniversity}{$if(university)$$university$$else$University Name$endif$}
+\newcommand{\myaaginode}{$if(aagi-node)$$aagi-node$$else$AAGI-XX$endif$}
+\newcommand{\myprogram}{$if(program)$$program$$else$AAGI Program$endif$}
+\newcommand{\myemail}{$if(correspondence-email)$$correspondence-email$$else$your.email@example.edu.au$endif$}
 
 % Colour tables + long tables
 \usepackage{colortbl}
-
 \usepackage{longtable}
 \setlength{\LTcapwidth}{\textwidth}
 
@@ -107,291 +78,6 @@ $endif$
 %  basicstyle=\footnotesize\ttfamily,
 %  keywordstyle=\footnotesize\ttfamily,
 %  language=R}
-
-    Correspondence email:\; \texttt{\href{mailto:\myemail}{\myemail}}
-
-    \today\\[-2pt]
-    \HRule
-  \end{flushright}
-
-  \vfill
-
-  \noindent\makebox[\textwidth]{%
-    \includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait.pdf}}
-  \vspace*{-36mm}
-
-  \clearpage
-  \pagestyle{plain}
-  \setcounter{page}{1}
-  \tableofcontents
-
-  % Other lists of tables or figures (uncomment as desired)
-  %\listoftables
-  %\addcontentsline{toc}{section}{List of Tables}
-  %\listoffigures
-  %\addcontentsline{toc}{section}{List of Figures}
-
-  %% Document proper
-  \clearpage
-  \phantomsection
-  \section*{Executive Summary}
-  \addcontentsline{toc}{section}{Executive summary}
-  Executive summary goes here. Summarise the work that was provided by AAGI and
-  the main results. (Try to limit this to a single page.)
-
-  \pagestyle{fancy}
-
-  \clearpage
-  \section{Introduction}
-
-  The report body text goes here.
-
-  Note that the following section titles are provided as a guide, but feel free
-  to modify them in any way that you like if they are not relevant to your work,
-  or if using a different set of titles enhances the readability of your report.
-
-  Use AAGI theme colours for emphasis (\verb|\color{aagiteal}|
-  for {\color{aagiteal}AAGI teal}, \verb|\color{aagigreen}| for
-  {\color{aagigreen}AAGI green}, and \verb|\color{aagiblack}| for
-  {\color{aagiblack}AAGI black}).
-
-  Use \verb|[@blah]| for parenthetical citations: [@blah]. Use \verb|@blah|
-  for text citations, e.g.\ @blah. References are entered in BibTeX format
-  in your \texttt{.bib} file and declared in the \texttt{bibliography:} field
-  of your \texttt{.qmd} YAML front matter.
-
-  A simple AAGI-themed table could be done as in \autoref{tab:aagi}.
-  \begin{table}[h]
-    \caption{An AAGI-themed table.}\label{tab:aagi}
-    \centering
-    \begin{tabular}{| l | r r |}
-    \rowcolor{aagiteal} {\color{white}Table Heading} & %
-    {\color{white}Next Heading} & {\color{white}Another Heading} \\
-    \hline
-    blah & 2 & 3 \\
-    \hline
-    \end{tabular}
-  \end{table}
-
-  Use \verb|\begin{note} ... \end{note}| for emphatic notes throughout
-  the report if you like. You can use \verb|\faIcon{...}| to add
-  FontAwesome icons for decoration, as shown below.
-
-  \begin{note}
-    {\sbf\color{aagiteal!75!black} \faIcon{exclamation-triangle} NOTE}\quad
-    This is an example of a note.
-  \end{note}
-
-  \vspace*{1cm}
-
-  In this introduction section, outline the goals of the research project and
-  any necessary background to provide context and rationale for the
-  research/work.
-
-  \subsection{This is a subsection}
-
-  Use subsections (and subsubsections) as much as you like to help structure
-  your content.
-
-  \subsubsection{This is a subsubsection}
-
-  \clearpage
-  \section{Trial design}
-
-  Include the trial layout, type, and the experimental design, such as
-  treatments, number of replicates, blocking, etc. Include graphics and
-  pictures where useful.
-
-  Make sure to include notes about any specific considerations that must be kept
-  in mind for the type of trial (e.g., small plots, glasshouse experiments,
-  genetics, breeding trials, OFE projects, bioinformatics projects, and so on).
-
-  \clearpage
-  \section{Exploratory data analysis}
-
-  You can use a dedicated section here for the preliminary data exploration and
-  dataset visualisation. This can be useful to aid in the interpretation of the
-  data and graphs generated throughout the work, as well as for providing a
-  rationale for the statistical methodologies used.
-
-  \clearpage
-  \section{Methods}
-
-  Use this section to include a detailed description of the procedures and
-  methodologies used for the analysis. Include versions/commits on developed
-  pipelines, code scripts, and input/output details as relevant.
-
-  Detail also the approach taken for the data analysis work here (or in a
-  separate section).
-
-  \clearpage
-  \section{Results and discussion}
-
-  Include all of the results of the analytical work, and discuss the findings
-  and their implications with respect to the research question.
-
-  \clearpage
-  \section{Datasets and metadata}
-
-  (Optional) Where useful, include descriptions of the datasets relevant to
-  this research, including links and DOIs to enable findability of these
-  datasets. (Often for GRDC projects these will have associated metadata entries
-  in the GRDC Data Catalogue, which can be linked where appropriate.)
-
-  Where you have publicly available code on GitHub associated with the analytics
-  (e.g., pipelines), you can include git commit numbers and tags. Including
-  md5/sha256 checksums for input data and outputs is also useful for research
-  reproducibility.
-
-  \clearpage
-  \section{Trial location maps}
-
-  (Optional) Include if relevant to the project.
-
-  % Appendices
-  \clearpage
-  \begin{appendices}
-
-    \clearpage
-    \section{This is an appendix}
-
-    Include appendices at the end of the report as necessary, to contain any
-    additional supporting information of interest.
-
-    \subsection{This is an appendix subsection}
-
-    \clearpage
-    \section{This is another appendix}
-
-    And so on. Include as many appendices as you like.
-
-  \end{appendices}
-
-  \clearpage
-  \phantomsection
-  \pagestyle{bibliography}
-  \addcontentsline{toc}{section}{References}
-  \bibliographystyle{plainnat}
-  \bibliography{$bibliography$}
-
-\end{document}% LaTeX template for AAGI Reports
-% Date last modified: 07/11/2025
-% Cleaned: 16/06/2026
-
-\documentclass[12pt]{article}
-
-%% Configuration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% (Modify these if you have a need to do so, or if you have additional
-% packages that you need to load. Otherwise this configuration should
-% be left as-is.)
-\usepackage{lmodern}
-\usepackage{microtype}
-\usepackage[paper=a4paper,top=35mm,left=25mm,right=25mm,bottom=30mm]{geometry}
-\usepackage{adjustbox}
-\usepackage[title]{appendix}
-\usepackage{parskip}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{fancyvrb}
-\usepackage{rotating}
-\renewcommand{\familydefault}{\sfdefault}
-
-% AAGI colours
-\usepackage[dvipsnames,table]{xcolor}
-\definecolor{aagibrightgreen}{HTML}{B6D438}
-\definecolor{aagiteal}{HTML}{00808B}
-\definecolor{aagiblue}{HTML}{648FD2}
-\definecolor{aagigreen}{HTML}{54921E}
-\definecolor{aagiyellow}{HTML}{FFBC42}
-\definecolor{aagiorange}{HTML}{EC8525}
-\definecolor{aagiblack}{HTML}{414042}
-\definecolor{aagigrey}{HTML}{F2F2F2}
-
-\usepackage{graphicx}
-
-% Command definitions and settings copied over from the old AAGI.sty
-\newcommand{\HRule}{\hspace{-25mm}\rule{160mm}{0.6mm}}
-\setlength{\parindent}{0cm}
-\setlength{\headheight}{14pt}
-\setlength{\parskip}{2.5ex}
-\setlength{\emergencystretch}{3em}
-\DeclareOldFontCommand{\sbf}{\normalfont\bfseries\sffamily}{\mathsf}
-\DeclareOldFontCommand{\tbf}{\normalfont\bfseries\ttfamily}{\mathtt}
-\pagestyle{fancy}
-\renewcommand{\sectionmark}[1]{\markboth{\thesection\hspace{2.5mm} #1}{}}
-\fancyhf{}
-\fancyhead[L]{\sffamily\leftmark}
-\fancyfoot[C]{\sffamily \thepage}
-\fancypagestyle{bibliography}{\fancyhead[L]{\sffamily References}}
-
-%% Project metadata %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% These can be set here for standalone LaTeX use, or overridden via Quarto
-% YAML front matter (university, aagi-node, program, correspondence-email).
-%
-$if(university)$
-  \newcommand{\myuniversity}{$university$}
-$else$
-  \newcommand{\myuniversity}{University Name}
-$endif$
-
-$if(aagi-node)$
-  \newcommand{\myaaginode}{$aagi-node$}
-$else$
-  \newcommand{\myaaginode}{AAGI-XX}
-$endif$
-
-$if(program)$
-  \newcommand{\myprogram}{$program$}
-$else$
-  \newcommand{\myprogram}{AAGI Program}  % e.g. Service \& Support,
-                                         %      Research \& Development,
-                                         %      Upskilling \& Awareness
-$endif$
-
-$if(correspondence-email)$
-  \newcommand{\myemail}{$correspondence-email$}
-$else$
-  \newcommand{\myemail}{your.email@example.edu.au}
-$endif$
-
-% Colour tables + long tables
-\usepackage{colortbl}
-
-\usepackage{longtable}
-\setlength{\LTcapwidth}{\textwidth}
-
-% Figures configuration
-\usepackage{caption}
-\captionsetup{font={sf}}
-\setlength{\fboxsep}{0pt}
-
-% URL styling
-\usepackage{url}
-
-% FontAwesome icons
-\usepackage{fontawesome5}
-
-% Tikzpictures/PGFplots (if desired)
-%\usepackage{tikz}
-%\usepackage{pgfplots}
-%\pgfplotsset{compat=newest}
-
-% Listings for code (if desired)
-%\usepackage{inconsolata}
-%\usepackage{listings}
-%\lstset{%
-%  basicstyle=\footnotesize\ttfamily,
-%  keywordstyle=\footnotesize\ttfamily,
-%  language=R}
-
-%
-% If you need to use this template as a pure standalone LaTeX document
-% (outside of Quarto), you may re-enable natbib and add:
-%   \bibliographystyle{plainnat}
-%   \bibliography{references}
-% at the end of the document, and use \citep / \citet in the body text.
 
 % A fancy coloured box for notes/warnings
 \usepackage[most]{tcolorbox}
@@ -400,8 +86,7 @@ $endif$
   borderline west={2pt}{0pt}{aagiteal}, borderline east={2pt}{0pt}{aagiteal},
   enhanced, breakable}
 
-% Hyperref for links/cross-referencing
-% NOTE: hyperref must be loaded after most other packages.
+% Hyperref — load last
 \usepackage{hyperref}
 \hypersetup{%
   colorlinks=true, linkcolor=aagiteal, urlcolor=aagiteal, citecolor=aagiteal}
