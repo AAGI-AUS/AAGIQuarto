@@ -2,49 +2,111 @@
 format:
   aagi-pdf+report:
     fig-path: figures/pdf-report/
-    keep-tex: true
-
 execute:
   echo: false
-
 params:
-  uni: CU
-  pri_bio: Your.Name
-  project_num: AAA--BBB
-  partner: collab_partner
-  partner_email: collab_partner@email.com.au
+  aagi_staff: "your_name"
+  project_code: "ABC2026-001ABC"
+  report_title: "My Report Title"
+  partner: "collab_partner_org"
+  partner_email: "collab_partner@email.com.au"
+  aagi_email: "your.email@example.edu.au"
 
 date: last-modified
 date-format: long
 bibliography: references.bib
 
-title: >-
-  Analytics for the Australian Grains Industry -
-  `r if (params$uni == 'CU') 'Curtin University' else if (params$uni == 'AU') 'Adelaide University' else 'University of Queensland'`
-  (AAGI-`r params$uni`) Technical Report Series: 123
-
-subtitle: >-
-  Descriptive title for report —
-  Report for `r params$project_num`
-
+title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
+subtitle: "`r sprintf('%s Report for %s', params$report_title, params$project_code)`"
+author:
+  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
+  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
+university: "`r params$uni_info[[params$uni]]$name`"
+email: "`r params$aagi_email`"
 ---
 
 ```{r}
 #| label: setup
 #| include: false
+#| message: false
 
-library(flextable)
-library(ggplot2)
-library(AAGIThemes)
-library(AAGIPalettes)
-
-theme_set(theme_aagi())
-set_flextable_defaults(theme_fun = theme_ft_aagi)
+source("_scripts/setup_reports.R", local = TRUE)
 ```
+
+\newpage
+
+```{=latex}
+\clearpage
+\setcounter{page}{1}
+```
+
+\tableofcontents
+
+\newpage
 
 # Executive summary
 
-Example content.
+What was provided by AAGI and the main results?
+
+# Introduction
+
+- Goals of the research project.
+- Background, context and rationale behind the research.
+
+# Experimental/Trial Design
+
+- Trial design type and layout.
+- Treatments, number of replicates.
+
+# Exploratory Data Analysis and Data Visualisation
+
+- Interpretation of plots and data.
+
+# Methods
+
+- Detailed description of the procedures used.
+
+# Results and Discussion
+
+Findings and their implications.
+
+# Figure example
+
+```{r}
+#| label: fig-example
+#| fig-cap: "An example figure using {ggplot2}."
+
+library(ggplot2)
+
+ggplot(data = pressure, aes(x = temperature, y = pressure)) +
+  geom_point() +
+  theme_aagi()
+```
+
+# Table example
+
+```{r}
+#| label: tbl-example
+#| tbl-cap: "An example table using {flextable}."
+
+library(flextable)
+
+ft <- flextable(head(airquality)) |>
+  theme_ft_aagi() |>
+  autofit()
+
+ft
+```
+
+# Metadata and Datasets (Optional)
+
+- md5sums for input data and outputs.
+- Git commit numbers and tags.
 
 # References
 
+Cited works and literature.
+
+# Appendix (Optional)
+
+Additional supporting information.
