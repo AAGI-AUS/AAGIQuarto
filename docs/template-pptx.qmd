@@ -6,8 +6,6 @@ execute:
   echo: false
   message: false
 
-# Title metadata is safe
-
 title: "AAGI PPTX Presentation"
 author: "Adam Sparks"
 date: last-modified

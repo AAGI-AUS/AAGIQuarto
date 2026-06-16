@@ -18,8 +18,6 @@ date: last-modified
 date-format: long
 bibliography: references.bib
 
-# Do NOT hardcode csl (handled by extension)
-
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
 subtitle: "`r sprintf('%s  \\nReport for %s', params$report_title, params$project_code)`"
 author:
