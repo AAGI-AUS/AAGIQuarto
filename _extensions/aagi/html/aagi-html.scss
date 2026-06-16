@@ -37,8 +37,11 @@ a {
   color: $aagi-teal;
 }
 
+// FIX: color.adjust() requires @use 'sass:color' which Quarto's SCSS pipeline
+//      does not support (it uses LibSass-compatible mode, not Dart Sass modules).
+//      darken() is the correct built-in function to use here.
 a:hover {
-  color: color.adjust($aagi-teal, $lightness: -12%); 
+  color: darken($aagi-teal, 12%);
 }
 
 // --- Tables ------------------------------------------------------------------
