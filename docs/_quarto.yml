@@ -9,7 +9,6 @@ project:
     - favicon.png
     - favicon.svg
     - _extensions/AAGI-AUS/aagi/assets/fonts/
-    - _files/
     - assets/
 
 website:
