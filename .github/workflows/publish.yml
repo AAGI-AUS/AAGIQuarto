@@ -1,9 +1,10 @@
+---
 on:
   push:
     branches:
-    - main
-    - feature/**
-    - fix/**
+      - main
+      - feature/**
+      - fix/**
   release:
     types: [published]
   workflow_dispatch: {}
@@ -30,7 +31,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0 # recommended for versioned sites / changelogs
+          fetch-depth: 0  # recommended for versioned sites / changelogs
 
       # Quarto's knitr engine needs R available
       - name: Setup R
@@ -96,7 +97,7 @@ jobs:
         working-directory: ./docs
         run: |
           quarto add AAGI-AUS/AAGIQuarto --no-prompt
- 
+
       # The Makefile in / will render all the Quarto documents located in /docs/demos in this step
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
