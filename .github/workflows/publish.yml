@@ -98,6 +98,9 @@ jobs:
         run: |
           quarto add AAGI-AUS/AAGIQuarto --no-prompt
 
+      - name: Build assets (copy fonts + render templates)
+        run: make assets
+
       # The Makefile in / will render all the Quarto documents located in /docs/demos in this step
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
