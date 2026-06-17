@@ -1,4 +1,3 @@
----
 title: AAGIQuarto
 author: Adam H. Sparks, James J. Balamuta, Russell Edson, Vinh Thiem Ma, Rose Megirian, Zhanglong Cao, Sam Rogers, Julian Taylor, Peter Misiun
 version: 2.0.0
@@ -9,7 +8,7 @@ contributes:
       theme: default
       css:
         - revealjs/aagi.scss
-      # stage extension assets and reference them by basename
+      embed-resources: true
       format-resources:
         - assets/AAGI_logo.svg
         - assets/title-slide-main.png
@@ -71,6 +70,7 @@ contributes:
       toc: true
       toc-depth: 3
       number-sections: true
+      embed-resources: true
       format-resources:
         - assets/AAGI_logo.svg
         - assets/AAGI_SP_Logo_Block-Portrait.svg
@@ -83,6 +83,7 @@ contributes:
         - html/aagi-html.scss
       toc: false
       number-sections: false
+      embed-resources: true
       format-resources:
         - assets/AAGI_logo.svg
         - assets/AAGI_SP_Logo_Block-Portrait.svg
