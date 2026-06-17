@@ -1,6 +1,5 @@
 ---
 name: demo-website
-
 on:
   push:
     branches:
@@ -17,24 +16,18 @@ jobs:
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       AAGI_AUTO_INSTALL: true
-
     runs-on: ubuntu-latest
-
-    # Restrict concurrent publishes per ref
     concurrency:
       group: quarto-publish-${{ github.ref }}
       cancel-in-progress: true
-
     permissions:
       contents: write
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # recommended for versioned sites / changelogs
+          fetch-depth: 0
 
-      # Quarto's knitr engine needs R available
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
         with:
@@ -73,7 +66,7 @@ jobs:
           echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
           sudo apt-get install -y ttf-mscorefonts-installer
 
-      # Install rsvg-convert for SVG → PNG/PDF conversion
+      # Install rsvg-convert for SVG -> PNG/PDF conversion
       - name: Install rsvg-convert
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -89,51 +82,20 @@ jobs:
           version: "release"
           tinytex: true
 
-      - name: Copy favicons to docs
-        run: |
-          ls -v docs/favicon* || echo "No favicons found in docs/"
-
       - name: Add extension directly into demos
         working-directory: ./docs
-        run: |
-          quarto add AAGI-AUS/AAGIQuarto --no-prompt
+        run: quarto add AAGI-AUS/AAGIQuarto --no-prompt
 
-      - name: Create templates zip file
+      - name: Build templates zip from current source
         run: |
+          mkdir -p docs/_files
           cd docs
-          mkdir -p _files
-          zip -r AAGI_templates.zip template*.qmd _scripts/ _includes/
-          mv AAGI_templates.zip _files/templates.zip
+          zip -r _files/templates.zip template*.qmd _scripts/ _includes/
 
-      - name: Build assets (copy fonts + render templates)
-        run: make assets
-
-      - name: Publish (skip render)
+      - name: Render and publish site
         if: github.event_name != 'pull_request'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
           path: docs
           render: true
-      - name: Build assets (copy fonts + render templates)
-        run: make assets
-
-      # Render handled earlier; skip here
-      - name: Publish (skip render)
-        if: github.event_name != 'pull_request'
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-          path: docs
-          render: true
-
-      - name: Copy favicons to gh-pages root
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin gh-pages
-          git checkout gh-pages
-          cp ../docs/favicon* ./ 2>/dev/null || echo "No favicons to copy"
-          git add favicon.ico favicon.png favicon.svg favicon-32x32.png || true
-          git diff --cached --quiet || git commit -m "Update favicons"
-          git push origin gh-pages

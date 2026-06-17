@@ -6,6 +6,8 @@ project:
     - favicon.png
     - favicon.svg
     - _extensions/AAGI-AUS/aagi/assets/fonts/
+    - _files/
+
 website:
   title: "AAGIQuarto"
   reader-mode: true
@@ -59,7 +61,6 @@ params:
       UQ: "University of Queensland"
       ANU: "Australian National University"
     value: CU
-
   uni_info:
     CU:
       name: "Curtin University"
