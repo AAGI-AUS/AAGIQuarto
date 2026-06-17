@@ -86,53 +86,19 @@ jobs:
         working-directory: ./docs
         run: quarto add AAGI-AUS/AAGIQuarto --no-prompt
 
-      # FIX: zip built from the live template source on this checkout, every
-      # run, so it can never go stale. Declared under project.resources in
-      # _quarto.yml, so the website render step below copies it through
-      # rather than deleting it.
       - name: Build templates zip from current source
         run: |
           mkdir -p docs/_files
           cd docs
           zip -r _files/templates.zip template*.qmd _scripts/ _includes/
 
-      # FIX: PDF, DOCX, PPTX, and RevealJS are non-website formats — Quarto's
-      # website render only produces HTML-family output, so these must be
-      # rendered separately, one format per template .qmd, using the same
-      # `make assets` target the local Makefile already defines. This is
-      # what actually produces the downloadable output files that the site
-      # links to (e.g. "see what the rendered PDF looks like").
-      #
-      # Running this BEFORE the website render/publish step means the output
-      # files land in docs/assets/ in time to be picked up as project
-      # resources (assets/ is already covered by the docs/_quarto.yml
-      # resources: entry, or add it there if not).
-      # FIX: working-directory was previously ./docs, but the Makefile's
-      # DOCS_DIR ?= docs default assumes invocation from the REPO ROOT — each
-      # recipe does its own `cd $(DOCS_DIR)` internally. Running `make` from
-      # inside docs/ caused `cd $(DOCS_DIR)` to try `cd docs/docs` (wrong/
-      # nonexistent) and `mkdir -p $(DOCS_DIR)/assets/fonts` to create
-      # docs/docs/assets/fonts — the WRONG directory. The real docs/assets/
-      # fonts/ stayed empty, which is why the later website publish step
-      # (a completely separate Quarto invocation with no knowledge of the
-      # Makefile) failed trying to copy a font file that was never actually
-      # placed where it expected to find it.
-      #
-      # Removing working-directory here lets `make` run from the repo root,
-      # matching DOCS_DIR's assumption, so `cd $(DOCS_DIR)` correctly enters
-      # ./docs and fonts land in docs/assets/fonts/ as intended.
       - name: Render example outputs (PDF, DOCX, PPTX, RevealJS)
         run: make assets
 
-      # Single render + publish step for the website itself. This renders
-      # index.qmd and any other website-format pages, and copies through
-      # every declared resource (favicons, fonts, the zip just built above,
-      # and the assets/ directory of rendered example outputs from the
-      # previous step) into gh-pages.
       - name: Render and publish site
         if: github.event_name != 'pull_request'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
           path: docs
-          render: true
+          render: false
