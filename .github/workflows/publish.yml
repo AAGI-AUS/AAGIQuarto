@@ -98,6 +98,23 @@ jobs:
         run: |
           quarto add AAGI-AUS/AAGIQuarto --no-prompt
 
+      - name: Create templates zip file
+        run: |
+          cd docs
+          mkdir -p _files
+          zip -r AAGI_templates.zip template*.qmd _scripts/ _includes/
+          mv AAGI_templates.zip _files/templates.zip
+
+      - name: Build assets (copy fonts + render templates)
+        run: make assets
+
+      - name: Publish (skip render)
+        if: github.event_name != 'pull_request'
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+          path: docs
+          render: true
       - name: Build assets (copy fonts + render templates)
         run: make assets
 
@@ -109,13 +126,6 @@ jobs:
           target: gh-pages
           path: docs
           render: true
-
-      - name: Create templates zip file
-        run: |
-          cd docs
-          mkdir _files
-          zip -r AAGI_templates.zip template*.qmd _scripts/ _includes/
-          mv AAGI_templates.zip _files
 
       - name: Copy favicons to gh-pages root
         run: |
