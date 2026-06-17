@@ -12,20 +12,6 @@ fonts:
 check-docs:
 	@test -d "$(DOCS_DIR)" || { echo "Error: '$(DOCS_DIR)/' directory not found. Run make from the repository root or set DOCS_DIR=/path/to/docs"; exit 1; }
 
-# FIX: --output-dir is rejected by Quarto when the file being rendered lives
-# inside a project (docs/_quarto.yml declares type: website). Quarto only
-# allows --output-dir on whole-project renders, not single-document renders
-# within a project directory:
-#   "The --output-dir flag can only be used when rendering projects."
-#
-# Each asset-* recipe below now renders WITHOUT --output-dir (so the output
-# lands next to the source .qmd, Quarto's normal single-document behaviour),
-# then moves the result into $(ASSET_DIR)/ itself with mv. This produces the
-# exact same final location as before, just via an extra explicit move step
-# instead of asking Quarto to manage the output directory.
-#
-# mkdir -p ensures $(ASSET_DIR)/ exists before the first mv runs.
-
 asset-revealjs: check-docs fonts ## Render reveal.js slides into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-revealjs.qmd" || { echo "Error: $(DOCS_DIR)/template-revealjs.qmd not found"; exit 1; }
 	mkdir -p $(DOCS_DIR)/$(ASSET_DIR)
@@ -48,13 +34,13 @@ asset-report: check-docs fonts ## Render pdf report document into $(DOCS_DIR)/$(
 	@test -f "$(DOCS_DIR)/template-pdf-report.qmd" || { echo "Error: $(DOCS_DIR)/template-pdf-report.qmd not found"; exit 1; }
 	mkdir -p $(DOCS_DIR)/$(ASSET_DIR)
 	cd $(DOCS_DIR) && quarto render template-pdf-report.qmd --to aagi-pdf+report
-	mv $(DOCS_DIR)/template-pdf-report.pdf $(DOCS_DIR)/$(ASSET_DIR)/
+	mv $(DOCS_DIR)/template-pdf-report*.pdf $(DOCS_DIR)/$(ASSET_DIR)/
 
 asset-short-report: check-docs fonts ## Render short pdf report document into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-pdf-short-report.qmd" || { echo "Error: $(DOCS_DIR)/template-pdf-short-report.qmd not found"; exit 1; }
 	mkdir -p $(DOCS_DIR)/$(ASSET_DIR)
 	cd $(DOCS_DIR) && quarto render template-pdf-short-report.qmd --to aagi-pdf+short+report
-	mv $(DOCS_DIR)/template-pdf-short-report.pdf $(DOCS_DIR)/$(ASSET_DIR)/
+	mv $(DOCS_DIR)/template-pdf-short-report*.pdf $(DOCS_DIR)/$(ASSET_DIR)/
 
 asset-pptx: check-docs fonts ## Render pptx slides into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-pptx.qmd" || { echo "Error: $(DOCS_DIR)/template-pptx.qmd not found. Add that file before using asset-pptx."; exit 1; }
