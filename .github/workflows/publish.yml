@@ -1,15 +1,16 @@
----
+
+name: demo-website
+
 on:
   push:
     branches:
       - main
       - feature/**
       - fix/**
+  pull_request:
   release:
     types: [published]
   workflow_dispatch: {}
-
-name: demo-website
 
 jobs:
   demo-page:
@@ -29,7 +30,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # recommended for versioned sites / changelogs
 
@@ -72,7 +73,7 @@ jobs:
           echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
           sudo apt-get install -y ttf-mscorefonts-installer
 
-      # NEW: Install rsvg-convert for SVG → PNG/PDF conversion
+      # Install rsvg-convert for SVG → PNG/PDF conversion
       - name: Install rsvg-convert
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -82,8 +83,7 @@ jobs:
       - name: Update font cache
         run: sudo fc-cache -fv
 
-      # Back to our regularly scheduled Quarto output
-      - name: "Set up Quarto"
+      - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: "release"
@@ -101,8 +101,9 @@ jobs:
       - name: Build assets (copy fonts + render templates)
         run: make assets
 
-      # The Makefile in / will render all the Quarto documents located in /docs/demos in this step
+      # Render handled earlier; skip here
       - name: Publish (skip render)
+        if: github.event_name != 'pull_request'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
