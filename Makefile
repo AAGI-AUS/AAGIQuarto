@@ -6,7 +6,7 @@ DOCS_DIR ?= docs
 ASSET_DIR ?= assets
 fonts:
 	mkdir -p $(DOCS_DIR)/assets/fonts
-	cp _extensions/aagi/assets/fonts/*.woff2 $(DOCS_DIR)/assets/fonts/
+	cp _extensions/AAGI-AUS/aagi/assets/fonts/*.woff2 $(DOCS_DIR)/assets/fonts/
 check-docs:
 	@test -d "$(DOCS_DIR)" || { echo "Error: '$(DOCS_DIR)/' directory not found. Run make from the repository root or set DOCS_DIR=/path/to/docs"; exit 1; }
 asset-revealjs: check-docs fonts ## Render reveal.js slides into $(DOCS_DIR)/$(ASSET_DIR)
@@ -33,6 +33,6 @@ asset-html: check-docs fonts ## Render HTML report document into $(DOCS_DIR)/$(A
 asset-short-html: check-docs fonts ## Render short HTML report document into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-html-short-report.qmd" || { echo "Error: $(DOCS_DIR)/template-html-short-report.qmd not found"; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-html-short-report.qmd --to aagi-html+short+report --output-dir $(ASSET_DIR)
-assets: fonts asset-report asset-short-report asset-docx asset-short-docx asset-html asset-short-html asset-revealjs ## Render all assets except pptx
+assets: fonts asset-report asset-short-report asset-docx asset-short-docx asset-html asset-short-html asset-revealjs asset-pptx ## Render all assets
 help: ## Show help messages for make targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-18s\033[0m %s\n", $$1, $$2}'
