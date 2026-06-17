@@ -46,7 +46,7 @@ asset-short-html: check-docs ## Render short HTML report document into $(DOCS_DI
 	cd $(DOCS_DIR) && quarto render template-html-short-report.qmd --to html+short+report --output-dir $(ASSET_DIR)
 
 # Note: --output-dir $(ASSET_DIR) is relative to $(DOCS_DIR), so outputs land in $(DOCS_DIR)/$(ASSET_DIR).
-assets: asset-report asset-short-report asset-docx asset-short-docx asset-html asset-short-html asset-revealjs ## Render all assets except pptx (template-pptx.qmd is optional)
+assets: fonts asset-report asset-short-report asset-docx asset-short-docx asset-html asset-short-html asset-revealjs ## Render all assets except pptx (template-pptx.qmd is optional)
 
 help: ## Show help messages for make targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-18s\033[0m %s\n", $$1, $$2}'
