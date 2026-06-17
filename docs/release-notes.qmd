@@ -21,7 +21,7 @@ format:
 
 ## Bug fixes 
 
-* Fix bug where example template would not render properly when using `quarto use template AAGI-AUS/AAGIQuarto` as reported by @William-Pincombe.
+* Fix bug where example template would not render properly when using `quarto use template AAGI-AUS/AAGIQuarto` as reported by [@William-Pincombe](https://github.com/William-Pincombe).
 
 * Correct colours and list formatting in CSS for HTML and Revealjs outputs.
 
