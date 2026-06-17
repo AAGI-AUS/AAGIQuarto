@@ -5,7 +5,7 @@ project:
     - favicon.ico
     - favicon.png
     - favicon.svg
-
+    - _extensions/AAGI-AUS/aagi/assets/fonts/
 website:
   title: "AAGIQuarto"
   reader-mode: true
