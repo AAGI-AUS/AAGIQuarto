@@ -8,40 +8,40 @@ ASSET_DIR ?= assets
 
 fonts:
 	mkdir -p docs/assets/fonts
-	cp _extensions/aagi/assets/fonts/*.woff2 docs/assets/fonts/
+	cp _extensions/aagi/assets/fonts/*.woff2 $(DOCS_DIR)/assets/fonts/
 
 check-docs:
 	@test -d "$(DOCS_DIR)" || { echo "Error: '$(DOCS_DIR)/' directory not found. Run make from the repository root or set DOCS_DIR=/path/to/docs"; exit 1; }
 
-asset-revealjs: check-docs ## Render reveal.js slides into $(DOCS_DIR)/$(ASSET_DIR)
+asset-revealjs: check-docs fonts ## Render reveal.js slides into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-revealjs.qmd" || { echo "Error: $(DOCS_DIR)/template-revealjs.qmd not found"; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-revealjs.qmd --to revealjs --output-dir $(ASSET_DIR)
 
-asset-docx: check-docs ## Render docx report document into $(DOCS_DIR)/$(ASSET_DIR)
+asset-docx: check-docs fonts ## Render docx report document into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-docx-report.qmd" || { echo "Error: $(DOCS_DIR)/template-docx-report.qmd not found"; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-docx-report.qmd --to docx+report --output-dir $(ASSET_DIR)
 
-asset-short-docx: check-docs ## Render short docx report document into $(DOCS_DIR)/$(ASSET_DIR)
+asset-short-docx: check-docs fonts ## Render short docx report document into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-docx-short-report.qmd" || { echo "Error: $(DOCS_DIR)/template-docx-short-report.qmd not found"; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-docx-short-report.qmd --to docx+short+report --output-dir $(ASSET_DIR)
 
-asset-report: check-docs ## Render pdf report document into $(DOCS_DIR)/$(ASSET_DIR)
+asset-report: check-docs fonts ## Render pdf report document into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-pdf-report.qmd" || { echo "Error: $(DOCS_DIR)/template-pdf-report.qmd not found"; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-pdf-report.qmd --to pdf+report --output-dir $(ASSET_DIR)
 
-asset-short-report: check-docs ## Render short pdf report document into $(DOCS_DIR)/$(ASSET_DIR)
+asset-short-report: check-docs fonts ## Render short pdf report document into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-pdf-short-report.qmd" || { echo "Error: $(DOCS_DIR)/template-pdf-short-report.qmd not found"; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-pdf-short-report.qmd --to pdf+short+report --output-dir $(ASSET_DIR)
 
-asset-pptx: check-docs ## Render pptx slides into $(DOCS_DIR)/$(ASSET_DIR)
+asset-pptx: check-docs fonts ## Render pptx slides into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-pptx.qmd" || { echo "Error: $(DOCS_DIR)/template-pptx.qmd not found. Add that file before using asset-pptx."; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-pptx.qmd --to pptx --output-dir $(ASSET_DIR)
 
-asset-html: check-docs ## Render HTML report document into $(DOCS_DIR)/$(ASSET_DIR)
+asset-html: check-docs fonts ## Render HTML report document into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-html-report.qmd" || { echo "Error: $(DOCS_DIR)/template-html-report.qmd not found"; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-html-report.qmd --to html+report --output-dir $(ASSET_DIR)
 
-asset-short-html: check-docs ## Render short HTML report document into $(DOCS_DIR)/$(ASSET_DIR)
+asset-short-html: check-docs fonts ## Render short HTML report document into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-html-short-report.qmd" || { echo "Error: $(DOCS_DIR)/template-html-short-report.qmd not found"; exit 1; }
 	cd $(DOCS_DIR) && quarto render template-html-short-report.qmd --to html+short+report --output-dir $(ASSET_DIR)
 
