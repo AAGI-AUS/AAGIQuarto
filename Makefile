@@ -6,7 +6,7 @@ DOCS_DIR ?= docs
 ASSET_DIR ?= assets
 fonts:
 	mkdir -p $(DOCS_DIR)/assets/fonts
-	cp _extensions/AAGI-AUS/aagi/assets/fonts/*.woff2 $(DOCS_DIR)/assets/fonts/
+	cp $(DOCS_DIR)/_extensions/AAGI-AUS/aagi/assets/fonts/*.woff2 $(DOCS_DIR)/assets/fonts/
 check-docs:
 	@test -d "$(DOCS_DIR)" || { echo "Error: '$(DOCS_DIR)/' directory not found. Run make from the repository root or set DOCS_DIR=/path/to/docs"; exit 1; }
 asset-revealjs: check-docs fonts ## Render reveal.js slides into $(DOCS_DIR)/$(ASSET_DIR)
