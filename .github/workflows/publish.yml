@@ -95,7 +95,10 @@ jobs:
       - name: Render example outputs (PDF, DOCX, PPTX, RevealJS)
         run: make assets
 
-      - name: Render and publish site
+      - name: Render site (create _site for publish)
++       run: quarto render docs --output-dir docs/_site
+
+      - name: Publish site
         if: github.event_name != 'pull_request'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
