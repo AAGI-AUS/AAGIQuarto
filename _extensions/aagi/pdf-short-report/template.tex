@@ -18,7 +18,10 @@
 % (Modify these if you have a need to do so, or if you have additional
 % packages that you need to load. Otherwise this configuration should
 % be left as-is.)
-\usepackage{lmodern}
+
+% microtype works with XeLaTeX but only in limited mode; it is kept for
+% the margin kerning and font expansion it does provide.
+\usepackage{fontspec}
 \usepackage{microtype}
 
 \IfFontExistsTF{Proxima Nova}{%
