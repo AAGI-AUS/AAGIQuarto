@@ -90,7 +90,7 @@ jobs:
         run: make assets
 
       - name: Render site (create _site for publish)
-        run: quarto render docs --output-dir docs/_site
+        run: cd docs && quarto render
 
       - name: Build templates zip from current source
         run: |
