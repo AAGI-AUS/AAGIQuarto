@@ -27,7 +27,7 @@ contributes:
       overview: true
       progress: true
       touch: true
-      chalkboard: true
+      chalkboard: false
       execute:
         echo: true
     pdf+report:
