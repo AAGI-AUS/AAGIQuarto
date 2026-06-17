@@ -94,8 +94,8 @@ jobs:
 
       - name: Build templates zip from current source
         run: |
-          mkdir -p docs/_files
           cd docs
+          mkdir -p _site/_files
           zip -r _site/_files/templates.zip template*.qmd _scripts/ _includes/
 
       - name: Publish site
