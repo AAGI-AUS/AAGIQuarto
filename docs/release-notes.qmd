@@ -16,14 +16,13 @@ format:
 ## Major changes 
 
 * Improved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.
-
 * Better example file rendering via Makefile.
 
 ## Bug fixes 
 
-* Fix bug where example template would not render properly when using `quarto use template AAGI-AUS/AAGIQuarto` as reported by [@William-Pincombe](https://github.com/William-Pincombe).
-
+* Fix bug where example template would not render properly when using `quarto use template AAGI-AUS/AAGIQuarto` as reported by [\@William-Pincombe](https://github.com/William-Pincombe).
 * Correct colours and list formatting in CSS for HTML and Revealjs outputs.
+* Fix download link for downloading a zip file of the demonstration templates for users to modify and use.
 
 # 1.0.1 2026-05-04
 
