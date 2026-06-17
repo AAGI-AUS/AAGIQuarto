@@ -7,8 +7,8 @@ DOCS_DIR ?= docs
 ASSET_DIR ?= assets
 
 fonts:
-    mkdir -p docs/assets/fonts
-    cp _extensions/aagi/assets/fonts/*.woff2 docs/assets/fonts/
+	mkdir -p docs/assets/fonts
+	cp _extensions/aagi/assets/fonts/*.woff2 docs/assets/fonts/
 
 check-docs:
 	@test -d "$(DOCS_DIR)" || { echo "Error: '$(DOCS_DIR)/' directory not found. Run make from the repository root or set DOCS_DIR=/path/to/docs"; exit 1; }
