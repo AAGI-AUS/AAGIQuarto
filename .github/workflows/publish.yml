@@ -102,11 +102,12 @@ jobs:
         run: make assets
 
       # The Makefile in / will render all the Quarto documents located in /docs/demos in this step
-      - name: Publish to GitHub Pages (and render)
+      - name: Publish (skip render)
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
           path: docs
+          render: false
 
       - name: Create templates zip file
         run: |
