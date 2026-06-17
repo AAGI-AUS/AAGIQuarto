@@ -31,27 +31,17 @@
 \usepackage{fontspec}
 \usepackage{microtype}
 
-% Sans-serif body font: Proxima Nova → Arial → TeX Gyre Heros
 \IfFontExistsTF{Proxima Nova}{%
-  \setsansfont{Proxima Nova}[
-    BoldFont     = {Proxima Nova Bold},
-    ItalicFont   = {Proxima Nova Italic},
-    BoldItalicFont = {Proxima Nova Bold Italic}]
+  \setsansfont{Proxima Nova}
 }{%
   \IfFontExistsTF{Arial}{%
-    \setsansfont{Arial}[
-      BoldFont     = {Arial Bold},
-      ItalicFont   = {Arial Italic},
-      BoldItalicFont = {Arial Bold Italic}]
+    \setsansfont{Arial}
   }{%
     % TeX Gyre Heros: always present in full TeX Live; Helvetica-compatible
-    \setsansfont{TeX Gyre Heros}[
-      BoldFont     = {TeX Gyre Heros Bold},
-      ItalicFont   = {TeX Gyre Heros Italic},
-      BoldItalicFont = {TeX Gyre Heros Bold Italic}]
+    \setsansfont{TeX Gyre Heros}
   }%
 }
-
+ 
 % Monospace font: Fira Code → Courier New → TeX Gyre Cursor
 \IfFontExistsTF{Fira Code}{%
   \setmonofont{Fira Code}

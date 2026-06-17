@@ -20,6 +20,29 @@
 % be left as-is.)
 \usepackage{lmodern}
 \usepackage{microtype}
+
+\IfFontExistsTF{Proxima Nova}{%
+  \setsansfont{Proxima Nova}
+}{%
+  \IfFontExistsTF{Arial}{%
+    \setsansfont{Arial}
+  }{%
+    % TeX Gyre Heros: always present in full TeX Live; Helvetica-compatible
+    \setsansfont{TeX Gyre Heros}
+  }%
+}
+ 
+% Monospace font: Fira Code → Courier New → TeX Gyre Cursor
+\IfFontExistsTF{Fira Code}{%
+  \setmonofont{Fira Code}
+}{%
+  \IfFontExistsTF{Courier New}{%
+    \setmonofont{Courier New}
+  }{%
+    \setmonofont{TeX Gyre Cursor}
+  }%
+}
+
 \usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
 \usepackage{adjustbox}
 \usepackage[title]{appendix}
