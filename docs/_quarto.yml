@@ -1,12 +1,16 @@
 ---
 project:
   type: website
+  render:
+    - index.qmd
+    - release-notes.qmd
   resources:
     - favicon.ico
     - favicon.png
     - favicon.svg
     - _extensions/AAGI-AUS/aagi/assets/fonts/
     - _files/
+    - assets/
 
 website:
   title: "AAGIQuarto"
