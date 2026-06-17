@@ -1,4 +1,4 @@
-
+---
 name: demo-website
 
 on:
@@ -15,8 +15,8 @@ on:
 jobs:
   demo-page:
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-      AAGI_AUTO_INSTALL: "true"
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      AAGI_AUTO_INSTALL: true
 
     runs-on: ubuntu-latest
 
@@ -108,7 +108,7 @@ jobs:
         with:
           target: gh-pages
           path: docs
-          render: false
+          render: true
 
       - name: Create templates zip file
         run: |
