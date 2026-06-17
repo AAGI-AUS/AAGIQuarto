@@ -92,18 +92,29 @@
     "href": "release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "Update the strategic partner logo block.\n\n\n\n\n\nFix links in README to example output files (these were working from the Quarto website but not from the README).",
+    "text": "Example template defaults to long report PDF format, no longer combining all possible formats.\n\n\n\n\n\nImproved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.\nBetter example file rendering via Makefile.\n\n\n\n\n\nFix bug where example template would not render properly when using quarto use template AAGI-AUS/AAGIQuarto as reported by (William-Pincombe?).\nCorrect colours and list formatting in CSS for HTML and Revealjs outputs.",
     "crumbs": [
       "Extra",
       "Release Notes"
     ]
   },
   {
-    "objectID": "release-notes.html#minor-changes",
-    "href": "release-notes.html#minor-changes",
+    "objectID": "release-notes.html#breaking-changes",
+    "href": "release-notes.html#breaking-changes",
     "title": "Release Notes",
     "section": "",
-    "text": "Update the strategic partner logo block.",
+    "text": "Example template defaults to long report PDF format, no longer combining all possible formats.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#major-changes",
+    "href": "release-notes.html#major-changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Improved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.\nBetter example file rendering via Makefile.",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -114,15 +125,37 @@
     "href": "release-notes.html#bug-fixes",
     "title": "Release Notes",
     "section": "",
-    "text": "Fix links in README to example output files (these were working from the Quarto website but not from the README).",
+    "text": "Fix bug where example template would not render properly when using quarto use template AAGI-AUS/AAGIQuarto as reported by (William-Pincombe?).\nCorrect colours and list formatting in CSS for HTML and Revealjs outputs.",
     "crumbs": [
       "Extra",
       "Release Notes"
     ]
   },
   {
-    "objectID": "release-notes.html#major-changes",
-    "href": "release-notes.html#major-changes",
+    "objectID": "release-notes.html#minor-changes",
+    "href": "release-notes.html#minor-changes",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nUpdate the strategic partner logo block.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#bug-fixes-1",
+    "href": "release-notes.html#bug-fixes-1",
+    "title": "Release Notes",
+    "section": "Bug fixes",
+    "text": "Bug fixes\n\nFix links in README to example output files (these were working from the Quarto website but not from the README).",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#major-changes-1",
+    "href": "release-notes.html#major-changes-1",
     "title": "Release Notes",
     "section": "Major changes",
     "text": "Major changes\n\nAdd long and short HTML format reports.",
@@ -143,8 +176,8 @@
     ]
   },
   {
-    "objectID": "release-notes.html#bug-fixes-1",
-    "href": "release-notes.html#bug-fixes-1",
+    "objectID": "release-notes.html#bug-fixes-2",
+    "href": "release-notes.html#bug-fixes-2",
     "title": "Release Notes",
     "section": "Bug fixes",
     "text": "Bug fixes\n\nEnsure that “AU” and “Adelaide University” are used in the documents.\nFix bug in “_extension.yml” where the asset for the partner logo block was incorrectly referred to.\nLint files.",
@@ -187,8 +220,8 @@
     ]
   },
   {
-    "objectID": "release-notes.html#bug-fixes-2",
-    "href": "release-notes.html#bug-fixes-2",
+    "objectID": "release-notes.html#bug-fixes-3",
+    "href": "release-notes.html#bug-fixes-3",
     "title": "Release Notes",
     "section": "Bug fixes",
     "text": "Bug fixes\n\nEnsure \\usepackage{hyperref} is called.\nSpelling corrections.",
@@ -209,8 +242,8 @@
     ]
   },
   {
-    "objectID": "release-notes.html#bug-fixes-3",
-    "href": "release-notes.html#bug-fixes-3",
+    "objectID": "release-notes.html#bug-fixes-4",
+    "href": "release-notes.html#bug-fixes-4",
     "title": "Release Notes",
     "section": "Bug fixes",
     "text": "Bug fixes\n\nFix bug in AAGI Short Report PDF format wherein using {flextable} caused the PDF to not compile properly (at all).",
@@ -231,8 +264,8 @@
     ]
   },
   {
-    "objectID": "release-notes.html#major-changes-1",
-    "href": "release-notes.html#major-changes-1",
+    "objectID": "release-notes.html#major-changes-2",
+    "href": "release-notes.html#major-changes-2",
     "title": "Release Notes",
     "section": "Major changes",
     "text": "Major changes\n\nFirst stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX.",
