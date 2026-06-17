@@ -1,0 +1,249 @@
+[
+  {
+    "objectID": "release-notes.html",
+    "href": "release-notes.html",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Example template defaults to long report PDF format, no longer combining all possible formats.\n\n\n\n\n\nImproved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.\nBetter example file rendering via Makefile.\n\n\n\n\n\nFix bug where example template would not render properly when using quarto use template AAGI-AUS/AAGIQuarto as reported by @William-Pincombe.\nCorrect colours and list formatting in CSS for HTML and Revealjs outputs.\nFix download link for downloading a zip file of the demonstration templates for users to modify and use.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#breaking-changes",
+    "href": "release-notes.html#breaking-changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Example template defaults to long report PDF format, no longer combining all possible formats.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#major-changes",
+    "href": "release-notes.html#major-changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Improved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.\nBetter example file rendering via Makefile.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#bug-fixes",
+    "href": "release-notes.html#bug-fixes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Fix bug where example template would not render properly when using quarto use template AAGI-AUS/AAGIQuarto as reported by @William-Pincombe.\nCorrect colours and list formatting in CSS for HTML and Revealjs outputs.\nFix download link for downloading a zip file of the demonstration templates for users to modify and use.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes",
+    "href": "release-notes.html#minor-changes",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nUpdate the strategic partner logo block.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#bug-fixes-1",
+    "href": "release-notes.html#bug-fixes-1",
+    "title": "Release Notes",
+    "section": "Bug fixes",
+    "text": "Bug fixes\n\nFix links in README to example output files (these were working from the Quarto website but not from the README).",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#major-changes-1",
+    "href": "release-notes.html#major-changes-1",
+    "title": "Release Notes",
+    "section": "Major changes",
+    "text": "Major changes\n\nAdd long and short HTML format reports.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-1",
+    "href": "release-notes.html#minor-changes-1",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nFix Adelaide University in parameters of “template.qmd”.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#bug-fixes-2",
+    "href": "release-notes.html#bug-fixes-2",
+    "title": "Release Notes",
+    "section": "Bug fixes",
+    "text": "Bug fixes\n\nEnsure that “AU” and “Adelaide University” are used in the documents.\nFix bug in “_extension.yml” where the asset for the partner logo block was incorrectly referred to.\nLint files.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-2",
+    "href": "release-notes.html#minor-changes-2",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nUpdate SP logo block to use new AU logo and new order.\nPolish extension contents, delete extra files, lint and format files.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-3",
+    "href": "release-notes.html#minor-changes-3",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nMore polishing missed in last round, e.g., duplicated labels, etc.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-4",
+    "href": "release-notes.html#minor-changes-4",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nSet language in Word document templates to en-AU.\nEnhance installation instructions.\nAdd header and footer to full length reports.\nInstall AAGI R packages using R-Universe methods.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#bug-fixes-3",
+    "href": "release-notes.html#bug-fixes-3",
+    "title": "Release Notes",
+    "section": "Bug fixes",
+    "text": "Bug fixes\n\nEnsure \\usepackage{hyperref} is called.\nSpelling corrections.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-5",
+    "href": "release-notes.html#minor-changes-5",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nAdd example using {flextable} in AAGI Short Report PDF format document.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#bug-fixes-4",
+    "href": "release-notes.html#bug-fixes-4",
+    "title": "Release Notes",
+    "section": "Bug fixes",
+    "text": "Bug fixes\n\nFix bug in AAGI Short Report PDF format wherein using {flextable} caused the PDF to not compile properly (at all).",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#minor-changes-6",
+    "href": "release-notes.html#minor-changes-6",
+    "title": "Release Notes",
+    "section": "Minor changes",
+    "text": "Minor changes\n\nAdd example outputs for reports using AAGI themes for graphs and tables.\nAdd starter pack instructions for easily creating an AAGI file rather than setting up your own YAML.\nFix links in README.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "release-notes.html#major-changes-2",
+    "href": "release-notes.html#major-changes-2",
+    "title": "Release Notes",
+    "section": "Major changes",
+    "text": "Major changes\n\nFirst stable release with support for MS Word, PowerPoint, revealjs and long and short report PDF outputs with LaTeX.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "The AAGIQuarto Quarto extension provides official Analytics for the Australian Grains Industry (AAGI) project theming for Quarto documents. If you prefer to use R Markdown, please see the excellent {AAGITemplates} package, which AAGIQuarto has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools. AAGIQuarto was developed to provide next-generation literate programming tools for AAGI’s reporting and presentation needs that support R, Python and Julia languages.\n\n\nSee the included template and demo file for each format here:\n\n\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\nAAGI HTML Document Report: AAGI HTML Document Demo (Source)\nAAGI HTML Document Short Report: AAGI HTML Document Short Demo (Source)\n\n\n\n\n\nAAGI revealjs Presentation: AAGI revealjs Slide Demo (Source) (this is an AAGIQuarto exclusive)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)\n\n\n\nYou can download a .zip file of all of these templates for your own use if you would like, you will need to install the AAGIQuarto extension in the root directory where you intend to use it/them.\n\n\n\n\n\n\n\nIf you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. Go here for instructions on how to install Quarto.\n\n\n\nUse your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code (including VSCodium or Positron) you can use the terminal emulator, but not the R, Python, or Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the bash command. For more information, see Microsoft’s documentation.\nYou can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):\ncd your_quarto_project_folder\nquarto use template AAGI-AUS/AAGIQuarto\nThis will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.\n\n\n\nIf you wish to use get the extension but not use the supplied default template, you can use the following command:\ncd your quarto_project_folder\nquarto add AAGI-AUS/AAGIQuarto\nThis will add the AAGIQuarto extension only to the directory and you can create your own Qmd file.\n\n\n\n\nFor documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docxreport, for a full length MS Word report\naagi-docxshortreport, for a short MS Word report\naagi-htmlreport, for a full length HTML report\naagi-htmlshortreport, for a short HTML report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdfreport, for a full length PDF report\naagi-pdfshortreport, for a short PDF report\n\nSee all available document formats using quarto use template --list AAGI-AUS/AAGIQuarto.\n\n\nIf you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.\nBy default, these templates use {AAGIThemes} and {AAGIPalettes} for R graphical and tabular outputs.\n\n\n\n\nAs we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so. Navigate to your Quarto project folder if you aren’t already there:\ncd your_quarto_project_folder\nquarto update AAGI-AUS/AAGIQuarto\n\n\n\nThe logos for this project and AAGI strategic partners do not come under the MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo, and the Grains Research and Development Corporation (GRDC) and strategic partners, Adelaide University, Curtin University, and the University of Queensland retain full rights to their respective logos.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#template-formats",
+    "href": "index.html#template-formats",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "See the included template and demo file for each format here:\n\n\n\nAAGI PDF Short Report: AAGI PDF Short Report Demo (Source)\nAAGI PDF Report: AAGI PDF Report Demo (Source)\nAAGI Word Document Report: AAGI Word Document Demo (Source)\nAAGI Word Document Short Report: AAGI Word Document Short Demo (Source)\nAAGI HTML Document Report: AAGI HTML Document Demo (Source)\nAAGI HTML Document Short Report: AAGI HTML Document Short Demo (Source)\n\n\n\n\n\nAAGI revealjs Presentation: AAGI revealjs Slide Demo (Source) (this is an AAGIQuarto exclusive)\nAAGI PowerPoint Presentation: AAGI PPT Slide Demo (Source)\n\n\n\nYou can download a .zip file of all of these templates for your own use if you would like, you will need to install the AAGIQuarto extension in the root directory where you intend to use it/them.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#installing",
+    "href": "index.html#installing",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "If you do not have Quarto installed on your device (and are not already using RStudio, which includes it by default), you will need to do that first. Go here for instructions on how to install Quarto.\n\n\n\nUse your terminal or command prompt to run the install commands. Alternatively, if you use RStudio or VS Code (including VSCodium or Positron) you can use the terminal emulator, but not the R, Python, or Julia REPL (read-eval-print-loop console), in those integrated development environments (IDE) to run the commands. Or, if you prefer and you are using Windows, you may need to install the Windows Subsystem for Linux (WSL) to use the bash command. For more information, see Microsoft’s documentation.\nYou can obtain a copy of the extension by using the following commands in your Bash terminal (CLI):\ncd your_quarto_project_folder\nquarto use template AAGI-AUS/AAGIQuarto\nThis will install the extension and create an example qmd file that you can use as a starting place for your LaTeX PDF, MS Word .docx or reveal.js presentation slides.\n\n\n\nIf you wish to use get the extension but not use the supplied default template, you can use the following command:\ncd your quarto_project_folder\nquarto add AAGI-AUS/AAGIQuarto\nThis will add the AAGIQuarto extension only to the directory and you can create your own Qmd file.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#using",
+    "href": "index.html#using",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "For documentation on using reveal.js slides in Quarto, please see, https://quarto.org/docs/presentations/revealjs/.\nTo use the formatted output, save your qmd file into the extension folder that you created using the command above. Then, in the output format use:\n\naagi-docxreport, for a full length MS Word report\naagi-docxshortreport, for a short MS Word report\naagi-htmlreport, for a full length HTML report\naagi-htmlshortreport, for a short HTML report\naagi-pptx, for MS PPT output\naagi-revealjs, for a revealjs presentation\naagi-pdfreport, for a full length PDF report\naagi-pdfshortreport, for a short PDF report\n\nSee all available document formats using quarto use template --list AAGI-AUS/AAGIQuarto.\n\n\nIf you use the Bash command above to install the extension and create a sub directory following the command prompt, there will be a .qmd file created using the name that you input for the sub directory.\nBy default, these templates use {AAGIThemes} and {AAGIPalettes} for R graphical and tabular outputs.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#updating",
+    "href": "index.html#updating",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "As we continue to improve this extension through bug fixes or adding new functionality, you can update it easily like so. Navigate to your Quarto project folder if you aren’t already there:\ncd your_quarto_project_folder\nquarto update AAGI-AUS/AAGIQuarto",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#logo-rights",
+    "href": "index.html#logo-rights",
+    "title": "AAGI Quarto Templates Extension",
+    "section": "",
+    "text": "The logos for this project and AAGI strategic partners do not come under the MIT License. The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo, and the Grains Research and Development Corporation (GRDC) and strategic partners, Adelaide University, Curtin University, and the University of Queensland retain full rights to their respective logos.",
+    "crumbs": [
+      "Home"
+    ]
+  }
+]
