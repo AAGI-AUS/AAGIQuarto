@@ -40,7 +40,7 @@ $presentation-font-size-root:  2em;
 // Local Fira Code font — files must exist at assets/fonts/ (see note above)
 @font-face {
   font-family: "Fira Code";
-  src: url("FiraCode-Regular.woff2") format("woff2");
+  src: url("assets/fonts/FiraCode-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -48,7 +48,7 @@ $presentation-font-size-root:  2em;
 
 @font-face {
   font-family: "Fira Code";
-  src: url("FiraCode-Medium.woff2") format("woff2");
+  src: url("assets/fonts/FiraCode-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -56,7 +56,7 @@ $presentation-font-size-root:  2em;
 
 @font-face {
   font-family: "Fira Code";
-  src: url("FiraCode-Bold.woff2") format("woff2");
+  src: url("assets/fonts/FiraCode-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
