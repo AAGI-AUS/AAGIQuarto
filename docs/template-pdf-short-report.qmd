@@ -3,11 +3,11 @@ format:
   aagi-pdf+short+report:
     fig-path: figures/pdf-short-report/
 
-params:
-  report_title: "Example Short Report"
-
 execute:
   echo: false
+
+params:
+  report_title: "Example Short Report"
 
 date: last-modified
 date-format: long

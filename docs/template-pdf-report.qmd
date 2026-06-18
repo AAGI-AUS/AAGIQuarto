@@ -2,8 +2,10 @@
 format:
   aagi-pdf+report:
     fig-path: figures/pdf-report/
+
 execute:
   echo: false
+
 params:
   aagi_staff: "your_name"
   project_code: "ABC2026-001ABC"
@@ -16,15 +18,28 @@ date: last-modified
 date-format: long
 bibliography: references.bib
 
+# ✅ REQUIRED for full report
 has-title-page: true
 
-title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
-subtitle: "`r sprintf('%s Report for %s', params$report_title, params$project_code)`"
+title: !expr sprintf(
+  "Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123",
+  params$uni_info[[params$uni]]$name,
+  params$uni
+)
+
+subtitle: !expr sprintf(
+  "%s Report for %s",
+  params$report_title,
+  params$project_code
+)
+
 author:
-  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
-  - "`r sprintf('Prepared by: %s', params$aagi_staff)`"
-university: "`r params$uni_info[[params$uni]]$name`"
-email: "`r params$aagi_email`"
+  - !expr sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)
+  - !expr sprintf("Prepared by: %s", params$aagi_staff)
+
+university: !expr params$uni_info[[params$uni]]$name
+
+correspondence-email: !expr params$aagi_email
 ---
 
 ```{r}
