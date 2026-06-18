@@ -49,10 +49,12 @@
 %% Layout + packages
 %% --------------------------------------------------------------------------
 \usepackage[paper=a4paper,top=30mm,left=20mm,right=20mm,bottom=25mm]{geometry}
+\usepackage{array}
 \usepackage{adjustbox}
 \usepackage{parskip}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{csquotes}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
@@ -72,6 +74,9 @@
 \setlength{\parindent}{0cm}
 \setlength{\headheight}{14pt}
 
+\newlength{\Oldarrayrulewidth}
+\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
 %% --------------------------------------------------------------------------
 %% Commands
 %% --------------------------------------------------------------------------
@@ -82,7 +87,6 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % Pandoc citation compatibility
-\usepackage{csquotes}
 \providecommand{\citeproc}[2]{#2}
 \providecommand{\citeproctext}[1]{#1}
 \providecommand{\citeprocstd}[2]{#2}
