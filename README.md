@@ -6,6 +6,8 @@ The `AAGIQuarto` Quarto extension provides official Analytics for the Australian
 If you prefer to use R Markdown, please see the excellent [{AAGITemplates}](https://github.com/AAGI-AUS/AAGITemplates) package, which `AAGIQuarto` has feature parity with and shares the same underlying AAGI templates for the individual AAGI documents so that the outputs should be similar if not identical between these two tools.
 `AAGIQuarto` was developed to provide next-generation literate programming tools for AAGI's reporting and presentation needs that support R, Python and Julia languages.
 
+Please note that due to the nature of the work done in AAGI, `AAGIQuarto` relies heavily on the R programming language for its templates and so R is expected to be installed if you wish to render the examples and use theming functionality for tables and graphs.
+
 ## Template Formats
 
 See the included template and demo file for each format here:
