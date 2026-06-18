@@ -16,6 +16,8 @@ date: last-modified
 date-format: long
 bibliography: references.bib
 
+has-title-page: true
+
 title: "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123', params$uni_info[[params$uni]]$name, params$uni)`"
 subtitle: "`r sprintf('%s Report for %s', params$report_title, params$project_code)`"
 author:
@@ -30,19 +32,8 @@ email: "`r params$aagi_email`"
 #| include: false
 #| message: false
 
-source("_scripts/setup_reports.R", local = TRUE)
+source(file.path("_scripts", "setup_reports.R", local = TRUE))
 ```
-
-\newpage
-
-```{=latex}
-\clearpage
-\setcounter{page}{1}
-```
-
-\tableofcontents
-
-\newpage
 
 # Executive summary
 
@@ -61,6 +52,7 @@ What was provided by AAGI and the main results?
 # Exploratory Data Analysis and Data Visualisation
 
 - Interpretation of plots and data.
+- Citation [@Box1976]. 
 
 # Methods
 

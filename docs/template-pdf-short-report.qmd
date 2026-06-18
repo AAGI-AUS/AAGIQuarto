@@ -2,8 +2,10 @@
 format:
   aagi-pdf+short+report:
     fig-path: figures/pdf-short-report/
+
 params:
   report_title: "Example Short Report"
+
 execute:
   echo: false
 
@@ -16,7 +18,7 @@ bibliography: references.bib
 #| include: false
 #| message: false
 
-source("_scripts/setup_reports.R", local = TRUE)
+source(file.path("_scripts", "setup_reports.R", local = TRUE))
 ```
 
 # Section
@@ -84,5 +86,5 @@ ft
 
 # Next Section
 
-Add as many sections as needed.
+Add as many sections as needed [@blah].
 
