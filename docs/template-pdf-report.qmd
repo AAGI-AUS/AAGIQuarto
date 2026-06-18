@@ -21,7 +21,7 @@ bibliography: references.bib
 
 has-title-page: true
 
-title: '`r sprintf("Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123", uni_info[[params$uni]]$name, params$uni)`'
+title: '`r sprintf("Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123", params$uni_info[[params$uni]]$name, params$uni)`'
 
 subtitle: '`r sprintf("%s Report for %s", params$report_title, params$project_code)`'
 
@@ -29,7 +29,7 @@ author:
   - '`r sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)`'
   - '`r sprintf("Prepared by: %s", params$aagi_staff)`'
 
-university: '`r uni_info[[params$uni]]$name`'
+university: '`r params$uni_info[[params$uni]]$name`'
 correspondence-email: '`r params$aagi_email`'
 ---
 
