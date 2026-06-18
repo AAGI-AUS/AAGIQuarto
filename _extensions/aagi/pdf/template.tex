@@ -60,7 +60,6 @@
 \usepackage{fancyvrb}
 \usepackage{rotating}
 \usepackage{graphicx}
-\usepackage{lipsum}
 \usepackage{hhline}
 \usepackage{float}
 \usepackage{colortbl}
@@ -139,6 +138,14 @@
   breakable
 }
 
+\makeatletter
+\setkeys{Gin}{
+  width=\linewidth,
+  height=\textheight,
+  keepaspectratio
+}
+\makeatother
+
 %% --------------------------------------------------------------------------
 %% Headers + footers
 %% --------------------------------------------------------------------------
@@ -149,21 +156,29 @@
 
 \fancypagestyle{firstpage}{
   \fancyhf{}
+
+  % Top-right logo
   \fancyhead[R]{
     \IfFileExists{AAGI_logo.pdf}{
       \includegraphics[height=2.3cm]{AAGI_logo.pdf}
     }{}
   }
+
+  % Footer logo (constrained and stable)
   \fancyfoot[C]{
+    \vspace{5mm}
     \IfFileExists{AAGI_SP_Logo_Block-Portrait.pdf}{
-      \includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait.pdf}
+      \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait.pdf}
     }{}
   }
 }
 
 \fancypagestyle{bibliography}{
+  \fancyhf{}
   \fancyhead[L]{\sffamily References}
+  \fancyfoot[C]{\sffamily \thepage}
 }
+
 
 %% --------------------------------------------------------------------------
 %% Hyperref
