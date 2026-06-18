@@ -1,0 +1,187 @@
+% LaTeX template for AAGI Reports (Unified)
+% Supports both Full + Short reports
+% Date last modified: 18/06/2026
+
+\documentclass[12pt]{article}
+
+%% --------------------------------------------------------------------------
+%% AAGI colours
+%% --------------------------------------------------------------------------
+\usepackage[dvipsnames,table]{xcolor}
+\definecolor{aagibrightgreen}{HTML}{B6D438}
+\definecolor{aagiteal}{HTML}{00808B}
+\definecolor{aagiblue}{HTML}{648FD2}
+\definecolor{aagigreen}{HTML}{54921E}
+\definecolor{aagiyellow}{HTML}{FFBC42}
+\definecolor{aagiorange}{HTML}{EC8525}
+\definecolor{aagiblack}{HTML}{414042}
+\definecolor{aagigrey}{HTML}{F2F2F2}
+
+%% --------------------------------------------------------------------------
+%% Fonts (shared)
+%% --------------------------------------------------------------------------
+\usepackage{fontspec}
+\usepackage{microtype}
+
+\IfFontExistsTF{Proxima Nova}{
+  \setsansfont{Proxima Nova}
+}{
+  \IfFontExistsTF{Arial}{
+    \setsansfont{Arial}
+  }{
+    \setsansfont{TeX Gyre Heros}
+  }
+}
+
+\IfFontExistsTF{Fira Code}{
+  \setmonofont{Fira Code}
+}{
+  \IfFontExistsTF{Courier New}{
+    \setmonofont{Courier New}
+  }{
+    \setmonofont{TeX Gyre Cursor}
+  }
+}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+%% --------------------------------------------------------------------------
+%% Layout + core packages (shared superset)
+%% --------------------------------------------------------------------------
+\usepackage[paper=a4paper,top=30mm,left=20mm,right=20mm,bottom=25mm]{geometry}
+\usepackage{adjustbox}
+\usepackage[title]{appendix}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{fontawesome5}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+
+\captionsetup{font={sf}}
+\setlength{\LTcapwidth}{\textwidth}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{2.5ex}
+\setlength{\headheight}{14pt}
+
+%% --------------------------------------------------------------------------
+%% Commands
+%% --------------------------------------------------------------------------
+\newcommand{\HRule}{\hspace{-20mm}\rule{160mm}{0.6mm}}
+
+%% Metadata
+\newcommand{\myuniversity}{$if(university)$$university$$else$University Name$endif$}
+\newcommand{\myaaginode}{$if(aagi-node)$$aagi-node$$else$AAGI-XX$endif$}
+\newcommand{\myprogram}{$if(program)$$program$$else$AAGI Program$endif$}
+\newcommand{\myemail}{$if(correspondence-email)$$correspondence-email$$else$your.email@example.edu.au$endif$}
+
+%% --------------------------------------------------------------------------
+%% Notes box
+%% --------------------------------------------------------------------------
+\newtcolorbox{note}[1][]{
+  colback=aagiteal!7,
+  colframe=aagiteal!7,
+  sharp corners,
+  borderline west={2pt}{0pt}{aagiteal},
+  borderline east={2pt}{0pt}{aagiteal},
+  enhanced,
+  breakable
+}
+
+%% --------------------------------------------------------------------------
+%% Headers + footers
+%% --------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\leftmark}
+\fancyfoot[C]{\sffamily \thepage}
+
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \fancyhead[R]{\includegraphics[height=2.3cm]{AAGI_logo.pdf}}
+  \fancyfoot[C]{\includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait.pdf}}
+}
+
+\fancypagestyle{bibliography}{
+  \fancyhead[L]{\sffamily References}
+}
+
+%% --------------------------------------------------------------------------
+%% Hyperref
+%% --------------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=aagiteal,
+  citecolor=aagiteal,
+  urlcolor=aagiteal
+}
+
+%% --------------------------------------------------------------------------
+%% Document
+%% --------------------------------------------------------------------------
+\begin{document}
+
+%% =======================
+%% OPTIONAL TITLE PAGE
+%% =======================
+
+$if(has-title-page)$
+\thispagestyle{empty}
+
+\begin{center}
+  \includegraphics[height=3cm]{AAGI_logo.pdf}
+\end{center}
+
+\vspace{1.5cm}
+
+\begin{flushright}
+  \HRule\\[5mm]
+
+  {\Large\sbf$if(title)$$title$$else$Title$endif$}\\[4pt]
+  {\large\sbf$if(subtitle)$$subtitle$$endif$}\\[6mm]
+
+  Prepared by:\\
+  {\sbf $if(author)$$for(author)$$author$$sep$\\$endfor$$endif$}
+
+  \vspace{5mm}
+
+  \texttt{\href{mailto:\myemail}{\myemail}}
+
+  \\[5mm]
+  \today
+
+  \HRule
+\end{flushright}
+
+\clearpage
+$endif$
+
+%% =======================
+%% CONTENT
+%% =======================
+
+\thispagestyle{firstpage}
+
+$body$
+
+%% =======================
+%% REFERENCES (always emitted)
+%% =======================
+
+\clearpage
+\phantomsection
+\pagestyle{bibliography}
+\addcontentsline{toc}{section}{References}
+$references$
+
+\end{document}
