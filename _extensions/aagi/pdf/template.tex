@@ -1,6 +1,6 @@
 % LaTeX template for AAGI Reports (Unified)
-% Supports both Full + Short reports
-% Date last modified: 18/06/2026
+% Pandoc-safe, CI-safe
+% Date: 18/06/2026
 
 \documentclass[12pt]{article}
 
@@ -18,7 +18,7 @@
 \definecolor{aagigrey}{HTML}{F2F2F2}
 
 %% --------------------------------------------------------------------------
-%% Fonts (shared)
+%% Fonts
 %% --------------------------------------------------------------------------
 \usepackage{fontspec}
 \usepackage{microtype}
@@ -46,11 +46,10 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 %% --------------------------------------------------------------------------
-%% Layout + core packages (shared superset)
+%% Layout + packages
 %% --------------------------------------------------------------------------
 \usepackage[paper=a4paper,top=30mm,left=20mm,right=20mm,bottom=25mm]{geometry}
 \usepackage{adjustbox}
-\usepackage[title]{appendix}
 \usepackage{parskip}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -70,13 +69,12 @@
 \captionsetup{font={sf}}
 \setlength{\LTcapwidth}{\textwidth}
 \setlength{\parindent}{0cm}
-\setlength{\parskip}{2.5ex}
 \setlength{\headheight}{14pt}
 
 %% --------------------------------------------------------------------------
 %% Commands
 %% --------------------------------------------------------------------------
-\newcommand{\HRule}{\hspace{-20mm}\rule{160mm}{0.6mm}}
+\newcommand{\HRule}{\rule{\linewidth}{0.6mm}}
 
 %% Metadata
 \newcommand{\sbf}{\sffamily\bfseries}
@@ -88,7 +86,7 @@
 %% --------------------------------------------------------------------------
 %% Notes box
 %% --------------------------------------------------------------------------
-\newtcolorbox{note}[1][]{
+\newtcolorbox{note}{
   colback=aagiteal!7,
   colframe=aagiteal!7,
   sharp corners,
@@ -108,8 +106,16 @@
 
 \fancypagestyle{firstpage}{
   \fancyhf{}
-  \fancyhead[R]{\includegraphics[height=2.3cm]{AAGI_logo.pdf}}
-  \fancyfoot[C]{\includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait.pdf}}
+  \fancyhead[R]{
+    \IfFileExists{AAGI_logo.pdf}{
+      \includegraphics[height=2.3cm]{AAGI_logo.pdf}
+    }{}
+  }
+  \fancyfoot[C]{
+    \IfFileExists{AAGI_SP_Logo_Block-Portrait.pdf}{
+      \includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait.pdf}
+    }{}
+  }
 }
 
 \fancypagestyle{bibliography}{
@@ -140,27 +146,39 @@ $if(has-title-page)$
 \thispagestyle{empty}
 
 \begin{center}
-  \includegraphics[height=3cm]{AAGI_logo.pdf}
+  \IfFileExists{AAGI_logo.pdf}{
+    \includegraphics[height=3cm]{AAGI_logo.pdf}
+  }{}
 \end{center}
 
 \vspace{1.5cm}
 
 \begin{flushright}
-  \HRule\\[5mm]
 
-  {\Large{\sbf $if(title)$$title$$else$Title$endif$}}\\[4pt]
-    {\large{\sbf $if(subtitle)$$subtitle$$endif$}}\\[6mm]
+  \HRule
+  \vspace{5mm}
 
-  Prepared by:\\
+  {\Large{\sbf $if(title)$$title$$else$Title$endif$}}
+  \vspace{4pt}
+
+  {\large{\sbf $if(subtitle)$$subtitle$$endif$}}
+  \vspace{6mm}
+
+  Prepared by:
+  \vspace{2mm}
+
   {\sbf $if(author)$$for(author)$$author$$sep$\\$endfor$$endif$}
 
   \vspace{5mm}
 
   \texttt{\href{mailto:\myemail}{\myemail}}
+
   \vspace{5mm}
   \today
 
+  \vspace{5mm}
   \HRule
+
 \end{flushright}
 
 \clearpage
@@ -175,13 +193,15 @@ $endif$
 $body$
 
 %% =======================
-%% REFERENCES (always emitted)
+%% REFERENCES (SAFE)
 %% =======================
 
+$if(references)$
 \clearpage
 \phantomsection
 \pagestyle{bibliography}
 \addcontentsline{toc}{section}{References}
 $references$
+$endif$
 
 \end{document}
