@@ -1,5 +1,5 @@
 % LaTeX template for AAGI Short/Interim Reports
-% Date last modified: 10/11/2025
+% Date last modified: 18/06/2026
 
 \documentclass[12pt]{article}
 
@@ -295,8 +295,12 @@ plot(pressure)
   \verb|\myemail| in the preamble for standalone LaTeX use).
 
   \phantomsection
-  \addcontentsline{toc}{section}{References}
-  \bibliographystyle{plainnat}
-  \bibliography{$bibliography$}
+
+  $if(bibliography)$
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{References}
+    $references$
+  $endif$
 
 \end{document}

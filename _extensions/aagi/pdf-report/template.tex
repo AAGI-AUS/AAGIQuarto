@@ -1,5 +1,5 @@
 % LaTeX template for AAGI Reports
-% Date last modified: 07/11/2025
+% Date last modified: 18/06/2026
 
 \documentclass[12pt]{article}
 
@@ -339,10 +339,13 @@
   \end{appendices}
 
   \clearpage
-  \phantomsection
-  \pagestyle{bibliography}
-  \addcontentsline{toc}{section}{References}
-  \bibliographystyle{plainnat}
-  \bibliography{$bibliography$}
+
+  $if(bibliography)$
+    \clearpage
+    \phantomsection
+    \pagestyle{bibliography}
+    \addcontentsline{toc}{section}{References}
+    $references$
+  $endif$
 
 \end{document}
