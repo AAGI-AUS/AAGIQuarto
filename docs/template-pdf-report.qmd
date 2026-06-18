@@ -32,7 +32,7 @@ email: "`r params$aagi_email`"
 #| include: false
 #| message: false
 
-source(file.path("_scripts", "setup_reports.R", local = TRUE))
+source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 ```
 
 # Executive summary

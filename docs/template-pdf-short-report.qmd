@@ -18,7 +18,7 @@ bibliography: references.bib
 #| include: false
 #| message: false
 
-source(file.path("_scripts", "setup_reports.R", local = TRUE))
+source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 ```
 
 # Section

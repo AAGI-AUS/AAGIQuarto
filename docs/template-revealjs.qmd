@@ -24,7 +24,7 @@ author:
 #| include: false
 #| message: false
 
-source("_scripts/setup_presentations.R", local = TRUE)
+source(file.path("_scripts", "setup_presentations.R"), local = TRUE)
 
 try(ggplot2::theme_set(AAGIThemes::theme_aagi()), silent = TRUE)
 try(
