@@ -21,11 +21,16 @@ bibliography: references.bib
 
 has-title-page: true
 
-title: ""
-subtitle: ""
-author: []
-university: ""
-correspondence-email: ""
+title: '`r sprintf("Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123", uni_info[[params$uni]]$name, params$uni)`'
+
+subtitle: '`r sprintf("%s Report for %s", params$report_title, params$project_code)`'
+
+author:
+  - '`r sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)`'
+  - '`r sprintf("Prepared by: %s", params$aagi_staff)`'
+
+university: '`r uni_info[[params$uni]]$name`'
+correspondence-email: '`r params$aagi_email`'
 ---
 
 ```{r}
@@ -34,35 +39,6 @@ correspondence-email: ""
 #| message: false
 
 source(file.path("_scripts", "setup_reports.R"), local = TRUE)
-
-# ✅ build metadata cleanly in R
-meta <- list(
-  title = sprintf(
-    "Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123",
-    params$uni_info[[params$uni]]$name,
-    params$uni
-  ),
-  subtitle = sprintf(
-    "%s Report for %s",
-    params$report_title,
-    params$project_code
-  ),
-  author = c(
-    sprintf("Prepared for: %s (%s)", params$partner, params$partner_email),
-    sprintf("Prepared by: %s", params$aagi_staff)
-  ),
-  university = params$uni_info[[params$uni]]$name,
-  `correspondence-email` = params$aagi_email
-)
-
-# ✅ inject into Pandoc metadata
-knitr::knit_meta_add(list(
-  list(
-    pandoc = list(
-      meta = meta
-    )
-  )
-))
 ```
 
 # Executive summary
