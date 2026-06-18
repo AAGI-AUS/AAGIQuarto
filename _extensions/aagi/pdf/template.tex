@@ -95,12 +95,18 @@
 \providecommand{\citeproctext}[1]{#1}
 \providecommand{\citeprocstd}[2]{#2}
 
-% Pandoc CSL references environment
+% Pandoc CSL references environment (robust)
 \newenvironment{CSLReferences}[2]
  {%
-  \setlength{\parindent}{0pt}
-  \setlength{\parskip}{\baselineskip}
- }{}
+  \begin{list}{}{%
+    \setlength{\leftmargin}{0pt}
+    \setlength{\itemindent}{0pt}
+    \setlength{\itemsep}{\baselineskip}
+    \setlength{\labelwidth}{0pt}
+    \setlength{\labelsep}{0pt}
+  }
+ }
+ {\end{list}}
 
 %% Metadata
 \newcommand{\sbf}{\sffamily\bfseries}
