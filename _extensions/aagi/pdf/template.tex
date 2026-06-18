@@ -90,9 +90,15 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Pandoc citation compatibility
+% Pandoc citation compatibility (robust final)
+\usepackage{csquotes}
+
+% Inline citations
 \providecommand{\citeproc}[2]{#2}
-\providecommand{\citeproctext}[1]{#1}
+
+% CRITICAL: prevent optional argument breakage in \bibitem
+\providecommand{\citeproctext}[1]{}
+
 \providecommand{\citeprocstd}[2]{#2}
 
 % Pandoc CSL references environment (robust)
