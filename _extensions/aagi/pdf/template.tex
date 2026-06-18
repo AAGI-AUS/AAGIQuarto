@@ -80,6 +80,12 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% Pandoc citation compatibility
+\usepackage{csquotes}
+\providecommand{\citeproc}[2]{#2}
+\providecommand{\citeproctext}[1]{#1}
+\providecommand{\citeprocstd}[2]{#2}
+
 %% Metadata
 \newcommand{\sbf}{\sffamily\bfseries}
 \newcommand{\myuniversity}{$if(university)$$university$$else$University Name$endif$}
