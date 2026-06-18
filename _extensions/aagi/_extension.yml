@@ -30,30 +30,26 @@ contributes:
       chalkboard: false
       execute:
         echo: true
-    pdf+report:
+    pdf-report:
       template: pdf/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
-      link-citations: true
-      resources:
-        - assets/AAGI_logo.pdf
-        - assets/AAGI_SP_Logo_Block-Portrait.pdf
-      format-resources:
-        - assets/AAGI_logo.pdf
-        - assets/AAGI_SP_Logo_Block-Portrait.pdf
-        - assets/biometrics.csl
-    pdf+short+report:
-      template: pdf/template.tex
+      fig-format: pdf
+      partials:
+        - partials/preamble.tex
+        - partials/pagestyle.tex
+        - partials/header.tex
+        - partials/footer.tex
+    pdf-short-report:
+      template: pdf-short/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
-      link-citations: true
-      resources:
-        - assets/AAGI_logo.pdf
-        - assets/AAGI_SP_Logo_Block-Portrait.pdf
-      format-resources:
-        - assets/AAGI_logo.pdf
-        - assets/AAGI_SP_Logo_Block-Portrait.pdf
-        - assets/biometrics.csl
+      fig-format: pdf
+      partials:
+        - partials/preamble.tex
+        - partials/pagestyle.tex
+        - partials/header.tex
+        - partials/footer.tex
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
@@ -91,3 +87,5 @@ contributes:
         - assets/fonts/FiraCode-Regular.woff2
         - assets/fonts/FiraCode-Medium.woff2
         - assets/fonts/FiraCode-Bold.woff2
+  resources:
+    - assets/**

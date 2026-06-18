@@ -154,7 +154,7 @@ if (knitr::is_latex_output()) {
   knitr::opts_chunk$set(dev = "ragg_png", dpi = 192.0)
 }
 
-knitr::opts_chunk$set(fig.pos = "H")
+knitr::opts_chunk$set(fig.pos = "H", out.width = "100%")
 
 # ---------------------------------------------------------------------------
 # Load and configure AAGI packages

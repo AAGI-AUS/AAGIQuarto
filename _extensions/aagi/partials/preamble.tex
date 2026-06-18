@@ -1,0 +1,67 @@
+% --- Fonts ---
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \usepackage{fontspec}
+  \usepackage{microtype}
+
+  \IfFontExistsTF{Proxima Nova}{
+    \setsansfont{Proxima Nova}
+  }{
+    \IfFontExistsTF{Arial}{
+      \setsansfont{Arial}
+    }{
+      \setsansfont{TeX Gyre Heros}
+    }
+  }
+
+  \IfFontExistsTF{Fira Code}{
+    \setmonofont{Fira Code}
+  }{
+    \setmonofont{TeX Gyre Cursor}
+  }
+
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% --- Layout ---
+\usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
+
+% --- Graphics ---
+\usepackage{graphicx}
+\graphicspath{{./_extensions/aagi/assets/}{./assets/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+% --- Core packages ---
+\usepackage{amsmath,amssymb}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{csquotes}
+
+% --- Colours ---
+\definecolor{aagiteal}{HTML}{00808B}
+\definecolor{aagigreen}{HTML}{B6D438}
+\definecolor{aagiblack}{HTML}{414042}
+\definecolor{aagigrey}{HTML}{808080}
+
+% --- Pandoc CSL ---
+\providecommand{\citeproc}[2]{#2}
+\providecommand{\CSLLeftMargin}[1]{}
+\providecommand{\CSLRightInline}[1]{#1}
+\providecommand{\CSLBlock}[1]{#1}
+
+\newenvironment{CSLReferences}[2]
+ {%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{1.5em}
+    \setlength{\itemindent}{-1.5em}
+    \setlength{\labelwidth}{0pt}
+    \setlength{\labelsep}{0pt}
+    \renewcommand{\makelabel}[1]{}
+  }
+ }
+ {\end{list}}
+``
