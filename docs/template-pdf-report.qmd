@@ -8,7 +8,6 @@ execute:
 
 params:
   uni: "CU"
-  uni_info: {}
   aagi_staff: "your_name"
   project_code: "ABC2026-001ABC"
   report_title: "My Report Title"
