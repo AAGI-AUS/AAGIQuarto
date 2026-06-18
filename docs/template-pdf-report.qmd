@@ -103,10 +103,6 @@ ft
 - md5sums for input data and outputs.
 - Git commit numbers and tags.
 
-# References
-
-Cited works and literature.
-
 # Appendix (Optional)
 
 Additional supporting information.

@@ -6,6 +6,10 @@ params:
   report_title: "Example Short Report"
 execute:
   echo: false
+
+date: last-modified
+date-format: long
+bibliography: references.bib
 ---
 
 ```{r}
@@ -82,4 +86,3 @@ ft
 
 Add as many sections as needed.
 
-# References
