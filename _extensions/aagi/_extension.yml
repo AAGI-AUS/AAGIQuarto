@@ -30,7 +30,7 @@ contributes:
       chalkboard: false
       execute:
         echo: true
-    pdf-report:
+    pdf+report:
       template: pdf/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
@@ -40,7 +40,7 @@ contributes:
         - partials/pagestyle.tex
         - partials/header.tex
         - partials/footer.tex
-    pdf-short-report:
+    pdf+short-report:
       template: pdf-short/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
