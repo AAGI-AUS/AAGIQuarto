@@ -1,8 +1,104 @@
-% LaTeX template for AAGI Reports (Unified)
-% Pandoc-safe, CI-safe
-% Date: 18/06/2026
+% AAGI Quarto PDF template
 
-\documentclass[12pt]{article}
+\documentclass[$if(fontsize)$$fontsize$$else$12pt$endif$]{article}
+
+%% -------------------------
+%% Fonts (XeLaTeX/LuaLaTeX only)
+%% -------------------------
+\usepackage{iftex}
+\ifPDFTeX
+  % Fallback if someone forces pdflatex (not recommended)
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+
+  % Main font: Proxima Nova with Arial fallback
+  \usepackage{fontspec}
+  \usepackage{microtype}
+
+  \IfFontExistsTF{Proxima Nova}{
+    \setsansfont{Proxima Nova}
+  }{
+    \IfFontExistsTF{Arial}{
+      \setsansfont{Arial}
+    }{
+      \setsansfont{TeX Gyre Heros}
+    }
+  }
+
+  \IfFontExistsTF{Fira Code}{
+    \setmonofont{Fira Code}
+  }{
+    \IfFontExistsTF{Courier New}{
+      \setmonofont{Courier New}
+    }{
+      \setmonofont{TeX Gyre Cursor}
+    }
+  }
+
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+%% -------------------------
+%% Core packages
+%% -------------------------
+\usepackage{microtype}
+\usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
+\usepackage{adjustbox}
+\usepackage[title]{appendix}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{rotating}
+\usepackage{afterpage}
+\usepackage{longtable}
+\usepackage{colortbl}
+
+\usepackage{graphicx}
+\graphicspath{
+  {./_extensions/aagi/assets/}
+  {./assets/}
+}
+
+\usepackage{caption}
+\usepackage{url}
+\usepackage{fontawesome5}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+\pgfplotsset{compat=newest}
+
+\usepackage{csquotes}
+
+% --- CSL references environment ---
+\newenvironment{CSLReferences}[2]
+ {%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{1.5em}      % space for hanging indent
+    \setlength{\itemindent}{-1.5em}     % pull first line back
+    \setlength{\labelwidth}{0pt}
+    \setlength{\labelsep}{0pt}
+    \setlength{\itemsep}{0.5\baselineskip}
+    \setlength{\parsep}{0pt}
+    \renewcommand{\makelabel}[1]{}      % remove labels ([] issue)
+  }
+ }
+ {\end{list}}
+
+ % --- Pandoc citation support
+\providecommand{\citeproc}[2]{#2}
+\providecommand{\citeproctext}{}
+\providecommand{\citeprocstd}[2]{#2}
+
+\providecommand{\CSLLeftMargin}[1]{}
+\providecommand{\CSLRightInline}[1]{#1}
+\providecommand{\CSLBlock}[1]{#1}
 
 %% --------------------------------------------------------------------------
 %% AAGI colours
@@ -17,73 +113,78 @@
 \definecolor{aagiblack}{HTML}{414042}
 \definecolor{aagigrey}{HTML}{F2F2F2}
 
-%% --------------------------------------------------------------------------
-%% Fonts
-%% --------------------------------------------------------------------------
-\usepackage{fontspec}
-\usepackage{microtype}
-
-\IfFontExistsTF{Proxima Nova}{
-  \setsansfont{Proxima Nova}
-}{
-  \IfFontExistsTF{Arial}{
-    \setsansfont{Arial}
-  }{
-    \setsansfont{TeX Gyre Heros}
-  }
-}
-
-\IfFontExistsTF{Fira Code}{
-  \setmonofont{Fira Code}
-}{
-  \IfFontExistsTF{Courier New}{
-    \setmonofont{Courier New}
-  }{
-    \setmonofont{TeX Gyre Cursor}
-  }
-}
-
-\renewcommand{\familydefault}{\sfdefault}
-
-%% --------------------------------------------------------------------------
-%% Layout + packages
-%% --------------------------------------------------------------------------
-\usepackage[paper=a4paper,top=30mm,left=20mm,right=20mm,bottom=25mm]{geometry}
-\usepackage{array}
-\usepackage{parskip}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{fancyvrb}
-\usepackage{rotating}
-\usepackage{graphicx}
-\usepackage{lipsum}
-\usepackage{hhline}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{longtable}
-\usepackage{caption}
-\usepackage{url}
-\usepackage{fontawesome5}
-\usepackage{listings}
-\usepackage[most]{tcolorbox}
-
-\captionsetup{font={sf}}
-\setlength{\LTcapwidth}{\textwidth}
+%% -------------------------
+%% Layout tweaks
+%% -------------------------
 \setlength{\parindent}{0cm}
-\setlength{\headheight}{14pt}
+\setlength{\headheight}{32pt}
+\setlength{\parskip}{2.5ex}
+\setlength{\emergencystretch}{3em}
+\setcounter{secnumdepth}{0}
+\setlength{\LTcapwidth}{\textwidth}
+\setlength{\fboxsep}{0pt}
 
-\newlength{\Oldarrayrulewidth}
-\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+%% -------------------------
+%% Headers / Footers
+%% -------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 
-\newlength{\Oldtabcolsep}
-\setlength{\Oldtabcolsep}{\tabcolsep}
+\fancypagestyle{bibliography}{
+  \fancyhf{}
+  \fancyhead[L]{\sffamily References}
+  \fancyfoot[C]{\sffamily \thepage}
+}
 
-%% --------------------------------------------------------------------------
-%% Commands
-%% --------------------------------------------------------------------------
-\newcommand{\HRule}{\rule{\linewidth}{0.6mm}}
+% ✅ Fixed (no LR-mode issues)
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \fancyhead[L]{%
+    \begin{minipage}[t]{0.68\textwidth}
+      \color{gray}\itshape\footnotesize
+      Document version: $if(version)$$version$$else$1.0.0$endif$\par
+      Date of Last Revision: \today
+    \end{minipage}
+  }
+  \fancyhead[R]{%
+    \begin{minipage}[t]{0.28\textwidth}
+      \raggedleft
+      \includegraphics[height=2.3cm]{AAGI_logo.pdf}
+    \end{minipage}
+  }
+  \fancyfoot[C]{%
+    \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait.pdf}
+  }
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{otherpages}{%
+  \fancyhf{}
+  \fancyhead[R]{%
+    {\sffamily\fontsize{10pt}{12pt}\selectfont
+     \color{gray}
+     $title$}
+  }
+  \fancyfoot[R]{\sffamily \thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+%% -------------------------
+%% Figures / captions
+%% -------------------------
+\captionsetup{font={sf}}
+
+%% -------------------------
+%% Listings (code)
+%% -------------------------
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\footnotesize\ttfamily,
+  language=R
+}
 
 %% --------------------------------------------------------------------------
 %% Pandoc compatibility
@@ -95,37 +196,14 @@
   \setlength{\parskip}{0pt}
 }
 
-% Citations (Pandoc-safe)
-\usepackage{csquotes}
 
-\providecommand{\citeproc}[2]{#2}
-\providecommand{\citeproctext}{}
-\providecommand{\citeprocstd}[2]{#2}
-
-% CSL references environment
-\newenvironment{CSLReferences}[2]
- {%
-  \begin{list}{}{%
-    \setlength{\leftmargin}{0pt}
-    \setlength{\itemindent}{0pt}
-    \setlength{\itemsep}{\baselineskip}
-  }
- }
- {\end{list}}
-
-%% Metadata
-\newcommand{\sbf}{\sffamily\bfseries}
-\newcommand{\myuniversity}{$if(university)$$university$$else$University Name$endif$}
-\newcommand{\myaaginode}{$if(aagi-node)$$aagi-node$$else$AAGI-XX$endif$}
-\newcommand{\myprogram}{$if(program)$$program$$else$AAGI Program$endif$}
-\newcommand{\myemail}{$if(correspondence-email)$$correspondence-email$$else$your.email@example.edu.au$endif$}
-
-%% --------------------------------------------------------------------------
+%% -------------------------
 %% Notes box
-%% --------------------------------------------------------------------------
-\newtcolorbox{note}{
+%% -------------------------
+\newtcolorbox{note}[1][]{
   colback=aagiteal!7,
   colframe=aagiteal!7,
+  notitle,
   sharp corners,
   borderline west={2pt}{0pt}{aagiteal},
   borderline east={2pt}{0pt}{aagiteal},
@@ -133,128 +211,57 @@
   breakable
 }
 
-\makeatletter
-\setkeys{Gin}{
-  width=\linewidth,
-  height=\textheight,
-  keepaspectratio
-}
-\makeatother
-
-%% --------------------------------------------------------------------------
-%% Headers + footers
-%% --------------------------------------------------------------------------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\sffamily\leftmark}
-\fancyfoot[C]{\sffamily \thepage}
-
-\fancypagestyle{firstpage}{
-  \fancyhf{}
-
-  % Top-right logo
-  \fancyhead[R]{
-    \IfFileExists{AAGI_logo.pdf}{
-      \includegraphics[height=2.3cm]{AAGI_logo.pdf}
-    }{}
-  }
-
-  % Footer logo (constrained and stable)
-  \fancyfoot[C]{
-    \vspace{5mm}
-    \IfFileExists{AAGI_SP_Logo_Block-Portrait.pdf}{
-      \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait.pdf}
-    }{}
-  }
-}
-
-\fancypagestyle{bibliography}{
-  \fancyhf{}
-  \fancyhead[L]{\sffamily References}
-  \fancyfoot[C]{\sffamily \thepage}
-}
-
-
-%% --------------------------------------------------------------------------
+%% -------------------------
 %% Hyperref
-%% --------------------------------------------------------------------------
-\usepackage{hyperref}
+%% -------------------------
 \hypersetup{
   colorlinks=true,
   linkcolor=aagiteal,
-  citecolor=aagiteal,
-  urlcolor=aagiteal
+  urlcolor=aagiteal,
+  citecolor=aagiteal
 }
 
-%% --------------------------------------------------------------------------
-%% Document
-%% --------------------------------------------------------------------------
+%% -------------------------
+%% Pandoc hooks
+%% -------------------------
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 \begin{document}
 
-%% =======================
-%% OPTIONAL TITLE PAGE
-%% =======================
+\thispagestyle{firstpage}
+\pagestyle{otherpages}
 
-$if(has-title-page)$
-\thispagestyle{empty}
+\newgeometry{left=12mm, right=12mm, top=17mm, bottom=24mm, includefoot}
+\afterpage{\restoregeometry}
 
-\begin{center}
-  \IfFileExists{AAGI_logo.pdf}{
-    \includegraphics[height=3cm]{AAGI_logo.pdf}
-  }{}
-\end{center}
+\vspace*{0.7cm}
 
-\vspace{1.5cm}
+{\LARGE\bfseries $title$\par}
 
-\begin{flushright}
-
-  \HRule
-  \vspace{5mm}
-
-  {\Large{\sbf $if(title)$$title$$else$Title$endif$}}
-  \vspace{4pt}
-
-  {\large{\sbf $if(subtitle)$$subtitle$$endif$}}
-  \vspace{6mm}
-
-  Prepared by:
-  \vspace{2mm}
-
-  {\sbf $if(author)$$for(author)$$author$$sep$\\$endfor$$endif$}
-
-  \vspace{5mm}
-
-  \texttt{\href{mailto:\myemail}{\myemail}}
-
-  \vspace{5mm}
-  \today
-
-  \vspace{5mm}
-  \HRule
-
-\end{flushright}
-
-\clearpage
+$if(subtitle)$
+\vspace{0.5em}
+{\large $subtitle$\par}
 $endif$
 
-%% =======================
-%% CONTENT
-%% =======================
+$if(author)$
+\vspace{1em}
+$for(author)$
+{$author$\par}
+$endfor$
+$endif$
 
-\thispagestyle{firstpage}
+$if(date)$
+\vspace{0.5em}
+{$date$\par}
+$endif$
+
+$if(toc)$
+\setcounter{page}{1}
+\tableofcontents
+$endif$
 
 $body$
-
-%% =======================
-%% REFERENCES (SAFE)
-%% =======================
-
-$if(references)$
-\clearpage
-\phantomsection
-\pagestyle{bibliography}
-\addcontentsline{toc}{section}{References}
-$references$
-$endif$
 
 \end{document}
