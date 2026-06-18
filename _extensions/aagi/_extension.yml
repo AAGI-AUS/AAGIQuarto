@@ -31,9 +31,10 @@ contributes:
       execute:
         echo: true
     pdf+report:
-      template: pdf-report/template.tex
+      template: pdf/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
+      link-citations: true
       resources:
         - assets/AAGI_logo.pdf
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
@@ -42,7 +43,7 @@ contributes:
         - assets/AAGI_SP_Logo_Block-Portrait.pdf
         - assets/biometrics.csl
     pdf+short+report:
-      template: pdf-short-report/template.tex
+      template: pdf/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       link-citations: true
