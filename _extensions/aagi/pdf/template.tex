@@ -95,6 +95,13 @@
 \providecommand{\citeproctext}[1]{#1}
 \providecommand{\citeprocstd}[2]{#2}
 
+% Pandoc CSL references environment
+\newenvironment{CSLReferences}[2]
+ {%
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{\baselineskip}
+ }{}
+
 %% Metadata
 \newcommand{\sbf}{\sffamily\bfseries}
 \newcommand{\myuniversity}{$if(university)$$university$$else$University Name$endif$}
