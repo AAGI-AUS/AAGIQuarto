@@ -1,8 +1,8 @@
 ---
 # =============================================================================
-# AAGI Full PDF Report Template
+# AAGI PDF Report Template
 # =============================================================================
-# USAGE (standalone — no _quarto.yml project required)
+# USAGE 
 #
 #   1. Install the extension once:
 #        quarto add AAGI-AUS/AAGIQuarto
@@ -42,6 +42,9 @@ params:
   partner: "Partner Organisation"
   partner_email: "partner@email.com.au"
   aagi_email: "your.name@example.edu.au"
+
+# this makes this a long report, set to "false" for a short report
+title-page: true
 
 date: last-modified
 date-format: long
@@ -84,7 +87,10 @@ ensure_pkg <- function(pkg, github = NULL) {
   tryCatch(
     pak::pak(github %||% pkg, dependencies = TRUE),
     error = function(e) {
-      warning(sprintf("Could not install %s: %s", pkg, e$message))
+      warning(
+        sprintf("Could not install %s: %s", pkg, e$message),
+        call. = FALSE
+      )
     }
   )
   invisible(requireNamespace(pkg, quietly = TRUE))
@@ -145,10 +151,10 @@ uni_leads <- info$leads
 if (knitr::is_latex_output()) {
   knitr::opts_chunk$set(dev = "pdf")
 } else {
-  knitr::opts_chunk$set(dev = "ragg_png", dpi = 192)
+  knitr::opts_chunk$set(dev = "ragg_png", dpi = 192.0)
 }
 
-knitr::opts_chunk$set(fig.pos = "H", fig.retina = 2)
+knitr::opts_chunk$set(fig.pos = "H", fig.retina = 2.0)
 
 # ---------------------------------------------------------------------------
 # Load and configure AAGI packages
@@ -232,6 +238,7 @@ Use subsections (and subsubsections) as needed to structure your content.
 # Results and Discussion
 
 Findings and their implications with respect to the research question.
+Include citations [@Box1976].
 
 # Figure Example
 
@@ -259,7 +266,7 @@ flextable(head(airquality)) |>
 
 # Datasets and Metadata (Optional)
 
-- Links and DOIs to associated datasets (e.g. GRDC Data Catalogue entries).
+- Links and DOIs to associated datasets (*e.g.*, GRDC Data Catalogue entries).
 - md5/sha256 checksums for input data and outputs.
 - Git commit numbers and tags for associated code repositories.
 
