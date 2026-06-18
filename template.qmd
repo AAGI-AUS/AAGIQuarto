@@ -2,7 +2,7 @@
 # =============================================================================
 # AAGI PDF Report Template
 # =============================================================================
-# USAGE 
+# USAGE
 #
 #   1. Install the extension once:
 #        quarto add AAGI-AUS/AAGIQuarto
@@ -154,7 +154,7 @@ if (knitr::is_latex_output()) {
   knitr::opts_chunk$set(dev = "ragg_png", dpi = 192.0)
 }
 
-knitr::opts_chunk$set(fig.pos = "H", fig.retina = 2.0)
+knitr::opts_chunk$set(fig.pos = "H")
 
 # ---------------------------------------------------------------------------
 # Load and configure AAGI packages
