@@ -96,6 +96,11 @@ ft <- flextable(head(airquality)) |>
 ft
 ```
 
+# References
+
+::: {#refs}
+:::
+
 # Metadata and Datasets (Optional)
 
 - md5sums for input data and outputs.
