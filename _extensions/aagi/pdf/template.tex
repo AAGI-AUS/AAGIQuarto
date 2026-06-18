@@ -50,11 +50,9 @@
 %% --------------------------------------------------------------------------
 \usepackage[paper=a4paper,top=30mm,left=20mm,right=20mm,bottom=25mm]{geometry}
 \usepackage{array}
-\usepackage{adjustbox}
 \usepackage{parskip}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{csquotes}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
@@ -87,34 +85,30 @@
 %% --------------------------------------------------------------------------
 \newcommand{\HRule}{\rule{\linewidth}{0.6mm}}
 
-% Pandoc list compatibility
+%% --------------------------------------------------------------------------
+%% Pandoc compatibility
+%% --------------------------------------------------------------------------
+
+% Lists
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+}
 
-% Pandoc citation compatibility (robust final)
-\usepackage{csquotes}
-
-% Inline citations
-\providecommand{\citeproc}[2]{#2}
-
-% CRITICAL: prevent optional argument breakage in \bibitem
+% Citations (Pandoc-safe)
 \usepackage{csquotes}
 
 \providecommand{\citeproc}[2]{#2}
-
 \providecommand{\citeproctext}{}
-
 \providecommand{\citeprocstd}[2]{#2}
 
-% Pandoc CSL references environment (robust)
+% CSL references environment
 \newenvironment{CSLReferences}[2]
  {%
   \begin{list}{}{%
     \setlength{\leftmargin}{0pt}
     \setlength{\itemindent}{0pt}
     \setlength{\itemsep}{\baselineskip}
-    \setlength{\labelwidth}{0pt}
-    \setlength{\labelsep}{0pt}
   }
  }
  {\end{list}}
