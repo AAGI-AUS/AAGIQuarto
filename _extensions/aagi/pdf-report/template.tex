@@ -1,139 +1,21 @@
-% Full report
+% AAGI Full Report — Quarto LaTeX template
+% Uses shared partials from the partials/ directory.
 \documentclass[12pt]{article}
 
-% -------------------------
-% Engines + fonts
-% -------------------------
-\usepackage{iftex}
+${ partials/_fonts.tex }$
+${ partials/_packages.tex }$
+${ partials/_pandoc-compat.tex }$
+${ partials/_pagestyle-shared.tex }$
 
-\ifPDFTeX
-  \usepackage{lmodern}
-  \renewcommand{\familydefault}{\sfdefault}
-\else
-  \usepackage{fontspec}
-  \usepackage{microtype}
-
-  \IfFontExistsTF{Proxima Nova}{
-    \setsansfont[Scale=MatchLowercase]{Proxima Nova}
-  }{
-    \IfFontExistsTF{Arial}{
-      \setsansfont[Scale=MatchLowercase]{Arial}
-    }{
-      \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}
-    }
-  }
-
-  \renewcommand{\familydefault}{\sfdefault}
-
-  \setmonofont[
-    Path = assets/fonts/,
-    Extension = .ttf,
-    UprightFont = FiraCode-Regular,
-    BoldFont    = FiraCode-Bold,
-    ItalicFont  = FiraCode-Light,
-    Scale = MatchLowercase
-  ]{FiraCode-Regular}
-\fi
-
-% -------------------------
-% Core packages
-% -------------------------
-\usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
-\usepackage{graphicx}
-\DeclareGraphicsExtensions{.pdf,.png,.jpg}
-
-\usepackage{amsmath,amssymb}
-\usepackage{parskip}
-
-\PassOptionsToPackage{dvipsnames,table}{xcolor}
-\usepackage[dvipsnames,table]{xcolor}
-\AtBeginDocument{
-  \definecolor{aagiteal}{HTML}{00808B}
-  \definecolor{aagibrightgreen}{HTML}{B6D438}
-  \definecolor{aagigreen}{HTML}{54921E}
-  \definecolor{aagiblue}{HTML}{648FD2}
-  \definecolor{aagiyellow}{HTML}{FFBC42}
-  \definecolor{aagiorange}{HTML}{EC8525}
-  \definecolor{aagiblack}{HTML}{414042}
-  \definecolor{aagigrey}{HTML}{F2F2F2}
-}
-
-\usepackage{hyperref}
-\usepackage{csquotes}
-\usepackage{lipsum}
-\usepackage{colortbl}
-\usepackage{longtable}
-\setlength{\LTcapwidth}{\textwidth}
-\usepackage{caption}
-\captionsetup{font={sf}}
-\usepackage[most]{tcolorbox}
-\usepackage{afterpage}
-
-% -------------------------
-% AAGI Colours
-% -------------------------
-\definecolor{aagiteal}{HTML}{00808B}
-\definecolor{aagibrightgreen}{HTML}{B6D438}
-\definecolor{aagigreen}{HTML}{54921E}
-\definecolor{aagiblue}{HTML}{648FD2}
-\definecolor{aagiyellow}{HTML}{FFBC42}
-\definecolor{aagiorange}{HTML}{EC8525}
-\definecolor{aagiblack}{HTML}{414042}
-\definecolor{aagigrey}{HTML}{F2F2F2}
-
-% -------------------------
-% AAGI note environment
-% -------------------------
-\newtcolorbox{note}[1][]{%
-  colback=aagiteal!7, colframe=aagiteal!7, notitle, sharp corners,
-  borderline west={2pt}{0pt}{aagiteal}, borderline east={2pt}{0pt}{aagiteal},
-  enhanced, breakable}
-
-% -------------------------
-% Pandoc / CSL compatibility
-% -------------------------
-\providecommand{\citeproc}[2]{#2}
-\providecommand{\citeproctext}{}
-\providecommand{\CSLLeftMargin}[1]{}
-\providecommand{\CSLRightInline}[1]{#1}
-\providecommand{\CSLBlock}[1]{#1}
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}%
-  \setlength{\parskip}{0pt}%
-}
-
-\newenvironment{CSLReferences}[2]
- {%
-  \begin{list}{}{%
-    \setlength{\leftmargin}{1.5em}%
-    \setlength{\itemindent}{-1.5em}%
-    \setlength{\labelwidth}{0pt}%
-    \setlength{\labelsep}{0pt}%
-    \renewcommand{\makelabel}[1]{}%
-  }%
- }
- {\end{list}}
-
-% -------------------------
-% Page styling
-% -------------------------
-\usepackage{fancyhdr}
-\setlength{\headheight}{32pt}
-
-\newcommand{\aagiheaderstyle}{%
-  \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagigrey}%
-}
-
-\pagestyle{fancy}
-\fancyhf{}
-
+% ------------------------------------------------------------------
+% firstpage style: AAGI logo top-right; full Partners banner footer
+% ------------------------------------------------------------------
 \fancypagestyle{firstpage}{%
   \fancyhf{}
   \fancyhead[R]{%
     \begin{minipage}[t]{0.3\textwidth}
       \raggedleft
-      \includegraphics[height=2.3cm]{AAGI_logo}
+      \includegraphics[height=2.3cm]{AAGI_logo}%
     \end{minipage}%
   }
   \fancyfoot[C]{%
@@ -145,6 +27,9 @@
   \renewcommand{\footrulewidth}{0pt}
 }
 
+% ------------------------------------------------------------------
+% otherpages style: title in header; page number + Partners footer
+% ------------------------------------------------------------------
 \fancypagestyle{otherpages}{%
   \fancyhf{}
   \fancyhead[R]{{\aagiheaderstyle $title$}}
@@ -157,18 +42,18 @@
   \renewcommand{\footrulewidth}{0pt}
 }
 
-% -------------------------
-% Quarto header-includes
-% -------------------------
+% ------------------------------------------------------------------
+% Quarto header-includes pass-through
+% ------------------------------------------------------------------
 $for(header-includes)$
 $header-includes$
 $endfor$
 
 \begin{document}
 
-% -----------------------------------------------
-% Title page (only when has-title-page is set)
-% -----------------------------------------------
+% ------------------------------------------------------------------
+% Title page (opt-in via has-title-page: true in YAML)
+% ------------------------------------------------------------------
 $if(has-title-page)$
 \thispagestyle{firstpage}
 \begin{titlepage}
@@ -212,9 +97,9 @@ $endif$
 
 \pagestyle{otherpages}
 
-% -----------------------------------------------
-% Table of contents
-% -----------------------------------------------
+% ------------------------------------------------------------------
+% Table of contents (opt-in via toc: true in YAML)
+% ------------------------------------------------------------------
 $if(toc)$
 {
   \hypersetup{linkcolor=aagiblack}

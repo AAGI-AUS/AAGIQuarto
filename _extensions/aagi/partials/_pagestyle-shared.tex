@@ -1,0 +1,21 @@
+% -------------------------
+% Page styling (shared)
+% -------------------------
+\usepackage{fancyhdr}
+\setlength{\headheight}{32pt}
+
+% Small teal running-header text style
+\newcommand{\aagiheaderstyle}{%
+  \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagiblack}%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+% firstpage style: AAGI logo top-right, no rule.
+% The Partners footer differs between report types, so it is defined in each
+% template's own \fancypagestyle{firstpage} block.
+
+% otherpages style: title in header, page number + Partners bar in footer.
+% The footer graphic also differs slightly (full Partners vs SP logo block),
+% so it is likewise defined per-template.

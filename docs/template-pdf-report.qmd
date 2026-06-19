@@ -1,40 +1,39 @@
 ---
 format:
-  aagi-pdf-short+report:
+  aagi-pdf+report:
     fig-path: figures/pdf-report/
-    header-includes:
-      - |
-        \usepackage{xcolor}
-        \definecolor{aagiteal}{HTML}{00808B}
-        \definecolor{aagibrightgreen}{HTML}{B6D438}
-        \definecolor{aagigreen}{HTML}{54921E}
-        \definecolor{aagiblue}{HTML}{648FD2}
-        \definecolor{aagiyellow}{HTML}{FFBC42}
-        \definecolor{aagiorange}{HTML}{EC8525}
-        \definecolor{aagiblack}{HTML}{414042}
-        \definecolor{aagigrey}{HTML}{F2F2F2}
 
 execute:
   echo: false
 
+# ---- Report parameters -------------------------------------------------------
+# Adjust these to match your project. The inline R expressions below populate
+# the title, subtitle, and author fields automatically from these params.
 params:
-  uni: "CU"
-  aagi_staff: "your_name"
-  project_code: "ABC2026-001ABC"
+  uni: "CU"              # University key — must match uni_info in setup_reports.R
+  aagi_staff: "Your Name"
+  project_code: "ABC2026-001"
   report_title: "My Report Title"
-  partner: "collab_partner_org"
-  partner_email: "collab_partner@email.com.au"
+  partner: "Collaborating Organisation"
+  partner_email: "partner@example.edu.au"
   aagi_email: "your.email@example.edu.au"
 
 date: last-modified
 date-format: long
 bibliography: references.bib
 
+# Set to true to render a full cover/title page; false for an inline header.
 has-title-page: true
 
-title: '`r sprintf("Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series: 123", params$uni_info[[params$uni]]$name, params$uni)`'
+title: >
+  `r sprintf(
+    "Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series",
+    params$uni_info[[params$uni]]$name,
+    params$uni
+  )`
 
-subtitle: '`r sprintf("%s Report for %s", params$report_title, params$project_code)`'
+subtitle: >
+  `r sprintf("%s — %s", params$report_title, params$project_code)`
 
 author:
   - '`r sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)`'
@@ -52,34 +51,34 @@ correspondence-email: '`r params$aagi_email`'
 source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 ```
 
-# Executive summary
+# Executive Summary
 
-What was provided by AAGI and the main results?
+What was provided by AAGI and what were the main results?
 
 # Introduction
 
 - Goals of the research project.
-- Background, context and rationale behind the research.
+- Background, context and rationale.
 
-# Experimental/Trial Design
+# Experimental / Trial Design
 
 - Trial design type and layout.
 - Treatments, number of replicates.
 
-# Exploratory Data Analysis and Data Visualisation
+# Exploratory Data Analysis
 
 - Interpretation of plots and data.
-- Citation [@Box1976]. 
+- Example citation: [@Box1976].
 
 # Methods
 
-- Detailed description of the procedures used.
+Detailed description of the procedures used.
 
 # Results and Discussion
 
 Findings and their implications.
 
-# Figure example
+# Figure Example
 
 ```{r}
 #| label: fig-example
@@ -92,7 +91,7 @@ ggplot(data = pressure, aes(x = temperature, y = pressure)) +
   theme_aagi()
 ```
 
-# Table example
+# Table Example
 
 ```{r}
 #| label: tbl-example
@@ -100,11 +99,9 @@ ggplot(data = pressure, aes(x = temperature, y = pressure)) +
 
 library(flextable)
 
-ft <- flextable(head(airquality)) |>
+flextable(head(airquality)) |>
   theme_ft_aagi() |>
   autofit()
-
-ft
 ```
 
 # References
@@ -112,11 +109,11 @@ ft
 ::: {#refs}
 :::
 
-# Metadata and Datasets (Optional)
+# Metadata and Datasets *(optional)*
 
 - md5sums for input data and outputs.
-- Git commit numbers and tags.
+- Git commit hashes and tags.
 
-# Appendix (Optional)
+# Appendix *(optional)*
 
 Additional supporting information.
