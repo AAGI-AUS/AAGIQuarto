@@ -1,0 +1,66 @@
+% -------------------------
+% Page styling (shared)
+% -------------------------
+
+\usepackage{fancyhdr}
+
+% Ensure enough space for header content
+\setlength{\headheight}{32pt}
+
+% -------------------------
+% Header font style
+% -------------------------
+\newcommand{\aagiheaderstyle}{%
+  \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagigrey}
+}
+
+% -------------------------
+% Base pagestyle (cleared)
+% -------------------------
+\pagestyle{fancy}
+\fancyhf{}   % clear everything
+
+% -------------------------
+% First page
+% -------------------------
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+
+  % Logo (top right)
+  \fancyhead[R]{%
+    \begin{minipage}[t]{0.3\textwidth}
+      \raggedleft
+      \includegraphics[height=2.3cm]{AAGI_logo}
+    \end{minipage}
+  }
+
+  % Footer strip
+  \fancyfoot[C]{%
+    \rule{\textwidth}{0.4pt}\\[-10pt]
+    \centering
+    \includegraphics[width=\textwidth]{Partners}
+  }
+
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% -------------------------
+% Other pages
+% -------------------------
+\fancypagestyle{otherpages}{%
+  \fancyhf{}
+
+  % Header (top right)
+  \fancyhead[R]{%
+    {\aagiheaderstyle $title$}
+  }
+
+  % Page number (bottom right)
+  \fancyfoot[R]{%
+    {\sffamily \thepage}
+  }
+
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
