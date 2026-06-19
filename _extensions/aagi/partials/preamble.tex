@@ -52,8 +52,11 @@
 
 % --- Graphics ---
 \usepackage{graphicx}
-\usepackage{graphicx}
-\graphicspath{{./}{./assets/}}
+\graphicspath{
+  {./_extensions/aagi/assets/}
+  {./assets/}
+  {./}
+}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
 % --- Core packages ---
