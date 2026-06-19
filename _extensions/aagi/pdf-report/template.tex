@@ -1,19 +1,205 @@
 % Full report
 \documentclass[12pt]{article}
 
-\input{_extensions/AAGI-AUS/aagi/partials/preamble.tex}
-\input{_extensions/AAGI-AUS/aagi/partials/pagestyle.tex}
-\input{_extensions/AAGI-AUS/aagi/partials/header.tex}
-\input{_extensions/AAGI-AUS/aagi/partials/footer.tex}
+% -------------------------
+% Engines + fonts
+% -------------------------
+\usepackage{iftex}
 
+\ifPDFTeX
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \usepackage{fontspec}
+  \usepackage{microtype}
+
+  \IfFontExistsTF{Proxima Nova}{
+    \setsansfont[Scale=MatchLowercase]{Proxima Nova}
+  }{
+    \IfFontExistsTF{Arial}{
+      \setsansfont[Scale=MatchLowercase]{Arial}
+    }{
+      \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}
+    }
+  }
+
+  \renewcommand{\familydefault}{\sfdefault}
+
+  \setmonofont[
+    Path = assets/fonts/,
+    Extension = .ttf,
+    UprightFont = FiraCode-Regular,
+    BoldFont    = FiraCode-Bold,
+    ItalicFont  = FiraCode-Light,
+    Scale = MatchLowercase
+  ]{FiraCode-Regular}
+\fi
+
+% -------------------------
+% Core packages
+% -------------------------
+\usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\usepackage{amsmath,amssymb}
+\usepackage{parskip}
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{afterpage}
+
+% -------------------------
+% AAGI Colours
+% -------------------------
+\providecolor{aagiteal}{HTML}{00808B}
+\providecolor{aagigreen}{HTML}{B6D438}
+\providecolor{aagiblack}{HTML}{414042}
+\providecolor{aagigrey}{HTML}{F2F2F2}
+
+% -------------------------
+% Pandoc / CSL compatibility
+% -------------------------
+\providecommand{\citeproc}[2]{#2}
+\providecommand{\citeproctext}{}
+\providecommand{\CSLLeftMargin}[1]{}
+\providecommand{\CSLRightInline}[1]{#1}
+\providecommand{\CSLBlock}[1]{#1}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parskip}{0pt}%
+}
+
+\newenvironment{CSLReferences}[2]
+ {%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{1.5em}%
+    \setlength{\itemindent}{-1.5em}%
+    \setlength{\labelwidth}{0pt}%
+    \setlength{\labelsep}{0pt}%
+    \renewcommand{\makelabel}[1]{}%
+  }%
+ }
+ {\end{list}}
+
+% -------------------------
+% Page styling
+% -------------------------
+\usepackage{fancyhdr}
+\setlength{\headheight}{32pt}
+
+\newcommand{\aagiheaderstyle}{%
+  \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagigrey}%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \fancyhead[R]{%
+    \begin{minipage}[t]{0.3\textwidth}
+      \raggedleft
+      \includegraphics[height=2.3cm]{AAGI_logo}
+    \end{minipage}%
+  }
+  \fancyfoot[C]{%
+    \rule{\textwidth}{0.4pt}\\[-10pt]%
+    \centering
+    \includegraphics[width=\textwidth]{Partners}%
+  }
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{otherpages}{%
+  \fancyhf{}
+  \fancyhead[R]{{\aagiheaderstyle $title$}}
+  \fancyfoot[R]{{\sffamily \thepage}}
+  \fancyfoot[C]{%
+    \rule{\textwidth}{0.4pt}\\[-10pt]%
+    \includegraphics[width=\textwidth]{Partners}%
+  }
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% -------------------------
+% TOC styling
+% -------------------------
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\sffamily}
+\renewcommand{\cftsubsecfont}{\sffamily}
+\renewcommand{\cftsecpagefont}{\sffamily}
+\renewcommand{\cftsubsecpagefont}{\sffamily}
+
+% -------------------------
+% Quarto header-includes
+% -------------------------
 $for(header-includes)$
 $header-includes$
 $endfor$
 
 \begin{document}
 
+% -----------------------------------------------
+% Title page (only when has-title-page is set)
+% -----------------------------------------------
+$if(has-title-page)$
 \thispagestyle{firstpage}
+\begin{titlepage}
+  \newgeometry{top=40mm,left=20mm,right=20mm,bottom=20mm}
+
+  \vspace*{10mm}
+  {\color{aagiteal}\rule{\textwidth}{2pt}}
+  \vspace{6mm}
+
+  {\sffamily\huge\bfseries\color{aagiblack} $title$\par}
+  \vspace{4mm}
+
+  $if(subtitle)$
+  {\sffamily\Large\color{aagiteal} $subtitle$\par}
+  \vspace{4mm}
+  $endif$
+
+  {\color{aagiteal}\rule{\textwidth}{0.5pt}}
+  \vspace{6mm}
+
+  $for(author)$
+  {\sffamily\large $author$\par}
+  $endfor$
+
+  \vspace{4mm}
+  $if(university)$
+  {\sffamily\normalsize\color{aagiblack} $university$\par}
+  $endif$
+  $if(correspondence-email)$
+  {\sffamily\normalsize Correspondence: \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
+  $endif$
+
+  \vfill
+  {\sffamily\normalsize $date$\par}
+  \restoregeometry
+\end{titlepage}
+\cleardoublepage
+$else$
+\thispagestyle{firstpage}
+$endif$
+
 \pagestyle{otherpages}
+
+% -----------------------------------------------
+% Table of contents
+% -----------------------------------------------
+$if(toc)$
+{
+  \hypersetup{linkcolor=aagiblack}
+  \tableofcontents
+  \newpage
+}
+$endif$
 
 $body$
 
