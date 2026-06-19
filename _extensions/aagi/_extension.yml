@@ -37,7 +37,7 @@ contributes:
       chalkboard: false
       execute:
         echo: true
-    pdf+report:
+    pdf-report:
       template: pdf-report/template.tex
       template-partials:
         - partials/aagi-preamble.tex
@@ -46,7 +46,7 @@ contributes:
       fig-format: pdf
       format-resources:
         - assets/**
-    pdf+short-report:
+    pdf-short-report:
       template: pdf-short-report/template.tex
       template-partials:
         - partials/aagi-preamble.tex
@@ -55,17 +55,17 @@ contributes:
       fig-format: pdf
       format-resources:
         - assets/**
-    docx+report:
+    docx-report:
       reference-doc: docx-report/template.docx
       toc: true
-    docx+short+report:
+    docx-short+report:
       reference-doc: docx-short-report/template.docx
     pptx:
       reference-doc: pptx/template.pptx
       toc: true
       number-sections: false
       incremental: true
-    html+report:
+    html-report:
       theme:
         - none
         - html/aagi-html.scss
@@ -79,7 +79,7 @@ contributes:
         - assets/fonts/FiraCode-Regular.woff2
         - assets/fonts/FiraCode-Medium.woff2
         - assets/fonts/FiraCode-Bold.woff2
-    html+short-report:
+    html-short-report:
       theme:
         - none
         - html/aagi-html.scss
