@@ -1,5 +1,10 @@
 \documentclass[12pt]{article}
 
+% ✅ load page styles manually (critical)
+\input{_extensions/AAGI-AUS/aagi/partials/pagestyle.tex}
+\input{_extensions/AAGI-AUS/aagi/partials/header.tex}
+\input{_extensions/AAGI-AUS/aagi/partials/footer.tex}
+
 $for(header-includes)$
 $header-includes$
 $endfor$
@@ -7,11 +12,6 @@ $endfor$
 $for(include-in-header)$
 $include-in-header$
 $endfor$
-
-% ✅ load page styles manually (critical)
-\input{_extensions/AAGI-AUS/aagi/partials/pagestyle.tex}
-\input{_extensions/AAGI-AUS/aagi/partials/header.tex}
-\input{_extensions/AAGI-AUS/aagi/partials/footer.tex}
 
 \begin{document}
 
