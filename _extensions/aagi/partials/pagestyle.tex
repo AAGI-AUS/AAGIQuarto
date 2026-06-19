@@ -1,50 +1,66 @@
-   AAGIQuarto
- ├╴  .devcontainer
- ├╴  .git
- ├╴  .github
- ├╴  .quarto
- ├╴  _extensions
- │ ├╴  aagi
- │ │ ├╴  assets
- │ │ │ ├╴  fonts
- │ │ │ ├╴  .DS_Store
- │ │ │ ├╴  AAGI_SP_Logo_Block-Portrait.pdf
- │ │ │ ├╴  AAGI_SP_Logo_Block-Portrait.svg
- │ │ │ ├╴  AAGI_logo.pdf
- │ │ │ ├╴  AAGI_logo.svg
- │ │ │ ├╴  banner_landscape.jpg
- │ │ │ ├╴  biometrics.csl
- │ │ │ └╴  title-slide-main.png
- │ │ ├╴  docx-report
- │ │ ├╴  docx-short-report
- │ │ ├╴  html
- │ │ ├╴  partials
- │ │ │ └╴  preamble.tex
- │ │ ├╴  pdf
- │ │ │ └╴  template.tex
- │ │ ├╴  pdf-report
- │ │ ├╴  pptx
- │ │ ├╴  revealjs
- │ │ ├╴  .DS_Store
- │ │ └╴  _extension.yml
- │ └╴  .DS_Store
- ├╴  docs
- │ ├╴  .quarto
- │ ├╴  _includes
- │ ├╴  _scripts
- │ ├╴  .DS_Store
- │ ├╴  .gitignore
- │ ├╴  _quarto.yml
- │ ├╴  favicon.svg
- │ ├╴  index.qmd
- │ ├╴  references.bib
- │ ├╴  release-notes.qmd
- │ ├╴  template-docx-report.qmd
- │ ├╴  template-docx-short-report.qmd
- │ ├╴  template-html-report.qmd
- │ ├╴  template-html-short-report.qmd
- │ ├╴  template-pdf-report.qmd
- │ ├╴  template-pdf-short-report.qmd
- │ ├╴  template-pptx.qmd
- │ └╴  template-revealjs.qmd
+% -------------------------
+% Page styling (shared)
+% -------------------------
 
+\usepackage{fancyhdr}
+
+% Ensure enough space for header content
+\setlength{\headheight}{32pt}
+
+% -------------------------
+% Header font style
+% -------------------------
+\newcommand{\aagiheaderstyle}{%
+  \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagigrey}
+}
+
+% -------------------------
+% Base pagestyle (cleared)
+% -------------------------
+\pagestyle{fancy}
+\fancyhf{}   % clear everything
+
+% -------------------------
+% First page
+% -------------------------
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+
+  % Logo (top right)
+  \fancyhead[R]{%
+    \begin{minipage}[t]{0.3\textwidth}
+      \raggedleft
+      \includegraphics[height=2.3cm]{AAGI_logo}
+    \end{minipage}
+  }
+
+  % Footer strip
+  \fancyfoot[C]{%
+    \rule{\textwidth}{0.4pt}\\[-10pt]
+    \centering
+    \includegraphics[width=\textwidth]{Partners}
+  }
+
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% -------------------------
+% Other pages
+% -------------------------
+\fancypagestyle{otherpages}{%
+  \fancyhf{}
+
+  % Header (top right)
+  \fancyhead[R]{%
+    {\aagiheaderstyle $title$}
+  }
+
+  % Page number (bottom right)
+  \fancyfoot[R]{%
+    {\sffamily \thepage}
+  }
+
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
