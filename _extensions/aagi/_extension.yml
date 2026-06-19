@@ -42,6 +42,8 @@ contributes:
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
+      format-resources:
+        - assets/**
       partials:
         - partials/preamble.tex
         - partials/pagestyle.tex
@@ -52,6 +54,8 @@ contributes:
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
+      format-resources:
+        - assets/**
       partials:
         - partials/preamble.tex
         - partials/pagestyle.tex
