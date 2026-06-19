@@ -1,6 +1,8 @@
 ---
 format:
-  pdf+short+report:
+  aagi-pdf+short+report:
+    pdf:
+      template: pdf-short-report/template.tex
     fig-path: figures/pdf-short-report/
 
 execute:
