@@ -1,29 +1,50 @@
-% --- Fonts ---
+% --- Fonts for XeLaTeX/LuaLaTeX ---
 \usepackage{iftex}
 \ifPDFTeX
+  % Fallback only if someone forces pdflatex
   \usepackage{lmodern}
   \renewcommand{\familydefault}{\sfdefault}
 \else
   \usepackage{fontspec}
   \usepackage{microtype}
 
+  % --- Sans / main family ---
+  % Prefer installed Proxima Nova, then Arial, then TeX Gyre Heros.
   \IfFontExistsTF{Proxima Nova}{
-    \setsansfont{Proxima Nova}
+    \setsansfont[
+      Ligatures = TeX,
+      Scale = MatchLowercase
+    ]{Proxima Nova}
   }{
     \IfFontExistsTF{Arial}{
-      \setsansfont{Arial}
+      \setsansfont[
+        Ligatures = TeX,
+        Scale = MatchLowercase
+      ]{Arial}
     }{
-      \setsansfont{TeX Gyre Heros}
+      \setsansfont[
+        Ligatures = TeX,
+        Scale = MatchLowercase
+      ]{TeX Gyre Heros}
     }
   }
 
-  \IfFontExistsTF{Fira Code}{
-    \setmonofont{Fira Code}
-  }{
-    \setmonofont{TeX Gyre Cursor}
-  }
-
+  % Make sans the document default
   \renewcommand{\familydefault}{\sfdefault}
+
+  % --- Monospace ---
+  % Load bundled Fira Code TTFs from the extension assets.
+  % Update the filenames below to match exactly what you add.
+  \setmonofont[
+    Path = _extensions/AAGI-AUS/aagi/assets/fonts/,
+    Extension = .ttf,
+    UprightFont = FiraCode-Regular,
+    BoldFont = FiraCode-Bold,
+    ItalicFont = FiraCode-Light,
+    BoldItalicFont = FiraCode-Bold,
+    Scale = MatchLowercase,
+    Ligatures = TeX
+  ]{FiraCode-Regular}
 \fi
 
 % --- Layout ---
