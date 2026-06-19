@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-pdf+report:
+  aagi-pdf-short+report:
     fig-path: figures/pdf-report/
     header-includes:
       - |
