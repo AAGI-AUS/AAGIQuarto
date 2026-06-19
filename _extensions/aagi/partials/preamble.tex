@@ -1,77 +1,64 @@
-% --- Fonts for XeLaTeX/LuaLaTeX ---
+% -------------------------
+% Engines + fonts
+% -------------------------
 \usepackage{iftex}
+
 \ifPDFTeX
-  % Fallback only if someone forces pdflatex
+  % Fallback (should not be used)
   \usepackage{lmodern}
   \renewcommand{\familydefault}{\sfdefault}
 \else
   \usepackage{fontspec}
   \usepackage{microtype}
 
-  % --- Sans / main family ---
-  % Prefer installed Proxima Nova, then Arial, then TeX Gyre Heros.
+  % --- Sans font ---
   \IfFontExistsTF{Proxima Nova}{
-    \setsansfont[
-      Ligatures = TeX,
-      Scale = MatchLowercase
-    ]{Proxima Nova}
+    \setsansfont[Scale=MatchLowercase]{Proxima Nova}
   }{
     \IfFontExistsTF{Arial}{
-      \setsansfont[
-        Ligatures = TeX,
-        Scale = MatchLowercase
-      ]{Arial}
+      \setsansfont[Scale=MatchLowercase]{Arial}
     }{
-      \setsansfont[
-        Ligatures = TeX,
-        Scale = MatchLowercase
-      ]{TeX Gyre Heros}
+      \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}
     }
   }
 
-  % Make sans the document default
   \renewcommand{\familydefault}{\sfdefault}
 
-  % --- Monospace ---
-  % Load bundled Fira Code TTFs from the extension assets.
-  % Update the filenames below to match exactly what you add.
+  % --- Monospace (bundled, deterministic) ---
   \setmonofont[
-    Path = _extensions/AAGI-AUS/aagi/assets/fonts/,
+    Path = assets/fonts/,
     Extension = .ttf,
     UprightFont = FiraCode-Regular,
-    BoldFont = FiraCode-Bold,
-    ItalicFont = FiraCode-Light,
-    BoldItalicFont = FiraCode-Bold,
-    Scale = MatchLowercase,
-    Ligatures = TeX
+    BoldFont    = FiraCode-Bold,
+    ItalicFont  = FiraCode-Light,
+    Scale = MatchLowercase
   ]{FiraCode-Regular}
 \fi
 
-% --- Layout ---
+% -------------------------
+% Core packages
+% -------------------------
 \usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
-
-% --- Graphics ---
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
-% --- Core packages ---
 \usepackage{amsmath,amssymb}
 \usepackage{parskip}
-\usepackage[dvipsnames]{xcolor} 
+\usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
 \usepackage{csquotes}
 
-% --- Colours ---
-\definecolor{aagigreen}{HTML}{B6D438}
+% -------------------------
+% Colours (define once, no duplicates)
+% -------------------------
 \definecolor{aagiteal}{HTML}{00808B}
-\definecolor{aagiblue}{HTML}{648FD2}
-\definecolor{aagigreen}{HTML}{54921E}
-\definecolor{aagiyellow}{HTML}{FFBC42}
-\definecolor{aagiorange}{HTML}{EC8525}
+\definecolor{aagigreen}{HTML}{B6D438}
 \definecolor{aagiblack}{HTML}{414042}
 \definecolor{aagigrey}{HTML}{F2F2F2}
 
-% --- Pandoc CSL ---
+% -------------------------
+% Pandoc / CSL compatibility
+% -------------------------
 \providecommand{\citeproc}[2]{#2}
 \providecommand{\citeproctext}{}
 \providecommand{\CSLLeftMargin}[1]{}
@@ -79,7 +66,9 @@
 \providecommand{\CSLBlock}[1]{#1}
 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+}
 
 \newenvironment{CSLReferences}[2]
  {%
