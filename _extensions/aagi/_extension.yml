@@ -12,9 +12,16 @@ contributes:
       format-resources:
         - assets/AAGI_logo.svg
         - assets/title-slide-main.png
-        - assets/fonts/FiraCode-Regular.woff2
-        - assets/fonts/FiraCode-Medium.woff2
         - assets/fonts/FiraCode-Bold.woff2
+        - assets/fonts/FiraCode-Light.woff2
+        - assets/fonts/FiraCode-Medium.woff2
+        - assets/fonts/FiraCode-Regular.woff2
+        - assets/fonts/FiraCode-VF.woff2
+        - assets/fonts/FiraCode-Bold.ttf
+        - assets/fonts/FiraCode-Light.ttf
+        - assets/fonts/FiraCode-Medium.ttf
+        - assets/fonts/FiraCode-Regular.ttf
+        - assets/fonts/FiraCode-Retina.ttf
       logo: AAGI_logo.svg
       title-slide-attributes:
         data-background-image: title-slide-main.png
