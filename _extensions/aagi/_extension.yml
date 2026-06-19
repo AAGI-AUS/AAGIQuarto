@@ -58,7 +58,7 @@ contributes:
     docx-report:
       reference-doc: docx-report/template.docx
       toc: true
-    docx-short+report:
+    docx-short-report:
       reference-doc: docx-short-report/template.docx
     pptx:
       reference-doc: pptx/template.pptx
