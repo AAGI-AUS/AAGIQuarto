@@ -99,7 +99,7 @@ jobs:
         run: |
           cd docs
           mkdir -p _site/_files
-          zip -r _site/_files/templates.zip template*.qmd _scripts/ _includes/
+          zip -r _site/_files/templates.zip template*.qmd references.bib _scripts/ _includes/ 
 
       - name: Reset Quarto publish state
         run: rm -rf docs/.quarto/publish
