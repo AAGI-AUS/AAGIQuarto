@@ -44,18 +44,8 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{parskip}
-
-% Load xcolor with dvipsnames only if not already loaded; if already loaded,
-% add the dvipsnames option retroactively via xcolor's own mechanism.
-\@ifpackageloaded{xcolor}{%
-  % xcolor already loaded by Quarto — ensure dvipsnames colours are available
-  \@ifpackagewith{xcolor}{dvipsnames}{}{%
-    \PassOptionsToPackage{dvipsnames}{xcolor}%
-  }%
-}{%
-  \usepackage[dvipsnames]{xcolor}%
-}
-
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\usepackage[dvipsnames,table]{xcolor}
 \usepackage{hyperref}
 \usepackage{csquotes}
 
