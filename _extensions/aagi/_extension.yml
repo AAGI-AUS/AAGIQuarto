@@ -79,7 +79,7 @@ contributes:
         - assets/fonts/FiraCode-Regular.woff2
         - assets/fonts/FiraCode-Medium.woff2
         - assets/fonts/FiraCode-Bold.woff2
-    html+short+report:
+    html+short-report:
       theme:
         - none
         - html/aagi-html.scss
