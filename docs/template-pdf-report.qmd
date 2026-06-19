@@ -2,6 +2,17 @@
 format:
   aagi-pdf+report:
     fig-path: figures/pdf-report/
+    header-includes:
+      - |
+        \usepackage{xcolor}
+        \definecolor{aagiteal}{HTML}{00808B}
+        \definecolor{aagibrightgreen}{HTML}{B6D438}
+        \definecolor{aagigreen}{HTML}{54921E}
+        \definecolor{aagiblue}{HTML}{648FD2}
+        \definecolor{aagiyellow}{HTML}{FFBC42}
+        \definecolor{aagiorange}{HTML}{EC8525}
+        \definecolor{aagiblack}{HTML}{414042}
+        \definecolor{aagigrey}{HTML}{F2F2F2}
 
 execute:
   echo: false
