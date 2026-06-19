@@ -31,7 +31,7 @@ contributes:
       execute:
         echo: true
     pdf+report:
-      template: pdf/template.tex
+      template: pdf-report/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
@@ -41,7 +41,7 @@ contributes:
         - partials/header.tex
         - partials/footer.tex
     pdf+short-report:
-      template: pdf-short/template.tex
+      template: pdf-short-report/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
