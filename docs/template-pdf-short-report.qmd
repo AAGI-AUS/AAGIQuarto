@@ -15,7 +15,7 @@ bibliography: references.bib
 
 # Short reports use an inline title block (no separate cover page).
 # Fields below populate the header rendered by the template.
-title: '`r params$report_title`'
+title: "`r params$report_title`"
 # subtitle, university, correspondence-email are all optional — uncomment if needed:
 # subtitle: "Optional subtitle"
 # university: "University Name"

@@ -10,7 +10,7 @@ execute:
 # Adjust these to match your project. The inline R expressions below populate
 # the title, subtitle, and author fields automatically from these params.
 params:
-  uni: "CU"              # University key — must match uni_info in setup_reports.R
+  uni: "CU" # University key — must match uni_info in setup_reports.R
   aagi_staff: "Your Name"
   project_code: "ABC2026-001"
   report_title: "My Report Title"
@@ -39,8 +39,8 @@ author:
   - '`r sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)`'
   - '`r sprintf("Prepared by: %s", params$aagi_staff)`'
 
-university: '`r params$uni_info[[params$uni]]$name`'
-correspondence-email: '`r params$aagi_email`'
+university: "`r params$uni_info[[params$uni]]$name`"
+correspondence-email: "`r params$aagi_email`"
 ---
 
 ```{r}
