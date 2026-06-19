@@ -1,17 +1,15 @@
-% -------------------------
+ -------------------------
 % Engines + fonts
 % -------------------------
 \usepackage{iftex}
-
+ 
 \ifPDFTeX
-  % Fallback (should not be used)
   \usepackage{lmodern}
   \renewcommand{\familydefault}{\sfdefault}
 \else
   \usepackage{fontspec}
   \usepackage{microtype}
-
-  % --- Sans font ---
+ 
   \IfFontExistsTF{Proxima Nova}{
     \setsansfont[Scale=MatchLowercase]{Proxima Nova}
   }{
@@ -21,10 +19,9 @@
       \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}
     }
   }
-
+ 
   \renewcommand{\familydefault}{\sfdefault}
-
-  % --- Monospace (bundled, deterministic) ---
+ 
   \setmonofont[
     Path = assets/fonts/,
     Extension = .ttf,
@@ -34,33 +31,49 @@
     Scale = MatchLowercase
   ]{FiraCode-Regular}
 \fi
-
+ 
 % -------------------------
 % Core packages
 % -------------------------
 \usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
-
+ 
 \usepackage{amsmath,amssymb}
 \usepackage{parskip}
-\usepackage{hyperref}
-\usepackage{csquotes}
-
-% -------------------------
-% Colours (define once, no duplicates)
-% -------------------------
 \PassOptionsToPackage{dvipsnames,table}{xcolor}
 \usepackage[dvipsnames,table]{xcolor}
-\definecolor{aagibrightgreen}{HTML}{B6D438}
-\definecolor{aagiteal}{HTML}{00808B}
-\definecolor{aagiblue}{HTML}{648FD2}
-\definecolor{aagigreen}{HTML}{54921E}
-\definecolor{aagiyellow}{HTML}{FFBC42}
-\definecolor{aagiorange}{HTML}{EC8525}
-\definecolor{aagiblack}{HTML}{414042}
-\definecolor{aagigrey}{HTML}{F2F2F2}
-
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{lipsum}
+\usepackage{colortbl}
+\usepackage{longtable}
+\setlength{\LTcapwidth}{\textwidth}
+\usepackage{caption}
+\captionsetup{font={sf}}
+\usepackage[most]{tcolorbox}
+\usepackage{afterpage}
+ 
+% -------------------------
+% AAGI Colours
+% -------------------------
+\providecolor{aagiteal}{HTML}{00808B}
+\providecolor{aagibrightgreen}{HTML}{B6D438}
+\providecolor{aagigreen}{HTML}{54921E}
+\providecolor{aagiblue}{HTML}{648FD2}
+\providecolor{aagiyellow}{HTML}{FFBC42}
+\providecolor{aagiorange}{HTML}{EC8525}
+\providecolor{aagiblack}{HTML}{414042}
+\providecolor{aagigrey}{HTML}{F2F2F2}
+ 
+% -------------------------
+% AAGI note environment
+% -------------------------
+\newtcolorbox{note}[1][]{%
+  colback=aagiteal!7, colframe=aagiteal!7, notitle, sharp corners,
+  borderline west={2pt}{0pt}{aagiteal}, borderline east={2pt}{0pt}{aagiteal},
+  enhanced, breakable}
+ 
 % -------------------------
 % Pandoc / CSL compatibility
 % -------------------------
@@ -69,20 +82,55 @@
 \providecommand{\CSLLeftMargin}[1]{}
 \providecommand{\CSLRightInline}[1]{#1}
 \providecommand{\CSLBlock}[1]{#1}
-
+ 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}
-  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parskip}{0pt}%
 }
-
+ 
 \newenvironment{CSLReferences}[2]
  {%
   \begin{list}{}{%
-    \setlength{\leftmargin}{1.5em}
-    \setlength{\itemindent}{-1.5em}
-    \setlength{\labelwidth}{0pt}
-    \setlength{\labelsep}{0pt}
-    \renewcommand{\makelabel}[1]{}
-  }
+    \setlength{\leftmargin}{1.5em}%
+    \setlength{\itemindent}{-1.5em}%
+    \setlength{\labelwidth}{0pt}%
+    \setlength{\labelsep}{0pt}%
+    \renewcommand{\makelabel}[1]{}%
+  }%
  }
  {\end{list}}
+ 
+% -------------------------
+% Page styling
+% -------------------------
+\usepackage{fancyhdr}
+\setlength{\headheight}{32pt}
+ 
+\newcommand{\aagiheaderstyle}{%
+  \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagigrey}%
+}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+ 
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \fancyhead[R]{%
+    \includegraphics[height=2.3cm]{AAGI_logo}%
+  }
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+ 
+\fancypagestyle{otherpages}{%
+  \fancyhf{}
+  \fancyhead[R]{{\aagiheaderstyle $title$}}
+  \fancyfoot[R]{{\sffamily \thepage}}
+  \fancyfoot[C]{%
+    \rule{\textwidth}{0.4pt}\\[-10pt]%
+    \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}%
+  }
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+ 
