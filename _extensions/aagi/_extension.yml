@@ -40,10 +40,7 @@ contributes:
     pdf+report:
       template: pdf-report/template.tex
       template-partials:
-        - partials/_fonts.tex
-        - partials/_packages.tex
-        - partials/_pandoc-compat.tex
-        - partials/_pagestyle-shared.tex
+        - partials/aagi-preamble.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
@@ -52,10 +49,7 @@ contributes:
     pdf+short-report:
       template: pdf-short-report/template.tex
       template-partials:
-        - partials/_fonts.tex
-        - partials/_packages.tex
-        - partials/_pandoc-compat.tex
-        - partials/_pagestyle-shared.tex
+        - partials/aagi-preamble.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf

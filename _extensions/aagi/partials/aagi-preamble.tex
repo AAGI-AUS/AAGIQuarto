@@ -1,0 +1,54 @@
+% -------------------------
+% AAGI colours
+% Defined both here and in \AtBeginDocument to survive any package option resets.
+% -------------------------
+\definecolor{aagiteal}{HTML}{00808B}
+\definecolor{aagibrightgreen}{HTML}{B6D438}
+\definecolor{aagigreen}{HTML}{54921E}
+\definecolor{aagiblue}{HTML}{648FD2}
+\definecolor{aagiyellow}{HTML}{FFBC42}
+\definecolor{aagiorange}{HTML}{EC8525}
+\definecolor{aagiblack}{HTML}{414042}
+\definecolor{aagigrey}{HTML}{F2F2F2}
+
+\AtBeginDocument{%
+  \definecolor{aagiteal}{HTML}{00808B}%
+  \definecolor{aagibrightgreen}{HTML}{B6D438}%
+  \definecolor{aagigreen}{HTML}{54921E}%
+  \definecolor{aagiblue}{HTML}{648FD2}%
+  \definecolor{aagiyellow}{HTML}{FFBC42}%
+  \definecolor{aagiorange}{HTML}{EC8525}%
+  \definecolor{aagiblack}{HTML}{414042}%
+  \definecolor{aagigrey}{HTML}{F2F2F2}%
+}
+
+% -------------------------
+% Additional packages
+% -------------------------
+\usepackage{colortbl}
+\usepackage{longtable}
+\setlength{\LTcapwidth}{\textwidth}
+\usepackage{caption}
+\captionsetup{font={sf}}
+\usepackage[most]{tcolorbox}
+\usepackage{afterpage}
+
+% -------------------------
+% AAGI note callout environment
+% -------------------------
+\newtcolorbox{note}[1][]{%
+  colback=aagiteal!7, colframe=aagiteal!7, notitle, sharp corners,
+  borderline west={2pt}{0pt}{aagiteal},
+  borderline east={2pt}{0pt}{aagiteal},
+  enhanced, breakable}
+
+% -------------------------
+% fancyhdr shared setup
+% -------------------------
+\usepackage{fancyhdr}
+\setlength{\headheight}{32pt}
+
+% Running-header text style (small, sans-serif, dark)
+\newcommand{\aagiheaderstyle}{%
+  \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagiblack}%
+}
