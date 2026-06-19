@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-pdf+report:
+  aagi-pdf-report:
     fig-path: figures/pdf-report/
 
 execute:
