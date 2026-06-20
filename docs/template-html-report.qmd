@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-html-report:
+  aagi-html+report:
     toc: true
     self-contained: true
     fig-path: figures/html-report/

@@ -1,8 +1,8 @@
 ---
 format:
-  aagi-docx-report:
+  aagi-docx+short-report:
     default: true
-    fig-path: figures/docx-report/
+    fig-path: figures/docx-short-report/
 
 params:
   report_title: "My Report Title"
