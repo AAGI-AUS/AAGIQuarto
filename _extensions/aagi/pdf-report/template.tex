@@ -106,8 +106,8 @@ $pandoc.tex()$
 
 % -------------------------
 % Page styles — full report
-% otherpages: running title header + page number + Partners footer
-% (No firstpage fancyhdr style — logo and Partners live inside \titlepage)
+% otherpages: running title header + page number + AAGI_SP_Logo_Block-Portrait footer
+% (No firstpage fancyhdr style — logo and AAGI_SP_Logo_Block-Portrait live inside \titlepage)
 % -------------------------
 \fancypagestyle{otherpages}{%
   \fancyhf{}
@@ -123,7 +123,7 @@ $pandoc.tex()$
 \begin{document}
 % -----------------------------------------------
 % Title page (opt-in: set has-title-page: true)
-% Logo and Partners are placed explicitly inside \titlepage because
+% Logo and AAGI_SP_Logo_Block-Portrait are placed explicitly inside \titlepage because
 % \begin{titlepage} suppresses all fancyhdr page styles.
 % -----------------------------------------------
 $if(has-title-page)$
@@ -168,7 +168,7 @@ $if(has-title-page)$
       \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
   \end{center}
   $endif$
-  % Date bottom-right; Partners banner pinned to very bottom
+  % Date bottom-right; AAGI_SP_Logo_Block-Portrait banner pinned to very bottom
   \vfill
   \begin{flushright}
     {\sffamily\normalsize $date$}
@@ -177,7 +177,7 @@ $if(has-title-page)$
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
   \vspace{-2mm}
   \begin{center}
-    \includegraphics[width=\textwidth]{Partners}
+    \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}
   \end{center}
   \restoregeometry
 \end{titlepage}
