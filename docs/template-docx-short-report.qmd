@@ -1,6 +1,6 @@
 ---
 format:
-  AAGI-AUS/aagi-docx+short-report:
+  AAGI-AUS/aagi-docx+shortreport:
     default: true
     fig-path: figures/docx-short-report/
 

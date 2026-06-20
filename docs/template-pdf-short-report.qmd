@@ -1,6 +1,6 @@
 ---
 format:
-  AAGI-AUS/aagi-pdf+short-report:
+  AAGI-AUS/aagi-pdf+shortreport:
     fig-path: figures/pdf-short-report/
 
 execute:

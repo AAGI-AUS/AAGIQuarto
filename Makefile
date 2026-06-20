@@ -35,7 +35,7 @@ asset-docx: check-docs install-extension fonts ## Render docx report into $(DOCS
 asset-short-docx: check-docs install-extension fonts ## Render short docx report into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-docx-short-report.qmd" || { echo "Error: $(DOCS_DIR)/template-docx-short-report.qmd not found"; exit 1; }
 	mkdir -p $(DOCS_DIR)/$(ASSET_DIR)
-	cd $(DOCS_DIR) && quarto render template-docx-short-report.qmd --to "AAGI-AUS/aagi-docx+short-report"
+	cd $(DOCS_DIR) && quarto render template-docx-short-report.qmd --to "AAGI-AUS/aagi-docx+shortreport"
 	mv $(DOCS_DIR)/template-docx-short-report.docx $(DOCS_DIR)/$(ASSET_DIR)/
 
 asset-report: check-docs install-extension fonts ## Render PDF report into $(DOCS_DIR)/$(ASSET_DIR)
@@ -47,7 +47,7 @@ asset-report: check-docs install-extension fonts ## Render PDF report into $(DOC
 asset-short-report: check-docs install-extension fonts ## Render short PDF report into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-pdf-short-report.qmd" || { echo "Error: $(DOCS_DIR)/template-pdf-short-report.qmd not found"; exit 1; }
 	mkdir -p $(DOCS_DIR)/$(ASSET_DIR)
-	cd $(DOCS_DIR) && quarto render template-pdf-short-report.qmd --to "AAGI-AUS/aagi-pdf+short-report"
+	cd $(DOCS_DIR) && quarto render template-pdf-short-report.qmd --to "AAGI-AUS/aagi-pdf+shortreport"
 	mv $(DOCS_DIR)/template-pdf-short-report*.pdf $(DOCS_DIR)/$(ASSET_DIR)/
 
 asset-pptx: check-docs install-extension fonts ## Render pptx slides into $(DOCS_DIR)/$(ASSET_DIR)
@@ -65,7 +65,7 @@ asset-html: check-docs install-extension fonts ## Render HTML report into $(DOCS
 asset-short-html: check-docs install-extension fonts ## Render short HTML report into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-html-short-report.qmd" || { echo "Error: $(DOCS_DIR)/template-html-short-report.qmd not found"; exit 1; }
 	mkdir -p $(DOCS_DIR)/$(ASSET_DIR)
-	cd $(DOCS_DIR) && quarto render template-html-short-report.qmd --to "AAGI-AUS/aagi-html+short-report"
+	cd $(DOCS_DIR) && quarto render template-html-short-report.qmd --to "AAGI-AUS/aagi-html+shortreport"
 	mv $(DOCS_DIR)/template-html-short-report.html $(DOCS_DIR)/$(ASSET_DIR)/
 
 assets: install-extension fonts asset-report asset-short-report asset-docx asset-short-docx asset-html asset-short-html asset-revealjs asset-pptx ## Render all assets
