@@ -1,53 +1,23 @@
-% AAGI Full Report — Quarto LaTeX template
+% AAGI Full Report — Quarto/Pandoc LaTeX template
 \documentclass[12pt]{article}
-
-$partials/aagi-preamble.tex()$
-
-% -------------------------
-% Pandoc / CSL compatibility
-% -------------------------
-\providecommand{\citeproc}[2]{#2}
-\providecommand{\citeproctext}{}
-\providecommand{\CSLLeftMargin}[1]{}
-\providecommand{\CSLRightInline}[1]{#1}
-\providecommand{\CSLBlock}[1]{#1}
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}%
-  \setlength{\parskip}{0pt}%
-}
-
-\newenvironment{CSLReferences}[2]
- {%
-  \begin{list}{}{%
-    \setlength{\leftmargin}{1.5em}%
-    \setlength{\itemindent}{-1.5em}%
-    \setlength{\labelwidth}{0pt}%
-    \setlength{\labelsep}{0pt}%
-    \renewcommand{\makelabel}[1]{}%
-  }%
- }
- {\end{list}}
-
 % -------------------------
 % Engine detection + fonts
 % -------------------------
 \usepackage{iftex}
-
 \ifPDFTeX
   \usepackage{lmodern}
   \renewcommand{\familydefault}{\sfdefault}
 \else
   \usepackage{fontspec}
   \usepackage{microtype}
-  \IfFontExistsTF{Proxima Nova}{
-    \setsansfont[Scale=MatchLowercase]{Proxima Nova}
-  }{
-    \IfFontExistsTF{Arial}{
-      \setsansfont[Scale=MatchLowercase]{Arial}
-    }{
-      \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}
-    }
+  \IfFontExistsTF{Proxima Nova}{%
+    \setsansfont[Scale=MatchLowercase]{Proxima Nova}%
+  }{%
+    \IfFontExistsTF{Arial}{%
+      \setsansfont[Scale=MatchLowercase]{Arial}%
+    }{%
+      \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}%
+    }%
   }
   \renewcommand{\familydefault}{\sfdefault}
   \setmonofont[
@@ -59,23 +29,31 @@ $partials/aagi-preamble.tex()$
     Scale       = MatchLowercase
   ]{FiraCode-Regular}
 \fi
-
 % -------------------------
-% Core packages
+% Core geometry + graphics
 % -------------------------
 \usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 \usepackage{amsmath,amssymb}
 \usepackage{parskip}
+% xcolor must be loaded before pandoc.tex() to avoid option clashes
 \PassOptionsToPackage{dvipsnames,table}{xcolor}
 \usepackage[dvipsnames,table]{xcolor}
-\usepackage{hyperref}
-\hypersetup{colorlinks=true, linkcolor=aagiteal, urlcolor=aagiteal, citecolor=aagiteal}
-\usepackage{csquotes}
-
 % -------------------------
-% otherpages style (body pages)
+% Quarto/Pandoc built-in features
+% (syntax highlighting, tables, graphics config, tight lists,
+%  CSL citations, header-includes, hyperref, etc.)
+% -------------------------
+$pandoc.tex()$
+% -------------------------
+% AAGI colours, packages, note environment, fancyhdr setup
+% -------------------------
+$aagi-preamble.tex()$
+% -------------------------
+% Page styles — full report
+% otherpages: running title header + page number + Partners footer
+% (No firstpage fancyhdr style — logo and Partners live inside \titlepage)
 % -------------------------
 \fancypagestyle{otherpages}{%
   \fancyhf{}
@@ -83,101 +61,80 @@ $partials/aagi-preamble.tex()$
   \fancyfoot[R]{{\sffamily \thepage}}
   \fancyfoot[C]{%
     \rule{\textwidth}{0.4pt}\\[-10pt]%
-    \includegraphics[width=\textwidth]{Partners}%
+    \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}%
   }
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }
-
-$for(header-includes)$
-$header-includes$
-$endfor$
-
 \begin{document}
-
-% ------------------------------------------------------------------
-% Title page
-% Logo + Partners are placed INSIDE titlepage (fancyhdr is suppressed
-% inside titlepage environments, so headers/footers must be explicit).
-% ------------------------------------------------------------------
+% -----------------------------------------------
+% Title page (opt-in: set has-title-page: true)
+% Logo and Partners are placed explicitly inside \titlepage because
+% \begin{titlepage} suppresses all fancyhdr page styles.
+% -----------------------------------------------
+$if(has-title-page)$
 \begin{titlepage}
   \newgeometry{top=15mm,left=20mm,right=20mm,bottom=15mm}
-
-  % AAGI logo — centred, generous top space to match JPG
+  % AAGI logo — centred at top
   \begin{center}
     \includegraphics[height=3.5cm]{AAGI_logo}
   \end{center}
-
   \vspace{10mm}
   {\color{aagiteal}\rule{\textwidth}{2pt}}
   \vspace{8mm}
-
-  % Title — large, bold, centred, AAGI teal
+  % Title — large, bold, centred, teal
   \begin{center}
     {\sffamily\LARGE\bfseries\color{aagiteal} $title$\par}
   \end{center}
   \vspace{6mm}
-
   $if(subtitle)$
   \begin{center}
     {\sffamily\large\bfseries\color{aagiblack} $subtitle$\par}
   \end{center}
   \vspace{4mm}
   $endif$
-
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
   \vspace{6mm}
-
-  % Authors block — centred
+  % Authors — centred, teal
   \begin{center}
-    $for(by-author)$
-    {\sffamily\normalsize\color{aagiteal}
-      $if(by-author.name.literal)$$by-author.name.literal$$else$$by-author.name$$endif$
-    \par}
-    $endfor$
-    % Fallback for plain author strings
-    $if(by-author)$$else$
     $for(author)$
     {\sffamily\normalsize\color{aagiteal} $author$\par}
     $endfor$
-    $endif$
   \end{center}
-
   $if(university)$
-  \vspace{3mm}
+  \vspace{2mm}
   \begin{center}
     {\sffamily\small\color{aagiblack} $university$\par}
   \end{center}
   $endif$
-
   $if(correspondence-email)$
-  \vspace{3mm}
+  \vspace{2mm}
   \begin{center}
     {\sffamily\small Correspondence email:\space
       \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
   \end{center}
   $endif$
-
-  % Date pinned to bottom-right, Partners banner at very bottom
+  % Date bottom-right; Partners banner pinned to very bottom
   \vfill
-
   \begin{flushright}
     {\sffamily\normalsize $date$}
   \end{flushright}
-
   \vspace{4mm}
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
   \vspace{-2mm}
-
   \begin{center}
     \includegraphics[width=\textwidth]{Partners}
   \end{center}
-
   \restoregeometry
 \end{titlepage}
-
+\cleardoublepage
+$else$
+\thispagestyle{firstpage}
+$endif$
 \pagestyle{otherpages}
-
+% -----------------------------------------------
+% Table of contents (opt-in: set toc: true)
+% -----------------------------------------------
 $if(toc)$
 {
   \hypersetup{linkcolor=aagiblack}
@@ -185,7 +142,5 @@ $if(toc)$
   \newpage
 }
 $endif$
-
 $body$
-
 \end{document}
