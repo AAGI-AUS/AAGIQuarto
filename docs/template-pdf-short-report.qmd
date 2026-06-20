@@ -82,7 +82,7 @@ ft
 
 ### This is a subsubsection heading
 
-\lipsum[1-3]
+Add body text here.
 
 # Next Section
 
