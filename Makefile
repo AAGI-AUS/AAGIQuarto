@@ -4,18 +4,18 @@
 .DEFAULT_GOAL := help
 DOCS_DIR ?= docs
 ASSET_DIR ?= assets
-EXTENSION_SRC ?= _extensions/AAGI-AUS/aagi
+EXTENSION_SRC ?= _extensions/aagi
 
 fonts:
 	mkdir -p $(DOCS_DIR)/assets/fonts
-	cp $(DOCS_DIR)/_extensions/AAGI-AUS/aagi/assets/fonts/*.woff2 $(DOCS_DIR)/assets/fonts/
+	cp $(DOCS_DIR)/_extensions/aagi/assets/fonts/*.woff2 $(DOCS_DIR)/assets/fonts/
 
 check-docs:
 	@test -d "$(DOCS_DIR)" || { echo "Error: '$(DOCS_DIR)/' directory not found. Run make from the repository root or set DOCS_DIR=/path/to/docs"; exit 1; }
 
 install-extension: check-docs ## Install the committed AAGI extension into $(DOCS_DIR)
-	mkdir -p $(DOCS_DIR)/_extensions/AAGI-AUS/aagi
-	cp -r $(EXTENSION_SRC)/. $(DOCS_DIR)/_extensions/AAGI-AUS/aagi/
+	mkdir -p $(DOCS_DIR)/_extensions/aagi
+	cp -r $(EXTENSION_SRC)/. $(DOCS_DIR)/_extensions/aagi/
 
 asset-revealjs: check-docs install-extension fonts ## Render reveal.js slides into $(DOCS_DIR)/$(ASSET_DIR)
 	@test -f "$(DOCS_DIR)/template-revealjs.qmd" || { echo "Error: $(DOCS_DIR)/template-revealjs.qmd not found"; exit 1; }
