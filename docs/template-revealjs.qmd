@@ -1,5 +1,5 @@
 ---
-format: aagi-revealjs
+format: AAGI-AUS/aagi-revealjs
 execute:
   echo: false
   message: false

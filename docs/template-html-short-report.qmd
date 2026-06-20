@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-html+short-report:
+  AAGI-AUS/aagi-html+short-report:
     toc: true
     self-contained: true
     fig-path: figures/html-short-report/

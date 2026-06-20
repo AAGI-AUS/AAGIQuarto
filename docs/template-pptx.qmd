@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-pptx:
+  AAGI-AUS/aagi-pptx:
     fig-path: figures/pptx/
 execute:
   echo: false

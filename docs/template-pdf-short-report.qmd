@@ -1,6 +1,6 @@
 ---
 format:
-  aagi-pdf+short-report:
+  AAGI-AUS/aagi-pdf+short-report:
     fig-path: figures/pdf-short-report/
 
 execute:
@@ -12,14 +12,6 @@ params:
 date: last-modified
 date-format: long
 bibliography: references.bib
-
-# Short reports use an inline title block (no separate cover page).
-# Fields below populate the header rendered by the template.
-title: "`r params$report_title`"
-# subtitle, university, correspondence-email are all optional — uncomment if needed:
-# subtitle: "Optional subtitle"
-# university: "University Name"
-# correspondence-email: "your.email@example.edu.au"
 ---
 
 ```{r}
@@ -31,14 +23,9 @@ source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 
 # Section
 
-This template is designed for shorter ("one-page") AAGI reports. The AAGI logo
-appears on the first page only; subsequent pages carry a running title in the
-header and the SP logo block in the footer.
+This template is designed for smaller ("one-page") AAGI reports. The AAGI logo and partners footer appear only on this first page.
 
-Colour names available throughout: `aagiteal`, `aagibrightgreen`, `aagigreen`,
-`aagiblue`, `aagiyellow`, `aagiorange`, `aagiblack`, `aagigrey`.
-
-@tbl-aagipalette shows the full palette.
+You can colour text/tables/etc using the various AAGI palette colours. Use \textcolor{aagiteal}{AAGI Teal}, or \textcolor{aagibrightgreen}{AAGI Bright Green}. @tbl-aagipalette shows the standard palette colours available for use.
 
 ::: {#tbl-aagipalette}
 \centering
@@ -59,26 +46,26 @@ Colour names available throughout: `aagiteal`, `aagibrightgreen`, `aagigreen`,
 The AAGI palette colours.
 :::
 
-## Subsection heading
+## This is a subsection heading
 
-Example citation: [@blah].
+This is an example of a reference [@blah].
 
 \begin{note}
-{\bf\color{aagiteal!75!black} Note}\quad
-Use \verb|\begin{note}...\end{note}| for highlighted callouts.
+{\bf\color{aagiteal!75!black} Example Note}\quad
+Use \verb|\begin{note}...\end{note}| to create coloured notes like this.
 \end{note}
 
-# Figure Example
+Example R code using {AAGIThemes}.
 
 ```{r}
-#| label: fig-example
-#| fig-cap: "An example figure."
+#| label: fig-example1
+#| fig-cap: "Here is a plot."
 #| fig-height: 3
 
 plot_aagi(pressure)
 ```
 
-# Table Example
+# Table example using {flextable}
 
 ```{r}
 #| label: tbl-example
@@ -86,12 +73,18 @@ plot_aagi(pressure)
 
 library(flextable)
 
-flextable(head(airquality)) |>
+ft <- flextable(head(airquality)) |>
   theme_ft_aagi() |>
   autofit()
+
+ft
 ```
 
-# References
+### This is a subsubsection heading
 
-::: {#refs}
-:::
+\lipsum[1-3]
+
+# Next Section
+
+Add as many sections as needed [@blah].
+
