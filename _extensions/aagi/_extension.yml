@@ -39,8 +39,6 @@ contributes:
         echo: true
     pdf+report:
       template: pdf-report/template.tex
-      template-partials:
-        - pdf-report/aagi-preamble.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
@@ -49,8 +47,6 @@ contributes:
         - templates/**
     pdf+shortreport:
       template: pdf-short-report/template.tex
-      template-partials:
-        - pdf-short-report/aagi-preamble.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
