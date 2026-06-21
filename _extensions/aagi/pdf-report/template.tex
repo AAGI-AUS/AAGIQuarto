@@ -111,7 +111,7 @@ $endfor$
 
 \fancypagestyle{otherpages}{%
   \fancyhf{}
-  \fancyhead[R]{{\aagiheaderstyle $title$}}
+  \fancyhead[R]{{\aagiheaderstyle $if(subtitle)$$subtitle$$else$$title$$endif$}}
   \fancyfoot[R]{{\sffamily \thepage}}
   \fancyfoot[C]{%
     \rule{\textwidth}{0.4pt}\\[-10pt]%
@@ -126,52 +126,47 @@ $endfor$
 % -----------------------------------------------
 $if(has-title-page)$
 \begin{titlepage}
-  \newgeometry{top=15mm,left=20mm,right=20mm,bottom=15mm}
+  \newgeometry{top=12mm,left=20mm,right=20mm,bottom=12mm}
   % ---- AAGI logo centred at top ----
   \begin{center}
-    \includegraphics[height=3.5cm]{AAGI_logo}
+    \includegraphics[height=3cm]{AAGI_logo}
   \end{center}
-  \vspace{10mm}
-  {\color{aagiteal}\rule{\textwidth}{2pt}}
   \vspace{6mm}
-  % ---- Programme title: large, bold, centred, teal ----
+  {\color{aagiteal}\rule{\textwidth}{2pt}}
+  \vspace{5mm}
+  % ---- Programme title: LARGE bold centred teal (matches JPG) ----
   \begin{center}
-    {\sffamily\huge\bfseries\color{aagiteal}
+    {\sffamily\LARGE\bfseries\color{aagiteal}
       $if(programme-title)$$programme-title$$else$$title$$endif$\par}
   \end{center}
-  \vspace{4mm}
+  \vspace{3mm}
   $if(subtitle)$
-  % ---- Subtitle line 1: report title, bold, centred, black ----
+  % ---- Subtitle: report title, bold centred black ----
   \begin{center}
-    {\sffamily\Large\bfseries\color{aagiblack} $subtitle$\par}
+    {\sffamily\large\bfseries\color{aagiblack} $subtitle$\par}
   \end{center}
-  \vspace{2mm}
+  \vspace{1mm}
   $endif$
   $if(project-code)$
-  % ---- Subtitle line 2: project code, normal weight, centred, black ----
+  % ---- Project code line: normal weight centred black ----
   \begin{center}
-    {\sffamily\large\color{aagiblack} Report for GRDC/AAGI Project Code $project-code$\par}
+    {\sffamily\normalsize\color{aagiblack} Report for GRDC/AAGI Project Code $project-code$\par}
   \end{center}
-  \vspace{4mm}
+  \vspace{3mm}
   $endif$
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
-  \vspace{6mm}
+  \vspace{5mm}
   % ---- Prepared for / Prepared by block — centred ----
   \begin{center}
     $if(prepared-for)$
     {\sffamily\normalsize Prepared for:\space
       {\bfseries $prepared-for$}%
-      $if(prepared-for-org)$\space($prepared-for-org$)$endif$
+      $if(prepared-for-email)$\space({\color{aagiteal}$prepared-for-email$})$endif$
     \par}
-    $if(prepared-for-email)$
-    \vspace{1mm}
-    {\sffamily\small\color{aagiteal} $prepared-for-email$\par}
-    $endif$
     \vspace{3mm}
     $endif$
     $if(prepared-by)$
-    {\sffamily\normalsize Prepared by:\space
-      {\bfseries $prepared-by$}\par}
+    {\sffamily\normalsize Prepared by:\space{\bfseries $prepared-by$}\par}
     \vspace{3mm}
     $endif$
     $if(university)$
@@ -183,18 +178,18 @@ $if(has-title-page)$
       \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
     $endif$
   \end{center}
-  % ---- Date flush-right, Partners banner at very bottom ----
+  % ---- Date flush-right; Partners banner pinned to bottom ----
   \vfill
   \begin{flushright}
     {\sffamily\normalsize $date$}
   \end{flushright}
-  \vspace{4mm}
+  \vspace{3mm}
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
   \vspace{-2mm}
   \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}
   \restoregeometry
 \end{titlepage}
-\cleardoublepage
+\clearpage
 $else$
 \thispagestyle{firstpage}
 $endif$
