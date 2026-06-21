@@ -113,6 +113,11 @@ $endfor$
 \usepackage{colortbl}
 \usepackage{longtable}
 \setlength{\LTcapwidth}{\textwidth}
+% longtable/newpage compatibility:
+% flextable emits longtables; \newpage inside them causes "Misplaced \noalign".
+% Redefine \newpage as \clearpage which is safe in all contexts.
+\let\oldnewpage\newpage
+\renewcommand{\newpage}{\clearpage}
 \usepackage{caption}
 \captionsetup{font={sf}}
 \usepackage{float}
