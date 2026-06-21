@@ -127,39 +127,59 @@ $endfor$
 $if(has-title-page)$
 \begin{titlepage}
   \newgeometry{top=15mm,left=20mm,right=20mm,bottom=15mm}
-  % AAGI logo — centred at top
+  % ---- AAGI logo centred at top ----
   \begin{center}
     \includegraphics[height=3.5cm]{AAGI_logo}
   \end{center}
   \vspace{10mm}
   {\color{aagiteal}\rule{\textwidth}{2pt}}
   \vspace{6mm}
-  % Title — large, bold, left-aligned, teal
-  {\sffamily\huge\bfseries\color{aagiteal} $title$\par}
+  % ---- Title: large, bold, centred, teal ----
+  \begin{center}
+    {\sffamily\huge\bfseries\color{aagiteal} $title$\par}
+  \end{center}
   \vspace{4mm}
   $if(subtitle)$
-  {\sffamily\Large\bfseries\color{aagiblack} $subtitle$\par}
+  % ---- Subtitle: bold, centred, black ----
+  \begin{center}
+    {\sffamily\Large\bfseries\color{aagiblack} $subtitle$\par}
+  \end{center}
   \vspace{4mm}
   $endif$
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
   \vspace{6mm}
-  % Authors — left-aligned
-  $for(author)$
-  {\sffamily\normalsize\color{aagiteal} $author$\par}
-  \vspace{1mm}
-  $endfor$
-  \vspace{2mm}
-  $if(university)$
-  {\sffamily\normalsize\color{aagiblack} $university$\par}
-  \vspace{2mm}
-  $endif$
-  $if(correspondence-email)$
-  {\sffamily\normalsize Correspondence email:\space
-    \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
-  $endif$
-  % Date flush-right; Partners banner pinned to very bottom
+  % ---- Prepared for / Prepared by block — centred ----
+  \begin{center}
+    $if(prepared-for)$
+    {\sffamily\normalsize Prepared for:\space
+      {\bfseries $prepared-for$}%
+      $if(prepared-for-org)$\space($prepared-for-org$)$endif$
+    \par}
+    $if(prepared-for-email)$
+    \vspace{1mm}
+    {\sffamily\small\color{aagiteal} $prepared-for-email$\par}
+    $endif$
+    \vspace{3mm}
+    $endif$
+    $if(prepared-by)$
+    {\sffamily\normalsize Prepared by:\space
+      {\bfseries $prepared-by$}\par}
+    \vspace{3mm}
+    $endif$
+    $if(university)$
+    {\sffamily\normalsize\color{aagiblack} $university$\par}
+    \vspace{3mm}
+    $endif$
+    $if(correspondence-email)$
+    {\sffamily\normalsize Correspondence email:\space
+      \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
+    $endif$
+  \end{center}
+  % ---- Date flush-right, Partners banner at very bottom ----
   \vfill
-  {\sffamily\normalsize\raggedleft $date$\par}
+  \begin{flushright}
+    {\sffamily\normalsize $date$}
+  \end{flushright}
   \vspace{4mm}
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
   \vspace{-2mm}

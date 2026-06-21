@@ -6,9 +6,6 @@ format:
 execute:
   echo: false
 
-# ---- Report parameters -------------------------------------------------------
-# Adjust these to match your project. The inline R expressions below populate
-# the title, subtitle, and author fields automatically from these params.
 params:
   uni: "CU" # University key — must match uni_info in setup_reports.R
   aagi_staff: "Your Name"
@@ -21,8 +18,6 @@ params:
 date: last-modified
 date-format: long
 bibliography: references.bib
-
-# Set to true to render a full cover/title page; false for an inline header.
 has-title-page: true
 
 title: >
@@ -35,10 +30,10 @@ title: >
 subtitle: >
   `r sprintf("%s — %s", params$report_title, params$project_code)`
 
-author:
-  - '`r sprintf("Prepared for: %s (%s)", params$partner, params$partner_email)`'
-  - '`r sprintf("Prepared by: %s", params$aagi_staff)`'
-
+prepared-for: "`r params$partner`"
+prepared-for-org: ""
+prepared-for-email: "`r params$partner_email`"
+prepared-by: "`r params$aagi_staff`"
 university: "`r params$uni_info[[params$uni]]$name`"
 correspondence-email: "`r params$aagi_email`"
 ---
