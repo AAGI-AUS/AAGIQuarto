@@ -42,8 +42,13 @@ contributes:
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
-      fig-width: 6.3
-      fig-height: 4
+      fig-pos: H
+      knitr:
+        opts_chunk:
+          fig.width: 6.3
+          fig.height: 4
+          out.width: "\\linewidth"
+          fig.align: center
       format-resources:
         - assets/**
         - templates/**
@@ -52,8 +57,13 @@ contributes:
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
-      fig-width: 6.3
-      fig-height: 4
+      fig-pos: H
+      knitr:
+        opts_chunk:
+          fig.width: 6.3
+          fig.height: 4
+          out.width: "\\linewidth"
+          fig.align: center
       format-resources:
         - assets/**
         - templates/**
