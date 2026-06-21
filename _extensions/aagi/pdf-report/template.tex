@@ -58,6 +58,9 @@
   }%
 }{\end{list}}
 
+
+% Compatibility stub for Pandoc >= 3.2 \pandocbounded macro
+\providecommand{\pandocbounded}[1]{#1}
 \providecommand{\citeproctext}{}
 \providecommand{\citeproc}[2]{#2}
 \providecommand{\CSLBlock}[1]{#1}
@@ -89,6 +92,7 @@ $endfor$
 \setlength{\LTcapwidth}{\textwidth}
 \usepackage{caption}
 \captionsetup{font={sf}}
+\usepackage{float}
 \usepackage[most]{tcolorbox}
 \usepackage{afterpage}
 % -------------------------
