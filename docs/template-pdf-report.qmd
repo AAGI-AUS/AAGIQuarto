@@ -24,8 +24,12 @@ has-title-page: true
 # title is used in the running page header — keep it short
 title: "AAGI Program Report"
 
-# These fields populate the title page only
-programme-title: "Analytics for the Australian Grains Industry - Curtin University (AAGI-CU) AAGI Program Report"
+# These fields populate the title page only.
+# programme-title renders as three right-aligned teal lines.
+# Use \\\\ to force a line break between each line.
+programme-title: "Analytics for the Australian Grains Industry\\\\
+  Curtin University (AAGI-CU)\\\\
+  AAGI Program Report"
 subtitle:        "My Report Title"
 project-code:    "ABC2026-001"
 

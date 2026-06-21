@@ -123,73 +123,57 @@ $endfor$
 \begin{document}
 % -----------------------------------------------
 % Title page (opt-in: set has-title-page: true)
+% Matches the original LaTeX template layout:
+%   logo centred, then right-aligned title block, Partners banner full-width
 % -----------------------------------------------
 $if(has-title-page)$
-\begin{titlepage}
-  \newgeometry{top=12mm,left=20mm,right=20mm,bottom=12mm}
-  % ---- AAGI logo centred at top ----
-  \begin{center}
-    \includegraphics[height=3cm]{AAGI_logo}
-  \end{center}
-  \vspace{6mm}
-  {\color{aagiteal}\rule{\textwidth}{2pt}}
-  \vspace{5mm}
-  % ---- Programme title: LARGE bold centred teal (matches JPG) ----
-  \begin{center}
-    {\sffamily\LARGE\bfseries\color{aagiteal}
-      $if(programme-title)$$programme-title$$else$$title$$endif$\par}
-  \end{center}
-  \vspace{3mm}
+\newgeometry{top=35mm,left=25mm,right=25mm,bottom=30mm}
+\thispagestyle{empty}
+\vspace*{-30mm}
+\begin{center}
+  \includegraphics[height=3cm]{AAGI_logo}
+\end{center}
+\vspace*{2cm}
+\begin{flushright}
+  \hspace{-25mm}\rule{160mm}{0.6mm}\\[5mm]
+  % ---- Programme title: three teal right-aligned lines ----
+  {\sffamily\Large\bfseries\color{aagiteal}%
+    $if(programme-title)$$programme-title$$else$$title$$endif$\par}\\[0pt]
+  \vspace*{6mm}
+  % ---- Report title and project code ----
   $if(subtitle)$
-  % ---- Subtitle: report title, bold centred black ----
-  \begin{center}
-    {\sffamily\large\bfseries\color{aagiblack} $subtitle$\par}
-  \end{center}
-  \vspace{1mm}
+  {\LARGE\sffamily\bfseries $subtitle$}\\[4pt]
   $endif$
   $if(project-code)$
-  % ---- Project code line: normal weight centred black ----
-  \begin{center}
-    {\sffamily\normalsize\color{aagiblack} Report for GRDC/AAGI Project Code $project-code$\par}
-  \end{center}
-  \vspace{3mm}
+  {\Large\sffamily\bfseries Report for GRDC/AAGI Project Code $project-code$}\\[8mm]
   $endif$
-  {\color{aagiteal}\rule{\textwidth}{0.5pt}}
-  \vspace{5mm}
-  % ---- Prepared for / Prepared by block — centred ----
-  \begin{center}
-    $if(prepared-for)$
-    {\sffamily\normalsize Prepared for:\space
-      {\bfseries $prepared-for$}%
-      $if(prepared-for-email)$\space({\color{aagiteal}$prepared-for-email$})$endif$
-    \par}
-    \vspace{3mm}
-    $endif$
-    $if(prepared-by)$
-    {\sffamily\normalsize Prepared by:\space{\bfseries $prepared-by$}\par}
-    \vspace{3mm}
-    $endif$
-    $if(university)$
-    {\sffamily\normalsize\color{aagiblack} $university$\par}
-    \vspace{3mm}
-    $endif$
-    $if(correspondence-email)$
-    {\sffamily\normalsize Correspondence email:\space
-      \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
-    $endif$
-  \end{center}
-  % ---- Date flush-right; Partners banner pinned to bottom ----
-  \vfill
-  \begin{flushright}
-    {\sffamily\normalsize $date$}
-  \end{flushright}
-  \vspace{3mm}
-  {\color{aagiteal}\rule{\textwidth}{0.5pt}}
-  \vspace{-2mm}
-  \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}
-  \restoregeometry
-\end{titlepage}
+  % ---- Prepared for / by block ----
+  \sffamily\normalsize
+  $if(prepared-for)$
+  Prepared for:\space{\bfseries $prepared-for$}%
+  $if(prepared-for-email)$\space({\color{aagiteal}$prepared-for-email$})$endif$
+  \\[4pt]
+  $endif$
+  $if(prepared-by)$
+  Prepared by:\space{\bfseries $prepared-by$}\\[4pt]
+  $endif$
+  $if(university)$
+  {\color{aagiblack} $university$}\\[4pt]
+  $endif$
+  $if(correspondence-email)$
+  Correspondence email:\enspace
+    \href{mailto:$correspondence-email$}{$correspondence-email$}\\[4pt]
+  $endif$
+  $date$\\[-2pt]
+  \hspace{-25mm}\rule{160mm}{0.6mm}
+\end{flushright}
+\vfill
+% ---- Partners banner: full paper width, flush to bottom ----
+\noindent\makebox[\textwidth]{%
+  \includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait}}
+\vspace*{-36mm}
 \clearpage
+\restoregeometry
 $else$
 \thispagestyle{firstpage}
 $endif$
