@@ -112,11 +112,7 @@ $endfor$
 \fancypagestyle{otherpages}{%
   \fancyhf{}
   \fancyhead[R]{{\aagiheaderstyle $if(subtitle)$$subtitle$$else$$title$$endif$}}
-  \fancyfoot[R]{{\sffamily \thepage}}
-  \fancyfoot[C]{%
-    \rule{\textwidth}{0.4pt}\\[-10pt]%
-    \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}%
-  }
+  \fancyfoot[C]{{\sffamily \thepage}}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }
@@ -138,7 +134,9 @@ $if(has-title-page)$
   \hspace{-25mm}\rule{160mm}{0.6mm}\\[5mm]
   % ---- Programme title: three teal right-aligned lines ----
   {\sffamily\Large\bfseries\color{aagiteal}%
-    $if(programme-title)$$programme-title$$else$$title$$endif$\par}
+    $if(programme-line1)$$programme-line1$$else$Analytics for the Australian Grains Industry$endif$\\[1pt]
+    $if(programme-line2)$$programme-line2$$else$$title$$endif$\\[1pt]
+    $if(programme-line3)$$programme-line3$$else$AAGI Program Report$endif$}\\[0pt]
   \vspace*{6mm}
   % ---- Report title and project code ----
   $if(subtitle)$
