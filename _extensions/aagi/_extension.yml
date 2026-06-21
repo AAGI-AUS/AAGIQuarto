@@ -2,8 +2,12 @@ title: AAGIQuarto
 author: Adam H. Sparks, James J. Balamuta, Russell Edson, Vinh Thiem Ma, Rose Megirian, Zhanglong Cao, Sam Rogers, Julian Taylor, Peter Misiun
 version: 2.0.0
 quarto-required: ">=1.4.0 <2.0.0"
+
 contributes:
   formats:
+    # -------------------------
+    # RevealJS
+    # -------------------------
     revealjs:
       theme: default
       css:
@@ -37,27 +41,45 @@ contributes:
       chalkboard: false
       execute:
         echo: true
+
+    # -------------------------
+    # FULL REPORT
+    # -------------------------
     pdf+report:
       template: pdf-report/template.tex
       pdf-engine: xelatex
       csl: assets/biometrics.csl
       fig-format: pdf
       fig-pos: H
+      number-sections: true
+      toc: true
       knitr:
         opts_chunk:
           fig.width: 6.3
           fig.height: 4
           out.width: "\\linewidth"
           fig.align: center
+      resource-path:
+        - .
+        - assets
       format-resources:
         - assets/**
         - templates/**
+
+    # -------------------------
+    # SHORT REPORT
+    # -------------------------
     pdf+shortreport:
       template: pdf-short-report/template.tex
       pdf-engine: xelatex
-      csl: assets/biometrics.csl
+      toc: false
+      number-sections: false
+      resource-path:
+        - .
+        - assets
       fig-format: pdf
       fig-pos: H
+      csl: assets/biometrics.csl
       knitr:
         opts_chunk:
           fig.width: 6.3
@@ -67,16 +89,28 @@ contributes:
       format-resources:
         - assets/**
         - templates/**
+
+    # -------------------------
+    # DOCX
+    # -------------------------
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
     docx+shortreport:
       reference-doc: docx-short-report/template.docx
+
+    # -------------------------
+    # PPTX
+    # -------------------------
     pptx:
       reference-doc: pptx/template.pptx
       toc: true
       number-sections: false
       incremental: true
+
+    # -------------------------
+    # HTML
+    # -------------------------
     html+report:
       theme:
         - none
@@ -91,6 +125,7 @@ contributes:
         - assets/fonts/FiraCode-Regular.woff2
         - assets/fonts/FiraCode-Medium.woff2
         - assets/fonts/FiraCode-Bold.woff2
+
     html+shortreport:
       theme:
         - none
@@ -104,5 +139,9 @@ contributes:
         - assets/fonts/FiraCode-Regular.woff2
         - assets/fonts/FiraCode-Medium.woff2
         - assets/fonts/FiraCode-Bold.woff2
+
+  # -------------------------
+  # shared resources
+  # -------------------------
   resources:
     - assets/**
