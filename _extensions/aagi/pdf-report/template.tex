@@ -140,9 +140,16 @@ $if(has-title-page)$
   \end{center}
   \vspace{4mm}
   $if(subtitle)$
-  % ---- Subtitle: bold, centred, black ----
+  % ---- Subtitle line 1: report title, bold, centred, black ----
   \begin{center}
     {\sffamily\Large\bfseries\color{aagiblack} $subtitle$\par}
+  \end{center}
+  \vspace{2mm}
+  $endif$
+  $if(project-code)$
+  % ---- Subtitle line 2: project code, normal weight, centred, black ----
+  \begin{center}
+    {\sffamily\large\color{aagiblack} Report for GRDC/AAGI Project Code $project-code$\par}
   \end{center}
   \vspace{4mm}
   $endif$

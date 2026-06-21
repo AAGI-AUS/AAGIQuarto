@@ -7,7 +7,8 @@ execute:
   echo: false
 
 params:
-  uni: "CU" # University key — must match uni_info in setup_reports.R
+  uni: "CU"
+  uni_name: "Curtin University"
   aagi_staff: "Your Name"
   project_code: "ABC2026-001"
   report_title: "My Report Title"
@@ -22,20 +23,19 @@ has-title-page: true
 
 title: >
   `r sprintf(
-    "Analytics for the Australian Grains Industry - %s (AAGI-%s) Technical Report Series",
-    params$uni_info[[params$uni]]$name,
+    "Analytics for the Australian Grains Industry - %s (AAGI-%s) AAGI Program Report",
+    params$uni_name,
     params$uni
   )`
 
-subtitle: >
-  `r sprintf("%s — %s", params$report_title, params$project_code)`
+subtitle:     '`r params$report_title`'
+project-code: '`r params$project_code`'
 
-prepared-for: "`r params$partner`"
-prepared-for-org: ""
-prepared-for-email: "`r params$partner_email`"
-prepared-by: "`r params$aagi_staff`"
-university: "`r params$uni_info[[params$uni]]$name`"
-correspondence-email: "`r params$aagi_email`"
+prepared-for:       '`r params$partner`'
+prepared-for-email: '`r params$partner_email`'
+prepared-by:        '`r params$aagi_staff`'
+university:         '`r params$uni_name`'
+correspondence-email: '`r params$aagi_email`'
 ---
 
 ```{r}
