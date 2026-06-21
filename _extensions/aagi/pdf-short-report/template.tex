@@ -116,7 +116,15 @@ $endfor$
 % longtable compatibility: suppress \newpage inside longtable.
 % flextable emits longtables; \newpage inside causes "Misplaced \noalign".
 \usepackage{etoolbox}
-\AtBeginEnvironment{longtable}{\let\newpage\relax}
+\AtBeginEnvironment{longtable}{%
+  \let\orignewpage\newpage
+  \renewcommand{\newpage}{}%
+  \renewcommand{\pagebreak}{}%
+  \renewcommand{\clearpage}{}%
+}
+\AtEndEnvironment{longtable}{%
+  \let\newpage\orignewpage
+}
 \usepackage{caption}
 \captionsetup{font={sf}}
 \usepackage{float}
