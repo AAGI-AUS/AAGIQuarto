@@ -41,9 +41,11 @@
 \usepackage{amsmath,amssymb}
 \usepackage{parskip}
 
-% xcolor must be loaded before pandoc.tex() to avoid option clashes
+% xcolor must be loaded before hyperref to avoid option clashes
 \PassOptionsToPackage{dvipsnames,table}{xcolor}
 \usepackage[dvipsnames,table]{xcolor}
+% hyperref loaded here with AAGI link styling — colorlinks removes all boxes
+\usepackage[colorlinks=true,allcolors=aagiteal]{hyperref}
 
 % -------------------------
 % Pandoc / CSL compatibility stubs
@@ -99,17 +101,6 @@ $endfor$
   \definecolor{aagiorange}{HTML}{EC8525}%
   \definecolor{aagiblack}{HTML}{414042}%
   \definecolor{aagigrey}{HTML}{F2F2F2}%
-}
-% -------------------------
-% Hyperref link appearance
-% -------------------------
-\AtBeginDocument{%
-  \hypersetup{%
-    colorlinks=true,%
-    linkcolor=aagiteal,%
-    urlcolor=aagiteal,%
-    citecolor=aagiteal%
-  }%
 }
 
 

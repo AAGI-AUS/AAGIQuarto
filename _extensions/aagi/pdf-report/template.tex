@@ -37,9 +37,11 @@
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 \usepackage{amsmath,amssymb}
 \usepackage{parskip}
-% xcolor must be loaded before pandoc.tex() to avoid option clashes
+% xcolor must be loaded before hyperref to avoid option clashes
 \PassOptionsToPackage{dvipsnames,table}{xcolor}
 \usepackage[dvipsnames,table]{xcolor}
+% hyperref loaded here with AAGI link styling — colorlinks removes all boxes
+\usepackage[colorlinks=true,allcolors=aagiteal]{hyperref}
 % -------------------------
 % Pandoc / CSL compatibility stubs
 % -------------------------
@@ -69,11 +71,7 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 % -------------------------
-% AAGI colours, packages, note environment, fancyhdr setup
-% -------------------------
-% -------------------------
 % AAGI colours
-% Defined both here and in \AtBeginDocument to survive any package option resets.
 % -------------------------
 \definecolor{aagiteal}{HTML}{00808B}
 \definecolor{aagibrightgreen}{HTML}{B6D438}
@@ -83,30 +81,6 @@ $endfor$
 \definecolor{aagiorange}{HTML}{EC8525}
 \definecolor{aagiblack}{HTML}{414042}
 \definecolor{aagigrey}{HTML}{F2F2F2}
-
-\AtBeginDocument{%
-  \definecolor{aagiteal}{HTML}{00808B}%
-  \definecolor{aagibrightgreen}{HTML}{B6D438}%
-  \definecolor{aagigreen}{HTML}{54921E}%
-  \definecolor{aagiblue}{HTML}{648FD2}%
-  \definecolor{aagiyellow}{HTML}{FFBC42}%
-  \definecolor{aagiorange}{HTML}{EC8525}%
-  \definecolor{aagiblack}{HTML}{414042}%
-  \definecolor{aagigrey}{HTML}{F2F2F2}%
-}
-% -------------------------
-% Hyperref link appearance
-% -------------------------
-\AtBeginDocument{%
-  \hypersetup{%
-    colorlinks=true,%
-    linkcolor=aagiteal,%
-    urlcolor=aagiteal,%
-    citecolor=aagiteal%
-  }%
-}
-
-
 % -------------------------
 % Additional packages
 % -------------------------
@@ -125,23 +99,16 @@ $endfor$
   borderline west={2pt}{0pt}{aagiteal},
   borderline east={2pt}{0pt}{aagiteal},
   enhanced, breakable}
-
 % -------------------------
-% fancyhdr shared setup
+% Page styling
 % -------------------------
 \usepackage{fancyhdr}
 \setlength{\headheight}{32pt}
 
-% Running-header text style (small, sans-serif, dark)
 \newcommand{\aagiheaderstyle}{%
   \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagiblack}%
 }
 
-% -------------------------
-% Page styles — full report
-% otherpages: running title header + page number + AAGI_SP_Logo_Block-Portrait footer
-% (No firstpage fancyhdr style — logo and AAGI_SP_Logo_Block-Portrait live inside \titlepage)
-% -------------------------
 \fancypagestyle{otherpages}{%
   \fancyhf{}
   \fancyhead[R]{{\aagiheaderstyle $title$}}
@@ -156,8 +123,6 @@ $endfor$
 \begin{document}
 % -----------------------------------------------
 % Title page (opt-in: set has-title-page: true)
-% Logo and AAGI_SP_Logo_Block-Portrait are placed explicitly inside \titlepage because
-% \begin{titlepage} suppresses all fancyhdr page styles.
 % -----------------------------------------------
 $if(has-title-page)$
 \begin{titlepage}
@@ -168,50 +133,37 @@ $if(has-title-page)$
   \end{center}
   \vspace{10mm}
   {\color{aagiteal}\rule{\textwidth}{2pt}}
-  \vspace{8mm}
-  % Title — large, bold, centred, teal
-  \begin{center}
-    {\sffamily\LARGE\bfseries\color{aagiteal} $title$\par}
-  \end{center}
   \vspace{6mm}
+  % Title — large, bold, left-aligned, teal
+  {\sffamily\huge\bfseries\color{aagiteal} $title$\par}
+  \vspace{4mm}
   $if(subtitle)$
-  \begin{center}
-    {\sffamily\large\bfseries\color{aagiblack} $subtitle$\par}
-  \end{center}
+  {\sffamily\Large\bfseries\color{aagiblack} $subtitle$\par}
   \vspace{4mm}
   $endif$
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
   \vspace{6mm}
-  % Authors — centred, teal
-  \begin{center}
-    $for(author)$
-    {\sffamily\normalsize\color{aagiteal} $author$\par}
-    $endfor$
-  \end{center}
-  $if(university)$
+  % Authors — left-aligned
+  $for(author)$
+  {\sffamily\normalsize\color{aagiteal} $author$\par}
+  \vspace{1mm}
+  $endfor$
   \vspace{2mm}
-  \begin{center}
-    {\sffamily\small\color{aagiblack} $university$\par}
-  \end{center}
+  $if(university)$
+  {\sffamily\normalsize\color{aagiblack} $university$\par}
+  \vspace{2mm}
   $endif$
   $if(correspondence-email)$
-  \vspace{2mm}
-  \begin{center}
-    {\sffamily\small Correspondence email:\space
-      \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
-  \end{center}
+  {\sffamily\normalsize Correspondence email:\space
+    \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
   $endif$
-  % Date bottom-right; AAGI_SP_Logo_Block-Portrait banner pinned to very bottom
+  % Date flush-right; Partners banner pinned to very bottom
   \vfill
-  \begin{flushright}
-    {\sffamily\normalsize $date$}
-  \end{flushright}
+  {\sffamily\normalsize\raggedleft $date$\par}
   \vspace{4mm}
   {\color{aagiteal}\rule{\textwidth}{0.5pt}}
   \vspace{-2mm}
-  \begin{center}
-    \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}
-  \end{center}
+  \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}
   \restoregeometry
 \end{titlepage}
 \cleardoublepage
