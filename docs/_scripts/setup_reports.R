@@ -172,6 +172,9 @@ if (
     silent = TRUE
   )
   msg("flextable defaults set to AAGI theme.")
+  try(flextable::set_flextable_defaults(
+    split = TRUE
+  ))
 }
 
 # ---------------------------------------------------------------------------
