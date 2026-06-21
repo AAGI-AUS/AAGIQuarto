@@ -41,11 +41,26 @@
 \PassOptionsToPackage{dvipsnames,table}{xcolor}
 \usepackage[dvipsnames,table]{xcolor}
 % -------------------------
-% Quarto/Pandoc built-in features
-% (syntax highlighting, tables, graphics config, tight lists,
-%  CSL citations, header-includes, hyperref, etc.)
+% Pandoc / CSL compatibility stubs
 % -------------------------
-$pandoc.tex()$
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\newenvironment{CSLReferences}[2]{%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{1.5em}%
+    \setlength{\itemindent}{-1.5em}%
+    \setlength{\labelwidth}{0pt}%
+    \setlength{\labelsep}{0pt}%
+    \renewcommand{\makelabel}[1]{}%
+  }%
+}{\end{list}}
+
+\providecommand{\citeproc}[2]{#2}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
 % -------------------------
 % AAGI colours, packages, note environment, fancyhdr setup
 % -------------------------
@@ -72,6 +87,18 @@ $pandoc.tex()$
   \definecolor{aagiblack}{HTML}{414042}%
   \definecolor{aagigrey}{HTML}{F2F2F2}%
 }
+% -------------------------
+% Hyperref link appearance
+% -------------------------
+\AtBeginDocument{%
+  \hypersetup{%
+    colorlinks=true,%
+    linkcolor=aagiteal,%
+    urlcolor=aagiteal,%
+    citecolor=aagiteal%
+  }%
+}
+
 
 % -------------------------
 % Additional packages
