@@ -21,7 +21,6 @@ university: "Curtin University"
 aagi-node: "AAGI-CU"
 correspondence-email: "your.email@example.edu.au"
 ---
-``
 
 ```{r}
 #| include: false
@@ -30,14 +29,17 @@ correspondence-email: "your.email@example.edu.au"
 source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 ```
 
-# Section
+<!-- This report is fully reproducible. All figures and tables are generated from source code. -->
+
+# Section {#sec-main}
 
 This template is designed for smaller ("one-page") AAGI reports. The AAGI logo and partners footer appear only on this first page.
 
-You can colour text/tables/etc using the various AAGI palette colours. Use \textcolor{aagiteal}{AAGI Teal}, or \textcolor{aagibrightgreen}{AAGI Bright Green}. @tbl-aagipalette shows the standard palette colours available for use.
+You can colour text/tables/etc. using the various AAGI palette colours. Use \textcolor{aagiteal}{AAGI Teal}, or \textcolor{aagibrightgreen}{AAGI Bright Green}. @tbl-aagipalette shows the standard palette colours available for use.
 
 ::: {#tbl-aagipalette}
-\centering
+```{=latex}
+\begin{center}
 \begin{tabular}{|c | c | c | c |}
 \hline
 \cellcolor{aagibrightgreen}\texttt{aagibrightgreen} &
@@ -51,6 +53,8 @@ You can colour text/tables/etc using the various AAGI palette colours. Use \text
 \cellcolor{aagigrey}\texttt{aagigrey} \\
 \hline
 \end{tabular}
+\end{center}
+```
 
 The AAGI palette colours.
 :::
@@ -60,7 +64,7 @@ The AAGI palette colours.
 This is an example of a reference [@blah].
 
 \begin{note}
-{\bf\color{aagiteal!75!black} Example Note}\quad
+{\sffamily\bfseries\color{aagiteal!75!black} NOTE}
 Use \verb|\begin{note}...\end{note}| to create coloured notes like this.
 \end{note}
 
@@ -73,6 +77,8 @@ Example R code using {AAGIThemes}.
 
 plot_aagi(pressure)
 ```
+
+As shown in @fig-example1, the pressure relationship is illustrated.
 
 # Table example using {flextable}
 
@@ -97,3 +103,12 @@ Add body text here.
 
 Add as many sections as needed [@blah].
 
+# Capabilities demonstrated
+
+This short report template supports:
+
+- Standard figures using `ggplot2`
+- Tables via `flextable` and LaTeX
+- Cross-referencing (`@tbl-example`, `@fig-example1`)
+- Custom AAGI note environments
+- Reproducible workflows via Quarto + R

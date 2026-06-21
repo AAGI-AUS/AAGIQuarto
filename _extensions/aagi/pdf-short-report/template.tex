@@ -50,6 +50,8 @@
 \usepackage{float}
 \usepackage{url}
 
+\raggedbottom
+
 % -------------------------
 % Colour handling
 % -------------------------
@@ -112,10 +114,12 @@ $endfor$
 % -------------------------
 % Longtable / flextable compatibility
 % -------------------------
-\usepackage{longtable}
-\setlength{\LTcapwidth}{\textwidth}
 \usepackage{etoolbox}
 \AtBeginEnvironment{longtable}{%
+  \par
+  \leavevmode
+  \setlength{\LTleft}{0pt}%
+  \setlength{\LTright}{0pt}%
   \let\orignewpage\newpage
   \let\origpagebreak\pagebreak
   \let\origclearpage\clearpage
@@ -127,6 +131,7 @@ $endfor$
   \let\newpage\orignewpage
   \let\pagebreak\origpagebreak
   \let\clearpage\origclearpage
+  \par
 }
 
 % -------------------------
@@ -226,7 +231,7 @@ $endfor$
 % Logo + partners footer only on page 1
 \thispagestyle{firstpage}
 \newgeometry{left=12mm, right=12mm, top=17mm, bottom=24mm, includefoot}
-\afterpage{\aftergroup\restoregeometry}
+\afterpage{\restoregeometry}
 
 \vspace*{0.6cm}
 {\Large\sbf
@@ -256,10 +261,13 @@ Last updated: $date$
 $if(toc)$
 \setcounter{page}{1}
 \tableofcontents
-\clearpage
 $endif$
 
-\par\vspace{0.5em}
+\par
+\leavevmode
+\vspace{0.5\baselineskip}
+\noindent
+\ignorespaces
 
 $body$
 
