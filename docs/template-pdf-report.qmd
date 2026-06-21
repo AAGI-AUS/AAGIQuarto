@@ -2,7 +2,8 @@
 format:
   AAGI-AUS/aagi-pdf+report:
     fig-path: figures/pdf-report/
-
+    fig-width: 7
+    fig-height: 5
 execute:
   echo: false
 
@@ -24,19 +25,17 @@ has-title-page: true
 # title is used in the running page header — keep it short
 title: "AAGI Program Report"
 
-# These fields populate the title page only.
-# programme-title renders as three right-aligned teal lines.
-# Use \\\\ to force a line break between each line.
-programme-title: "Analytics for the Australian Grains Industry\\\\
-  Curtin University (AAGI-CU)\\\\
-  AAGI Program Report"
-subtitle:        "My Report Title"
-project-code:    "ABC2026-001"
+# These three fields render as right-aligned teal lines on the title page
+programme-line1: "Analytics for the Australian Grains Industry"
+programme-line2: "Curtin University (AAGI-CU)"
+programme-line3: "AAGI Program Report"
+subtitle: "My Report Title"
+project-code: "ABC2026-001"
 
-prepared-for:         "Collaborating Organisation"
-prepared-for-email:   "partner@example.edu.au"
-prepared-by:          "Your Name"
-university:           "Curtin University"
+prepared-for: "Collaborating Organisation"
+prepared-for-email: "partner@example.edu.au"
+prepared-by: "Your Name"
+university: "Curtin University"
 correspondence-email: "your.email@example.edu.au"
 ---
 
