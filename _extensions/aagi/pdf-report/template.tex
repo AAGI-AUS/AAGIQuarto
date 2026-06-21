@@ -134,9 +134,10 @@ $if(has-title-page)$
   \vspace{10mm}
   {\color{aagiteal}\rule{\textwidth}{2pt}}
   \vspace{6mm}
-  % ---- Title: large, bold, centred, teal ----
+  % ---- Programme title: large, bold, centred, teal ----
   \begin{center}
-    {\sffamily\huge\bfseries\color{aagiteal} $title$\par}
+    {\sffamily\huge\bfseries\color{aagiteal}
+      $if(programme-title)$$programme-title$$else$$title$$endif$\par}
   \end{center}
   \vspace{4mm}
   $if(subtitle)$

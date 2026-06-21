@@ -21,21 +21,19 @@ date-format: long
 bibliography: references.bib
 has-title-page: true
 
-title: >
-  `r sprintf(
-    "Analytics for the Australian Grains Industry - %s (AAGI-%s) AAGI Program Report",
-    params$uni_name,
-    params$uni
-  )`
+# title is used in the running page header — keep it short
+title: "AAGI Program Report"
 
-subtitle:     '`r params$report_title`'
-project-code: '`r params$project_code`'
+# These fields populate the title page only
+programme-title: "Analytics for the Australian Grains Industry - Curtin University (AAGI-CU) AAGI Program Report"
+subtitle:        "My Report Title"
+project-code:    "ABC2026-001"
 
-prepared-for:       '`r params$partner`'
-prepared-for-email: '`r params$partner_email`'
-prepared-by:        '`r params$aagi_staff`'
-university:         '`r params$uni_name`'
-correspondence-email: '`r params$aagi_email`'
+prepared-for:         "Collaborating Organisation"
+prepared-for-email:   "partner@example.edu.au"
+prepared-by:          "Your Name"
+university:           "Curtin University"
+correspondence-email: "your.email@example.edu.au"
 ---
 
 ```{r}
