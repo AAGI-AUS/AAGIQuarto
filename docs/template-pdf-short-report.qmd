@@ -6,13 +6,22 @@ format:
 execute:
   echo: false
 
-params:
-  report_title: "Example Short Report"
-
 date: last-modified
 date-format: long
 bibliography: references.bib
+toc: true
+
+title: "Example Short Report"
+subtitle: "Optional subtitle here"
+short-title: "AAGI-XX-XXXX"
+prepared-for: "Client 1, Client 2"
+prepared-for-org: "Organisation"
+prepared-by: "Author 1, Author 2"
+university: "Curtin University"
+aagi-node: "AAGI-CU"
+correspondence-email: "your.email@example.edu.au"
 ---
+``
 
 ```{r}
 #| include: false

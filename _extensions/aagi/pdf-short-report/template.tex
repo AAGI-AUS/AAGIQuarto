@@ -5,9 +5,9 @@
 % Engine detection + fonts
 % -------------------------
 \usepackage{iftex}
-
 \ifPDFTeX
   \usepackage{lmodern}
+  \usepackage{microtype}
   \renewcommand{\familydefault}{\sfdefault}
 \else
   \usepackage{fontspec}
@@ -33,25 +33,57 @@
 \fi
 
 % -------------------------
-% Core geometry + graphics
+% Core layout + packages
 % -------------------------
 \usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
-\usepackage{amsmath,amssymb}
+\usepackage{adjustbox}
+\usepackage[title]{appendix}
 \usepackage{parskip}
+\usepackage{amsmath,amssymb}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{rotating}
+\usepackage{afterpage}
+\usepackage{float}
+\usepackage{url}
 
-% xcolor must be loaded before hyperref to avoid option clashes
+% -------------------------
+% Colour handling
+% -------------------------
 \PassOptionsToPackage{dvipsnames,table}{xcolor}
 \usepackage[dvipsnames,table]{xcolor}
-% hyperref loaded here with AAGI link styling — colorlinks removes all boxes
-\usepackage[colorlinks=true,allcolors=aagiteal]{hyperref}
+\usepackage{colortbl}
+
+% AAGI colours
+\definecolor{aagiteal}{HTML}{00808B}
+\definecolor{aagibrightgreen}{HTML}{B6D438}
+\definecolor{aagigreen}{HTML}{54921E}
+\definecolor{aagiblue}{HTML}{648FD2}
+\definecolor{aagiyellow}{HTML}{FFBC42}
+\definecolor{aagiorange}{HTML}{EC8525}
+\definecolor{aagiblack}{HTML}{414042}
+\definecolor{aagigrey}{HTML}{F2F2F2}
+
+% -------------------------
+% Hyperref
+% -------------------------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=aagiteal,
+  urlcolor=aagiteal,
+  citecolor=aagiteal
+}
 
 % -------------------------
 % Pandoc / CSL compatibility stubs
 % -------------------------
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+}
 
 \newenvironment{CSLReferences}[2]{%
   \begin{list}{}{%
@@ -63,8 +95,6 @@
   }%
 }{\end{list}}
 
-
-% Compatibility stub for Pandoc >= 3.2 \pandocbounded macro
 \providecommand{\pandocbounded}[1]{#1}
 \providecommand{\citeproctext}{}
 \providecommand{\citeproc}[2]{#2}
@@ -80,148 +110,155 @@ $header-includes$
 $endfor$
 
 % -------------------------
-% AAGI colours, packages, note environment, fancyhdr setup
+% Longtable / flextable compatibility
 % -------------------------
-% -------------------------
-% AAGI colours
-% Defined both here and in \AtBeginDocument to survive any package option resets.
-% -------------------------
-\definecolor{aagiteal}{HTML}{00808B}
-\definecolor{aagibrightgreen}{HTML}{B6D438}
-\definecolor{aagigreen}{HTML}{54921E}
-\definecolor{aagiblue}{HTML}{648FD2}
-\definecolor{aagiyellow}{HTML}{FFBC42}
-\definecolor{aagiorange}{HTML}{EC8525}
-\definecolor{aagiblack}{HTML}{414042}
-\definecolor{aagigrey}{HTML}{F2F2F2}
-
-\AtBeginDocument{%
-  \definecolor{aagiteal}{HTML}{00808B}%
-  \definecolor{aagibrightgreen}{HTML}{B6D438}%
-  \definecolor{aagigreen}{HTML}{54921E}%
-  \definecolor{aagiblue}{HTML}{648FD2}%
-  \definecolor{aagiyellow}{HTML}{FFBC42}%
-  \definecolor{aagiorange}{HTML}{EC8525}%
-  \definecolor{aagiblack}{HTML}{414042}%
-  \definecolor{aagigrey}{HTML}{F2F2F2}%
-}
-
-
-% -------------------------
-% Additional packages
-% -------------------------
-\usepackage{colortbl}
 \usepackage{longtable}
 \setlength{\LTcapwidth}{\textwidth}
-% longtable compatibility: suppress \newpage inside longtable.
-% flextable emits longtables; \newpage inside causes "Misplaced \noalign".
 \usepackage{etoolbox}
 \AtBeginEnvironment{longtable}{%
   \let\orignewpage\newpage
+  \let\origpagebreak\pagebreak
+  \let\origclearpage\clearpage
   \renewcommand{\newpage}{}%
   \renewcommand{\pagebreak}{}%
   \renewcommand{\clearpage}{}%
 }
 \AtEndEnvironment{longtable}{%
   \let\newpage\orignewpage
+  \let\pagebreak\origpagebreak
+  \let\clearpage\origclearpage
 }
-\usepackage{caption}
-\captionsetup{font={sf}}
-\usepackage{float}
-\usepackage[most]{tcolorbox}
-\usepackage{afterpage}
 
 % -------------------------
-% AAGI note callout environment
+% Figures / tables / code
 % -------------------------
+\usepackage{caption}
+\captionsetup{font={sf}}
+\setlength{\fboxsep}{0pt}
+
+\usepackage{fontawesome5}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\footnotesize\ttfamily,
+  language=R
+}
+
+% -------------------------
+% AAGI note callout
+% -------------------------
+\usepackage[most]{tcolorbox}
 \newtcolorbox{note}[1][]{%
   colback=aagiteal!7, colframe=aagiteal!7, notitle, sharp corners,
   borderline west={2pt}{0pt}{aagiteal},
   borderline east={2pt}{0pt}{aagiteal},
-  enhanced, breakable}
-
-% -------------------------
-% fancyhdr shared setup
-% -------------------------
-\usepackage{fancyhdr}
-\setlength{\headheight}{32pt}
-
-% Running-header text style (small, sans-serif, dark)
-\newcommand{\aagiheaderstyle}{%
-  \sffamily\fontsize{10pt}{12pt}\selectfont\color{aagiblack}%
+  enhanced, breakable
 }
 
+% -------------------------
+% Legacy AAGI-style settings
+% -------------------------
+\newcommand{\HRule}{\hspace{-25mm}\rule{160mm}{0.6mm}}
+\setlength{\parindent}{0cm}
+\setlength{\headheight}{2pt}
+\setlength{\parskip}{2.5ex}
+\setlength{\emergencystretch}{3em}
+\DeclareOldFontCommand{\sbf}{\normalfont\bfseries\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tbf}{\normalfont\bfseries\ttfamily}{\mathtt}
+
+% No section numbering by default
+\setcounter{secnumdepth}{0}
 
 % -------------------------
-% Page styles — short report
-% firstpage: AAGI logo top-right only (no footer, maximises first-page space)
-% otherpages: running title header + page number + SP logo block footer
+% Metadata-derived commands
 % -------------------------
+\newcommand{\myuniversity}{$if(university)$$university$$else$University Name$endif$}
+\newcommand{\myaaginode}{$if(aagi-node)$$aagi-node$$else$AAGI-XX$endif$}
+\newcommand{\myshorttitle}{$if(short-title)$$short-title$$else$$title$$endif$}
+\newcommand{\myemail}{$if(correspondence-email)$$correspondence-email$$else$your.email@example.edu.au$endif$}
+
+% -------------------------
+% Page styles
+% -------------------------
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection\hspace{2.5mm} #1}{}}
+\fancyhf{}
+\fancyhead[L]{\sffamily\leftmark}
+\fancyfoot[C]{\sffamily \thepage}
+
+\fancypagestyle{bibliography}{%
+  \fancyhf{}
+  \fancyhead[L]{\sffamily References}
+  \fancyfoot[C]{\sffamily \thepage}
+}
+
+% First page: logo top-right + partners footer
 \fancypagestyle{firstpage}{%
   \fancyhf{}
   \fancyhead[R]{%
-    \includegraphics[height=2.3cm]{AAGI_logo}%
-  }
+    \noindent\makebox[\textwidth][r]{%
+      \includegraphics[height=2.3cm]{AAGI_logo}\hspace*{-0.5cm}}}
+  \fancyfoot[C]{%
+    \rule{\textwidth}{0.4pt}\\[-10pt]
+    \noindent\makebox[\textwidth]{%
+      \includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait}}}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }
 
+% Page 2+: short title top-right + correspondence email footer
 \fancypagestyle{otherpages}{%
   \fancyhf{}
-  \fancyhead[R]{{\aagiheaderstyle $title$}}
-  \fancyfoot[R]{{\sffamily \thepage}}
+  \fancyhead[R]{{\sf \myshorttitle}}
   \fancyfoot[C]{%
-    \rule{\textwidth}{0.4pt}\\[-10pt]%
-    \includegraphics[width=\textwidth]{AAGI_SP_Logo_Block-Portrait}%
-  }
+    \rule{\textwidth}{0.4pt}\\[-2pt]
+    {\sf Correspondence email: \texttt{\href{mailto:\myemail}{\myemail}}}
+    \hfill
+    {\sf \thepage}}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }
 
 \begin{document}
-
-% Short reports: logo on page 1, running header from page 2.
-% Tighten the top margin on page 1 only to make room for the inline title block.
-\thispagestyle{firstpage}
 \pagestyle{otherpages}
 
-\newgeometry{top=17mm}
-\afterpage{\restoregeometry}
+% Logo + partners footer only on page 1
+\thispagestyle{firstpage}
+\newgeometry{left=12mm, right=12mm, top=17mm, bottom=24mm, includefoot}
+\afterpage{\aftergroup\restoregeometry}
 
-% -----------------------------------------------
-% Inline title block (replaces a full title page)
-% -----------------------------------------------
-{\sffamily\Large\bfseries\color{aagiblack} $title$\par}
-\vspace{2pt}
+\vspace*{0.6cm}
+{\Large\sbf
+  $title$
+}\\[2pt]
 
 $if(subtitle)$
-{\sffamily\large\color{aagiteal} $subtitle$\par}
-\vspace{2pt}
+{\large
+  $subtitle$
+}\\[2pt]
 $endif$
 
-$for(author)$
-{\sffamily\normalsize $author$\par}
-$endfor$
-
-$if(university)$
-{\sffamily\normalsize\color{aagiblack} $university$\par}
-$endif$
-$if(correspondence-email)$
-{\sffamily\normalsize Correspondence:
-  \href{mailto:$correspondence-email$}{$correspondence-email$}\par}
+$if(prepared-for)$
+Prepared for: $prepared-for$$if(prepared-for-org)$ ($prepared-for-org$)$endif$\\[2pt]
 $endif$
 
-{\sffamily\normalsize $date$\par}
+$if(prepared-by)$
+Prepared by: $prepared-by$ ($if(university)$$university$$else$\myuniversity$endif$, \myaaginode)\\[-20pt]
+$else$
+Prepared by: ($if(university)$$university$$else$\myuniversity$endif$, \myaaginode)\\[-20pt]
+$endif$
 
-\vspace{4pt}
-{\color{aagiteal}\rule{\textwidth}{0.5pt}}
-\vspace{2pt}
+Correspondence email: \texttt{\href{mailto:\myemail}{\myemail}}\\[-20pt]
+
+Last updated: $date$
 
 $if(toc)$
-{
-  \hypersetup{linkcolor=aagiteal}
-  \tableofcontents
-}
+\setcounter{page}{1}
+\tableofcontents
 $endif$
 
 $body$
