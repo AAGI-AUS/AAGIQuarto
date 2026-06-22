@@ -169,6 +169,63 @@ div.aagi-note {
   color: $aagi-teal;
 }
 
+// .aagi-titlepage — outer wrapper used in the .qmd title block div
+// Lays out: [AAGI logo] [text block] [partners logo] in a row.
+div.aagi-titlepage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  border-top: 3px solid $aagi-teal;
+  border-bottom: 3px solid $aagi-teal;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+
+  // AAGI logo — fixed narrow column on the left
+  img.aagi-logo {
+    flex: 0 0 auto;
+    max-height: 80px;
+    width: auto;
+  }
+
+  // Partners logo — fixed narrow column on the right
+  img.aagi-partners {
+    flex: 0 0 auto;
+    max-height: 100px;
+    width: auto;
+  }
+}
+
+// Text block — grows to fill the space between the two logos
+// Note: the .qmd uses .aagi-title_block (underscore), not a hyphen.
+div.aagi-title_block {
+  flex: 1 1 auto;
+  text-align: right;
+  color: $aagi-black;
+
+  p {
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $aagi-black;
+    margin-top: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: $aagi-black;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+// Legacy hyphen spelling kept for backwards compatibility
 div.aagi-title-block {
   border-top: 3px solid $aagi-teal;
   border-bottom: 3px solid $aagi-teal;
