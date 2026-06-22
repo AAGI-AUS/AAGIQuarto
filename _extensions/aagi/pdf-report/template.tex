@@ -85,18 +85,23 @@ $endfor$
 \definecolor{aagiblack}{HTML}{414042}
 \definecolor{aagigrey}{HTML}{F2F2F2}
 
-\usepackage[most]{tcolorbox}
+\providecommand{\note}{} % ensures macro exists (harmless)
 
-\newtcolorbox{note}{
-  colback=aagiteal!7,
-  colframe=aagiteal!7,
-  notitle,
-  sharp corners,
-  borderline west={2pt}{0pt}{aagiteal},
-  borderline east={2pt}{0pt}{aagiteal},
-  enhanced,
-  breakable
-}
+\ifdefined\note
+  % do nothing (already defined elsewhere)
+\else
+  \usepackage[most]{tcolorbox}
+  \newtcolorbox{note}{
+    colback=aagiteal!7,
+    colframe=aagiteal!7,
+    notitle,
+    sharp corners,
+    borderline west={2pt}{0pt}{aagiteal},
+    borderline east={2pt}{0pt}{aagiteal},
+    enhanced,
+    breakable
+  }
+\fi
 
 % -------------------------
 % Additional packages
