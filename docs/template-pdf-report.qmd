@@ -55,16 +55,22 @@ source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 # Set flextable font to system sans-serif — prevents Proxima Nova errors
 # on systems where it is not installed. theme_ft_aagi() inherits this.
 flextable::set_flextable_defaults(
-  font.family = if (nzchar(Sys.which("fc-list")) &&
-      nchar(system("fc-list 'Proxima Nova'", intern = TRUE)[1]) > 0) {
+  theme_fun = AAGIThemes::theme_ft_aagi,
+  font.family = if (
+    nzchar(Sys.which("fc-list")) &&
+      nzchar(system("fc-list 'Proxima Nova'", intern = TRUE)[1])
+  ) {
     "Proxima Nova"
-  } else if (nzchar(Sys.which("fc-list")) &&
-      nchar(system("fc-list 'Arial'", intern = TRUE)[1]) > 0) {
+  } else if (
+    nzchar(Sys.which("fc-list")) &&
+      nzchar(system("fc-list 'Arial'", intern = TRUE)[1])
+  ) {
     "Arial"
   } else {
     "sans"
   }
 )
+try(ggplot2::theme_set(AAGIThemes::theme_aagi()), silent = TRUE)
 ```
 
 # Executive Summary

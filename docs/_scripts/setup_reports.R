@@ -1,3 +1,12 @@
+trace(
+  flextable::set_flextable_defaults,
+  quote({
+    cat("TRACE: set_flextable_defaults called\n")
+    print(sys.calls())
+  }),
+  print = FALSE
+)
+
 # AAGI Quarto setup (reports)
 # - Optional auto-install via pak/CRAN (controlled by AAGI_AUTO_INSTALL)
 # - Safe when params are missing (presentations etc.)
