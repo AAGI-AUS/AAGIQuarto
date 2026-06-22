@@ -157,7 +157,7 @@ if (
   msg("AAGIThemes loaded and ggplot theme applied.")
 }
 
-# Configure flextable theme if available
+# Configure flextable theme
 if (
   requireNamespace("flextable", quietly = TRUE) &&
     requireNamespace("AAGIThemes", quietly = TRUE) &&
