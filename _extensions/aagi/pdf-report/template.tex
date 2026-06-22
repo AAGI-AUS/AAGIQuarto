@@ -85,11 +85,10 @@ $endfor$
 \definecolor{aagiblack}{HTML}{414042}
 \definecolor{aagigrey}{HTML}{F2F2F2}
 
-\providecommand{\note}{} % ensures macro exists (harmless)
+\providecommand{\note}{} % harmless if exists
 
-\ifdefined\note
-  % do nothing (already defined elsewhere)
-\else
+\makeatletter
+\@ifundefined{endnote}{
   \usepackage[most]{tcolorbox}
   \newtcolorbox{note}{
     colback=aagiteal!7,
@@ -101,7 +100,8 @@ $endfor$
     enhanced,
     breakable
   }
-\fi
+}{}
+\makeatother
 
 % -------------------------
 % Additional packages
