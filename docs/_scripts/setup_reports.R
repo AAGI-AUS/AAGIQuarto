@@ -167,7 +167,7 @@ if (
       mode = "function"
     )
 ) {
-  cli::cli_message("flextable available; using per-table theming.")
+  cli::cli_inform("flextable available; using per-table theming.")
 }
 # ---------------------------------------------------------------------------
 # Expose variables to knit environment and completion message
