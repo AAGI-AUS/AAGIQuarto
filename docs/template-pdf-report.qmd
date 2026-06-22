@@ -36,13 +36,13 @@ title: "AAGI Program Report"
 programme-line1: "Analytics for the Australian Grains Industry"
 programme-line2: "Curtin University (AAGI-CU)"
 programme-line3: "AAGI Program Report"
-subtitle: "My Report Title"
-project-code: "ABC2026-001"
+subtitle:        "My Report Title"
+project-code:    "ABC2026-001"
 
-prepared-for: "Collaborating Organisation"
-prepared-for-email: "partner@example.edu.au"
-prepared-by: "Your Name"
-university: "Curtin University"
+prepared-for:         "Collaborating Organisation"
+prepared-for-email:   "partner@example.edu.au"
+prepared-by:          "Your Name"
+university:           "Curtin University"
 correspondence-email: "your.email@example.edu.au"
 ---
 
@@ -52,6 +52,19 @@ correspondence-email: "your.email@example.edu.au"
 #| message: false
 
 source(file.path("_scripts", "setup_reports.R"), local = TRUE)
+# Set flextable font to system sans-serif — prevents Proxima Nova errors
+# on systems where it is not installed. theme_ft_aagi() inherits this.
+flextable::set_flextable_defaults(
+  font.family = if (nzchar(Sys.which("fc-list")) &&
+      nchar(system("fc-list 'Proxima Nova'", intern = TRUE)[1]) > 0) {
+    "Proxima Nova"
+  } else if (nzchar(Sys.which("fc-list")) &&
+      nchar(system("fc-list 'Arial'", intern = TRUE)[1]) > 0) {
+    "Arial"
+  } else {
+    "sans"
+  }
+)
 ```
 
 # Executive Summary
