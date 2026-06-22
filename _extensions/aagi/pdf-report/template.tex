@@ -10,16 +10,27 @@
 \else
   \usepackage{fontspec}
   \usepackage{microtype}
-  \IfFontExistsTF{Proxima Nova}{%
-    \setsansfont[Scale=MatchLowercase]{Proxima Nova}%
-  }{%
-    \IfFontExistsTF{Arial}{%
-      \setsansfont[Scale=MatchLowercase]{Arial}%
-    }{%
-      \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}%
-    }%
+
+  % ---- Safe font selection (CI-safe) ----
+  \defaultfontfeatures{Ligatures=TeX}
+
+  \IfFontExistsTF{Proxima Nova}{
+    \newcommand{\aagisafefont}{Proxima Nova}
+  }{
+    \IfFontExistsTF{Arial}{
+      \newcommand{\aagisafefont}{Arial}
+    }{
+      \newcommand{\aagisafefont}{TeX Gyre Heros}
+    }
   }
+
+  \setsansfont[Scale=MatchLowercase]{\aagisafefont}
   \renewcommand{\familydefault}{\sfdefault}
+
+  \let\originalfontspec\fontspec
+  \renewcommand{\fontspec}[2][]{\originalfontspec[#1]{\aagisafefont}}
+
+  % ---- Monospace ----
   \setmonofont[
     Path        = assets/fonts/,
     Extension   = .ttf,

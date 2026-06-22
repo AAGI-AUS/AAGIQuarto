@@ -14,16 +14,36 @@
   \usepackage{fontspec}
   \usepackage{microtype}
 
-  % AAGI font stack (restored)
-  \IfFontExistsTF{Proxima Nova}{%
-    \setsansfont[Scale=MatchLowercase]{Proxima Nova}%
-  }{%
-    \IfFontExistsTF{Arial}{%
-      \setsansfont[Scale=MatchLowercase]{Arial}%
-    }{%
-      \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}%
-    }%
+  % ---- Safe font selection (CI-safe) ----
+  \defaultfontfeatures{Ligatures=TeX}
+
+  \IfFontExistsTF{Proxima Nova}{
+    \newcommand{\aagisafefont}{Proxima Nova}
+  }{
+    \IfFontExistsTF{Arial}{
+      \newcommand{\aagisafefont}{Arial}
+    }{
+      \newcommand{\aagisafefont}{TeX Gyre Heros}
+    }
   }
+
+  \setsansfont[Scale=MatchLowercase]{\aagisafefont}
+  \renewcommand{\familydefault}{\sfdefault}
+
+  % ---- CRITICAL: catch ALL fontspec calls ----
+  \let\originalfontspec\fontspec
+  \renewcommand{\fontspec}[2][]{\originalfontspec[#1]{\aagisafefont}}
+
+  % ---- Monospace ----
+  \setmonofont[
+    Path        = assets/fonts/,
+    Extension   = .ttf,
+    UprightFont = FiraCode-Regular,
+    BoldFont    = FiraCode-Bold,
+    ItalicFont  = FiraCode-Light,
+    Scale       = MatchLowercase
+  ]{FiraCode-Regular}
+\fi
 
   \renewcommand{\familydefault}{\sfdefault}
 
