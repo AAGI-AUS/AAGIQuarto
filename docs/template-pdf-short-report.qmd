@@ -29,38 +29,45 @@ correspondence-email: "your.email@example.edu.au"
 source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 ```
 
-<!-- This report is fully reproducible. All figures and tables are generated from source code. -->
-
 # Section {#sec-main}
 
-This template is designed for smaller ("one-page") AAGI reports. The AAGI logo and partners footer appear only on this first page.
+This template is designed for smaller ("one-page") AAGI reports.
+The AAGI logo and partners footer appear only on this first page.
 
-You can colour text/tables/etc. using the various AAGI palette colours. Use \textcolor{aagiteal}{AAGI Teal}, or \textcolor{aagibrightgreen}{AAGI Bright Green}.
-Table~\ref{tbl-aagipalette} shows the standard palette colours available for use.
+You can colour text/tables/etc. using the various AAGI palette colours.
+Use \textcolor{aagiteal}{AAGI Teal}, or \textcolor{aagibrightgreen}{AAGI Bright Green}.
+@tbl-aagipalette shows the standard palette colours available for use.
 
-```{=latex}
-\begin{table}[H]
-\centering
-\caption{The AAGI palette colours.}
-\label{tbl-aagipalette}
-\begin{tabular}{|c | c | c | c |}
-\hline
-\cellcolor{aagibrightgreen}\texttt{aagibrightgreen} &
-\cellcolor{aagiteal}\color{white}\texttt{aagiteal} &
-\cellcolor{aagiblue}\texttt{aagiblue} &
-\cellcolor{aagigreen}\texttt{aagigreen} \\
-\hline
-\cellcolor{aagiyellow}\texttt{aagiyellow} &
-\cellcolor{aagiorange}\texttt{aagiorange} &
-\cellcolor{aagiblack}\color{white}\texttt{aagiblack} &
-\cellcolor{aagigrey}\texttt{aagigrey} \\
-\hline
-\end{tabular}
-\end{table}
+```{r}
+#| label: tbl-aagipalette
+#| tbl-cap: "The AAGI palette colours."
+
+library(flextable)
+
+palette_df <- data.frame(
+  Col1 = c("aagibrightgreen", "aagiyellow"),
+  Col2 = c("aagiteal", "aagiorange"),
+  Col3 = c("aagiblue", "aagiblack"),
+  Col4 = c("aagigreen", "aagigrey")
+)
+
+flextable(palette_df) |>
+  delete_part("header") |>
+  bg(i = 1, j = 1, bg = "#B6D438") |>
+  bg(i = 2, j = 1, bg = "#FFBC42") |>
+  bg(i = 1, j = 2, bg = "#00808B") |>
+  bg(i = 2, j = 2, bg = "#EC8525") |>
+  bg(i = 1, j = 3, bg = "#648FD2") |>
+  bg(i = 2, j = 3, bg = "#414042") |>
+  bg(i = 1, j = 4, bg = "#54921E") |>
+  bg(i = 2, j = 4, bg = "#F2F2F2") |>
+  color(i = 1, j = 2, color = "white") |>
+  color(i = 2, j = 3, color = "white") |>
+  border_outer(border = officer::fp_border(color = "white", width = 2)) |>
+  border_inner(border = officer::fp_border(color = "white", width = 2)) |>
+  autofit() |>
+  theme_ft_aagi()
 ```
-
-The AAGI palette colours.
-:::
 
 ## This is a subsection heading
 
@@ -91,11 +98,9 @@ As shown in @fig-example1, the pressure relationship is illustrated.
 
 library(flextable)
 
-ft <- flextable(head(airquality)) |>
+flextable(head(airquality)) |>
   theme_ft_aagi() |>
   autofit()
-
-ft
 ```
 
 ### This is a subsubsection heading
@@ -106,12 +111,7 @@ Add body text here.
 
 Add as many sections as needed [@blah].
 
-# Capabilities demonstrated
+# References
 
-This short report template supports:
-
-- Standard figures using `ggplot2`
-- Tables via `flextable` and LaTeX
-- Cross-referencing (`@tbl-example`, `@fig-example1`)
-- Custom AAGI note environments
-- Reproducible workflows via Quarto + R
+::: {#refs}
+:::
