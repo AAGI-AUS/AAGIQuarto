@@ -169,7 +169,7 @@ if (
 ) {
   try(
     flextable::set_flextable_defaults(
-      theme_fun = AAGIThemes::theme_ft_aagi
+      theme_fun = function(x) AAGIThemes::theme_ft_aagi(x)
     ),
     silent = TRUE
   )
