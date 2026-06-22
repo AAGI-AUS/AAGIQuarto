@@ -2,9 +2,10 @@
 \documentclass[12pt]{article}
 
 % -------------------------
-% Engine detection + fonts
+% Engine + fonts
 % -------------------------
 \usepackage{iftex}
+
 \ifPDFTeX
   \usepackage{lmodern}
   \usepackage{microtype}
@@ -12,6 +13,8 @@
 \else
   \usepackage{fontspec}
   \usepackage{microtype}
+
+  % AAGI font stack (restored)
   \IfFontExistsTF{Proxima Nova}{%
     \setsansfont[Scale=MatchLowercase]{Proxima Nova}%
   }{%
@@ -21,7 +24,10 @@
       \setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}%
     }%
   }
+
   \renewcommand{\familydefault}{\sfdefault}
+
+  % Monospace (your original setup)
   \setmonofont[
     Path        = assets/fonts/,
     Extension   = .ttf,
@@ -33,33 +39,18 @@
 \fi
 
 % -------------------------
-% Core layout + packages
+% Layout
 % -------------------------
 \usepackage[paper=a4paper,top=22mm,left=12mm,right=12mm,bottom=22mm]{geometry}
 \usepackage{graphicx}
-\DeclareGraphicsExtensions{.pdf,.png,.jpg}
-\usepackage{adjustbox}
-\usepackage[title]{appendix}
 \usepackage{parskip}
 \usepackage{amsmath,amssymb}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{fancyvrb}
-\usepackage{rotating}
-\usepackage{afterpage}
-\usepackage{float}
-\usepackage{url}
-
-\raggedbottom
 
 % -------------------------
-% Colour handling
+% Colours + links
 % -------------------------
-\PassOptionsToPackage{dvipsnames,table}{xcolor}
 \usepackage[dvipsnames,table]{xcolor}
-\usepackage{colortbl}
 
-% AAGI colours
 \definecolor{aagiteal}{HTML}{00808B}
 \definecolor{aagibrightgreen}{HTML}{B6D438}
 \definecolor{aagigreen}{HTML}{54921E}
@@ -69,57 +60,24 @@
 \definecolor{aagiblack}{HTML}{414042}
 \definecolor{aagigrey}{HTML}{F2F2F2}
 
-% -------------------------
-% Hyperref
-% -------------------------
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=aagiteal,
-  urlcolor=aagiteal,
-  citecolor=aagiteal
-}
+\usepackage[colorlinks=true,allcolors=aagiteal]{hyperref}
 
 % -------------------------
-% Pandoc / CSL compatibility stubs
+% Pandoc compatibility
 % -------------------------
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
 }
 
-\newenvironment{CSLReferences}[2]{%
-  \begin{list}{}{%
-    \setlength{\leftmargin}{1.5em}%
-    \setlength{\itemindent}{-1.5em}%
-    \setlength{\labelwidth}{0pt}%
-    \setlength{\labelsep}{0pt}%
-    \renewcommand{\makelabel}[1]{}%
-  }%
-}{\end{list}}
-
-\providecommand{\pandocbounded}[1]{#1}
-\providecommand{\citeproctext}{}
-\providecommand{\citeproc}[2]{#2}
-\providecommand{\CSLBlock}[1]{#1}
-\providecommand{\CSLLeftMargin}[1]{#1}
-\providecommand{\CSLRightInline}[1]{#1}
-\providecommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-
-$for(header-includes)$
-$header-includes$
-$endfor$
-
 % -------------------------
-% Longtable / flextable compatibility
+% Tables
 % -------------------------
+\usepackage{colortbl}
+\usepackage{longtable}
+\setlength{\LTcapwidth}{\textwidth}
+
 \usepackage{etoolbox}
 \AtBeginEnvironment{longtable}{%
-  \par
-  \leavevmode
-  \setlength{\LTleft}{0pt}%
-  \setlength{\LTright}{0pt}%
   \let\orignewpage\newpage
   \let\origpagebreak\pagebreak
   \let\origclearpage\clearpage
@@ -131,144 +89,69 @@ $endfor$
   \let\newpage\orignewpage
   \let\pagebreak\origpagebreak
   \let\clearpage\origclearpage
-  \par
 }
 
 % -------------------------
-% Figures / tables / code
+% Page styling
 % -------------------------
-\usepackage{caption}
-\captionsetup{font={sf}}
-\setlength{\fboxsep}{0pt}
-
-\usepackage{fontawesome5}
-
-\usepackage{listings}
-\lstset{
-  basicstyle=\footnotesize\ttfamily,
-  keywordstyle=\footnotesize\ttfamily,
-  language=R
-}
-
-% -------------------------
-% AAGI note callout
-% -------------------------
-\usepackage[most]{tcolorbox}
-\newtcolorbox{note}[1][]{%
-  colback=aagiteal!7, colframe=aagiteal!7, notitle, sharp corners,
-  borderline west={2pt}{0pt}{aagiteal},
-  borderline east={2pt}{0pt}{aagiteal},
-  enhanced, breakable
-}
-
-% -------------------------
-% Legacy AAGI-style settings
-% -------------------------
-\newcommand{\HRule}{\hspace{-25mm}\rule{160mm}{0.6mm}}
-\setlength{\parindent}{0cm}
-\setlength{\headheight}{2pt}
-\setlength{\parskip}{2.5ex}
-\setlength{\emergencystretch}{3em}
-\DeclareOldFontCommand{\sbf}{\normalfont\bfseries\sffamily}{\mathsf}
-\DeclareOldFontCommand{\tbf}{\normalfont\bfseries\ttfamily}{\mathtt}
-
-% No section numbering by default
-\setcounter{secnumdepth}{0}
-
-% -------------------------
-% Metadata-derived commands
-% -------------------------
-\newcommand{\myuniversity}{$if(university)$$university$$else$University Name$endif$}
-\newcommand{\myaaginode}{$if(aagi-node)$$aagi-node$$else$AAGI-XX$endif$}
-\newcommand{\myshorttitle}{$if(short-title)$$short-title$$else$$title$$endif$}
-\newcommand{\myemail}{$if(correspondence-email)$$correspondence-email$$else$your.email@example.edu.au$endif$}
-
-% -------------------------
-% Page styles
-% -------------------------
-\pagestyle{fancy}
-\renewcommand{\sectionmark}[1]{\markboth{\thesection\hspace{2.5mm} #1}{}}
+\usepackage{fancyhdr}
 \fancyhf{}
-\fancyhead[L]{\sffamily\leftmark}
-\fancyfoot[C]{\sffamily \thepage}
 
-\fancypagestyle{bibliography}{%
-  \fancyhf{}
-  \fancyhead[L]{\sffamily References}
-  \fancyfoot[C]{\sffamily \thepage}
-}
-
-% First page: logo top-right + partners footer
 \fancypagestyle{firstpage}{%
   \fancyhf{}
-  \fancyhead[R]{%
-    \noindent\makebox[\textwidth][r]{%
-      \includegraphics[height=2.3cm]{AAGI_logo}\hspace*{-0.5cm}}}
+  \fancyhead[R]{\includegraphics[height=2.3cm]{AAGI_logo}}
   \fancyfoot[C]{%
     \rule{\textwidth}{0.4pt}\\[-10pt]
-    \noindent\makebox[\textwidth]{%
-      \includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait}}}
+    \includegraphics[width=\paperwidth]{AAGI_SP_Logo_Block-Portrait}}
   \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
 }
 
-% Page 2+: short title top-right + correspondence email footer
 \fancypagestyle{otherpages}{%
   \fancyhf{}
-  \fancyhead[R]{{\sf \myshorttitle}}
+  \fancyhead[R]{\sffamily $short-title$}
   \fancyfoot[C]{%
     \rule{\textwidth}{0.4pt}\\[-2pt]
-    {\sf Correspondence email: \texttt{\href{mailto:\myemail}{\myemail}}}
-    \hfill
-    {\sf \thepage}}
+    {\sffamily Correspondence email: \href{mailto:$correspondence-email$}{$correspondence-email$}}
+    \hfill {\sffamily \thepage}}
   \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
 }
 
-\begin{document}
 \pagestyle{otherpages}
 
-% Logo + partners footer only on page 1
+% -------------------------
+% Document
+% -------------------------
+\begin{document}
+
+% First page styling
 \thispagestyle{firstpage}
-\newgeometry{left=12mm, right=12mm, top=17mm, bottom=24mm, includefoot}
-\afterpage{\restoregeometry}
+\newgeometry{left=12mm,right=12mm,top=17mm,bottom=24mm,includefoot}
+\afterpage{\aftergroup\restoregeometry}
 
 \vspace*{0.6cm}
-{\Large\sbf
-  $title$
-}\\[2pt]
 
-$if(subtitle)$
-{\large
-  $subtitle$
-}\\[2pt]
-$endif$
+{\Large\sffamily\bfseries $title$}\\[2pt]
+{\large\sffamily $subtitle$}\\[6pt]
 
-$if(prepared-for)$
-Prepared for: $prepared-for$$if(prepared-for-org)$ ($prepared-for-org$)$endif$\\[2pt]
-$endif$
-
-$if(prepared-by)$
-Prepared by: $prepared-by$ ($if(university)$$university$$else$\myuniversity$endif$, \myaaginode)\\[-20pt]
-$else$
-Prepared by: ($if(university)$$university$$else$\myuniversity$endif$, \myaaginode)\\[-20pt]
-$endif$
-
-Correspondence email: \texttt{\href{mailto:\myemail}{\myemail}}\\[-20pt]
-
+Prepared for: $prepared-for$ ($prepared-for-org$)\\
+Prepared by: $prepared-by$ ($university$, $aagi-node$)\\
+Correspondence email: \href{mailto:$correspondence-email$}{$correspondence-email$}\\[2pt]
 Last updated: $date$
 
+% -------------------------
+% TOC (same page)
+% -------------------------
 $if(toc)$
 \setcounter{page}{1}
 \tableofcontents
 $endif$
 
+% Stabiliser, keeps the table in the body
 \par
-\leavevmode
-\vspace{0.5\baselineskip}
-\noindent
-\ignorespaces
 
+% -------------------------
+% Body
+% -------------------------
 $body$
 
 \end{document}
