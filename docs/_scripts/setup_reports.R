@@ -168,13 +168,12 @@ if (
     )
 ) {
   try(
-    flextable::set_flextable_defaults(theme_fun = AAGIThemes::theme_ft_aagi),
+    flextable::set_flextable_defaults(
+      theme_fun = AAGIThemes::theme_ft_aagi
+    ),
     silent = TRUE
   )
   msg("flextable defaults set to AAGI theme.")
-  try(flextable::set_flextable_defaults(
-    split = TRUE
-  ))
 }
 
 # ---------------------------------------------------------------------------
