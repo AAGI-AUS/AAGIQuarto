@@ -167,15 +167,8 @@ if (
       mode = "function"
     )
 ) {
-  try(
-    flextable::set_flextable_defaults(
-      theme_fun = function(x) AAGIThemes::theme_ft_aagi(x)
-    ),
-    silent = TRUE
-  )
-  msg("flextable defaults set to AAGI theme.")
+  messasge("flextable available; using per-table theming.", call. = FALSE)
 }
-
 # ---------------------------------------------------------------------------
 # Expose variables to knit environment and completion message
 # ---------------------------------------------------------------------------
