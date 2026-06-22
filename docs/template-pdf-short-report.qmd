@@ -35,11 +35,14 @@ source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 
 This template is designed for smaller ("one-page") AAGI reports. The AAGI logo and partners footer appear only on this first page.
 
-You can colour text/tables/etc. using the various AAGI palette colours. Use \textcolor{aagiteal}{AAGI Teal}, or \textcolor{aagibrightgreen}{AAGI Bright Green}. @tbl-aagipalette shows the standard palette colours available for use.
+You can colour text/tables/etc. using the various AAGI palette colours. Use \textcolor{aagiteal}{AAGI Teal}, or \textcolor{aagibrightgreen}{AAGI Bright Green}.
+Table~\ref{tbl-aagipalette} shows the standard palette colours available for use.
 
-::: {#tbl-aagipalette}
 ```{=latex}
-\begin{center}
+\begin{table}[H]
+\centering
+\caption{The AAGI palette colours.}
+\label{tbl-aagipalette}
 \begin{tabular}{|c | c | c | c |}
 \hline
 \cellcolor{aagibrightgreen}\texttt{aagibrightgreen} &
@@ -53,7 +56,7 @@ You can colour text/tables/etc. using the various AAGI palette colours. Use \tex
 \cellcolor{aagigrey}\texttt{aagigrey} \\
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 ```
 
 The AAGI palette colours.
