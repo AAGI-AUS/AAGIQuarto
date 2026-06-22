@@ -55,38 +55,6 @@ The AAGI logo and partners footer appear only on this first page.
 
 You can colour text/tables/etc. using the various AAGI palette colours.
 Use \textcolor{aagiteal}{AAGI Teal}, or \textcolor{aagibrightgreen}{AAGI Bright Green}.
-@tbl-aagipalette shows the standard palette colours available for use.
-
-```{r}
-#| label: tbl-aagipalette
-#| tbl-cap: "The AAGI palette colours."
-
-library(flextable)
-
-palette_df <- data.frame(
-  Col1 = c("aagibrightgreen", "aagiyellow"),
-  Col2 = c("aagiteal", "aagiorange"),
-  Col3 = c("aagiblue", "aagiblack"),
-  Col4 = c("aagigreen", "aagigrey")
-)
-
-flextable(palette_df) |>
-  delete_part("header") |>
-  bg(i = 1, j = 1, bg = "#B6D438") |>
-  bg(i = 2, j = 1, bg = "#FFBC42") |>
-  bg(i = 1, j = 2, bg = "#00808B") |>
-  bg(i = 2, j = 2, bg = "#EC8525") |>
-  bg(i = 1, j = 3, bg = "#648FD2") |>
-  bg(i = 2, j = 3, bg = "#414042") |>
-  bg(i = 1, j = 4, bg = "#54921E") |>
-  bg(i = 2, j = 4, bg = "#F2F2F2") |>
-  color(i = 1, j = 2, color = "white") |>
-  color(i = 2, j = 3, color = "white") |>
-  border_outer(border = officer::fp_border(color = "white", width = 2)) |>
-  border_inner(border = officer::fp_border(color = "white", width = 2)) |>
-  autofit() |>
-  theme_ft_aagi()
-```
 
 ## This is a subsection heading
 
