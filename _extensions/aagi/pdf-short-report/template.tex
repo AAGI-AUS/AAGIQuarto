@@ -94,6 +94,25 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
 }
 
+\newenvironment{CSLReferences}[2]{%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{1.5em}%
+    \setlength{\itemindent}{-1.5em}%
+    \setlength{\labelwidth}{0pt}%
+    \setlength{\labelsep}{0pt}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}%
+    \renewcommand{\makelabel}[1]{}%
+  }%
+}{\end{list}}
+
+\providecommand{\citeproctext}{}
+\providecommand{\citeproc}[2]{#2}
+\providecommand{\CSLBlock}[1]{#1}
+\providecommand{\CSLLeftMargin}[1]{#1}
+\providecommand{\CSLRightInline}[1]{#1}
+\providecommand{\CSLIndent}[1]{#1}
+
 % -------------------------
 % Tables
 % -------------------------
