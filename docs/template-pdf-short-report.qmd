@@ -33,12 +33,12 @@ flextable::set_flextable_defaults(
   theme_fun = AAGIThemes::theme_ft_aagi,
   font.family = if (
     nzchar(Sys.which("fc-list")) &&
-      nchar(system("fc-list 'Proxima Nova'", intern = TRUE)[1]) > 0
+      nzchar(system("fc-list 'Proxima Nova'", intern = TRUE)[1])
   ) {
     "Proxima Nova"
   } else if (
     nzchar(Sys.which("fc-list")) &&
-      nchar(system("fc-list 'Arial'", intern = TRUE)[1]) > 0
+      nzchar(system("fc-list 'Arial'", intern = TRUE)[1])
   ) {
     "Arial"
   } else {
