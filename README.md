@@ -14,7 +14,8 @@ See the included template and demo file for each format here:
 
 ### Report Formats
 
-- **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](https://aagi-aus.github.io/AAGIQuarto/assets/template-pdf-short-report%2Bshort%2Breport.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/template-docx-report.qmd))
+
+- **AAGI PDF Short Report:** [AAGI PDF Short Report Demo](https://github.com/AAGI-AUS/AAGIQuarto/blob/gh-pages/assets/template-pdf-short-report%2Bshortreport.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/template-docx-report.qmd))
 - **AAGI PDF Report:** [AAGI PDF Report Demo](https://aagi-aus.github.io/AAGIQuarto/assets/template-pdf-report%2Breport.pdf) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/template-pdf-report.qmd))
 
 - **AAGI Word Document Report:** [AAGI Word Document Demo](https://aagi-aus.github.io/AAGIQuarto/assets/template-docx-report.docx) ([Source](https://github.com/AAGI-AUS/AAGIQuarto/blob/main/docs/template-docx-report.qmd))
