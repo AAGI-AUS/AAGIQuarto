@@ -4,7 +4,7 @@
     "href": "release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "Example template defaults to long report PDF format, no longer combining all possible formats.\n\n\n\n\n\nImproved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.\nBetter example file rendering via Makefile.\n\n\n\n\n\nFix bug where example template would not render properly when using quarto use template AAGI-AUS/AAGIQuarto as reported by @William-Pincombe.\nCorrect colours and list formatting in CSS for HTML and Revealjs outputs.\nFix download link for downloading a zip file of the demonstration templates for users to modify and use.",
+    "text": "Example template defaults to long report PDF format, no longer combining all possible formats.\n\n\n\n\n\nImproved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.\nBetter example file rendering via Makefile.\nHTML templates and revealjs slides are now self-contained, you can share just the HTML file and all CSS, images and other assets are included in that file. No subdirectories are necessary.\n\n\n\n\n\nFix bug where example template would not render properly when using quarto use template AAGI-AUS/AAGIQuarto as reported by @William-Pincombe.\nCorrect colours and list formatting in CSS for HTML and Revealjs outputs.\nFix download link for downloading a zip file of the demonstration templates for users to modify and use.\nFix HTML report template layouts.",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -26,7 +26,7 @@
     "href": "release-notes.html#major-changes",
     "title": "Release Notes",
     "section": "",
-    "text": "Improved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.\nBetter example file rendering via Makefile.",
+    "text": "Improved font handling including supplying woff2 files of Firacode and autodetection of Proxima Nova across all OSes for PDF output.\nBetter example file rendering via Makefile.\nHTML templates and revealjs slides are now self-contained, you can share just the HTML file and all CSS, images and other assets are included in that file. No subdirectories are necessary.",
     "crumbs": [
       "Extra",
       "Release Notes"
@@ -37,7 +37,7 @@
     "href": "release-notes.html#bug-fixes",
     "title": "Release Notes",
     "section": "",
-    "text": "Fix bug where example template would not render properly when using quarto use template AAGI-AUS/AAGIQuarto as reported by @William-Pincombe.\nCorrect colours and list formatting in CSS for HTML and Revealjs outputs.\nFix download link for downloading a zip file of the demonstration templates for users to modify and use.",
+    "text": "Fix bug where example template would not render properly when using quarto use template AAGI-AUS/AAGIQuarto as reported by @William-Pincombe.\nCorrect colours and list formatting in CSS for HTML and Revealjs outputs.\nFix download link for downloading a zip file of the demonstration templates for users to modify and use.\nFix HTML report template layouts.",
     "crumbs": [
       "Extra",
       "Release Notes"
