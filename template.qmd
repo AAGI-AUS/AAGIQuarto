@@ -18,37 +18,61 @@
 #          -P project_code:UA2026-001
 #
 # PARAMS
-#   uni           Your AAGI node code. One of: CU, AU, UQ
-#   aagi_staff    Your full name (used in "Prepared by")
-#   project_code  GRDC/AAGI project code, e.g. "UA2026-001ABC"
-#   report_title  Short descriptive title for the report
-#   partner       Client/partner name
-#   partner_email Client/partner contact email
-#   aagi_email    Your AAGI correspondence email
+#   uni                 Your AAGI node code. One of: CU, AU, UQ
+#   aagi_staff          Your full name (used in "Prepared by")
+#   project_code        GRDC/AAGI project code, e.g. "UA2026-001ABC"
+#   report_title        Short descriptive title for the report
+#   partner             Client/partner name
+#   partner_email       Client/partner contact email
+#   aagi_email          Your AAGI correspondence email
 # =============================================================================
 
 format:
   aagi-pdf+report:
-    fig-path: figures/
+    fig-path: figures/pdf-report/
+    fig-pos: "H"
+
+knitr:
+  opts_chunk:
+    fig.width:  6.3
+    fig.height: 4
+    out.width:  "\\linewidth"
+    fig.align:  "center"
 
 execute:
   echo: false
 
 params:
-  uni: "CU"
-  aagi_staff: "Your Name"
-  project_code: "ABC2026-001ABC"
-  report_title: "My Report Title"
-  partner: "Partner Organisation"
+  uni:           "CU"
+  aagi_staff:    "Your Name"
+  project_code:  "ABC2026-001ABC"
+  report_title:  "My Report Title"
+  partner:       "Partner Organisation"
   partner_email: "partner@email.com.au"
-  aagi_email: "your.name@example.edu.au"
+  aagi_email:    "your.name@example.edu.au"
 
-# this makes this a long report, set to "false" for a short report
-title-page: true
+# this makes this a long report; set to false for a short report
+has-title-page: true
 
-date: last-modified
+date:        last-modified
 date-format: long
 bibliography: references.bib
+
+# title is used in the running page header — keep it short
+title: "AAGI Program Report"
+
+# These three fields render as right-aligned teal lines on the title page
+programme-line1: "Analytics for the Australian Grains Industry"
+programme-line2: "`r sprintf('%s (AAGI-%s)', params$uni_info[[params$uni]]$name, params$uni)`"
+programme-line3: "AAGI Program Report"
+
+subtitle:             "`r params$report_title`"
+project-code:         "`r params$project_code`"
+prepared-for:         "`r params$partner`"
+prepared-for-email:   "`r params$partner_email`"
+prepared-by:          "`r params$aagi_staff`"
+university:           "`r params$uni_info[[params$uni]]$name`"
+correspondence-email: "`r params$aagi_email`"
 ---
 
 ```{r}
@@ -56,158 +80,34 @@ bibliography: references.bib
 #| include: false
 #| message: false
 
-# ---------------------------------------------------------------------------
-# Package management
-# ---------------------------------------------------------------------------
+source(file.path("_scripts", "setup_reports.R"), local = TRUE)
 
-allow_install <- isTRUE(as.logical(
-  Sys.getenv("AAGI_AUTO_INSTALL", unset = interactive())
-))
-
-ensure_pkg <- function(pkg, github = NULL) {
-  if (requireNamespace(pkg, quietly = TRUE)) {
-    return(invisible(TRUE))
+# Set flextable font to system sans-serif — prevents Proxima Nova errors
+# on systems where it is not installed. theme_ft_aagi() inherits this.
+flextable::set_flextable_defaults(
+  theme_fun = AAGIThemes::theme_ft_aagi,
+  font.family = if (
+    nzchar(Sys.which("fc-list")) &&
+      nzchar(system("fc-list 'Proxima Nova'", intern = TRUE)[1])
+  ) {
+    "Proxima Nova"
+  } else if (
+    nzchar(Sys.which("fc-list")) &&
+      nzchar(system("fc-list 'Arial'", intern = TRUE)[1])
+  ) {
+    "Arial"
+  } else {
+    "sans"
   }
-  if (!allow_install) {
-    return(invisible(FALSE))
-  }
-
-  # Bootstrap pak on first use
-  if (!requireNamespace("pak", quietly = TRUE)) {
-    install.packages(
-      "pak",
-      repos = sprintf(
-        "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
-        .Platform$pkgType,
-        R.Version()$os,
-        R.Version()$arch
-      )
-    )
-  }
-  tryCatch(
-    pak::pak(github %||% pkg, dependencies = TRUE),
-    error = function(e) {
-      warning(
-        sprintf("Could not install %s: %s", pkg, e$message),
-        call. = FALSE
-      )
-    }
-  )
-  invisible(requireNamespace(pkg, quietly = TRUE))
-}
-
-for (pkg in c("ggplot2", "flextable", "ragg")) {
-  ensure_pkg(pkg)
-}
-for (pkg in c("AAGIThemes", "AAGIPalettes")) {
-  ensure_pkg(pkg, github = sprintf("AAGI-AUS/%s", pkg))
-}
-
-# ---------------------------------------------------------------------------
-# University metadata (resolved from params$uni)
-# ---------------------------------------------------------------------------
-
-uni_info <- list(
-  CU = list(
-    name = "Curtin University",
-    node = "CU",
-    leads = "Prof Mark Gibberd, Assoc Prof Julia Easton, Prof Adam Sparks"
-  ),
-  AU = list(
-    name = "Adelaide University",
-    node = "AU",
-    leads = "Assoc Prof Julian Taylor, Dr Olena Kravchuk"
-  ),
-  UQ = list(
-    name = "University of Queensland",
-    node = "UQ",
-    leads = "Prof Scott Chapman, Emeritus Prof Kaye Basford"
-  )
 )
 
-# Validate uni param and fall back to CU with a warning
-uni_code <- toupper(trimws(params$uni))
-if (!uni_code %in% names(uni_info)) {
-  warning(
-    sprintf(
-      "Unknown uni code '%s'. Valid values: %s. Falling back to 'CU'.",
-      params$uni,
-      toString(names(uni_info))
-    ),
-    call. = FALSE
-  )
-  uni_code <- "CU"
-}
-
-info <- uni_info[[uni_code]]
-uni_name <- info$name
-uni_node <- info$node
-uni_leads <- info$leads
-
-# ---------------------------------------------------------------------------
-# Graphics device (pdf for LaTeX output, png otherwise)
-# ---------------------------------------------------------------------------
-
-if (knitr::is_latex_output()) {
-  knitr::opts_chunk$set(dev = "pdf")
-} else {
-  knitr::opts_chunk$set(dev = "ragg_png", dpi = 192.0)
-}
-
-knitr::opts_chunk$set(fig.pos = "H", out.width = "100%")
-
-# ---------------------------------------------------------------------------
-# Load and configure AAGI packages
-# ---------------------------------------------------------------------------
-
-suppressPackageStartupMessages({
-  library(ggplot2)
-  if (requireNamespace("AAGIThemes", quietly = TRUE)) {
-    library(AAGIThemes)
-  }
-  if (requireNamespace("AAGIPalettes", quietly = TRUE)) {
-    library(AAGIPalettes)
-  }
-  if (requireNamespace("flextable", quietly = TRUE)) library(flextable)
-})
-
-if (exists("theme_aagi")) {
-  ggplot2::theme_set(theme_aagi())
-}
-
-if (requireNamespace("flextable", quietly = TRUE) && exists("theme_ft_aagi")) {
-  flextable::set_flextable_defaults(theme_fun = theme_ft_aagi)
-}
+try(ggplot2::theme_set(AAGIThemes::theme_aagi()), silent = TRUE)
 ```
-
----
-title:    "`r sprintf('Analytics for the Australian Grains Industry - %s (AAGI-%s)\\\nTechnical Report Series: 123', uni_name, uni_node)`"
-subtitle: "`r sprintf('%s\\\nReport for %s', params$report_title, params$project_code)`"
-author:
-  - "`r sprintf('Prepared for: %s (%s)', params$partner, params$partner_email)`"
-  - "`r sprintf('Prepared by: %s (%s, AAGI-%s)', params$aagi_staff, uni_name, uni_node)`"
-  - "`r sprintf('Project Lead: %s', uni_leads)`"
-university: "`r uni_name`"
-email:      "`r params$aagi_email`"
----
-
-\newpage
-
-```{=latex}
-\clearpage
-\setcounter{page}{1}
-```
-
-\tableofcontents
-
-\newpage
 
 # Executive Summary
 
 Summarise the work provided by AAGI and the main results. Aim to keep this to
 a single page.
-
-\newpage
 
 # Introduction
 
@@ -218,14 +118,14 @@ a single page.
 
 Use subsections (and subsubsections) as needed to structure your content.
 
-# Experimental/Trial Design
+# Experimental / Trial Design
 
 - Trial design type and layout.
 - Treatments, number of replicates, blocking.
 - Notes on specific considerations (e.g. small plots, glasshouse, breeding
   trials, OFE, bioinformatics).
 
-# Exploratory Data Analysis and Data Visualisation
+# Exploratory Data Analysis
 
 - Interpretation of data and visualisations.
 - Rationale for the statistical methodologies used.
@@ -246,6 +146,8 @@ Include citations [@Box1976].
 #| label: fig-example
 #| fig-cap: "An example figure using {ggplot2} with the AAGI theme."
 
+library(ggplot2)
+
 ggplot(data = pressure, aes(x = temperature, y = pressure)) +
   geom_point() +
   theme_aagi()
@@ -264,21 +166,21 @@ flextable(head(airquality)) |>
   autofit()
 ```
 
-# Datasets and Metadata (Optional)
-
-- Links and DOIs to associated datasets (*e.g.*, GRDC Data Catalogue entries).
-- md5/sha256 checksums for input data and outputs.
-- Git commit numbers and tags for associated code repositories.
-
-# Trial Location Maps (Optional)
-
-Include if relevant to the project.
-
 # References
 
 ::: {#refs}
 :::
 
-# Appendix (Optional)
+# Metadata and Datasets *(optional)*
+
+- Links and DOIs to associated datasets (*e.g.*, GRDC Data Catalogue entries).
+- md5/sha256 checksums for input data and outputs.
+- Git commit numbers and tags for associated code repositories.
+
+# Trial Location Maps *(optional)*
+
+Include if relevant to the project.
+
+# Appendix *(optional)*
 
 Additional supporting information. Add as many appendix sections as required.
