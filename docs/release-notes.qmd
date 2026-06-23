@@ -26,6 +26,7 @@ format:
 * Correct colours and list formatting in CSS for HTML and Revealjs outputs.
 * Fix download link for downloading a zip file of the demonstration templates for users to modify and use.
 * Fix HTML report template layouts.
+* Fix AAGI logo/slide number overlap in revealjs decks.
 
 # 1.0.1 2026-05-04
 
