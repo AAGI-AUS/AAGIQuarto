@@ -73,6 +73,7 @@ wget https://aagi-aus.github.io/AAGIQuarto/_files/templates.zip
 unzip templates.zip
 cd templates
 quarto add AAGI-AUS/AAGIQuarto
+```
 
 ## Using
 
