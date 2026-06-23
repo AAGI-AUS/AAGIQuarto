@@ -148,19 +148,11 @@ div.aagi-note {
 
 // --- AAGI title-block styling ------------------------------------------------
 
+// Quarto auto-generates #title-block-header from YAML title/subtitle/author.
+// The .aagi-titlepage div in the .qmd body is the real title block, so we
+// suppress the auto-generated one entirely.
 #title-block-header {
-  border-top: 3px solid $aagi-teal;
-  border-bottom: 3px solid $aagi-teal;
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
-}
-
-#title-block-header .title {
-  color: $aagi-black;
-}
-
-#title-block-header .subtitle {
-  color: $aagi-teal;
+  display: none;
 }
 
 // .aagi-titlepage — outer wrapper for the title block div in the .qmd
