@@ -60,7 +60,7 @@ cd your_quarto_project_folder
 quarto add AAGI-AUS/AAGIQuarto
 ```
 
-### Getting the Templates
+### Getting the Demo Templates
 
 You can download a [.zip file of all of these templates](https://AAGI-AUS.github.io/AAGIQuarto/_files/templates.zip) as seen above for your own use if you would like, you will need to install the AAGIQuarto extension in the root directory where you intend to use it/them.
 
