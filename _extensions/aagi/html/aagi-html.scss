@@ -23,12 +23,6 @@ $table-striped-bg:       $aagi-grey;
 
 /*-- scss:rules --*/
 
-// Quarto compiler tries to fetch @import url() at compile time, not browser load
-// time — this fails silently in offline/CI environments and always fails
-// during PDF/XeLaTeX rendering. Font files are now loaded via local @font-face
-// declarations referencing WOFF2 files bundled under assets/fonts/.
-// See _extension.yml format-resources for the required file declarations.
-
 @font-face {
   font-family: "Fira Code";
   src: url("assets/fonts/FiraCode-Regular.woff2") format("woff2");
@@ -169,38 +163,27 @@ div.aagi-note {
   color: $aagi-teal;
 }
 
-// .aagi-titlepage — outer wrapper used in the .qmd title block div
-// Lays out: [AAGI logo] [text block] [partners logo] in a row.
+// .aagi-titlepage — outer wrapper for the title block div in the .qmd
 div.aagi-titlepage {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.5rem;
   border-top: 3px solid $aagi-teal;
   border-bottom: 3px solid $aagi-teal;
   padding: 1.5rem 0;
   margin-bottom: 2rem;
+  overflow: hidden; // contain the float
 
-  // AAGI logo — fixed narrow column on the left
+  // AAGI logo floated top-right so the program text sits to its left
   img.aagi-logo {
-    flex: 0 0 auto;
+    float: right;
     max-height: 80px;
     width: auto;
-  }
-
-  // Partners logo — fixed narrow column on the right
-  img.aagi-partners {
-    flex: 0 0 auto;
-    max-height: 100px;
-    width: auto;
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
-// Text block — grows to fill the space between the two logos
-// Note: the .qmd uses .aagi-title_block (underscore), not a hyphen.
+// .aagi-title_block (underscore — matches the .qmd markup)
+// Text block that sits beside the floated logo
 div.aagi-title_block {
-  flex: 1 1 auto;
-  text-align: right;
   color: $aagi-black;
 
   p {
@@ -225,7 +208,7 @@ div.aagi-title_block {
   }
 }
 
-// Legacy hyphen spelling kept for backwards compatibility
+// Legacy hyphen spelling — untouched for backwards compatibility
 div.aagi-title-block {
   border-top: 3px solid $aagi-teal;
   border-bottom: 3px solid $aagi-teal;
