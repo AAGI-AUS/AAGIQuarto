@@ -1,43 +1,34 @@
 /*-- scss:defaults --*/
 
-// define AAGI colours
+// AAGI colour palette
 
-$colors: (
-  "aagi-black":       #414042,
-  "aagi-blue":        #648fd2,
-  "aagi-bright-green":#b6d438,
-  "aagi-green":       #54921e,
-  "aagi-grey":        #f2f2f2,
-  "aagi-orange":      #ec8525,
-  "aagi-teal":        #00808b,
-  "aagi-yellow":      #ffbc42,
-);
+$aagi-bright-green: #b6d438;
+$aagi-teal:         #00808b;
+$aagi-blue:         #648fd2;
+$aagi-green:        #54921e;
+$aagi-yellow:       #ffbc42;
+$aagi-orange:       #ec8525;
+$aagi-black:        #414042;
+$aagi-grey:         #f2f2f2;
 
-// functions
-// From Emil Hvitfeldt, <https://emilhvitfeldt.com/post/slidecraft-scss-uses/>
+// Bootstrap variable overrides
 
-@function theme-color($color) {
-  @return map-get($colors, $color);
-}
-
-// colours
-
-$link-color: theme-color("aagi-teal") !default;
-$body-color: theme-color("aagi-black") !default;
-
-// fonts
-
+$primary:                $aagi-teal;
+$link-color:             $aagi-teal;
+$body-color:             $aagi-black;
+$headings-color:         $aagi-teal;
 $font-family-sans-serif: "Proxima Nova", Arial, sans-serif;
 $font-family-monospace:  "Fira Code", "Courier New", monospace;
-
-$presentation-h1-font-size:    2em;
-$presentation-h2-font-size:    1.75em;
-$presentation-h3-font-size:    1.5em;
-$presentation-font-size-root:  2em;
+$table-striped-bg:       $aagi-grey;
 
 /*-- scss:rules --*/
 
-// Local Fira Code font — files must exist at assets/fonts/ (see note above)
+// Quarto compiler tries to fetch @import url() at compile time, not browser load
+// time — this fails silently in offline/CI environments and always fails
+// during PDF/XeLaTeX rendering. Font files are now loaded via local @font-face
+// declarations referencing WOFF2 files bundled under assets/fonts/.
+// See _extension.yml format-resources for the required file declarations.
+
 @font-face {
   font-family: "Fira Code";
   src: url("assets/fonts/FiraCode-Regular.woff2") format("woff2");
@@ -62,64 +53,239 @@ $presentation-font-size-root:  2em;
   font-display: swap;
 }
 
+body {
+  font-family: "Proxima Nova", Arial, sans-serif;
+  color: $aagi-black;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
 // --- Typography --------------------------------------------------------------
 
-.reveal h1 {
-  font-weight: lighter;
+h1, h2, h3, h4, h5, h6 {
+  color: $aagi-teal;
+  font-family: "Proxima Nova", Arial, sans-serif;
+  line-height: 1.2;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
-.reveal h3 {
-  font-weight: lighter;
+a {
+  color: $aagi-teal;
 }
 
-.reveal li {
-  font-weight: lighter;
+a:hover {
+  color: darken($aagi-teal, 12%);
 }
 
-.quarto-title-authors {
-  font-size: 28px;
-}
-
-// --- Slides ------------------------------------------------------------------
-
-.reveal .slides {
-  border-bottom: solid 0.25em theme-color("aagi-teal");
+code, kbd, pre, samp {
+  font-family: "Fira Code", "Courier New", monospace;
 }
 
 // --- Tables ------------------------------------------------------------------
 
-.reveal table,
-th,
-td {
-  border: 2px solid #ffffff;
-  background: theme-color("aagi-grey");
-  color: theme-color("aagi-black");
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
 }
 
-.reveal table th {
+table thead tr {
+  background-color: $aagi-teal;
   color: #ffffff;
-  background: theme-color("aagi-teal");
 }
 
-// --- Asides ------------------------------------------------------------------
-
-.reveal .aside {
-  font-size: 0.25em;
-  color: theme-color("aagi-grey");
+table thead th {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid $aagi-teal;
+  color: #ffffff;
 }
 
-// --- Logo and slide number ---------------------------------------------------
-
-.reveal .slide-logo {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  max-height: 86px !important;
+table tbody tr:nth-child(odd) {
+  background-color: $aagi-grey;
 }
 
-.reveal .slide-number {
-  position: absolute;
-  bottom: 10px !important;
-  right: 10px !important;
-  top: unset !important;
+table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+table tbody td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dee2e6;
+  color: $aagi-black;
+}
+
+// --- Note callout (analogous to LaTeX tcolorbox note) -----------------------
+
+div.callout-note.callout-style-default > .callout-header {
+  background-color: $aagi-teal;
+  color: #ffffff;
+}
+
+div.callout-note.callout-style-default > .callout-header .callout-icon-container {
+  color: #ffffff;
+}
+
+div.callout-note.callout-style-default {
+  border-left-color: $aagi-teal;
+}
+
+div.aagi-note {
+  background-color: rgba(0, 128, 139, 0.07);
+  border-left: 3px solid $aagi-teal;
+  border-right: 3px solid $aagi-teal;
+  border-radius: 2px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: "Note";
+    display: block;
+    color: $aagi-teal;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// --- AAGI title-block styling ------------------------------------------------
+
+// Quarto auto-generates #title-block-header from YAML title/subtitle/author.
+// The .aagi-titlepage div in the .qmd body is the real title block, so we
+// suppress the auto-generated one entirely.
+#title-block-header {
+  display: none;
+}
+
+// .aagi-titlepage — outer wrapper for the title block div in the .qmd
+div.aagi-titlepage {
+  border-top: 3px solid $aagi-teal;
+  border-bottom: 3px solid $aagi-teal;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  overflow: hidden; // contain the float
+
+  // AAGI logo floated top-right so the program text sits to its left
+  img.aagi-logo {
+    float: right;
+    max-height: 80px;
+    width: auto;
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// .aagi-title_block (underscore — matches the .qmd markup)
+// Text block that sits beside the floated logo
+div.aagi-title_block {
+  color: $aagi-black;
+
+  p {
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $aagi-black;
+    margin-top: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: $aagi-black;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+// Legacy hyphen spelling — untouched for backwards compatibility
+div.aagi-title-block {
+  border-top: 3px solid $aagi-teal;
+  border-bottom: 3px solid $aagi-teal;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+
+  .aagi-logo-container {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    img {
+      max-height: 80px;
+      width: auto;
+    }
+  }
+
+  .aagi-program-lines {
+    text-align: right;
+    color: $aagi-teal;
+    font-weight: bold;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .aagi-report-title {
+    text-align: right;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $aagi-black;
+    margin-bottom: 0.4rem;
+  }
+
+  .aagi-report-subtitle {
+    text-align: right;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: $aagi-black;
+    margin-bottom: 1rem;
+  }
+
+  .aagi-metadata {
+    text-align: right;
+    font-size: 0.9rem;
+    color: $aagi-black;
+    line-height: 1.8;
+  }
+
+  .aagi-partners-logo {
+    text-align: center;
+    margin-top: 1.5rem;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// --- Code blocks -------------------------------------------------------------
+
+pre.sourceCode {
+  background-color: $aagi-grey;
+  border-left: 3px solid $aagi-teal;
+  border-radius: 2px;
+}
+
+// --- revealjs -----------------------------------------------------------------
+
+// Pin the AAGI logo to the top-right corner of every slide so it never
+// overlaps the slide number (bottom-right) or the slide content.
+// .reveal .slides img.aagi-logo targets the logo placed in .qmd title slide
+// via ![](...){.aagi-logo}
+.reveal .slides img.aagi-logo {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: auto;
+  max-height: 52px;
+  margin: 0;
+  z-index: 10;
 }
