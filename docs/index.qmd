@@ -67,10 +67,20 @@ If you wish to use get the extension but not use the supplied default template, 
 
 ```bash 
 cd your quarto_project_folder
-quarto add AAGI-AUS/AAGIQuarto
 ```
 
 This will add the AAGIQuarto extension only to the directory and you can create your own Qmd file.
+
+### Using the Demo Templates with the Extension
+
+You can also [download the zip file of the demo templates](https://aagi-aus.github.io/AAGIQuarto/_files/templates.zip) and add the extension and use it from there like so:
+
+```bash 
+wget https://aagi-aus.github.io/AAGIQuarto/_files/templates.zip
+unzip templates.zip
+cd templates
+quarto add AAGI-AUS/AAGIQuarto
+```
 
 ## Using
 

@@ -64,6 +64,16 @@ quarto add AAGI-AUS/AAGIQuarto
 
 You can download a [.zip file of all of these templates](https://AAGI-AUS.github.io/AAGIQuarto/_files/templates.zip) as seen above for your own use if you would like, you will need to install the AAGIQuarto extension in the root directory where you intend to use it/them.
 
+### Using the Demo Templates with the Extension
+
+You can also [download the zip file of the demo templates](https://aagi-aus.github.io/AAGIQuarto/_files/templates.zip) and add the extension and use it from there like so:
+
+```bash 
+wget https://aagi-aus.github.io/AAGIQuarto/_files/templates.zip
+unzip templates.zip
+cd templates
+quarto add AAGI-AUS/AAGIQuarto
+
 ## Using
 
 For documentation on using reveal.js slides in Quarto, please see,
