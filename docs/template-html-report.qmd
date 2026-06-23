@@ -2,6 +2,7 @@
 format:
   AAGI-AUS/aagi-html+report:
     toc: true
+    number-sections: false
     self-contained: true
     fig-path: figures/html-report/
 execute:
