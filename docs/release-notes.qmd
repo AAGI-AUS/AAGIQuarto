@@ -7,6 +7,16 @@ format:
     toc: true
 ---
 
+# 2.0.1 2026-07-30
+
+## Bug fixes
+
+* Adds code blocks to PDF outputs
+
+## Minor changes
+
+* Unified Breeze syntax highlighting for all outputs now specified in _extension.yml
+
 # 2.0.0 2026-06-23
 
 ## Breaking changes
