@@ -11,7 +11,7 @@ format:
 
 ## Bug fixes
 
-* Adds code blocks to PDF outputs
+* Adds code blocks to PDF outputs, thank you, @william-pincombe
 
 ## Minor changes
 
