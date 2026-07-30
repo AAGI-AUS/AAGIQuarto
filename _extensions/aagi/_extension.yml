@@ -1,9 +1,11 @@
 title: AAGIQuarto
-author: Adam H. Sparks, James J. Balamuta, Russell Edson, Vinh Thiem Ma, Rose Megirian, Zhanglong Cao, Sam Rogers, Julian Taylor, Peter Misiun
-version: 2.0.0
+author: Adam H. Sparks, James J. Balamuta, Russell Edson, Vinh Thiem Ma, Rose Megirian, Zhanglong Cao, Sam Rogers, Julian Taylor, Peter Misiun, William Pincombe
+version: 2.0.1
 quarto-required: ">=1.4.0 <2.0.0"
 
 contributes:
+  metadata:
+    highlight-style: breeze
   formats:
     # -------------------------
     # RevealJS
@@ -34,7 +36,6 @@ contributes:
       date-format: long
       slide-number: true
       footer: ""
-      highlight-style: breeze
       overview: true
       progress: true
       touch: true
@@ -96,6 +97,7 @@ contributes:
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
+
     docx+shortreport:
       reference-doc: docx-short-report/template.docx
 
@@ -140,8 +142,5 @@ contributes:
         - assets/fonts/FiraCode-Medium.woff2
         - assets/fonts/FiraCode-Bold.woff2
 
-  # -------------------------
-  # shared resources
-  # -------------------------
   resources:
     - assets/**
