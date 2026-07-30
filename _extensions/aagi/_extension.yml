@@ -4,6 +4,8 @@ version: 2.0.1
 quarto-required: ">=1.4.0 <2.0.0"
 
 contributes:
+  metadata:
+    highlight-style: breeze
   formats:
     # -------------------------
     # RevealJS
@@ -13,8 +15,7 @@ contributes:
       css:
         - revealjs/aagi.scss
       embed-resources: true
-      highlight-style: breeze
-      format-resources:
+      format-resource:
         - assets/AAGI_logo.svg
         - assets/title-slide-main.png
         - assets/fonts/FiraCode-Bold.woff2
@@ -48,7 +49,6 @@ contributes:
     pdf+report:
       template: pdf-report/template.tex
       pdf-engine: xelatex
-      highlight-style: breeze
       csl: assets/biometrics.csl
       fig-format: pdf
       fig-pos: H
@@ -73,7 +73,6 @@ contributes:
     pdf+shortreport:
       template: pdf-short-report/template.tex
       pdf-engine: xelatex
-      highlight-style: breeze
       toc: false
       number-sections: false
       resource-path:
@@ -98,11 +97,9 @@ contributes:
     docx+report:
       reference-doc: docx-report/template.docx
       toc: true
-      highlight-style: breeze
 
     docx+shortreport:
       reference-doc: docx-short-report/template.docx
-      highlight-style: breeze
 
     # -------------------------
     # PPTX
@@ -112,7 +109,6 @@ contributes:
       toc: true
       number-sections: false
       incremental: true
-      highlight-style: breeze
 
     # -------------------------
     # HTML
@@ -121,7 +117,6 @@ contributes:
       theme:
         - none
         - html/aagi-html.scss
-      highlight-style: breeze
       toc: true
       toc-depth: 3
       number-sections: true
@@ -137,7 +132,6 @@ contributes:
       theme:
         - none
         - html/aagi-html.scss
-      highlight-style: breeze
       toc: false
       number-sections: false
       embed-resources: true
