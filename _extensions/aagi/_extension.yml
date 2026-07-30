@@ -15,7 +15,7 @@ contributes:
       css:
         - revealjs/aagi.scss
       embed-resources: true
-      format-resource:
+      format-resources:
         - assets/AAGI_logo.svg
         - assets/title-slide-main.png
         - assets/fonts/FiraCode-Bold.woff2
