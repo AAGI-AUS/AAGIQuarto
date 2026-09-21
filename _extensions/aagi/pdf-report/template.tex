@@ -117,7 +117,8 @@ $endfor$
 \usepackage{caption}
 \captionsetup{font={sf}}
 \usepackage{float}
-\usepackage[most]{tcolorbox}
+\usepackage{tcolorbox}
+\tcbuselibrary{most} % Add this after loading to avoid clashes with default Quarto template
 \usepackage{afterpage}
 % -------------------------
 % AAGI note callout environment
