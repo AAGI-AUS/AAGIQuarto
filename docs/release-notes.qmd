@@ -7,6 +7,13 @@ format:
     toc: true
 ---
 
+# 2.0.2
+
+## Bug fixes
+
+* PDF table fonts now agree with the LaTeX font. The duplicated `fc-list` chunks in the example templates wrongly selected "Proxima Nova" when it was missing (`nzchar(NA)` is `TRUE`). They are replaced by a shared helper in `_scripts/setup_reports.R` that sets the `AAGI_MAINFONT` environment variable (Proxima Nova, then Arial, then TeX Gyre Heros; an existing value is respected). 
+* `AAGI_MAINFONT` is read by `theme_ft_aagi()`/`theme_gt_aagi()`, which requires the matching version of AAGIThemes (see AAGIThemes issue #18).
+
 # 2.0.0 2026-06-23
 
 ## Breaking changes
