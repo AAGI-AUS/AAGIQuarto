@@ -112,3 +112,9 @@ The logo of this project and the AAGI strategic partners do not come under MIT L
 The Analytics for the Australian Grains Industry (AAGI) project retains full rights to the AAGI logo and the Grains Research and Development Corporation (GRDC) and strategic partners, Curtin University, the University of Queensland and Adelaide University, retain full rights to their own logos, respectively.
 
 ![](docs/demos/assets/AAGI_SP_Logo_Block-Portrait.svg)
+
+## PDF fonts and `AAGI_MAINFONT`
+
+`_scripts/setup_reports.R` resolves the PDF font (Proxima Nova, then Arial, then TeX Gyre Heros) and exports it as the `AAGI_MAINFONT` environment variable, respecting any value already set.
+Recent versions of AAGIThemes (`theme_ft_aagi()`, `theme_gt_aagi()`) read this variable so tables match the document font; this requires the matching AAGIThemes version.
+The LaTeX templates use the same order via `\IfFontExistsTF`; they do not read the variable because XeLaTeX cannot read environment variables without shell escape, so set `AAGI_MAINFONT` only to a font XeLaTeX can find.

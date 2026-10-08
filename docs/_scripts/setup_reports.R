@@ -37,6 +37,56 @@ try_library <- function(pkg) {
 }
 
 # ---------------------------------------------------------------------------
+# PDF font resolution (shared contract with AAGIThemes via AAGI_MAINFONT)
+# ---------------------------------------------------------------------------
+
+# Returns TRUE if `family` is installed. Uses systemfonts when available, else
+# fc-list (not on Windows). `length(out) > 0` is required: fc-list returns
+# character(0) when nothing matches.
+font_available <- function(family) {
+  if (requireNamespace("systemfonts", quietly = TRUE)) {
+    fams <- tryCatch(systemfonts::system_fonts()$family, error = function(e) NULL)
+    if (!is.null(fams)) {
+      return(tolower(family) %in% tolower(fams))
+    }
+  }
+  if (.Platform$OS.type != "windows" && nzchar(Sys.which("fc-list"))) {
+    out <- tryCatch(
+      suppressWarnings(system2(
+        "fc-list",
+        shQuote(family),
+        stdout = TRUE,
+        stderr = FALSE
+      )),
+      error = function(e) character(0)
+    )
+    return(length(out) > 0 && any(nzchar(out)))
+  }
+  FALSE
+}
+
+# Resolve the font and export it as AAGI_MAINFONT. An existing value is
+# respected. Order: Proxima Nova, Arial, TeX Gyre Heros (never "sans": XeLaTeX
+# cannot resolve it). Mirrors the \IfFontExistsTF order in the PDF templates.
+set_aagi_mainfont <- function() {
+  current <- Sys.getenv("AAGI_MAINFONT", unset = "")
+  if (nzchar(current)) {
+    return(invisible(current))
+  }
+  chosen <- "TeX Gyre Heros"
+  for (f in c("Proxima Nova", "Arial")) {
+    if (font_available(f)) {
+      chosen <- f
+      break
+    }
+  }
+  Sys.setenv(AAGI_MAINFONT = chosen)
+  invisible(chosen)
+}
+
+set_aagi_mainfont()
+
+# ---------------------------------------------------------------------------
 # Package management
 # ---------------------------------------------------------------------------
 
