@@ -45,7 +45,9 @@ try_library <- function(pkg) {
 # character(0) when nothing matches.
 font_available <- function(family) {
   if (requireNamespace("systemfonts", quietly = TRUE)) {
-    fams <- tryCatch(systemfonts::system_fonts()$family, error = function(e) NULL)
+    fams <- tryCatch(systemfonts::system_fonts()$family, error = function(e) {
+      NULL
+    })
     if (!is.null(fams)) {
       return(tolower(family) %in% tolower(fams))
     }
