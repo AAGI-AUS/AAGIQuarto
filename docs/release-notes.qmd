@@ -7,7 +7,7 @@ format:
     toc: true
 ---
 
-# 2.0.1
+# 2.0.1 2026-10-08
 
 ## Bug fixes
 
