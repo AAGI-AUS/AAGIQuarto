@@ -84,7 +84,7 @@ jobs:
 
       - name: Add extension directly into demos
         working-directory: ./docs
-        run: quarto add AAGI-AUS/AAGIQuarto --no-prompt
+        run: quarto add AAGI-AUS/AAGIQuarto@main --no-prompt
 
       - name: Render example outputs (PDF, DOCX, PPTX, RevealJS)
         run: make assets
